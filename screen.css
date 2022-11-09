@@ -225,7 +225,7 @@ hr {
 figure, video, audio {
     display: block;
     width: 100%;
-    margin: var(--spacing-xl) 0;
+    margin: var(--spacing-m) 0;
 }
 
 figure img {
