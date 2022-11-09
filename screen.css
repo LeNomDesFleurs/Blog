@@ -141,9 +141,10 @@ body>footer nav, body>footer {
 Typography
 -------------------------------------- */
 
-h1,h2, h3 {
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-size: calc(27px + (27 - 22) * ((180vw - 400px) / (600 - 400)));
     font-weight: 700;
-    font-size: 3rem;
     margin: var(--spacing-s) 0;
     color: darkolivegreen;
 }
@@ -182,6 +183,9 @@ p, ol, ul {
     margin: 1em 0;
     font-size: var(--font-size-serif);
     font-feature-settings: 'onum' 1;
+}
+em {
+    font-size: calc(12px + (27 - 22) * ((100vw - 400px) / (1000 - 400)));
 }
 
 blockquote {
