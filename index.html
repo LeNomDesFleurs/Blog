@@ -20,7 +20,7 @@
 
   <!-- Fav Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="https://frankchimero.com/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://frankchimero.com/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://frankchimero.com/favicon-16x16.png">
   <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
   <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">
@@ -50,49 +50,68 @@
 
 <main>
     <article>
-	<header>
+        <header>
+        </header>
+        <p><i>This website is a stream of thought.</i></p>
 
-	</header>
-	<p><i>This website is a stream of thought.</i></p>
+        <hr>
+        <p>
+            <time>November 10, 2022</time><br />
+            <em>~ E L E C T R O N I C S ~</em>
+            <br />
+            Today I have tried to prototype the analog rain that I had in my head for some time. I wanted to dive in electronics and it was a good opportunity.
+            The basic concept is sending a filtered noise to a comparator, thus creating some kind of clicks ressembling rain hitting concrete.
+            The final result was really sketchy, potentiometer really sensitive, not really the expected behaviour. But hey, that's why we are doing analog stuff isn't it?
+            (A lot of this is probably on the breadboard though).The sound is kind of nice, a bit harsher than the test I've made using Max/MSP.
+            I need to fine the correct value for the filter resistance and try a bipolar comparator.
+            <audio controls>
+                <source src="Media/101122noise.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <figure>
+                <img src="Media/101122schematic.jpg" alt="Schematic for the noise" width="1020" height="491">
+                <figcaption>I haven't waited for the ink to dry</figcaption>
+            </figure>
+            
+        </p>
+        <hr />
+        <p>
+            <time>November 09, 2022</time><br />
+            <em>M O D U L A R ~ R E S E A R C H</em>
+            <br />
+            Using Magneto as main clock, batumi and Tides as divider.
+            My main source was Rubicon with Dixie as an FM modulator.
+            I then used Plonk for additional texture.
+            I should have try pushing the system in audio rate by speeding the Magneto Clock.
+            Using the Sub of the Rubicon modulated in amplitude by a division of Batumi allows for nice timbre.
+            Next I should play with generating signal burst by modulating divisions of Batumi &/|| Tides.
+            <audio controls>
+                <source src="Media/091122.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <em>~ C O M P O S I T I O N ~</em>
+            <br />
+            I tried to add voice to my new "everything live with a modular so you don't have to look back" workflow.
+            Obviously needs a lot more work, my brain is struggling to handle voice/tweak knobs/input new notes/make the three coherent.
+            It's really fun thought, and it's been a while since I have not organize a little text with all my notebook thought.
+            On the modular side, the bass is a Maths voice, gate on cycle to start oscillation, channel 1 to channel 2 for filtering.
+            The pad is Tides in divide shift mode.
+            Some LFO are synced using the keystep drum gates.
+            <audio controls>
+                <source src="Media/reminescent.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <em>V C V ~ D E V E L O P M E N T</em>
+            <br />
+            I have rework the helper.py file of the VCV SDK so I can use the part that scan SVG more easily.
+            I still haven't understand some of the behaviour of python regarding the renaming of fonction, maybe I will find enlightement someday.
+            Still have to tweak the script a little bit so it can add the position to the already created .cpp file, also some bug to fix as always.
+            The fact that I had to do this makes me question the way that I design modules. Should I start writing code only when I have my panel ready ?
+            It seems strange to me that you can develop a concept without playing with it. Still, I should try this workflow someday.
+            <br />
 
-<hr>
-<p>
-    <time>November 09, 2022</time><br />
-    <em>M O D U L A R ~ R E S E A R C H</em>
-    <br />
-    Using Magneto as main clock, batumi and Tides as divider.
-    My main source was Rubicon with Dixie as an FM modulator.
-    I then used Plonk for additional texture.
-    I should have try pushing the system in audio rate by speeding the Magneto Clock.
-    Using the Sub of the Rubicon modulated in amplitude by a division of Batumi allows for nice timbre.
-    Next I should play with generating signal burst by modulating divisions of Batumi &/|| Tides.
-    <audio controls>
-        <source src="Media/091122.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <em>~ C O M P O S I T I O N ~</em>
-    <br />
-    I tried to add voice to my new "everything live with a modular so you don't have to look back" workflow.
-    Obviously needs a lot more work, my brain is struggling to handle voice/tweak knobs/input new notes/make the three coherent.
-    It's really fun thought, and it's been a while since I have not organize a little text with all my notebook thought.
-    On the modular side, the bass is a Maths voice, gate on cycle to start oscillation, channel 1 to channel 2 for filtering. 
-    The pad is Tides in divide shift mode.
-    Some LFO are synced using the keystep drum gates.
-    <audio controls>
-        <source src="Media/reminescent.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <em>V C V ~ D E V E L O P M E N T</em>
-    <br />
-    I have rework the helper.py file of the VCV SDK so I can use the part that scan SVG more easily.
-    I still haven't understand some of the behaviour of python regarding the renaming of fonction, maybe I will find enlightement someday.
-    Still have to tweak the script a little bit so it can add the position to the already created .cpp file, also some bug to fix as always.
-    The fact that I had to do this makes me question the way that I design modules. Should I start writing code only when I have my panel ready ?
-    It seems strange to me that you can develop a concept without playing with it. Still, I should try this workflow someday.
-    <br />
+        </p>
 
-</p>
-
-</article>
+    </article>
 </main>
 </body></html>
