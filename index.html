@@ -56,6 +56,33 @@
 
         <hr>
         <p>
+            <time>November 16, 2022</time><br />
+            <em> V C V ~ D E V E L O P M E N T </em>
+            <br />
+            I started developing a complex modulation generator, the concept being three LFOs modulating eachother in circle. First thought was sine/saw/square/triangle.
+            Using the same circle concept of Sunflower, an other module wich mixes inputs in a circular mouvement, I copied the panel and started form there.
+            After a first panel prototype with four outputs, I have gotten rid of the sine, i find triangle more musical (not hanging at extremums) and saw/square are interesting for transient modualtions (and sine are harder to do).<br />
+            The panel is now more slim, and I am starting to question the function of the top knobs, taking instpiration from harvester oscillators, I tried BlackHugeKnobs and they fit really nice (I changed sunflower panel after that).
+            Unlike Sunflower, the two knobs are not related, so I took them apart, one top for global frequency (the most important), one bottom for the cross modulation.
+            On the programming side, I got it to work nicely but broke it after attempting an improvement, now VCV Rack crashes when oscillators goes negative *sigh*. I would like to learn how to program efficient oscillator in C++, I need to search for ressources.
+            <br />
+            I have also made improvement on Sinensis (tuned filter bank) which wasn't working correctly. I rewrote all the code and now it makes sound (kind of nice, if I may add) but it is really buggy and frequently crash VCV.
+            <br />
+            Audio processing is done at each clock tick, but filters parameters are updated only one in four samples, it save a nice amount CPU, avoiding recalculation of Biquad coefficients.
+            I have modified the behaviour of bandpass over 20k Hz, now they fold back in audio range, bouncing back at 20Hz, it creates nice sweep.
+            <br />(image are volontary overly compressed to keep this website light-weight)
+            <figure>
+                <img src="Media/161122TectorumComp.png" alt="comparison of the three design" width="803" height="513">
+                <figcaption>It's getting better</figcaption>
+            </figure>
+            <figure>
+                <img src="Media/161122AllModule.png" alt="All my module side by side" width="575" height="387">
+                <figcaption>Big knobs are neat</figcaption>
+            </figure>
+
+        </p>
+        <hr />
+        <p>
             <time>November 10, 2022</time><br />
             <em>~ E L E C T R O N I C S ~</em>
             <br />
@@ -72,7 +99,7 @@
                 <img src="Media/101122schematic.jpg" alt="Schematic for the noise" width="1020" height="491">
                 <figcaption>I haven't waited for the ink to dry</figcaption>
             </figure>
-            
+
         </p>
         <hr />
         <p>
