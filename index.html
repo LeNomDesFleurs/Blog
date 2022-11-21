@@ -56,6 +56,20 @@
 
         <hr>
         <p>
+            <time>November 20, 2022</time><br />
+            <em>M O D U L A R ~ R E S E A R C H</em>
+            <br />
+            New experiments on embedding percussion in melodic line. Here I send the keystep drum gate straight to modulation input.
+            Modulation need to be broad enough to seperate the melodic source from the embedded percussion. Nice result with filter Q and frequency, oscillator frequency, amplifing audio rate modulation.
+           <br /> All those modulation are widely dependent of the source being modulated.
+            <br />Plonk does not lead to any result as a modulation source.
+            <audio controls>
+                <source src="Media/201122EmbeddedPercussion.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </p>
+        <hr />
+        <p>
             <time>November 16, 2022</time><br />
             <em> V C V ~ D E V E L O P M E N T </em>
             <br />
@@ -70,7 +84,7 @@
             <br />
             Audio processing is done at each clock tick, but filters parameters are updated only one in four samples, it save a nice amount CPU, avoiding recalculation of Biquad coefficients.
             I have modified the behaviour of bandpass over 20k Hz, now they fold back in audio range, bouncing back at 20Hz, it creates nice sweep.
-            <br />(image are volontary overly compressed to keep this website light-weight)
+            <br />(image are purposely overly compressed to keep this website light-weight)
             <figure>
                 <img src="Media/161122TectorumComp.png" alt="comparison of the three design" width="803" height="513">
                 <figcaption>It's getting better</figcaption>
