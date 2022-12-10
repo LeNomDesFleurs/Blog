@@ -53,9 +53,42 @@
     <article>
         <header>
         </header>
-        <p><i>This website is a stream of thought.</i></p>
-
+        <p><i>
+    This website is a stream of thought.
+    <br />
+    Pictures are purposely overly compressed to keep it light-weight.
+    <br />All audio files are low bitrate Mp3.
+</i></p>
+        
         <hr>
+        <p>
+            <time>Decembre 6, 2022</time><br />
+            <em> V C V ~ D E V E L O P M E N T </em>
+            <br />
+            Big progress on NOI Modules, Sunflower code as been refactored (and thus isn't working anymore, old bug resurface, should be easy enough to correct).
+            <br />I added some ornaments, ascii line on top and bottom, each module as its own signature, also added the NOI logo on the bottom of all panels.
+            <figure>
+                <img src="Media/221206AllModule.png" alt="All designs dide by side" width="803" height="513">
+                <figcaption>Notice the sick NOI logo from Shanti Heath</figcaption>
+            </figure>
+            <br />Started the developpment of Volubilis, a noise source generating two channels of grain/rain plus one generating normal Noise.
+            I got a spare parameter that I doesn't know what to do of, it shouldn't have to much impact on the sound because I don't have the space to add modulation input and trim. But important enough to have a big knob, I think it's a design mistake, more try will lead to the answer.
+            As of now it is used on an internal modulation source mimicking wind movement, each clock tick generate a new value to reach, alternating up and down. The parameter set the clock frequency.
+            I think this can be transformed to a full-fledged CV module. it's not really in my phylosophy of modular to have a mechanism that has no input, no output and a single parameter.
+            I wanna try a looping noise with parameter for the size of the buffer, were each noise buffer is played two time, is a frequency going to emerge ?
+            <figure>
+                <img src="Media/221206Volubilis.png" alt="New Module" width="803" height="513">
+                <figcaption>Noise output used as a test out for the wind CV</figcaption>
+            </figure>
+            Also I made a new Panel for Wilt, my first module, it's a weird one (not in a good sense). 
+            <br />I was trying to implement a bunch of stuff to train myself (filter and reverb mostly) all of it led to a clanky multi-effect daisy chaining stuff that as nothing to do together. 
+            <br />Nonetheless it has a funny sound and I like it so I made a new arrangement, allowing for big knob (yay).
+            <figure>
+                <img src="Media/221206WiltComp.png" alt="comparison of the three design" width="803" height="513">
+                <figcaption>Still need a symbole for the vca (the whit circle on signal path)</figcaption>
+            </figure>
+
+        </p>
         <p>
             <time>November 26, 2022</time><br />
             <em>M O D U L A R ~ R E S E A R C H</em>
@@ -64,7 +97,7 @@
             I used the rubicon for FM feedback, SUB to EXP lead to interesting results. I should go closer to the rugosity and VCO/LFO limit, the sub would become an LFO and make the PWM jumps from audio range to rythmic clicks <br />
             I had never used audio rate modulation on PWM, using the modulated square from Rubicon to the cv input of Dixie gives a new kind of grit.<br />
             I need to investigate the sync of Rubicon using lfo, I like the dirt it add.
-     
+
 
             <audio controls>
                 <source src="Media/221126FM.mp3" type="audio/mpeg">
@@ -101,7 +134,7 @@
             <br />
             Audio processing is done at each clock tick, but filters parameters are updated only one in four samples, it save a nice amount CPU, avoiding recalculation of Biquad coefficients.
             I have modified the behaviour of bandpass over 20k Hz, now they fold back in audio range, bouncing back at 20Hz, it creates nice sweep.
-            <br />(image are purposely overly compressed to keep this website light-weight)
+            <br />
             <figure>
                 <img src="Media/161122TectorumComp.png" alt="comparison of the three design" width="803" height="513">
                 <figcaption>It's getting better</figcaption>
