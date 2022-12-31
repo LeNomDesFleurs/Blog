@@ -64,6 +64,38 @@
 
         <hr>
         <p>
+            <time>Decembre 31, 2022</time><br />
+            <em> V C V ~ D E V E L O P M E N T </em>
+            <br />
+            Experimenting with the Moorer reverb implementation (6 comb filters to an allpass), I've come across some nice granular texture using bigger value for the comb filters delay size (coming from a decimal mistake somewhere).
+            Haven't try modulating the allpass yet.
+            It have 4 parameters: Dry/Wet, Time, used to compute the feedback gain of the filters for the wanted TR60. Size, wich set the delay sizes of the combs feedbacks, and Variation which spread those sizes. 
+            Size go from few milliseconds to 100ms and above with added Variation.
+            Buffer reset each time a parameter is tweaked, I got to rewrite the resize function to keep data (using some kind of pitching?).
+            Here is the first draft for the panel and a sound sample.
+            <figure>
+                <img src="Media/221229Hellebore.png" alt="" width="803" height="513">
+                <figcaption>Sometimes it's hard to find captions</figcaption>
+            </figure>
+            <audio controls>
+                <source src="Media/221231Hellebore.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            </p> 
+        <p>
+
+        I may push people to arrange the module in the order I want by using a varying grey scale on each module. Poussant ainsi les gens à les organiser du plus foncé au plus clair.    
+        Too bad, I don't have any idea of how they are supposed to be layed out. Anyway, I don't have any utility or practical mixer. Without adding other modules, I think most people wouldn't use them. 
+       <br>
+       <em>~ M E T A ~</em>
+       <br>
+        J'hésite à mixer librement le français et l'anglais, de la même manière que j'aimerais mixer plus de sujet ici (je me refuserai à faire des onglets de rangement). <br>
+        I'd like to make this place l'inverse d'un classeur (j'ai toujours détesté les pochettes plastifiée, j'ai néanmoins une certaine fascination pour les perforatrices).
+        <br>I'll use english when it's what I need and/or want.</p>
+      
+        <p>
+            <hr>
+        <p>
             <time>Decembre 24, 2022</time><br />
             <em> V C V ~ D E V E L O P M E N T </em>
             <br />
@@ -177,7 +209,7 @@
             I started developing a complex modulation generator, the concept being three LFOs modulating eachother in circle. First thought was sine/saw/square/triangle.
             Using the same circle concept of Sunflower, an other module wich mixes inputs in a circular mouvement, I copied the panel and started form there.
             After a first panel prototype with four outputs, I have gotten rid of the sine, i find triangle more musical (not hanging at extremums) and saw/square are interesting for transient modualtions (and sine are harder to do).<br />
-            The panel is now more slim, and I am starting to question the function of the top knobs, taking instpiration from harvester oscillators, I tried BlackHugeKnobs and they fit really nice (I changed sunflower panel after that).
+            The panel is now more slim, and I am starting to question the function of the top knobs, taking inspiration from Harvesteman oscillators, I tried BlackHugeKnobs and they fit really nice (I changed sunflower panel after that).
             Unlike Sunflower, the two knobs are not related, so I took them apart, one top for global frequency (the most important), one bottom for the cross modulation.
             On the programming side, I got it to work nicely but broke it after attempting an improvement, now VCV Rack crashes when oscillators goes negative *sigh*. I would like to learn how to program efficient oscillator in C++, I need to search for ressources.
             <br />
