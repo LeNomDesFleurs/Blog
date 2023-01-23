@@ -61,16 +61,30 @@
                 <br />All audio files are low bitrate Mp3.
             </i>
         </p>
+                <hr>
+        <p>
+            <time>January 23, 2023</time><br>
+            <em> V C V ~ D E V E L O P M E N T </em>
+                <br />
+                I've made a first attempt at a stereo reverb, for now just two seperated channel each processing an input.<br>
+                I created a two dimensional array containing 6 combs filter in each columns.<br>
+                Using a for-each loop over a for-each loop to iterate through all the combs in parameter update and processing functions, columns then rows. <br>
+                I'm searching ways to cross feed the two-channels, first I'll try swapping filters (and their buffer) from one channel to another.<br>
+                I'm thinking that I should create a struct to store all the parameter and write a global function calling all parameter update functions.<br>
+                Lets do a little refactoring and cleaning before going further.<br>
+                Lots of work (and bugs) ahead.<br>
+        </p>
+        </p>
         <hr>
         <p>
             <time>January 18, 2023</time><br />
             <em> ~ C O M P O S I T I O N ~ </em>
             <br>
             In the mood for some saturated sound.<br>
-            I'm using all the things I can :
+            I'm using all the tools at hand :
             <ul>
                 <li>Morgasmatron channel A saturation switch</li>
-                <li>Morgasmatrion Q-drive</li>
+                <li>Morgasmatron Q-drive</li>
                 <li>Magneto rec-lvl</li>
                 <li>Veils level</li>
                 <li>Black Hole In level</li>
@@ -106,7 +120,6 @@
                 <source src="Media/230115-BlkHldel.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <br>
 
         </p>
         <hr>
@@ -129,7 +142,7 @@
                 Your browser does not support the audio element.
             </audio>
             </p> 
-        <p>
+        </p>
         <hr>
         <p>
             <time>December 31, 2022</time><br />
