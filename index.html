@@ -61,12 +61,34 @@
                 <br />All audio files are low bitrate Mp3.
             </i>
         </p>
+        <hr>
+        <p>
+            <time>January 25, 2023</time><br>
+            <em> V C V ~ D E V E L O P M E N T </em>
+                <br />
+            With all the git learning, shuffling code left and right, I think that I've lost Tectorum and Volubilis.<br>
+            It's not that big of a fuss, Tectorum was not that a good module and Volubilis was stuck.<br>
+            I will probably rebuild Volubilis from the ground up, it's what it needed anyway.<br>
+            I've made a working stereo cross-feed for Hellebore, I was really surprised by the fact that it compiled and worked at the first try, especially cause it is based on multidimensional array (and that's a field I'm very prone to make error in).<br>
+            Variation pan the combs 2/4/6 more and more to the opposite side. <br>
+            I now have a working Msys terminal in vs code ! <br>
+            Swapping between app is now a thing of the past.<br>
+            <em> ~ C O M P O S I T I O N ~ </em>
+            <br>
+            Tried making a sequence with 4 square oscillators modulating the shift of Tides (thus giving some kind of quantization).<br>
+            Big kick from a Maths voice, channel one as oscillator, channel two as pitch envelope.<br>
+
+            <audio controls>
+                <source src="Media/230122-sequenceSqrLfo.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </p>
                 <hr>
         <p>
             <time>January 23, 2023</time><br>
             <em> V C V ~ D E V E L O P M E N T </em>
                 <br />
-                I've made a first attempt at a stereo reverb, for now just two seperated channel each processing an input.<br>
+                I've made a first attempt at a stereo reverb, for now just two separated channel each processing an input.<br>
                 I created a two dimensional array containing 6 combs filter in each columns.<br>
                 Using a for-each loop over a for-each loop to iterate through all the combs in parameter update and processing functions, columns then rows. <br>
                 I'm searching ways to cross feed the two-channels, first I'll try swapping filters (and their buffer) from one channel to another.<br>
@@ -128,14 +150,14 @@
             <em> V C V ~ D E V E L O P M E N T </em>
             <br />
             I'm struggling to finish Hellebore, the nested function call makes it hard to debug.
-            The reverb calls the comb filter wich calls the ring buffer. Those russian dolls creates a lots of possible cracks for bugs to slips in.
+            The reverb calls the comb filter which calls the ring buffer. Those russian dolls creates a lots of possible cracks for bugs to slips in.
             I've learned a bunch of things on how to declare an array of object. <br/>
             It's going good but it takes all of my brain juice. <br/>
             <br/>
             <em> ~ C O M P O S I T I O N ~ </em>
             <br/>
             Just got a black hole dsp 2 from erica synth. 
-            I was doubtful about the interface (I almost never use my disting mk4), but it seems well focused and 24 alorithm is memorable.
+            I was doubtful about the interface (I almost never use my Disting mk4), but it seems well focused and 24 algorithm is memorable.
             Here is the first test with the pitched delay. Tides is used as a synced lfo. Sources are Dixie, Math, Plonk and a plucked Morgasmatron.
             <audio controls>
                 <source src="Media/230113-BlackHoleDsp.mp3" type="audio/mpeg">
@@ -150,7 +172,7 @@
             <br />
             Experimenting with the Moorer reverb implementation (6 comb filters to an allpass), I've come across some nice granular texture using bigger value for the comb filters delay size (coming from a decimal mistake somewhere).
             Haven't try modulating the allpass yet.
-            It have 4 parameters: Dry/Wet, Time, used to compute the feedback gain of the filters for the wanted TR60. Size, wich set the delay sizes of the combs feedbacks, and Variation which spread those sizes. 
+            It have 4 parameters: Dry/Wet, Time, used to compute the feedback gain of the filters for the wanted TR60. Size, which set the delay sizes of the combs feedbacks, and Variation which spread those sizes. 
             Size go from few milliseconds to 100ms and above with added Variation.
             Buffer reset each time a parameter is tweaked, I got to rewrite the resize function to keep data (using some kind of pitching?).
             Here is the first draft for the panel and a sound sample.
@@ -194,7 +216,7 @@
             </figure>
             </p> 
         <p>
-            I realised that I have not posted any audio from my modules yet ! So here it is, Volubilis to Sinensis:
+            I realized that I have not posted any audio from my modules yet ! So here it is, Volubilis to Sinensis:
             <audio controls>
                 <source src="Media/221224SinensisDemo.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -205,16 +227,16 @@
             <time>December 17, 2022</time><br />
             <em> V C V ~ D E V E L O P M E N T </em>
             <br />
-            I have tried replacing the band-pass filters of Sinensis with peak equalisers.
+            I have tried replacing the band-pass filters of Sinensis with peak equalizers.
             <br />I prefer the band-pass version, peak keeps all the dry signal when the band-pass Q let the user choose the amount of tonality added to the signal, overall I prefer the sound of band-pass.
-            <br />Plus, peak equalisers makes me add a gain parameter (wich can be linked to the Q though).
-            <br />I started moving the wind control voltage of volubilis to a new module (named Tamaris, a tree wich interact beautifully with the wind). For now, I use a duplication of the sinensis panel to make my tests. I will maybe add a log/exp parameter.
+            <br />Plus, peak equalizers makes me add a gain parameter (which can be linked to the Q though).
+            <br />I started moving the wind control voltage of Volubilis to a new module (named Tamaris, a tree which interact beautifully with the wind). For now, I use a duplication of the Sinensis panel to make my tests. I will maybe add a log/exp parameter.
             <br /><br />
             <em> T A P E ~ H I S T O R Y </em>
             <br />
             I would like to broaden the topic of this blog, and start sharing random stuff that I found interesting.
             I have recently made a document about analog tape for my studies and discovered an interesting fact : warping and granular processing is a really old concept.
-            The Tonschreiber b, an old (1944) recorder of AEG used 4 magnetic head on a motor. With this tool, you may slow down the tape, but speed up the motor, so the relative speed is the same, and each head read a grain that overlap one another. That the same basic concept of most modern streching algorithms.
+            The Tonschreiber b, an old (1944) recorder of AEG used 4 magnetic head on a motor. With this tool, you may slow down the tape, but speed up the motor, so the relative speed is the same, and each head read a grain that overlap one another. That the same basic concept of most modern stretching algorithms.
             <figure>
                 <img src="Media/221217Tape.png" alt="the magnetic head" width="803" height="513">
                 <figcaption>Each ring is a head</figcaption>
@@ -228,15 +250,15 @@
             Big progress on NOI Modules, Sunflower code as been refactored (and thus isn't working anymore, old bug resurface, should be easy enough to correct).
             <br />I added some ornaments, ascii line on top and bottom, each module as its own signature, also added the NOI logo on the bottom of all panels.
             <figure>
-                <img src="Media/221206AllModule.png" alt="All designs dide by side" width="803" height="513">
+                <img src="Media/221206AllModule.png" alt="All designs side by side" width="803" height="513">
                 <figcaption>Notice the sick NOI logo from Shanti Heath</figcaption>
             </figure>
         </p>
         <p>
-            Started the developpment of Volubilis, a noise source generating two channels of grain/rain plus one generating normal Noise.
+            Started the development of Volubilis, a noise source generating two channels of grain/rain plus one generating normal Noise.
             I got a spare parameter that I doesn't know what to do of, it shouldn't have to much impact on the sound because I don't have the space to add modulation input and trim. But important enough to have a big knob, I think it's a design mistake, more try will lead to the answer.
             As of now it is used on an internal modulation source mimicking wind movement, each clock tick generate a new value to reach, alternating up and down. The parameter set the clock frequency.
-            I think this can be transformed to a full-fledged CV module. it's not really in my phylosophy of modular to have a mechanism that has no input, no output and a single parameter.
+            I think this can be transformed to a full-fledged CV module. it's not really in my philosophy of modular to have a mechanism that has no input, no output and a single parameter.
             I wanna try a looping noise with parameter for the size of the buffer, were each noise buffer is played two time, is a frequency going to emerge ?
             <figure>
                 <img src="Media/221206Volubilis.png" alt="New Module" width="803" height="513">
@@ -249,7 +271,7 @@
             <br />Nonetheless it has a funny sound and I like it so I made a new arrangement, allowing for big knob (yay).
             <figure>
                 <img src="Media/221206WiltComp.png" alt="comparison of the three design" width="803" height="513">
-                <figcaption>Still need a symbole for the vca (the white circle on the signal path)</figcaption>
+                <figcaption>Still need a symbols for the vca (the white circle on the signal path)</figcaption>
             </figure>
         </p>
 
@@ -259,7 +281,7 @@
             <em>M O D U L A R ~ R E S E A R C H</em>
             <br />
             Today is a day for old school bleep bloop.
-            I used the rubicon for FM feedback, SUB to EXP lead to interesting results. I should go closer to the rugosity and VCO/LFO limit, the sub would become an LFO and make the PWM jumps from audio range to rythmic clicks <br />
+            I used the rubicon for FM feedback, SUB to EXP lead to interesting results. I should go closer to the rugosity and VCO/LFO limit, the sub would become an LFO and make the PWM jumps from audio range to rhythmic clicks <br />
             I had never used audio rate modulation on PWM, using the modulated square from Rubicon to the cv input of Dixie gives a new kind of grit.<br />
             I need to investigate the sync of Rubicon using lfo, I like the dirt it add.
 
@@ -274,8 +296,8 @@
             <time>November 20, 2022</time><br />
             <em>M O D U L A R ~ R E S E A R C H</em>
             <br />
-            New experiments on embedding percussion in melodic line. Here I send the keystep drum gate straight to modulation input.
-            Modulation need to be broad enough to seperate the melodic source from the embedded percussion. Nice result with filter Q and frequency, oscillator frequency, amplifing audio rate modulation.
+            New experiments on embedding percussion in melodic line. Here I send the Keystep drum gate straight to modulation input.
+            Modulation need to be broad enough to separate the melodic source from the embedded percussion. Nice result with filter Q and frequency, oscillator frequency, amplifying audio rate modulation.
             <br /> All those modulation are widely dependent of the source being modulated.
             <br />Plonk does not lead to any result as a modulation source.
             <audio controls>
@@ -288,17 +310,17 @@
             <time>November 16, 2022</time><br />
             <em> V C V ~ D E V E L O P M E N T </em>
             <br />
-            I started developing a complex modulation generator, the concept being three LFOs modulating eachother in circle. First thought was sine/saw/square/triangle.
-            Using the same circle concept of Sunflower, an other module wich mixes inputs in a circular mouvement, I copied the panel and started form there.
-            After a first panel prototype with four outputs, I have gotten rid of the sine, i find triangle more musical (not hanging at extremums) and saw/square are interesting for transient modualtions (and sine are harder to do).<br />
+            I started developing a complex modulation generator, the concept being three LFOs modulating each other in circle. First thought was sine/saw/square/triangle.
+            Using the same circle concept of Sunflower, an other module which mixes inputs in a circular movement, I copied the panel and started form there.
+            After a first panel prototype with four outputs, I have gotten rid of the sine, i find triangle more musical (not hanging at extremum) and saw/square are interesting for transient modulations (and sine are harder to do).<br />
             The panel is now more slim, and I am starting to question the function of the top knobs, taking inspiration from Harvesteman oscillators, I tried BlackHugeKnobs and they fit really nice (I changed sunflower panel after that).
             Unlike Sunflower, the two knobs are not related, so I took them apart, one top for global frequency (the most important), one bottom for the cross modulation.
-            On the programming side, I got it to work nicely but broke it after attempting an improvement, now VCV Rack crashes when oscillators goes negative *sigh*. I would like to learn how to program efficient oscillator in C++, I need to search for ressources.
+            On the programming side, I got it to work nicely but broke it after attempting an improvement, now VCV Rack crashes when oscillators goes negative *sigh*. I would like to learn how to program efficient oscillator in C++, I need to search for resources.
             <br />
             I have also made improvement on Sinensis (tuned filter bank) which wasn't working correctly. I rewrote all the code and now it makes sound (kind of nice, if I may add) but it is really buggy and frequently crash VCV.
             <br />
             Audio processing is done at each clock tick, but filters parameters are updated only one in four samples, it save a nice amount CPU, avoiding recalculation of Biquad coefficients.
-            I have modified the behaviour of bandpass over 20k Hz, now they fold back in audio range, bouncing back at 20Hz, it creates nice sweep.
+            I have modified the behavior of bandpass over 20k Hz, now they fold back in audio range, bouncing back at 20Hz, it creates nice sweep.
             <br />
             <figure>
                 <img src="Media/161122TectorumComp.png" alt="comparison of the three design" width="803" height="513">
@@ -316,8 +338,8 @@
             <em>~ E L E C T R O N I C S ~</em>
             <br />
             Today I have tried to prototype the analog rain that I had in my head for some time. I wanted to dive in electronics and it was a good opportunity.
-            The basic concept is sending a filtered noise to a comparator, thus creating some kind of clicks ressembling rain hitting concrete.
-            The final result was really sketchy, potentiometer really sensitive, not really the expected behaviour. But hey, that's why we are doing analog stuff isn't it?
+            The basic concept is sending a filtered noise to a comparator, thus creating some kind of clicks resembling rain hitting concrete.
+            The final result was really sketchy, potentiometer really sensitive, not really the expected behavior. But hey, that's why we are doing analog stuff isn't it?
             (A lot of this is probably on the breadboard though).The sound is kind of nice, a bit harsher than the test I've made using Max/MSP.
             I need to fine the correct value for the filter resistance and try a bipolar comparator.
             <audio controls>
@@ -335,7 +357,7 @@
             <time>November 09, 2022</time><br />
             <em>M O D U L A R ~ R E S E A R C H</em>
             <br />
-            Using Magneto as main clock, batumi and Tides as divider.
+            Using Magneto as main clock, Batumi and Tides as divider.
             My main source was Rubicon with Dixie as an FM modulator.
             I then used Plonk for additional texture.
             I should have try pushing the system in audio rate by speeding the Magneto Clock.
@@ -352,7 +374,7 @@
             It's really fun thought, and it's been a while since I have not organize a little text with all my notebook thought.
             On the modular side, the bass is a Maths voice, gate on cycle to start oscillation, channel 1 to channel 2 for filtering.
             The pad is Tides in divide shift mode.
-            Some LFO are synced using the keystep drum gates.
+            Some LFO are synced using the Keystep drum gates.
             <audio controls>
                 <source src="Media/reminescent.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -360,7 +382,7 @@
             <em>V C V ~ D E V E L O P M E N T</em>
             <br />
             I have rework the helper.py file of the VCV SDK so I can use the part that scan SVG more easily.
-            I still haven't understand some of the behaviour of python regarding the renaming of fonction, maybe I will find enlightement someday.
+            I still haven't understand some of the behavior of python regarding the renaming of function, maybe I will find enlightenment someday.
             Still have to tweak the script a little bit so it can add the position to the already created .cpp file, also some bug to fix as always.
             The fact that I had to do this makes me question the way that I design modules. Should I start writing code only when I have my panel ready ?
             It seems strange to me that you can develop a concept without playing with it. Still, I should try this workflow someday.
