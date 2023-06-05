@@ -26,7 +26,7 @@ Variables
 }
 
 html#post {
-    --color-bg: #F8F6F5;
+    --color-bg: #d8d1c0;
     --color-default: #3b3a38;
     --color-highlight: #000;
     --color-dim: #93918F;
@@ -189,6 +189,19 @@ em {
     font-size: calc(12px + (27 - 22) * ((100vw - 400px) / (1000 - 400)));
 }
 
+.row {
+    display: flex;
+    margin: 10px 30px auto auto;
+
+  }
+  
+  .column {
+    flex: 50%;
+    /* margin-left: auto;
+    margin-right: auto; */
+  }
+
+
 blockquote {
     font-weight: normal;
 }
@@ -200,7 +213,13 @@ figcaption {
     color: var(--color-dim);
     font-size: 14px;
 }
-
+/* code{
+    text-align: center;
+    margin-top: var(--spacing-s);
+    font-family: var(--font-sans);
+    color: var(--color-dim);
+    font-size: 14px;
+} */
 small {
     font-size: var(--font-s);
     color: var(--color-dim);
