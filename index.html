@@ -34,34 +34,82 @@
     <meta property="og:title" content="Thomas Guillory - Stream of Thought">
     <meta property="og:description" content="Site Personnel de Thomas Guillory">
     <meta property="og:image" content="">
-
+    <script src="https://unpkg.com/hydra-synth"></script>
 </head>
 
 
-<body>
-    <header>
+<body>            
+<header>
   <div>
 
       <h1><i>L ~ N ~ D ~ F</i></h1>
-      <<i>Modular, noise &amp; other concern</i>><br>
+      <i>Modular, noise &amp; other concern</i><br>
       Paris, France<br>
       ThomasVGuillory@gmail.com
   </div>
 </header>
 
+    <p>
+        <i>
+        This website is a stream of thought.<br/>
+        Pictures are purposely overly compressed to keep it light-weight.<br/>
+        All audio files are low bitrate Mp3.
+        </i>
+    </p>
 
-<main>
-    <article>
-        <header>
-        </header>
-        <p>
-            <i>
-                This website is a stream of thought.
-                <br />
-                Pictures are purposely overly compressed to keep it light-weight.
-                <br />All audio files are low bitrate Mp3.
-            </i>
-        </p>
+<hr>
+<article>
+    <p>
+        
+        <time>June 09, 2023</time><br>
+        <em> ~ H Y D R A ~ </em> <br />   
+   
+        I'm tinkering with Hydra, learning to properly use feedback, here is my latest work.
+        <div class="ex3">
+            <label for="item-3">Show Code</label>
+            <input type="checkbox" name="one" id="item-3" checked = "true">
+            <div class="hide3">
+              <div class="inner3">
+                <code>
+                    noise(50).layer(src(o0)).scale([0.999, 0.997, 0.998])<br>
+                    .rotate([0, -0.003, 0.001])<br>
+                    .luma(() => (0.45+(0.3 * Math.sin(time * 0.5))))<br>
+                    .out(o0)<br>
+                    <br>
+                    gradient(0)<br>
+                    .color(0, 0, 0)<br>
+                    .add(src(o0))<br>
+                    .modulate(o3).out(o1)<br>
+                    <br>
+                    shape(4)<br>
+                    .modulate(noise(5))<br>
+                    .out(o3)<br>
+                    
+                    render(o1)</code>
+              </div>
+            </div>           
+
+        <script>
+        
+            var hydra = new Hydra({ detectAudio: false })
+            noise(50).layer(src(o0)).scale([0.999, 0.997, 0.998])
+            .rotate([0, -0.003, 0.001])
+            .luma(() => (0.45+(0.3 * Math.sin(time * 0.5))))
+            .out(o0)
+            
+            gradient(0)
+            .color(0, 0, 0)
+            .add(src(o0))
+            .modulate(o3).out(o1)
+            
+            shape(4)
+            .modulate(noise(5))
+            .out(o3)
+            
+            render(o1)
+        </script>
+    </p>
+</article>
         <hr>
         <p>
             <time>June 05, 2023</time><br>
@@ -94,8 +142,10 @@
 
                 Your browser does not support the audio element.
             </audio>
-
+        </p>
         <hr>
+        
+
         <p>
             <time>February 27, 2023</time><br>
             <em> J U C E </em>
@@ -480,6 +530,7 @@
 
         </p>
 
-    </article>
-</main>
-</body></html>
+ 
+
+</body>
+</html>
