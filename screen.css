@@ -339,7 +339,7 @@ Limit widths
 body>header, article>header,
 h1, h2, h3, time,
 p, blockquote, ol, ul, details, pre.code, figcaption,
-.split, .posts
+.split, .posts, .ex3
 {
     max-width: var(--spacing-width-max);
     margin-left: auto;

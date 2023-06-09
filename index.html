@@ -120,21 +120,29 @@
                 <code>N.C A B C</code> <br>
                 Where A is Root, B is Chord Type, C is degree.
                 <br>
-                <br>Here is the code : <br>
+                Voices switch degree each chord, generating a long portamento, phasing along the way.
+                <div class="ex3">
+                    <label for="new">Show Code</label>
+                    <input type="checkbox" name="two" id="new" checked = "true">
+                    <div class="hide3">
+                      <div class="inner3">
+                
+                <code><i>I :</i><br>
+                L 1 4: CV.SLEW I 10000<br>
+                M 20000<br>
+                <br>
+                <i>M :</i> <br>
+                L 1 4: $ I <br>B P.NEXT<br>ADD X 1
+                <br>
+                <br>
+                <i>1 :</i><br>
+                CV 1 N.C A B MOD ADD 1 X 4</code><br>
+                <i>Same for script 2, 3, 4 with incremented degree</i><br>
                 <i>You can change A to Change the root</i><br>
-                <code><i>I :</i></code><br>
-                <code>L 1 4: CV.SLEW I 10000</code><br>
-                <code>M 20000</code><br>
                 <br>
-                <code><i>M :</i></code> <br>
-                <code> L 1 4: $ I <br>B P.NEXT<br>ADD X 1</code>
-                <br>
-                <br>
-                <code><i>1 :</i></code><br>
-                <code>CV 1 N.C A B MOD ADD 1 X 4</code><br>
-                <i>Same for script 2, 3, 4 with incremented degree</i>
-                <br>
-                Voices switch degreee each chord, generating a long portamento, phasing along the way.
+                </div>
+                </div> 
+                
 
                 
             <audio controls>
