@@ -141,7 +141,7 @@ body>footer nav, body>footer {
 Typography
 -------------------------------------- */
 
-h1, h2, h3 {
+h1, h2 {
     font-family: var(--font-serif);
     font-size: calc(27px + (27 - 22) * ((180vw - 400px) / (600 - 400)));
     font-weight: 700;
