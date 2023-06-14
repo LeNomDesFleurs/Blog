@@ -5,42 +5,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
-
+    
     <link rel="stylesheet" href="screen.css" type="text/css">
     <link rel="stylesheet" href="print.css" type="text/css">
-
+    
     <!-- Primary Meta Tags -->
     <title>Le Nom des Fleurs</title>
     <meta name="title" content="Le Nom Des Fleurs">
     <meta name="description" content="Site personnel de Thomas Guillory">
     <meta name="author" content="Thomas Guillory">
     <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
-
+    
     <!-- Fav Icon
-    <link rel="apple-touch-icon" sizes="180x180" href="https://frankchimero.com/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="https://frankchimero.com/favicon-16x16.png">
-    <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
-    <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">  -->
-    <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://frankchimero.com/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://frankchimero.com/favicon-16x16.png">
+        <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
+        <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">  -->
+        <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
+        
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="theme-color" content="#ffffff">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://lenomdesfleurs.github.io/blogging-site/">
+        <meta property="og:title" content="Thomas Guillory - Stream of Thought">
+        <meta property="og:description" content="Site Personnel de Thomas Guillory">
+        <meta property="og:image" content="">
+        
+        <script src="https://unpkg.com/hydra-synth"></script>
+        <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    </head>
+    
 
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="theme-color" content="#ffffff">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lenomdesfleurs.github.io/blogging-site/">
-    <meta property="og:title" content="Thomas Guillory - Stream of Thought">
-    <meta property="og:description" content="Site Personnel de Thomas Guillory">
-    <meta property="og:image" content="">
-    <script src="https://unpkg.com/hydra-synth"></script>
-</head>
-
-
-<body>            
-<header>
-  <div>
+    
+    <body>            
+        <header>
+            <div>
 
       <h1><i>L ~ N ~ D ~ F</i></h1>
       <i>Modular, noise &amp; other concern</i><br>
@@ -51,7 +53,9 @@
 
   </div>
 </header>
-
+<!--
+    <canvas class="glslCanvas" data-fragment-url="Media/GLTEST.frag" width="500" height="500"></canvas>
+-->
     <p>
         <i>
         This web page is a stream of thought.<br/>
@@ -59,15 +63,147 @@
         All audio files are low bitrate Mp3.
         </i>
     </p>
-
-
 <hr>
+<!--
+----------------TEMPLATE-----------------------
+<article>
+<p>
+    <time>June 09, 2023</time><br>
+    <em> ~ H Y D R A ~</em><br>
+
+</p>
+</article>
+<hr>
+-----------------P N G---------------------
+<figure>
+    <img src="Media/230614L-system.png" alt="" width="803" height="513">
+    <figcaption>caption here</figcaption>
+</figure>
+
+--------------CODE-----------------------
+<div class="ex3">
+    <label for="item-4">Show Code</label>
+    <input type="checkbox" name="one" id="item-4" checked = "true">
+    <div class="hide3">
+      <div class="inner3">
+        <pre>
+        <code>
+            code goes here
+        </code>
+        </pre>
+    </div>
+</div>  
+-->
+
+
+<article>
+<p>
+    <time>June 14, 2023</time><br>
+    <em> ~ p 5 . j s ~</em><br>
+I'll be woking soon on a A/V installation for my studies.<br>
+The idea I pursue for now is a projection of proceduraly generated visual, inspired by nature.<br>
+Those visual may be controled by some acoustic device, I was thinking horizontal guitar: something in the vein of a harp.<br>
+Depending on the frequencies, I'll use different generation algorithm.<br>
+Do to those visual I found what's called the L-Systems, a way of using <a href=https://en.wikipedia.org/wiki/Turtle_graphics>Turtle Geometry</a>.<br>
+I looks like this :<br>
+
+<figure>
+    <img src="Media/230614L-system.png" alt="" width="803" height="513">
+    <figcaption>Using "FF+[+F-F-F]-[-F+F+F]"</figcaption>
+</figure>
+</p>
+<p>
+The string of character define the basic form that is going to be repeated, F for forward, + to add angle, - to decrease angle.<br>
+Next step is to add movement and make the branches apparition more smooth.<br>
+Here is the code for p5.js, generated by chatGPT:
+<div class="ex3">
+    <label for="item-4">Show Code</label>
+    <input type="checkbox" name="one" id="item-4" checked = "true">
+    <div class="hide3">
+      <div class="inner3">
+        <pre>
+        <code>
+let axiom = "F";
+let sentence = axiom;
+let rules = [];
+
+// Ajoutez vos règles de production ici
+rules[0] = {
+  a: "F",
+  b: "FF+[+F-F-F]-[-F+F+F]"
+};
+
+let len = 100; // Longueur initiale du segment
+let angle;
+
+function generate() {
+  len *= 0.5; // Réduire la longueur du segment à chaque itération
+  let nextSentence = "";
+  for (let i = 0; i < sentence.length; i++) {
+    let current = sentence.charAt(i);
+    let found = false;
+    for (let j = 0; j < rules.length; j++) {
+      if (current == rules[j].a) {
+        found = true;
+        nextSentence += rules[j].b;
+        break;
+      }
+    }
+    if (!found) {
+      nextSentence += current;
+    }
+  }
+  sentence = nextSentence;
+  createP(sentence); // Afficher la chaîne de caractères correspondante
+  turtle();
+}
+
+function turtle() {
+  background(51);
+  resetMatrix();
+  translate(width / 2, height);
+  stroke(255, 100);
+  for (let i = 0; i < sentence.length; i++) {
+    let current = sentence.charAt(i);
+    if (current == "F") {
+      line(0, 0, 0, -len);
+      translate(0, -len);
+    } else if (current == "+") {
+      rotate(angle);
+    } else if (current == "-") {
+      rotate(-angle);
+    } else if (current == "[") {
+      push();
+    } else if (current == "]") {
+      pop();
+    }
+  }
+}
+
+function setup() {
+  createCanvas(800, 600);
+  angle = radians(25); // Angle de rotation des branches
+  background(51);
+  createP(axiom); // Afficher l'axiome initial
+  turtle();
+  
+  let button = createButton("Générer");
+  button.mousePressed(generate);
+}
+        </code>
+        </pre>
+      </div>
+    </div>  
+</p>
+</article>
+<hr>
+
 <article>
     <p>
         
         <time>June 09, 2023</time><br>
         <em> ~ H Y D R A ~ </em> <br />   
-   
+        
         I'm tinkering with Hydra, learning to properly use feedback, here is my latest work.
         <div class="ex3">
             <label for="item-3">Show Code</label>
