@@ -94,7 +94,14 @@ body {
 section {
     margin-bottom: var(--spacing-xl);
 }
-
+.inline-image {
+    display: inline-block;
+    width: 1em; /* Adjust the width to match your preferred size */
+    height: 1em; /* Adjust the height to match your preferred size */
+    vertical-align: middle;
+    /* Optionally, you can add some margin to adjust the spacing between the image and text */
+    margin-right: 0.2em; /* Adjust the margin to your preference */
+  }
 /* -----------------------------------
 Header
 -------------------------------------- */
@@ -143,7 +150,7 @@ Typography
 
 h1, h2 {
     font-family: var(--font-serif);
-    font-size: calc(27px + (27 - 22) * ((180vw - 400px) / (600 - 400)));
+    font-size: calc(26.5px + (5) * ((179vw - 380px) / (620 - 400)));
     font-weight: 700;
     margin: var(--spacing-s) 0;
     color: darkolivegreen;
