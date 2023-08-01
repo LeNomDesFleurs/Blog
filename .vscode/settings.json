@@ -7,5 +7,6 @@
         "Keystep",
         "Sinensis",
         "Tamaris"
-    ]
+    ],
+    "background.enabled" : false
 }
