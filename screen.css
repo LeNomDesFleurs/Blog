@@ -174,6 +174,7 @@ a {
     text-decoration-color: var(--color-dim);
     text-decoration-thickness: 0.5px;
     text-underline-offset: 0.05em;
+    font-style: italic;
 }
 
 a:hover {
