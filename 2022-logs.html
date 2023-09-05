@@ -23,7 +23,6 @@
         <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
         <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">  -->
         <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
-        
         <meta name="msapplication-TileColor" content="#000000">
         <meta name="theme-color" content="#ffffff">
         
@@ -38,30 +37,40 @@
         <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     </head>
     
-
+    
     
     <body>            
         <header>
             <div>
+                <h1><i>L ~ N ~ D ~ F</i></h1>
+                <i>Noise &amp; other concern</i><br>
+                Paris, France<br>
+                ThomasVGuillory@gmail.com<br>
+                <br>
+                <a href="About.html">About</a>
+                - <i>Blog</i> 
+                - <a href="Projects.html">Projects</a> 
+                - <a href="Downloads.html">Downloads</a> 
+                - <a href = Links.html>Links</a> 
+                - <img src="/Media/webringgrey.svg" alt="Image" class="inline-image"><a href= https://webring.xxiivv.com>Webring</a>
 
-      <h1><i>L ~ N ~ D ~ F</i></h1>
-      <i>Modular, noise &amp; other concern</i><br>
-      Paris, France<br>
-      ThomasVGuillory@gmail.com<br>
-      <a href="Projects.html">Projects</a> 
-      - <a href="Downloads.html">Downloads</a> 
-      - Blog 
-      - <a href="About.html">About</a>
-    </div>
-</header>
-<p>
-    <i>
-    This web page is a stream of thought.<br/>
-    Pictures are purposely overly compressed to keep it light-weight.<br/>
-    All audio files are low bitrate Mp3.
-    </i>
-</p>
-<hr>
+
+            </div>
+            <!-- <a href="https://webring.xxiivv.com" target="_blank" rel="noopener">
+              <img src="Media/webringgrey.svg" alt="XXIIVV webring"/>
+            </a> -->
+        </header>
+        <!--
+            <canvas class="glslCanvas" data-fragment-url="Media/GLTEST.frag" width="500" height="500"></canvas>
+        -->
+        <p>
+            <i>
+                This web page is a stream of thought.<br/>
+                Pictures are purposely overly compressed to keep it light-weight.<br/>
+                All audio files are low bitrate Mp3.
+            </i>
+        </p>
+        <hr>
 <p> <a href = "index.html">2023</a> - 2022</p>
 
         <p>
@@ -75,7 +84,7 @@
             Buffer reset each time a parameter is tweaked, I got to rewrite the resize function to keep data (using some kind of pitching?).
             Here is the first draft for the panel and a sound sample.
             <figure>
-                <img src="Media/221229Hellebore.png" alt="" width="803" height="513">
+                <img loading = lazy src="Media/221229Hellebore.png" alt="" width="803" height="513">
                 <figcaption>Sometimes it's hard to find captions</figcaption>
             </figure>
             <audio controls>
@@ -109,7 +118,7 @@
             In a sense it is reassuring to find the same answer that good designers found.
             There is still a lot to explore in Module interfaces, I should try new things.
             <figure>
-                <img src="Media/221224Sinensis.png" alt="Sinensis comparison" width="803" height="513">
+                <img loading = lazy src="Media/221224Sinensis.png" alt="Sinensis comparison" width="803" height="513">
                 <figcaption>Comparison of old and new panels</figcaption>
             </figure>
             </p> 
@@ -136,7 +145,7 @@
             I have recently made a document about analog tape for my studies and discovered an interesting fact : warping and granular processing is a really old concept.
             The Tonschreiber b, an old (1944) recorder of AEG used 4 magnetic head on a motor. With this tool, you may slow down the tape, but speed up the motor, so the relative speed is the same, and each head read a grain that overlap one another. That the same basic concept of most modern stretching algorithms.
             <figure>
-                <img src="Media/221217Tape.png" alt="the magnetic head" width="803" height="513">
+                <img loading = lazy src="Media/221217Tape.png" alt="the magnetic head" width="803" height="513">
                 <figcaption>Each ring is a head</figcaption>
             </figure>
         </p>
@@ -148,7 +157,7 @@
             Big progress on NOI Modules, Sunflower code as been refactored (and thus isn't working anymore, old bug resurface, should be easy enough to correct).
             <br />I added some ornaments, ascii line on top and bottom, each module as its own signature, also added the NOI logo on the bottom of all panels.
             <figure>
-                <img src="Media/221206AllModule.png" alt="All designs side by side" width="803" height="513">
+                <img loading = lazy src="Media/221206AllModule.png" alt="All designs side by side" width="803" height="513">
                 <figcaption>Notice the sick NOI logo from Shanti Heath</figcaption>
             </figure>
         </p>
@@ -159,7 +168,7 @@
             I think this can be transformed to a full-fledged CV module. it's not really in my philosophy of modular to have a mechanism that has no input, no output and a single parameter.
             I wanna try a looping noise with parameter for the size of the buffer, were each noise buffer is played two time, is a frequency going to emerge ?
             <figure>
-                <img src="Media/221206Volubilis.png" alt="New Module" width="803" height="513">
+                <img loading = lazy src="Media/221206Volubilis.png" alt="New Module" width="803" height="513">
                 <figcaption>Noise output used as a test out for the wind CV</figcaption>
             </figure>
         </p>
@@ -168,7 +177,7 @@
             <br />I was trying to implement a bunch of stuff to train myself (filter and reverb mostly) all of it led to a clanky multi-effect daisy chaining stuff that as nothing to do together.
             <br />Nonetheless it has a funny sound and I like it so I made a new arrangement, allowing for big knob (yay).
             <figure>
-                <img src="Media/221206WiltComp.png" alt="comparison of the three design" width="803" height="513">
+                <img loading = lazy src="Media/221206WiltComp.png" alt="comparison of the three design" width="803" height="513">
                 <figcaption>Still need a symbols for the vca (the white circle on the signal path)</figcaption>
             </figure>
         </p>
@@ -221,11 +230,11 @@
             I have modified the behavior of bandpass over 20k Hz, now they fold back in audio range, bouncing back at 20Hz, it creates nice sweep.
             <br />
             <figure>
-                <img src="Media/161122TectorumComp.png" alt="comparison of the three design" width="803" height="513">
+                <img loading = lazy src = "Media/161122TectorumComp.png" alt="comparison of the three design" width="803" height="513">
                 <figcaption>It's getting better</figcaption>
             </figure>
             <figure>
-                <img src="Media/161122AllModule.png" alt="All my module side by side" width="575" height="387">
+                <img loading = lazy src="Media/161122AllModule.png" alt="All my module side by side" width="575" height="387">
                 <figcaption>Big knobs are neat</figcaption>
             </figure>
 
@@ -245,7 +254,7 @@
                 Your browser does not support the audio element.
             </audio>
             <figure>
-                <img src="Media/101122schematic.jpg" alt="Schematic for the noise" width="1020" height="491">
+                <img loading = lazy src="Media/101122schematic.jpg" alt="Schematic for the noise" width="1020" height="491">
                 <figcaption>I haven't waited for the ink to dry</figcaption>
             </figure>
 

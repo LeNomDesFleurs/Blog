@@ -32,7 +32,15 @@ html#post {
     --color-dim: #93918F;
     --color-vdim: #c9c5c1;
 }
-
+/* Initially hide all sections */
+section {
+    display: none;
+  }
+  
+  /* Show the targeted section when it's the target of the URL (e.g., when a menu item is clicked) */
+  section:target {
+    display: block;
+  }
 /* -----------------------------------
 Fonts
 -------------------------------------- */
