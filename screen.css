@@ -178,16 +178,21 @@ h3 {
 }
 
 a {
-    color: var(--color-default);
+    /* color: var(--color-default); */
     text-decoration-color: var(--color-dim);
     text-decoration-thickness: 0.5px;
     text-underline-offset: 0.05em;
     font-style: italic;
+    color: rgb(89, 89, 89);
+    transition: color 0.5s ease; /* Add a transition for the color property */
+   
 }
 
 a:hover {
-    transition: color 0.2s ease-in;
-    color: var(--color-highlight);
+    /* transition: color 0.2s ease-in; */
+    color: rgb(66, 66, 66);
+    /* var(--color-highlight); */
+
 }
 
 h3 a {
@@ -383,11 +388,16 @@ iframe[src*="youtube"] {
 label {
     display: block;
     margin: 20px 0 0;
+    color:rgb(63, 63, 63);
+    transition: color 0.5s ease;
     /* border-bottom: 1px solid green; */
   }
   label:hover {
-    text-decoration: underline;
+    color: grey;
+    /* var(--color-highlight); */
+    /* text-decoration: underline dotted blue; */
   }
+
   input {
     position: absolute;
     left: -999em;
@@ -399,7 +409,7 @@ label {
     height: 150px; /* any arbitrary height but best at the minimum initial height you would want. */
     overflow: hidden;
     /* background: red; */
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
     /* border-left: 1px solid #000;
     border-right: 1px solid #000; */
   }
