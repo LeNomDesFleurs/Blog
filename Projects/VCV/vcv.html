@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html id="post" class=" zbzjavtam idc0_344"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <link rel="stylesheet" href="/./../screen.css" type="text/css">
+    <link rel="stylesheet" href="/./../print.css" type="text/css">
+    
+    <!-- Primary Meta Tags -->
+    <title>Le Nom des Fleurs</title>
+    <meta name="title" content="Le Nom Des Fleurs">
+    <meta name="description" content="Site personnel de Thomas Guillory">
+    <meta name="author" content="Thomas Guillory">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <!-- Fav Icon
+        <link rel="apple-touch-icon" sizes="180x180" href="https://frankchimero.com/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://frankchimero.com/favicon-16x16.png">
+        <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
+        <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">  -->
+        <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="theme-color" content="#ffffff">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://lenomdesfleurs.github.io/blogging-site/">
+        <meta property="og:title" content="Thomas Guillory - Stream of Thought">
+        <meta property="og:description" content="Site Personnel de Thomas Guillory">
+        <meta property="og:image" content="">
+        
+        <script src="https://unpkg.com/hydra-synth"></script>
+        <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    </head>
+<body>
+    <header>
+        <div>
+    <h1><i>VCV</i></h1>
+    <br>
+    <a href = /./../Projects.html>Back To Projects</a>
+    </div>    
+</header>
+<div class="ex3">
+    <label for="item-4"><h3>Git / Github cheatsheet</h3></label>
+    <input type="checkbox" name="one" id="item-4" checked = "true">
+    <div class="hide3">
+      <div class="inner3">
+
+    
+<h1 id="-init-et-remote-"><em>INIT ET REMOTE</em></h1>
+<h4 id="cr-er-le-repo">Créer le repo</h4>
+<p>Using Github CLI</p>
+<p>run <code>gh auth login</code></p>
+<p>puis <code>gh repo create [name] --public</code></p>
+<h4 id="create-git">Create Git</h4>
+<pre><code class="lang-bash">#<span class="hljs-number">1</span>: Create <span class="hljs-keyword">a</span> folder <span class="hljs-keyword">for</span> this project <span class="hljs-keyword">on</span> your local hard drive
+<span class="hljs-built_in">mkdir</span> my-project
+
+#<span class="hljs-number">2</span>: <span class="hljs-keyword">change</span> into this folder
+<span class="hljs-keyword">cd</span> my-project
+
+#<span class="hljs-number">3</span>: initialize <span class="hljs-keyword">a</span> <span class="hljs-keyword">new</span>, <span class="hljs-built_in">empty</span> Git repository here
+git init
+
+...after having written some code + created some <span class="hljs-keyword">files</span>...
+#<span class="hljs-number">4</span>: <span class="hljs-built_in">add</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">changes</span> <span class="hljs-keyword">to</span> the <span class="hljs-keyword">next</span> (= <span class="hljs-keyword">first</span>) commit
+git <span class="hljs-built_in">add</span> .
+
+#<span class="hljs-number">5</span>: create the <span class="hljs-keyword">first</span> commit
+git commit -<span class="hljs-keyword">m</span> <span class="hljs-string">"Initial commit"</span>
+</code></pre>
+<h4 id="link-git-to-github-repo">Link Git to Github Repo</h4>
+<pre><code class="lang-bash">git remote <span class="hljs-keyword">add</span> origin https:<span class="hljs-comment">//github.com/GithubUserName/RepoName</span>
+git remote -v <span class="hljs-meta">#check <span class="hljs-meta-keyword">if</span> it worked</span>
+git push --<span class="hljs-keyword">set</span>-upstream origin master
+</code></pre>
+<h4 id="add-a-sub-module">Add a sub module</h4>
+<pre><code class="lang-bash"><span class="hljs-symbol">git</span> <span class="hljs-keyword">submodule </span><span class="hljs-keyword">add </span>[github link]
+</code></pre>
+<h3 id="clone-private-repo">Clone Private Repo</h3>
+<pre><code class="lang-bash">git clone <span class="hljs-link">https://</span>[<span class="hljs-string">PAT</span>]@github.com/[account]/[repo].git
+</code></pre>
+<p>Generate Private Acess Token at</p>
+<p>/Settings/Developer Settings/Personal access Token</p>
+<p><a href="https://stackoverflow.com/questions/2505096/clone-a-private-repository-github">Source stackOF</a></p>
+<h1 id="-branch-"><em>BRANCH</em></h1>
+<p>COMMIT BEFORE DOING ANYTHING</p>
+<p>origin : alias du remote</p>
+<h4 id="create-branch-from-master">Create Branch From Master</h4>
+<pre><code class="lang-bash">git branch &lt;<span class="hljs-keyword">new</span><span class="hljs-type"></span>-branch&gt;
+</code></pre>
+<h4 id="create-new-branch-from-a-branch">Create New branch from a branch</h4>
+<pre><code class="lang-bash"><span class="hljs-symbol">git</span> checkout -<span class="hljs-keyword">b </span>&lt;new-<span class="hljs-keyword">branch&gt; </span>&lt;existing-<span class="hljs-keyword">branch&gt;</span>
+</code></pre>
+<h4 id="switch-branch">Switch Branch</h4>
+<pre><code class="lang-bash">git checkout <span class="hljs-tag">&lt;<span class="hljs-name">branch</span>&gt;</span>
+</code></pre>
+<h4 id="merge-branch-in-master">Merge Branch in Master</h4>
+<pre><code class="lang-bash">git checkout <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> pull [origin] <span class="hljs-keyword">master</span>
+<span class="hljs-title">git</span> merge branch
+git push [origin] <span class="hljs-literal">master</span>
+</code></pre>
+<h4 id="merge-master-in-branch">Merge Master in Branch</h4>
+<pre><code class="lang-bash">git checkout <span class="hljs-string">[branch]</span>
+git pull <span class="hljs-string">[origin]</span> master
+</code></pre>
+<h4 id="delete-branch">Delete branch</h4>
+<pre><code class="lang-bash">git branch -d  <span class="hljs-string">[branch]</span>
+</code></pre>
+<h4 id="add-and-commit">Add and Commit</h4>
+<pre><code class="lang-bash"><span class="hljs-attribute">git</span> commit -am <span class="hljs-string">"message"</span>
+</code></pre>
+<h4 id="add-alias-ac-for-the-previous-command">Add Alias &quot;ac&quot; for the previous command</h4>
+<pre><code class="lang-bash">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> <span class="hljs-keyword">alias</span><span class="hljs-variable">.ac</span> <span class="hljs-string">"commit -am"</span>
+</code></pre>
+<h4 id="edit-comment">Edit comment</h4>
+<pre><code class="lang-bash"><span class="hljs-string">git </span><span class="hljs-built_in">--amend</span> -m <span class="hljs-string">"edited message"</span>
+</code></pre>
+<h4 id="rollback-to-a-commit">Rollback to a commit</h4>
+<pre><code class="lang-bash"><span class="hljs-symbol">git</span> <span class="hljs-keyword">revert </span>&lt;commitID&gt;
+</code></pre>
+<h4 id="test-successive-commit-to-find-bug-origin">Test successive commit to find bug origin</h4>
+<pre><code class="lang-bash">git <span class="hljs-keyword">bisect </span>&lt;commit de départ&gt;
+git <span class="hljs-keyword">bisect </span>good <span class="hljs-comment">#To Go to next commit</span>
+</code></pre>
+<h4 id="nice-logs">Nice logs</h4>
+<pre><code class="lang-bash"><span class="hljs-comment">git</span> <span class="hljs-comment">log</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">graph</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">oneline</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">decorate</span>
+</code></pre>
+<h4 id="go-back-to-previous-branch">Go Back to previous Branch</h4>
+<pre><code class="lang-bash"><span class="hljs-attribute">git</span> checkout -
+</code></pre>
+<p><a href="https://download-directory.github.io/">Download a directory</a></p>
+
+        
+    </div>
+</div>  
+
+
+
+</body>
+
+
+
