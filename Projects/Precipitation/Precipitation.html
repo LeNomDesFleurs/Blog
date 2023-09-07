@@ -44,9 +44,71 @@
     <a href = /./../Projects.html>Back To Projects</a>
     </div>    
 </header>
+
+<h3 style="color:rgb(163, 125, 55)">TouchDesigner</h3>
+
 <div class="ex3">
-    <label for="item-4"><h3>How To make a flower / Leaf in Touch Designer</h3></label>
-    <input type="checkbox" name="one" id="item-4" checked = "true">
+    <label for="item-0"><em><strong>Basic Knowledge</strong></em></label>
+    <input type="checkbox" name="one" id="item-0" checked = "true">
+    <div class="hide3">
+      <div class="inner3">
+
+        <p><strong>Operators</strong></p>
+<p>TAB to open the operator Window (TAB again to go trough the tabs)</p>
+<ul>
+<li>Components (COMP)<br>
+   <em>Patcher, Camera, light</em></li>
+<li>Texture (TOP)<br>
+   <em>Image File, Video treatment, 2D (Mainly GPU)</em></li>
+<li>Channel (CHOP)<br>
+   <em>Modulation</em></li>
+<li>Surface (SOP)<br>
+   <em>3D Environment (Mainly CPU)</em></li>
+<li>Material (MAT)</li>
+<li>Data (DAT)</li>
+</ul>
+<p>For each family<br>
+Darker Shade : Generator<br>
+Lighter Shade : Filter</p>
+<p><strong>Cable</strong><br>
+Cable can only be plug between objects of the same family
+When they are animated, they are streaming data (cooking)</p>
+<p><strong>Links</strong><br>
+Links are grey lines with moving arrow
+They can be between different operator family</p>
+
+        
+    </div>
+</div>  
+
+
+<div class="ex3">
+    <label for="item-1"><em><strong>Renderer SOP to TOP</strong></em></label>
+    <input type="checkbox" name="one" id="item-1" checked = "true">
+    <div class="hide3">
+      <div class="inner3">
+
+        <p>To render and SOP to TOP (going from 3D to 2D)
+            You&#39;ll need 4 elements</p>
+            <ul>
+            <li>COMP <code>Geometry</code> (What is the form)</li>
+            <li>COMP <code>Camera</code> (Where is the eye)</li>
+            <li>COMP <code>light</code> (Where is the light coming from)</li>
+            <li>TOP <code>Render</code></li>
+            </ul>
+            <p>Input your SOP Composition in the <code>Geometry</code> (For this you need to add the geo by right clicking the output of the SOP)
+            Chose where is the light coming from by tweaking the <code>light</code> parameters
+            Chose where the &quot;eye&quot; is by tweaking the <code>Camera</code> parameters</p>
+            
+       
+        
+    </div>
+</div>  
+
+
+<div class="ex3">
+    <label for="item-2"><em><strong>3D Flower / Leaf</strong></em></label>
+    <input type="checkbox" name="one" id="item-2" checked = "true">
     <div class="hide3">
       <div class="inner3">
 
@@ -141,6 +203,19 @@
         </ul>
         </li>
         </ul>
+       
+        
+    </div>
+</div>  
+
+
+
+<div class="ex3">
+    <label for="item-3"><em><strong>Texture and Color</strong></em></label>
+    <input type="checkbox" name="one" id="item-3" checked = "true">
+    <div class="hide3">
+      <div class="inner3">
+
         <h4 id="add-texture">Add texture</h4>
         <ul>
         <li>Add a SOP <code>texture</code> after the <code>Attribute Create</code></li>
@@ -183,7 +258,4 @@
         
     </div>
 </div>  
-
-
-
 </body>
