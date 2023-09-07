@@ -235,6 +235,16 @@ figcaption {
     font-size: 14px;
 }
 /* code{
+    background-color: #0000005f;
+} */
+
+.code-container{
+    background-color: #00000025; /* Set the background color to a dark shade */
+    /* color: white; Set the text color to contrast with the dark background */
+    padding: 10px; /* Add padding for better visual appearance */
+    border-radius: 10px; /* Add rounded corners */
+  }
+/* code{
     text-align: center;
     margin-top: var(--spacing-s);
     font-family: var(--font-sans);
@@ -261,7 +271,7 @@ Block Elements
 -------------------------------------- */
 
 hr {
-    margin: var(--spacing-xl) auto;
+    margin: var(--spacing-m) auto;
     max-width: calc(2 * var(--spacing-xxl));
     border: none;
     border-top: 1px solid var(--color-vdim);
@@ -356,6 +366,21 @@ article header {
 /* -----------------------------------
 Limit widths
 -------------------------------------- */
+
+pre{
+    margin-top: 5px; /* Reduce top margin */
+    margin-bottom: 5px; /* Reduce bottom margin */
+}
+
+code{
+    margin-top: 5px; /* Reduce top margin */
+    margin-bottom: 5px; /* Reduce bottom margin */
+}
+
+div{
+    margin-top: 5px; /* Reduce top margin */
+    margin-bottom: 5px; /* Reduce bottom margin */
+}
 
 body>header, article>header,
 h1, h2, h3, time,
