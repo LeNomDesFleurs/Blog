@@ -184,8 +184,9 @@ a {
     text-decoration-color: var(--color-dim);
     text-decoration-thickness: 0.5px;
     text-underline-offset: 0.05em;
+    text-decoration: none;
     font-style: italic;
-    color: rgb(89, 89, 89);
+    color: rgb(114, 114, 114);
     transition: color 0.5s ease; /* Add a transition for the color property */
    
 }
@@ -488,3 +489,12 @@ label {
       margin: 0;
       padding-left: 1em;}
 
+.center-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        /* height: 100vh; Set a fixed height for the container, e.g., viewport height (vh) */
+    }
+.center-container>img{
+    border-radius: 20px;
+}
