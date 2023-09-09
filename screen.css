@@ -3,7 +3,7 @@ Variables
 -------------------------------------- */
 
 :root {
-    --color-bg: #242120;
+    --color-bg: #322e2d;
     --color-highlight: #F8F6F5;
     --color-default: #BAB6B1;
     --color-dim: #797673;
@@ -137,6 +137,8 @@ body>header a {
     text-decoration: none;
 }
 
+
+
 /* -----------------------------------
 Footer
 -------------------------------------- */
@@ -244,6 +246,31 @@ figcaption {
     padding: 10px; /* Add padding for better visual appearance */
     border-radius: 10px; /* Add rounded corners */
   }
+
+  .knowledge{
+    background-color: #00000016; /* Set the background color to a dark shade */
+    /* color: white; Set the text color to contrast with the dark background */
+    padding: 10px; /* Add padding for better visual appearance */
+    /* margin: 10px; */
+    border-radius: 10px; /* Add rounded corners */
+
+    padding-left: 2em;  /* Add left padding */
+    padding-right: 2em; /* Add right padding */
+  }
+  .knowledge hr {
+    border-color: rgb(113, 113, 113); /* Set the color to red */
+    /* border-style: dotted; */
+
+    border: none; /* Remove the default line */
+      width: 50%; /* Set the width to 50% for a centered line */
+      height: 2px; /* Adjust the height as needed */
+      background: repeating-linear-gradient(90deg, #ccc, #ccc 4px, transparent 4px, transparent 8px); /* Create a repeating linear gradient for the dotted pattern */
+      margin: 20px auto; /* Center the line horizontally and adjust the top margin as needed */
+    
+  }
+  .knowledge code{
+    color:rgb(68, 114, 57);
+  }
 /* code{
     text-align: center;
     margin-top: var(--spacing-s);
@@ -284,6 +311,7 @@ figure, video, audio {
 }
 
 figure img {
+    border-radius: 20px;
     width: 100%;
     height: auto;
 }
@@ -433,18 +461,30 @@ label {
     display: table;
     height: 150px; /* any arbitrary height but best at the minimum initial height you would want. */
     overflow: hidden;
-    /* background: red; */
     transition: all 0.7s ease;
-    /* border-left: 1px solid #000;
-    border-right: 1px solid #000; */
+
   }
+
   .inner3 {
-    padding: 10px;
+      background-color: #00000016;
+      border-radius: 10px;
+      padding-left: 2em; 
+      padding-right: 2em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      max-width: var(--spacing-width-max);
+      overflow-x: auto;
+      box-sizing: border-box;
   }
-  .ex3 input[type="checkbox"]:checked + .hide3 {
-    height: 0;
-    opacity: 0;
-    display: block;
-  }
+
   
+  .ex3 input[type="checkbox"]:checked + .hide3 {
+      height: 0;
+      opacity: 0;
+      display: block;
+    }
+    
+    ol{list-style-type: decimal;
+      margin: 0;
+      padding-left: 1em;}
 
