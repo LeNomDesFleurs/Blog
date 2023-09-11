@@ -498,3 +498,30 @@ label {
 .center-container>img{
     border-radius: 20px;
 }
+
+
+.title-link{
+    /* color: var(--color-default); */
+    font-family: 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
+    font-size: calc(26.5px + (5) * ((179vw - 380px) / (620 - 400)));
+    font-weight: 700;
+    margin: var(--spacing-s) 0;
+    padding:0px;
+    text-decoration-color: var(--color-dim);
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 0.05em;
+    text-decoration: none;
+    font-style: italic;
+    color: darkolivegreen; 
+    transition: color 0.5s ease; /* Add a transition for the color property */
+   
+}
+
+.title-link:hover {
+    /* transition: color 0.2s ease-in; */
+    /* var(--color-highlight); */
+    color: darkolivegreen;
+
+
+}
