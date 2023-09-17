@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html id="post" class=" zbzjavtam idc0_344"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <link rel="stylesheet" href="/./../screen.css" type="text/css">
+    <link rel="stylesheet" href="/./../print.css" type="text/css">
+    
+    <!-- Primary Meta Tags -->
+    <title>Le Nom des Fleurs</title>
+    <meta name="title" content="Le Nom Des Fleurs">
+    <meta name="description" content="Site personnel de Thomas Guillory">
+    <meta name="author" content="Thomas Guillory">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <!-- Fav Icon
+        <link rel="apple-touch-icon" sizes="180x180" href="https://frankchimero.com/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://frankchimero.com/favicon-16x16.png">
+        <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
+        <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">  -->
+        <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="theme-color" content="#ffffff">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://lenomdesfleurs.github.io/blogging-site/">
+        <meta property="og:title" content="Thomas Guillory - Stream of Thought">
+        <meta property="og:description" content="Site Personnel de Thomas Guillory">
+        <meta property="og:image" content="">
+        
+        <script src="https://unpkg.com/hydra-synth"></script>
+        <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    </head>
+<body>
+    <header>
+        <div class="title-link">
+                <a href = /./../Knowledge.html>  &#8592; Parameters</a>
+        </div>    
+</header>
+
+
+<div>
+<p>
+    There are so much ways to map parameters to variable.<br>
+    I wanted to give a non-exhaustive overview of what I found and what is left to try.<br>
+    I'll refer to <em>parameter</em> as the interface element that let the user interact with the <em>variable</em> which is the value that will be use for computation.
+
+</p>    <br>
+    <h4> One-to-One</h4>
+    <p>
+    The most obvious way of doing this is to simply map the value of the parameter to the value of the variable.<br>
+    Nonetheless, a lot of choices have to be made to obtain an effective and enjoyable parameter.
+    <br>The first thing to tune is the course of the knob, the default is <em>linear</em>, the value of the parameter is the same as the value of the variable.
+    Depending on the nature of your variable, non linear mapping may be more significant.<br>
+    The textbook case is the frequency: it is percieved logarithmically, thus you'll need to exponentiate you mapping.
+    <br>This is from a plain perceptive point of view, but log and exp can also be useful to manage where the interesting part of your parameters are.<br>
+    Most of the feedback path can quickly become unstable, you'll need a lot of precision around this treshold.<br>
+    You can shape multiple stage of the knob with different fonction to have a smooth and precise setting over the whole range, emphasizing some sound and sweet spot you've found.<br>
+</p>
+    <h4>One-to-Multiple</h4>
+    <p>
+    perceptual
+    tuned controling duplicated system / controling complex system
+
+</p>
+<h4>Interface</h4>
+<p>
+    All of this is useless without proper interface to support coherence and to add cognitive support.<br>
+    <ul>
+        <li>Slider</li>
+        <li>Knob</li>
+        <li>Switch</li>
+        <li>Multiple State Switch</li>
+        <li>New Stuff</li>
+    </ul>
+    Things you want to visualize:
+    <ul>
+        <li>name</li> what name should you choose, if well known effect, use the well know name, if not, look for the feeling, or reference to other effect you can choose forget the technical variable, it won't help guess what sound you'll get, get ccreative and use symbolic / methaforical name, if it's experimental, do wathever you want.
+        names serve two purpose : gusseing the sound before using it for the first time (lure the user to use it)<br>
+        memo of consequence, once you used the parameter once, is the name a good mnemotecnic to remember the feeling of turning the knob ??
+        <li>Consequence</li>
+        <li>Absolute Value</li>
+        <li>Unit</li>
+        <li>relative value (percent, slider, perceptual)</li>
+    </ul>
+
+    helped by a visualization that respond to the parameter statuts, it may be generative art, <a href="https://lese.io/plugin/codec/">Codec</a>, from Lese, is a good exemple.<br>
+    <a href="https://www.izotope.com/en/learn/izotope-product-design-creating-the-gauge.html">Izotope - Creating the Gauge</a><br>
+    <a href="https://imagi.ro">Imagi.ro - A great exemple of nice parameter interface</a>
+</p>
+    </div>
+ </body>
