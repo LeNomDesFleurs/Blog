@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html id="post" class=" zbzjavtam idc0_344"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <link rel="stylesheet" href="/./../screen.css" type="text/css">
+    <link rel="stylesheet" href="/./../print.css" type="text/css">
+    
+    <!-- Primary Meta Tags -->
+    <title>Le Nom des Fleurs</title>
+    <meta name="title" content="Le Nom Des Fleurs">
+    <meta name="description" content="Site personnel de Thomas Guillory">
+    <meta name="author" content="Thomas Guillory">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <!-- Fav Icon
+        <link rel="apple-touch-icon" sizes="180x180" href="https://frankchimero.com/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://frankchimero.com/favicon-16x16.png">
+        <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
+        <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">  -->
+        <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="theme-color" content="#ffffff">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://lenomdesfleurs.github.io/blogging-site/">
+        <meta property="og:title" content="Thomas Guillory - Stream of Thought">
+        <meta property="og:description" content="Site Personnel de Thomas Guillory">
+        <meta property="og:image" content="">
+        
+        <script src="https://unpkg.com/hydra-synth"></script>
+        <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    </head>
+<body>
+    <header>
+        <div class="title-link">
+                <a href = /./../Knowledge.html>  &#8592; HTML ~ CSS</a>
+        </div>    
+</header>
+
+
+<div>
+
+
+        <div class="ex3">
+                <label for="inlinecss"><em><strong>~ Inline CSS</strong></em></label>
+                <input type="checkbox" name="one" id="inlinecss" checked = "true">
+                <div class="hide3">
+                    <div class="inner3">
+                        <code>
+                            &lt;p style="color: red; font-size: 20px;"&gt;
+                            <br>paragraph
+                            <br>&lt;/p&gt;
+                        </code><br><br>
+                        To style just a word you can use the <code>span</code> keyword which as no fonctionality.<br> <br>
+                        <code><pre>
+            Une phrase avec un 
+            &lt;stan style="color:red; Font-size: 20px;"&gt; mot &lt;/stan&gt; 
+            rouge
+                        </pre>
+                    </code>
+                    une phrase avec un 
+                    <stan style="color:red; Font-size: 20px;"> mot </stan> 
+                    rouge
+                </div>
+            </div>
+            </div>
+            
+            <div class="ex3">
+                <label for="units"><em><strong>~ HTML Units</strong></em></label>
+                <input type="checkbox" name="one" id="units" checked = "true">
+                <div class="hide3">
+                    <div class="inner3"><p><strong>px (Pixels):</strong></p>
+                        <ul>
+                            <li><code>px</code> is an absolute unit of measurement.</li>
+                            <li>It represents a single dot on a computer screen and is the same size regardless of the screen&#39;s resolution.</li>
+                            <li>It&#39;s not typically affected by the user&#39;s settings, such as font size preferences.</li>
+                            <li>Often used for precise control over element sizes and positioning.</li>
+                        </ul>
+                        <p><strong>em:</strong></p>
+                        <ul>
+                            <li><code>em</code> is a relative unit of measurement.</li>
+                            <li>It is based on the font size of the nearest parent element with a font size defined.</li>
+                            <li>If no parent element has a defined font size, <code>em</code> is based on the browser&#39;s default font size.</li>
+                            <li><code>1em</code> is equal to the font size of the element itself. For example, if an element&#39;s font size is <code>16px</code>, <code>1em</code> is <code>16px</code>.</li>
+                        </ul>
+                        <p><strong>rem (Root em):</strong></p>
+                    <ul>
+                    <li><code>rem</code> is similar to <code>em</code> but is based on the font size of the root (<code>&lt;html&gt;</code>) element rather than the parent element.</li>
+                    <li>This makes it more predictable and easier to control in complex layouts because it&#39;s not affected by nesting.</li>
+                </ul>
+                <p><strong>% (Percentage):</strong></p>
+                <ul>
+                    <li><code>%</code> units are relative to the parent element&#39;s size.</li>
+                    <li>For example, if you set an element&#39;s width to <code>50%</code>, it will be half the width of its parent element.</li>
+                </ul>
+                    <p><strong>vw and vh (Viewport Width and Viewport Height):</strong></p>
+                    <ul>
+                        <li><code>vw</code> represents a percentage of the viewport width, while <code>vh</code> represents a percentage of the viewport height.</li>
+                        <li>These units are used for responsive design, where elements scale based on the size of the viewport.</li>
+                    </ul>
+                    <p><strong>rem (Root em):</strong></p>
+                    <ul>
+                        <li><code>rem</code> is similar to <code>em</code> but is based on the font size of the root (<code>&lt;html&gt;</code>) element rather than the parent element.</li>
+                        <li>This makes it more predictable and easier to control in complex layouts because it&#39;s not affected by nesting.</li>
+                    </ul>
+                    <p><strong>cm, mm, in, pt, pc (Absolute Length Units):</strong></p>
+                    <ul>
+                        <li>These are absolute units of measurement, often used for print stylesheets or when you need precise physical measurements.</li>
+                        <li><code>cm</code> represents centimeters, <code>mm</code> millimeters, <code>in</code> inches, <code>pt</code> points, and <code>pc</code> picas.</li>
+                    </ul>
+                    <p>In general, it&#39;s a good practice to use relative units (<code>em</code>, <code>rem</code>, <code>%</code>, <code>vw</code>, <code>vh</code>) for most layout and sizing purposes, especially in responsive web design. They adapt well to different screen sizes and are more accessible for users who might adjust their default font sizes for readability. Absolute units like <code>px</code> and physical units (<code>cm</code>, <code>mm</code>, <code>in</code>, <code>pt</code>, <code>pc</code>) are often used for specific design elements where precise control is required, such as print stylesheets or when working with fixed-sized elements.</p>
+                    
+                </div>
+            </div>  
+            
+            <div class="ex3">
+                <label for="dropdown"><em><strong>~ Drop Down Menu</strong></em></label>
+                <input type="checkbox" name="one" id="dropdown" checked = "true">
+                <div class="hide3">
+                    <div class="inner3">
+                        <h3>CSS</h3>
+                        <div class="code-container">
+                        <code><pre>
+.ex3 .hide3 {
+    width: 100%;
+    display: table;
+    height: 150px; /*  minimum height you would want. */
+    overflow: hidden;
+    transition: all 0.7s ease;
+}
+
+.inner3 {
+    background-color: #00000016;
+    border-radius: 10px;
+    padding-left: 2em; 
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    max-width: var(--spacing-width-max);
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+.ex3 input[type="checkbox"]:checked + .hide3 {
+    height: 0;
+    opacity: 0;
+    display: block;
+}</pre>
+            </code>
+        </div>
+            <h3>HTML</h3>
+            <code><pre>
+                <div class="code-container">
+&lt;div class="ex3"&gt;
+&lt;label for="newname"&gt;
+&lt;em&gt;&lt;strong&gt;~ Drop Down Menu&lt;/strong&gt;&lt;/em&gt;
+&lt;/label&gt;
+&lt;input type="checkbox" name="one" 
+id="newname" checked = "true"&gt;
+&lt;div class="hide3"&gt;
+&lt;div class="inner3"&gt;
+Stuff Goes here ...
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre></code>
+            
+            </div>
+            </div>  
+        </div>
+            
+            <div class="ex3">
+                <label for="markdownhtml"><em><strong>~ MarkDown To HTML</strong></em></label>
+                <input type="checkbox" name="one" id="markdownhtml" checked = "true">
+                <div class="hide3">
+                    <div class="inner3">
+                        Install cli tool for converting text files<br>
+                        <code>
+                            brew install pandoc<br></code>
+                            Convert file to html and put it in the clipboard (on macos) <br>
+                            <code>
+                            pandoc "filename.md" -t html | pbcopy  <br>
+                        </code>
+            
+            </div>
+            </div>  
+            
+
+    </div>
+ </body>

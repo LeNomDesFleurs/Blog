@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html id="post" class=" zbzjavtam idc0_344"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <link rel="stylesheet" href="/./../screen.css" type="text/css">
+    <link rel="stylesheet" href="/./../print.css" type="text/css">
+    
+    <!-- Primary Meta Tags -->
+    <title>Le Nom des Fleurs</title>
+    <meta name="title" content="Le Nom Des Fleurs">
+    <meta name="description" content="Site personnel de Thomas Guillory">
+    <meta name="author" content="Thomas Guillory">
+    <link rel="canonical" href="https://lenomdesfleurs.github.io/blogging-site/">
+    
+    <!-- Fav Icon
+        <link rel="apple-touch-icon" sizes="180x180" href="https://frankchimero.com/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://frankchimero.com/favicon-16x16.png">
+        <link rel="manifest" href="https://frankchimero.com/site.webmanifest">
+        <link rel="mask-icon" href="https://frankchimero.com/safari-pinned-tab.svg" color="#555555">  -->
+        <link rel="icon" type="image/png" sizes="32x32" href="Media/NOI.png">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="theme-color" content="#ffffff">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://lenomdesfleurs.github.io/blogging-site/">
+        <meta property="og:title" content="Thomas Guillory - Stream of Thought">
+        <meta property="og:description" content="Site Personnel de Thomas Guillory">
+        <meta property="og:image" content="">
+        
+        <script src="https://unpkg.com/hydra-synth"></script>
+        <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    </head>
+<body>
+    <header>
+        <div class="title-link">
+                <a href = /./../Knowledge.html>  &#8592; Github</a>
+        </div>    
+</header>
+
+
+<div>
+
+<h3> > INIT AND REMOTE</h3>
+
+<br>        <h3> Créer le repo </h3>
+<p>
+        Using Github CLI<br>
+        <div class="code-container">
+            <code>
+            run `gh auth login`<br>
+        
+            puis `gh repo create [name] --public`<br>
+        </code>
+        </div>
+    </p>
+        
+        <br><h3> Create Git </h3>
+        
+        <div class="code-container"><code>
+        
+        #1: Create a folder for this project on your local hard drive<br>
+        
+        mkdir my-project<br>
+        
+        #2: change into this folder<br>
+        
+        cd my-project<br>
+        
+        #3: initialize a new, empty Git repository here<br>
+        
+        git init<br>
+        
+        ...after having written some code + created some files...<br>
+        
+        #4: add all changes to the next (= first) commit<br>
+        
+        git add .<br>
+        
+        #5: create the first commit<br>
+        
+        git commit -m "Initial commit"<br>
+        
+        </code></div>
+        
+<br>        <h3> Link Git to Github Repo </h3>
+        
+        <div class="code-container"><code>
+        
+        git remote add origin https://github.com/GithubUserName/RepoName <br>
+        
+        git remote -v #check if it worked<br>
+        
+        git push --set-upstream origin master<br>
+        
+        </code></div>
+        
+<br>        <h3> Add a sub module </h3>
+        
+        <div class="code-container"><code>
+        
+        git submodule add [github link]
+        
+        </code></div>
+        
+<br>        <h3> Clone Private Repo </h3>
+        
+        <div class="code-container"><code>
+        
+        git clone https://[PAT]@github.com/[account]/[repo].git
+        
+        </code></div>
+        
+        Generate Private Acess Token at<br>
+        
+        /Settings/Developer Settings/Personal access Token<br>
+        
+        <a href="https://stackoverflow.com/questions/2505096/clone-a-private-repository-github">StackOF source</a>
+        <br>
+        <br>
+        <h3> > BRANCH</h3>
+        
+        COMMIT BEFORE DOING ANYTHING<br>
+        
+        origin : remote alias
+        
+<br>        <h3> Create Branch From Master </h3>
+        
+        <div class="code-container"><code>
+        
+        git branch [new-branch]
+        
+        </code></div>
+        
+<br>        <h3> Create New branch from a branch </h3>
+        
+        <div class="code-container"><code>
+        
+        git checkout -b [new-branch] [existing-branch]
+        
+        </code></div>
+        
+<br>        <h3> Switch Branch </h3>
+        
+        <div class="code-container"><code>
+        
+        git checkout [branch]
+        
+        </code></div>
+        
+<br>        <h3> Merge Branch in Master </h3>
+        
+        <div class="code-container"><code>
+        
+        git checkout master
+        
+        git pull [origin] master
+        
+        git merge branch
+        
+        git push [origin] master
+        
+        </code></div>
+        
+<br>        <h3> Merge Master in Branch </h3>
+        
+        <div class="code-container"><code>
+        
+        git checkout [branch]
+        
+        git pull [origin] master
+        
+        </code></div>
+        
+<br>        <h3> Delete branch </h3>
+        
+        <div class="code-container"><code>
+        
+        git branch -d [branch]
+        
+        </code></div>
+        
+<br>        <h3> Add and Commit </h3>
+        
+        <div class="code-container"><code>
+        
+        git commit -am "message"
+        
+        </code></div>
+        
+<br>        <h3> Add Alias "ac" for the previous command </h3>
+        
+        <div class="code-container"><code>
+        
+        git config --global alias.ac "commit -am"
+        
+        </code></div>
+        
+<br>        <h3> Edit comment </h3>
+        
+        <div class="code-container"><code>
+        
+        git --amend -m "edited message"
+        
+        </code></div>
+        
+<br>        <h3> Rollback to a commit </h3>
+        
+        <div class="code-container"><code>
+        
+        git revert [commitID]
+        
+        </code></div>
+        
+<br>        <h3> Test successive commit to find bug origin </h3>
+        
+        <div class="code-container"><code>
+        
+        git bisect [commit de départ]<br>
+        
+        git bisect good #To Go to next commit
+        
+        </code></div>
+        
+<br>        <h3> Nice logs </h3>
+        
+        <div class="code-container"><code>
+        
+        git log --graph --oneline --decorate
+        
+        </code></div>
+        
+<br>        <h3> Go Back to previous Branch </h3>
+        
+        <div class="code-container"><code>
+        
+        git checkout -
+        
+        </code></div>
+        <br><br>
+        <a href="https://download-directory.github.io">website to dowload a specific directory from a repo</a>
+    </p>
+    </div>
+ </body>

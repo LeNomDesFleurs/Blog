@@ -411,7 +411,7 @@ div{
     margin-bottom: 5px; /* Reduce bottom margin */
 }
 
-body>header, article>header,
+body>header, article>header, body,
 h1, h2, h3, time,
 p, blockquote, ol, ul, details, pre.code, figcaption,
 .split, .posts, .ex3
@@ -459,6 +459,8 @@ label {
     left: -999em;
   }
 /* example 3 */
+
+
 .ex3 .hide3 {
     width: 100%;
     display: table;

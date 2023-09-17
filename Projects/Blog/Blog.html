@@ -43,151 +43,51 @@
         </div>    
 </header>
 
+<h3>Why</h3>
 <p>
-<h3 style="color:darkolivegreen">HTML / CSS</h3>
+Strolling throught the web I encountered more and more nice and slick blog of artists and developers.
+<br>
+People having blog often encourage other to go through the same path, such as Marc Weidenbaum in <a href="https://disquiet.com/2021/04/10/q-why-blog-a-blogs-are-great/">this article</a>.<br>
+Having a blog with your projects is also a nice way to quickly show people what you do, it can also act as a kind of "business card".<br>
+All my work is very niche for a lot of people, it's easier to answer the classic "what do you do for a living?" by showing stuff online.<br>
+I was also searching for a way to learn a bit of HTML / CSS, and to train my english, this was a nice occasion.
+<br>
+<h3>Ethics</h3>
+
+<p>
+Coding HTML / CSS (<a href="/./../Knowledge/HTML~CSS.html">Link to the page with some of the stuff I learned</a>), I learned more and more about the <a href="https://idlewords.com/talks/website_obesity.htm">Web Obesity</a>. <br>
+It just doesn't make sense to do what I do with a lot of technology.
+<br>
+Using HTML / CSS doesn't feel like a limit, they are just the right tools for the task.<br>
+Using more tools would lead me to add unnecessary stuff (if you have a tool, you'll want to use it).
+<br>
+The same can be applied to medias, minimalism and dithering are integral parts of the whole esthetic.<br><br>
+Here are some thought-full articles that inspired me to continue along this path :
+<ul>
+<li>
+    <a href="https://frankchimero.com/blog/2015/the-webs-grain/">The Web's Grain</a> - The article where the base CSS of my blog come from
+</li>
+<li><a href="https://www.itsnicethat.com/articles/victor-hwang-mater-project-graphic-design-071122">It's Nice That Article</a> - Designer Point Of View</li>
+<li><a href="https://solar.lowtechmagazine.com/about/the-solar-website/"> Low Tech Magazine About Page</a> - A more technical approach</li>
+<li><a href = http://bettermotherfuckingwebsite.com>BetterMotherFuckingWebsite</a> - ironic statement on the power of few lines of CSS</li>
+</ul>
 
 
-<div class="ex3">
-    <label for="inlinecss"><em><strong>~ Inline CSS</strong></em></label>
-    <input type="checkbox" name="one" id="inlinecss" checked = "true">
-    <div class="hide3">
-        <div class="inner3">
-            <code>
-                &lt;p style="color: red; font-size: 20px;"&gt;
-                <br>paragraph
-                <br>&lt;/p&gt;
-            </code><br><br>
-            To style just a word you can use the <code>span</code> keyword which as no fonctionality.<br> <br>
-            <code><pre>
-Une phrase avec un 
-&lt;stan style="color:red; Font-size: 20px;"&gt; mot &lt;/stan&gt; 
-rouge
-            </pre>
-        </code>
-        une phrase avec un 
-        <stan style="color:red; Font-size: 20px;"> mot </stan> 
-        rouge
-    </div>
-</div>
-</div>
-
-<div class="ex3">
-    <label for="units"><em><strong>~ HTML Units</strong></em></label>
-    <input type="checkbox" name="one" id="units" checked = "true">
-    <div class="hide3">
-        <div class="inner3"><p><strong>px (Pixels):</strong></p>
-            <ul>
-                <li><code>px</code> is an absolute unit of measurement.</li>
-                <li>It represents a single dot on a computer screen and is the same size regardless of the screen&#39;s resolution.</li>
-                <li>It&#39;s not typically affected by the user&#39;s settings, such as font size preferences.</li>
-                <li>Often used for precise control over element sizes and positioning.</li>
-            </ul>
-            <p><strong>em:</strong></p>
-            <ul>
-                <li><code>em</code> is a relative unit of measurement.</li>
-                <li>It is based on the font size of the nearest parent element with a font size defined.</li>
-                <li>If no parent element has a defined font size, <code>em</code> is based on the browser&#39;s default font size.</li>
-                <li><code>1em</code> is equal to the font size of the element itself. For example, if an element&#39;s font size is <code>16px</code>, <code>1em</code> is <code>16px</code>.</li>
-            </ul>
-            <p><strong>rem (Root em):</strong></p>
-        <ul>
-        <li><code>rem</code> is similar to <code>em</code> but is based on the font size of the root (<code>&lt;html&gt;</code>) element rather than the parent element.</li>
-        <li>This makes it more predictable and easier to control in complex layouts because it&#39;s not affected by nesting.</li>
-    </ul>
-    <p><strong>% (Percentage):</strong></p>
-    <ul>
-        <li><code>%</code> units are relative to the parent element&#39;s size.</li>
-        <li>For example, if you set an element&#39;s width to <code>50%</code>, it will be half the width of its parent element.</li>
-    </ul>
-        <p><strong>vw and vh (Viewport Width and Viewport Height):</strong></p>
-        <ul>
-            <li><code>vw</code> represents a percentage of the viewport width, while <code>vh</code> represents a percentage of the viewport height.</li>
-            <li>These units are used for responsive design, where elements scale based on the size of the viewport.</li>
-        </ul>
-        <p><strong>rem (Root em):</strong></p>
-        <ul>
-            <li><code>rem</code> is similar to <code>em</code> but is based on the font size of the root (<code>&lt;html&gt;</code>) element rather than the parent element.</li>
-            <li>This makes it more predictable and easier to control in complex layouts because it&#39;s not affected by nesting.</li>
-        </ul>
-        <p><strong>cm, mm, in, pt, pc (Absolute Length Units):</strong></p>
-        <ul>
-            <li>These are absolute units of measurement, often used for print stylesheets or when you need precise physical measurements.</li>
-            <li><code>cm</code> represents centimeters, <code>mm</code> millimeters, <code>in</code> inches, <code>pt</code> points, and <code>pc</code> picas.</li>
-        </ul>
-        <p>In general, it&#39;s a good practice to use relative units (<code>em</code>, <code>rem</code>, <code>%</code>, <code>vw</code>, <code>vh</code>) for most layout and sizing purposes, especially in responsive web design. They adapt well to different screen sizes and are more accessible for users who might adjust their default font sizes for readability. Absolute units like <code>px</code> and physical units (<code>cm</code>, <code>mm</code>, <code>in</code>, <code>pt</code>, <code>pc</code>) are often used for specific design elements where precise control is required, such as print stylesheets or when working with fixed-sized elements.</p>
-        
-    </div>
-</div>  
-
-<div class="ex3">
-    <label for="dropdown"><em><strong>~ Drop Down Menu</strong></em></label>
-    <input type="checkbox" name="one" id="dropdown" checked = "true">
-    <div class="hide3">
-        <div class="inner3">
-            <h3>CSS</h3>
-            <code><pre>
-                
-.ex3 .hide3 {
-    width: 100%;
-    display: table;
-    height: 150px; /* any arbitrary height but best at the minimum initial height you would want. */
-    overflow: hidden;
-    transition: all 0.7s ease;
-}
-
-.inner3 {
-    background-color: #00000016;
-    border-radius: 10px;
-    padding-left: 2em; 
-    padding-right: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    max-width: var(--spacing-width-max);
-    overflow-x: auto;
-    box-sizing: border-box;
-}
-
-.ex3 input[type="checkbox"]:checked + .hide3 {
-    height: 0;
-    opacity: 0;
-    display: block;
-}
-
-</pre>
-</code>
-<h3>HTML</h3>
-<code><pre>
-    
-&lt;div class="ex3"&gt;
-&lt;label for="newname"&gt;&lt;em&gt;&lt;strong&gt;~ Drop Down Menu&lt;/strong&gt;&lt;/em&gt;&lt;/label&gt;
-&lt;input type="checkbox" name="one" id="newname" checked = "true"&gt;
-&lt;div class="hide3"&gt;
-&lt;div class="inner3"&gt;
-Stuff Goes here ...
-&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;/div&gt;
-    
-</pre></code>
-
-</div>
-</div>  
-
-<div class="ex3">
-    <label for="markdownhtml"><em><strong>~ MarkDown To HTML</strong></em></label>
-    <input type="checkbox" name="one" id="markdownhtml" checked = "true">
-    <div class="hide3">
-        <div class="inner3">
-            Install cli tool for converting text files<br>
-            <code>
-                brew install pandoc<br></code>
-                Convert file to html and put it in the clipboard (on macos) <br>
-                <code>
-                pandoc "filename.md" -t html | pbcopy  <br>
-            </code>
-
-</div>
-</div>  
+</p>
+<h3>How it begins and expanded</h3>
+<p>
+It started in a very minimalistic way, the original goal was to only have the "blog" tab, all the website was supposed to be a stream of thought.<br>
+But as I continue discoering new blogs, especially those from the <a href="https://webring.xxiivv.com">Webring</a>, it seems like the next step was to add a project page and a knowledge basis, for my future self and for others.<br>
+Formatting knowledge in a way other can understand it very interesting. For me it's the best way to channel my want to organize stuff, it's a never ending task, but it seems more fruitful than reorganizing my bedroom every few month.
+<br>It's now a natural step in the way I learn things.
+</p>
+<h3>Actual Hosting and future upgrades</h3>
+<p>
+For now I am hosted on github paages, using google as the domain provider.<br>
+I hope I'll shift on a local server someday, it really doesn't stick with the aforementioned ethics of this website.<br>
+But I gotta say Microsoft/Google bring a sort of confort, everything is easy, comitting and pushing on vscode regenerate the website ans here you go.<br>
+Nonetheless I want to learn some linux and server stuff, so I guess it'll be the next big step.
+</p>
 
 </p>  
 </body>
