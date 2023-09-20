@@ -26,8 +26,9 @@ Variables
 }
 
 html#post {
-    --color-bg: #d8d1c0;
-    --color-default: #3b3a38;
+    /* --color-bg: #d8d1c0; */
+    /* --color-default: #3b3a38; */
+    --color-bg: #322e2d;;
     --color-highlight: #000;
     --color-dim: #93918F;
     --color-vdim: #c9c5c1;
