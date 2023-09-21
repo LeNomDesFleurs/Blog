@@ -44,9 +44,82 @@
             <a href = /./../Projects.html>  &#8592; Precipitation</a>
         </div>   
 </header>
+<p>You can recreate most of this work using those links :<br>
+<a href="/./../Knowledge/L-Systems.html">L-Systems</a> - <a href="/./../Knowledge/TouchDesigner.html">TouchDesigner</a>
+</p>
+    <h3>Context</h3>
 <p>
-Precipitation is an audiovisual installation that is part of my studies 
+Precipitation is an audiovisual installation, it is part of my studies.<br>
+We're a group of 9 people.<br>
+We got 2 month to develop our installation.<br>
+We chose the theme ourselves : the water cycle and it's disturbance.<br>
+Precipitation is a word play;<ul>
+ <li>Precipitations with an 's' is rain</li> 
+ <li>Precipitation without 's' is rush / haste.</li>
+</ul>
+</p>
+<p>
+Each one of us is creating a module that will be controled via OSC, with a disturbance parameter.<br>
+I myself am working on plants. <br>
+I took the opportunity of working on visual, it's probably the only time in my studies that I may take two whole month for this purpose.<br>
+<br>
 </p>
 
+<h3>Practical Problems</h3>
+<p>
+Making an installation is a lot of problem solving.<br>
+Although I have one of the simplest module : a video-projector (as a refence point, a friend of mine is hanging huge cubes of ice), it do need a lot of thinking to get an optimal result.<br><br>
+Some Problems :
+</p>
+<ul>
+    <li>
+        How to have 3 axis of rotation to set it up correctly ?
+    </li>
+    <li>
+        How to fix it to the ceiling grid ?
+    </li>
+    <li>Distance ?</li>
+    <li>Size of image ?</li>
+    <li>Kind of VP (symetric / asymetric)?</li>
+    <li>Lumens ?</li>
+    <li>Resolution ?</li>
+</ul>
+<p>
+I'm in luck, some VP have been dismounted of some classrooms, I get to use them.
+
+</p>
+<h3>Software Tools</h3>
+<p>
+
+I was fascinated by the <a href="/./../Knowledge/L-Systems.html">L-Systems</a> and the forms it creates.<br>
+Searching for the right tools to use the plain potential of this system,
+I first went toward p5.js, but <a href="/./../Knowledge/TouchDesigner.html">TouchDesigner</a> (TD) soon became an evidence.<br>
+The amount of CPU ressource needed surprised me a lot, the l-sys operator is in fact 3D, and real time 3D rendering is no joke.<br>
+Especially in TD, this operator in not GPU accelerated and can only use one core of the CPU.<br>
+I started to think about <a href="/./../Knowledge/Shader.html">Shaders</a> and found a nice L-sys shader, but it was in no way as interesting as the 3D deformation that the SOP enabled.<br>
+It's an interesting exemple of time investment, taking few days of your road to check if an alternative can save you time (and money).
+One of our teacher made me consider unity, but the trees are way to realistic and organic.<br><br>
+Using some 3D mangling I can transform a calm tree in a tortured texture mess.
+<figure>
+    <img src="/./Media/precipitation.calm.jpeg">
+</figure>
+<figure>
+    <img src="/./Media/precipitation.nofeedback.jpeg">
+</figure>
+</p>
+
+
+<h3>Post Process Treatment</h3>
+<p>
+Feedback is a wonderfull tool to give the feeling of a sreaming ecosystem.<br>
+I'm also considering the use of some dithering to add texture.<br><br>
+Here is the same image as above after those processes :
+</p>
+<figure>
+<img src="/./Media/precipitation.feedback.jpeg">
+</figure>
+<figure>
+    <img src="/./Media/precipitation.dither.png">
+</figure>
 
 </body>
