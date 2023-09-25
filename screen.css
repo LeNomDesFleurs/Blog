@@ -532,3 +532,16 @@ label {
 
 
 }
+
+a[href^="http"]::after,
+a[href^="https://"]::after {
+    content: "↗";
+    margin-left: 4px;
+    display: inline-block;
+}
+a[href^="https://hotlinewebring.club/LNDF/previous"]::after {
+    content: "";
+}
+a[href^="https://hotlinewebring.club/LNDF/next"]::after {
+    content: "";
+}

@@ -189,7 +189,29 @@ Stuff Goes here ...
             
             </div>
             </div>  
+            <div class="ex3">
+                <label for="externallink"><em><strong>~ Adding Arrow to external link</strong></em></label>
+                <input type="checkbox" name="one" id="externallink" checked = "true">
+                <div class="hide3">
+                    <div class="inner3">
+                        Some people use svg background but it is way easier to use the unicode up arrow<br><br>
+                        <code><pre>
+a[href^="http"]::after,
+a[href^="https://"]::after {
+    content: "↗";
+    margin-left: 4px;
+    display: inline-block;
+}</pre>
+                        </code>
             
+            </div>
+            </div>  <br>
+<h3>References</h3>
+<ul><li>
+    <a href="https://www.toptal.com/designers/htmlarrows/symbols/">HTML symbols</a>
+</li><li>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Mozilla HTML Reference</a>
 
+</li></ul>
     </div>
  </body>
