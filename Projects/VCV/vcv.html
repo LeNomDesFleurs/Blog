@@ -90,11 +90,36 @@
     <img src="/./../Media/vcv.allmodules.png">
 </figure>
 <p>
-I started with CV module, this let me avoid most of the complexity of DSP. <br><strong>Dicotyledon</strong> is a logical processor, It's really easy to make, I tried to give it a little twist to make it interesting, normalizing the comparator to the switch.<br>
-<strong>Sunflower</strong> is a bit 
+I started with CV modules, this let me avoid most of dsp complexities. 
+<br><br><strong>~ Dicotyledon</strong> is a logical processor, It's really easy to make, I tried to give it a little twist to make it interesting, normalizing the comparator to the switch.<br>
+<br><strong>~  Sunflower</strong> is a bit more new, it's a circular mixer: there are 12 inputs and 1 outputs, leds indicates the selected input, you can blur the selection to add neighbouring input. It can be interesting for audio as well as CV. It works well with ambient and pendular movement.<br>
+<br>
+Then I dipped a toe into dsp with wilt.<br>
+<br>
+<strong>~ Wilt</strong> was at first a weird (in the bad sense) multi-effect, I was just trying stuff out and putting them in series. It evolved when I tried to implement a reverberation and found a profound well of granular glitch more on this in upcoming research paper.
+<br><br><strong>~ Sinensis</strong> is a bank of filter. The idea comes from a course from Spitfire audio on making field recording musical, for this they add resonator on a note, thus adding a melodic component and making it playable in a sampler. Instead of one frequence, you can add harmonics to further shape the sound. At a point, I made an Ableton audio rack with multiple band letting me choose the tone I want. It's really not that practical and it's one of the first encounter with the "How do I map parameters to make this unsusable mess a music instrument" question.
+I ended up with sinensis, 4 parameters : </p>
 
-
+<ul><li>Root Frequence</li>
+    <li>Global Q</li>
+    <li>Number of band</li>
+    <li>Frequency ratio between bands</li>
+</ul>
+<p>
+The purpose here is, instead of pitching a sample with a resonance, to move the filter around while the recording is playing. A VST version will come later that also accept midi to let you play your field recording with a keyboard.
+<br><br>
+<strong>~ Hellebore</strong> is following the steps of wilt, playing with reverberation concepts. The goal here is to find interesting ways of modulating and repitch all the buffers inside the reverberation.<br>
+The "Variation Knob" on the left is doing a lot of stuff that are not usually associated on the same parameters :
+<ul>
+<li>Bleeding of one channel to an other</li>
+<li>Disparity of buffer sizes (thus repitching)</li>
+<li>Dispartity of feedback of each delays lines</li>
+</ul>
 </p>
+<p>
+    In a similar manner than sinensis set the root and then choose the ratio, here, the buffer size set the base buffer size and then you set buffer size ratio.
+</p>
+
 </body>
 
 
