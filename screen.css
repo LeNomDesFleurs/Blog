@@ -8,6 +8,7 @@ Variables
         --color-dim: #606060;
     }
 }
+
 @media (prefers-color-scheme: dark){
     :root{
         --color-default: #BAB6B1;
@@ -15,10 +16,24 @@ Variables
         --color-dim:#7f7f7f;
     }
 }
+@font-face {
+    font-family: 'JetBrain';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/Media/JetBrain.woff2');
+}
+
+@font-face {
+    font-family: 'JetBrain';
+    font-style: bold;
+    font-weight: 900;
+    src: url('/Media/JetBrain-ExtraBold.woff2');
+}
 
 :root {
-    --font-sans: Verdana;
-    --font-serif: Times,serif;
+    --font-sans: JetBrain;
+    --font-serif: Times; 
+    /* Times,serif; */
     --font-size: 18px;
     --font-s: 14px;
     --font-size-serif: 18px;
@@ -49,13 +64,12 @@ Variables
 Base
 -------------------------------------- */
 
+
 html {
-    font-size: var(--font-std);
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     line-height: 1.5;
     background-color: var(--color-bg);
     color: var(--color-default);
-    font-family: var(--font-serif);
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "onum" 1, "liga" 1;
@@ -73,7 +87,8 @@ Typography
 -------------------------------------- */
 
 h1, h2 {
-    font-size: calc(26.5px + (5) * ((179vw - 380px) / (620 - 400)));
+    font-family: var(--font-serif);
+    font-size: calc(26.5px + (10) * ((179vw - 380px) / (420)));
     font-weight: 700;
     margin: 0;
     color: darkolivegreen;
@@ -87,7 +102,7 @@ h2 {
 h3 {
     margin: 0;
     font-family: var(--font-sans);
-    font-weight: 600;
+    font-weight: 1000;
 }
 
 /* Link styling */
@@ -105,11 +120,9 @@ a[href^="https://hotlinewebring.club/LNDF/next"]::after {
 }
 
 a, label {
+    font-weight: 100;
     color:var(--color-dim);
     /* color: var(--color-default); */
-    text-decoration-color: var(--color-dim);
-    text-decoration-thickness: 0.5px;
-    text-underline-offset: 0.05em;
     text-decoration: none;
     font-style: italic;
     transition: color 0.5s ease; /* Add a transition for the color property */
@@ -155,6 +168,11 @@ small {
 
 time {
     font-feature-settings: 'tnum' 1;
+}
+
+u{
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
 }
 
 /* -----------------------------------
