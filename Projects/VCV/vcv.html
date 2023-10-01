@@ -38,21 +38,19 @@
     </head>
 <body>
     <header>
-        <div class="title-link">
-                <a href = /./../Projects.html>  &#8592; VCV</a>
-        </div>    
+                <a href = /./../Projects.html>  <h1>VCV</h1></a>
 </header>
 <p>
 <a href = "https://github.com/LeNomDesFleurs/NOI-VCVRACK">
-    My GitHub</a> - 
+    This Project's GitHub</a> - 
 <a href = "https://library.vcvrack.com/NOI">
-    My VCV Library</a>
+    VCV Library</a>
     <br><br><br>
     Knowledge ~ <a href="/./../Knowlegde/Github.html">Github</a>
 <br><br>
 <h3>Context</h3>
     <p><a href="https://vcvrack.com">VCV</a> is a modular synth emulator.<br>
-       It is a nice first step in developing audio effect. Only making module, you don't have to think to much about interfacing with the sound API and all the other complexity which comes with developing software.</p>
+       It is a nice first step in developing audio effect. Only making module, you don't have to think too much about interfacing with the sound API and all the other complexity which comes with developing software.</p>
     <p>The interface (which can represent most of the work) are based on <a
     href="https://en.wikipedia.org/wiki/SVG">SVGs</a>. Using a
     illustrator-like software (<a href="https://inkscape.org">Inkscape</a>
@@ -62,7 +60,7 @@
     possibility for responsive design and evolution of knob design based on
     the parameter value). On this SVG background, you can layer the
     functional elements, input, output, switch, knob (which are also SVG
-    with a rotation transform) There are some pre-existing assets for all of
+    with a rotation transform). There are some pre-existing assets for all of
     this.</p>
     <p>For the computational side, vcv gives you a simple function executing
     at each sample, accessing parameters and in/out is really simple.</p>
@@ -77,7 +75,7 @@
     commented, sometimes even with ascii schematics. For me, looking at the
     work of other is one of the most efficient ways of learning.</p>
     <p>All of this let you quickly prototype ideas.</p>
-    <p>There are some problem with this platform nonetheless, open source is
+    <p>There are some problems with this platform nonetheless, open source is
     mostly one-sided, vcv get the plug-ins of many free worker while they
     keep there software closed, asking fork to close to avoid commercial
     competition. <a
@@ -85,11 +83,36 @@
     Salvatrice</a> explain all of this much clearer and with a nicer looking
     website, also touching on community problem that I haven’t got to
     witness, I don’t hang much on the forum.</p>
-    <h3>NOI Modules</h3>
-<figure>
-    <img src="/./../Media/vcv.allmodules.png">
-</figure>
-<p>
+    <figure>
+        <img src="/./../Media/vcv.allmodules.png">
+    </figure>
+    <h3>Noi Interfaces</h3>
+    Trying to maintain a visual coherence, I set some kind of graphic charter. It can be summarize as a list of rules
+    <ul>
+        <li>Big Knobs</li>
+        <li>Visual clue of the knob effect</li>
+        <li>No label</li>
+        <li>Title wrap around a param / input</li>
+        <li>ASCII Pattern at the bottom that is doubled and fliped at the top </li>
+        <li>Black and White only</li>
+        <li>dotted line for CV / plain line for audio</li>
+        <li>little symbol for normalized path</li>
+        <li>The font is Eris Light</li>
+        <li>Noi logo at the bottom</li>
+    </ul>
+    <p>
+
+
+<h3>Noi Philosophy</h3>
+There are some rules I try to follow when making modules. <br>
+<li><b><i>If there is a parameter, it must be CV-able</i></b>. </li>
+<q>
+To many times I've been deceived by a fun modulation that I couldn't make happen.</q><br>
+<li><i>There must be an attenuverter on each CV input (except toggle)</i></li>
+- I can't emphasize how convenient it is -
+<li><i>Use less parameters</i></li>
+
+<h3>Noi Modules</h3>
 I started with CV modules, this let me avoid most of dsp complexities. 
 <br><br><strong>~ Dicotyledon</strong> is a logical processor, It's really easy to make, I tried to give it a little twist to make it interesting, normalizing the comparator to the switch.<br>
 <br><strong>~  Sunflower</strong> is a bit more new, it's a circular mixer: there are 12 inputs and 1 outputs, leds indicates the selected input, you can blur the selection to add neighbouring input. It can be interesting for audio as well as CV. It works well with ambient and pendular movement.<br>
@@ -119,6 +142,7 @@ The "Variation Knob" on the left is doing a lot of stuff that are not usually as
 <p>
     In a similar manner than sinensis set the root and then choose the ratio, here, the buffer size set the base buffer size and then you set buffer size ratio.
 </p>
+
 
 </body>
 
