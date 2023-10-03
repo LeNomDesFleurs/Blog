@@ -93,9 +93,9 @@ Typography
 h1, h2 {
     font-family: var(--font-serif);
     font-size: calc(26.5px + (10) * ((179vw - 380px) / (420)));
-    font-weight: 700;
+    font-weight: 900;
     margin: 0;
-    color: darkolivegreen;
+    color: #556b2f;
 }
 
 h2 {
@@ -128,18 +128,14 @@ a[href^="https://hotlinewebring.club/LNDF/next"]::after {
 a, label {
     font-weight: 100;
     color:var(--color-dim);
-    /* color: var(--color-default); */
-    text-decoration: none;
+    text-decoration: none; /*deactivate underline*/
     font-style: italic;
-    transition: color 0.5s ease; /* Add a transition for the color property */
+    transition: color 0.5s ease;
    
 }
 
 a:hover, label:hover{
-    /* transition: color 0.2s ease-in; */
     color: var(--color-default);
-    /* var(--color-highlight); */
-
 }
 
 figcaption {

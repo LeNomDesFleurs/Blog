@@ -38,12 +38,10 @@
     </head>
 <body>
     <header>
-        <div class="title-link">
-                <a href = /./../Knowledge.html>  &#8592; HTML ~ CSS</a>
-        </div>    
+                <a href = /./../Knowledge.html>  <h1> HTML ~ CSS </h1></a>
 </header>
-
-
+<br>
+Stuff I learned making this website<br><br>
 <div>
 
 
@@ -123,34 +121,33 @@
                 <label for="dropdown"><em><strong>~ Drop Down Menu</strong></em></label>
                 <input type="checkbox" name="one" id="dropdown" checked = "true">
                 <div class="hide3">
-                    <div class="inner3">
-                        <h3>CSS</h3>
+                <h3>CSS</h3>
                         <div class="code-container">
                         <code><pre>
 .ex3 .hide3 {
     width: 100%;
     display: table;
-    height: 150px; /*  minimum height you would want. */
     overflow: hidden;
-    transition: all 0.7s ease;
-}
-
-.inner3 {
+    overflow-x: auto;
+    height: auto;
+    transition: 0.7s ease;
     background-color: #00000016;
     border-radius: 10px;
     padding-left: 2em; 
     padding-right: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
-    max-width: var(--spacing-width-max);
-    overflow-x: auto;
     box-sizing: border-box;
 }
 
+  
 .ex3 input[type="checkbox"]:checked + .hide3 {
-    height: 0;
-    opacity: 0;
-    display: block;
+      height: 0;
+      opacity: 0;
+      display: block;
+      padding: 0; 
+      border-radius: 0; 
+      margin: 0; 
 }</pre>
             </code>
         </div>
@@ -159,19 +156,16 @@
                 <div class="code-container">
 &lt;div class="ex3"&gt;
 &lt;label for="newname"&gt;
-&lt;em&gt;&lt;strong&gt;~ Drop Down Menu&lt;/strong&gt;&lt;/em&gt;
+~ Drop Down Menu
 &lt;/label&gt;
 &lt;input type="checkbox" name="one" 
 id="newname" checked = "true"&gt;
 &lt;div class="hide3"&gt;
-&lt;div class="inner3"&gt;
 Stuff Goes here ...
-&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre></code>
             
-            </div>
-            </div>  
+            </div> 
         </div>
             
             <div class="ex3">
@@ -193,7 +187,6 @@ Stuff Goes here ...
                 <label for="externallink"><em><strong>~ Adding Arrow to external link</strong></em></label>
                 <input type="checkbox" name="one" id="externallink" checked = "true">
                 <div class="hide3">
-                    <div class="inner3">
                         Some people use svg background but it is way easier to use the unicode up arrow<br><br>
                         <code><pre>
 a[href^="http"]::after,
@@ -205,7 +198,46 @@ a[href^="https://"]::after {
                         </code>
             
             </div>
-            </div>  <br>
+
+<div class="ex3">
+    <label for="auto theme"><i><b>~ Auto Theme</b></i></label>
+    <input type="checkbox" name="one" id="auto theme"  checked="true">
+    <div class="hide3">
+    This let you set variable for your dark and light theme, you then need to use them accordingly in your code.
+<pre><code>
+@media (prefers-color-scheme: light){
+    :root{
+        --color-default:  #322e2d;
+        --color-bg: #b8b1a9;
+        --color-dim: #606060;
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --color-default: #BAB6B1;
+        --color-bg: #322e2d;
+        --color-dim:#7f7f7f;
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+<div class="ex3">
+    <label for="Phone css"><i><b>~ Phone CSS</b></i></label>
+    <input type="checkbox" name="one" id="Phone css"  checked="true">
+    <div class="hide3">
+        I use it to reduce padding on phone, but you can do whatever css you want in it. It works by checking the size of the screen
+<pre><code>
+@media only screen and (max-width: 400px) {
+    html { padding: 0.5rem;}
+  }
+</code></pre>
+    </div>
+</div>
+
+
 <h3>References</h3>
 <ul><li>
     <a href="https://www.toptal.com/designers/htmlarrows/symbols/">HTML symbols</a>
