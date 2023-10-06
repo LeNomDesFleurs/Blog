@@ -34,7 +34,7 @@ Variables
     --font-sans: JetBrain;
     --font-serif: serif; 
     /* Times,serif; */
-    --font-size: 14px;
+    --font-size: 17px;
     --font-s: 14px;
     --font-size-serif: 18px;
     --spacing: 1.5em;
@@ -44,7 +44,7 @@ Variables
     --spacing-xl: calc(2.5 * var(--spacing));
     --spacing-xxl: calc(5 * var(--spacing));
     --spacing-col: calc(6 * var(--spacing));
-    --spacing-width-max: 32rem;
+    --spacing-width-max: 30rem;
     --spacing-width-tiny: 15rem;
     --spacing-width-xl: 50rem;
 }
