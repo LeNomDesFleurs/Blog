@@ -32,9 +32,9 @@ Variables
 
 :root {
     --font-sans: JetBrain;
-    --font-serif: 'Times New Roman', Times, serif ; 
+    --font-serif: serif; 
     /* Times,serif; */
-    --font-size: 18px;
+    --font-size: 14px;
     --font-s: 14px;
     --font-size-serif: 18px;
     --spacing: 1.5em;
@@ -44,7 +44,7 @@ Variables
     --spacing-xl: calc(2.5 * var(--spacing));
     --spacing-xxl: calc(5 * var(--spacing));
     --spacing-col: calc(6 * var(--spacing));
-    --spacing-width-max: 38rem;
+    --spacing-width-max: 32rem;
     --spacing-width-tiny: 15rem;
     --spacing-width-xl: 50rem;
 }
@@ -66,7 +66,7 @@ Base
 
 
 html {
-    font-family: var(--font-sans);
+    font-family: var(--font-s);
     line-height: 1.5;
     background-color: var(--color-bg);
     color: var(--color-default);
@@ -93,7 +93,7 @@ Typography
 h1, h2 {
     font-family: var(--font-serif);
     font-size: calc(26.5px + (10) * ((179vw - 380px) / (420)));
-    font-weight: 900;
+    font-weight: 10000;
     margin: 0;
     color: #556b2f;
 }
