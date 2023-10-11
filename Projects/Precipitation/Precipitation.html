@@ -15,101 +15,115 @@
     <link rel="stylesheet" href="/screen.css" type="text/css">
 </head>
 
-
-<body>
-    <header>
-        <div>
-            <a href = /./../Projects.html> <h1> Precipitation</h1></a>
-        </div>   
-</header>
-<p>You can recreate most of this work using those links :<br>
+<a href = /./../Projects.html> <h1> Precipitation</h1></a>   
+You can recreate most of this work using those links :<br>
 <a href="/./../Knowledge/L-Systems.html">L-Systems</a> - <a href="/./../Knowledge/TouchDesigner.html">TouchDesigner</a>
-</p>
-    <h3>Context</h3>
-<p>
-Precipitation is an audiovisual installation, it is part of my studies.<br>
-We're a group of 9 people.<br>
-We got 2 month to develop our installation.<br>
-We chose the theme ourselves : the water cycle and it's disturbance.<br>
-Precipitation is a word play;<ul>
- <li>Precipitations with an 's' is rain</li> 
- <li>Precipitation without 's' is rush / haste.</li>
-</ul>
-</p>
-<p>
-Each one of us is creating a module that will be controled via OSC, with a disturbance parameter.<br>
-I myself am working on plants. <br>
-I took the opportunity of working on visual, it's probably the only time in my studies that I may take two whole month for this purpose.<br>
-<br>
-</p>
+   <br> <a href="PrecipitationV3.4.toe">Link to download the touch designer project</a>
+<h3>Context</h3>
+
+    Precipitation is an audiovisual installation, it is part of my studies.<br>
+    We're a group of 9 people.<br>
+    We got 2 month to develop our installation.<br>
+    We chose the theme ourselves : the water cycle and it's disturbance.<br>
+    Precipitation is a word play;<ul>
+    <li>Precipitations with an 's' is rain</li> 
+    <li>Precipitation without 's' is rush / haste.</li>
+    </ul>
+    Each one of us is creating a module that will be controled via OSC, with a disturbance parameter.<br>
+    I myself am working on plants. <br>
+    I took the opportunity of working on visual, it's probably the only time in my studies that I may take two whole month for this purpose.<br>
+
 
 <h3>Practical Problems</h3>
-<p>
-Making an installation is a lot of problem solving.<br>
-Although I have one of the simplest module : a video-projector (as a refence point, a friend of mine is hanging huge cubes of ice), it do need a lot of thinking to get an optimal result.<br><br>
-Some Problems :
-</p>
-<ul>
-    <li>
-        How to have 3 axis of rotation to set it up correctly ?
-    </li>
-    <li>
-        How to fix it to the ceiling grid ?
-    </li>
-    <li>Distance ?</li>
-    <li>Size of image ?</li>
-    <li>Kind of VP (symetric / asymetric)?</li>
-    <li>Lumens ?</li>
-    <li>Resolution ?</li>
-</ul>
-<p>
-I'm in luck, some VP have been dismounted of some classrooms, I get to use them.
 
-</p>
+    Making an installation is a lot of problem solving.<br>
+    Although I have one of the simplest module : a video-projector (as a refence point, a friend of mine is hanging huge cubes of ice), it do need a lot of thinking to get an optimal result.<br><br>
+    Some Problems :
+    <ul>
+        <li>
+            How to have 3 axis of rotation to set it up correctly ?
+        </li>
+        <li>
+            How to fix it to the ceiling grid ?
+        </li>
+        <li>Distance ?</li>
+        <li>Size of image ?</li>
+        <li>Kind of VP (symetric / asymetric)?</li>
+        <li>Lumens ?</li>
+        <li>Resolution ?</li>
+    </ul>
+    I'm in luck, some VP have been dismounted of some classrooms, I get to use them.
+
 <h3>Software Tools</h3>
-<p>
 
-I was fascinated by the <a href="/./../Knowledge/L-Systems.html">L-Systems</a> and the forms it creates.<br>
-Searching for the right tools to use the plain potential of this system,
-I first went toward p5.js, but <a href="/./../Knowledge/TouchDesigner.html">TouchDesigner</a> (TD) soon became an evidence.<br>
-The amount of CPU ressource needed surprised me a lot, the l-sys operator is in fact 3D, and real time 3D rendering is no joke.<br>
-Especially in TD, this operator in not GPU accelerated and can only use one core of the CPU.<br>
-I started to think about <a href="/./../Knowledge/Shader.html">Shaders</a> and found a nice L-sys shader, but it was in no way as interesting as the 3D deformation that the SOP enabled.<br>
-It's an interesting exemple of time investment, taking few days off your road to check if an alternative can save you time (and money).
-One of our teacher made me consider unity, but the trees are way too realistic and organic.<br><br>
-Using some 3D mangling I can transform a calm tree in a tortured texture mess.
-<figure>
-    <img src="/./Media/precipitation.calm.jpeg">
-</figure>
-<figure>
-    <img src="/./Media/precipitation.nofeedback.jpeg">
-</figure>
-</p>
+    I was fascinated by the <a href="/./../Knowledge/L-Systems.html">L-Systems</a> and the forms it creates.<br>
+    Searching for the right tools to use the plain potential of this system,
+    I first went toward p5.js, but <a href="/./../Knowledge/TouchDesigner.html">TouchDesigner</a> (TD) soon became an evidence.<br>
+    The amount of CPU ressource needed surprised me a lot, the l-sys operator is in fact 3D, and real time 3D rendering is no joke.<br>
+    Especially in TD, this operator in not GPU accelerated and can only use one core of the CPU.<br>
+    I started to think about <a href="/./../Knowledge/Shader.html">Shaders</a> and found a nice L-sys shader, but it was in no way as interesting as the 3D deformation that the SOP enabled.<br>
+    It's an interesting exemple of time investment, taking few days off your road to check if an alternative can save you time (and money).
+    One of our teacher made me consider unity, but the trees are way too realistic and organic.<br><br>
+    Using some 3D mangling I can transform a calm tree in a tortured texture mess.
+    <figure>
+        <img src="precipitation.calm.jpeg">
+        <figcaption>healthy state</figcaption>
+    </figure>
+    <figure>
+        <img src="precipitation.nofeedback.jpeg">
+        <figcaption>corrupted state</figcaption>
+    </figure>
 
 
 <h3>Post Process Treatment</h3>
-<p>
-Feedback is a wonderfull tool to give the feeling of a sreaming ecosystem.<br>
-I'm also considering the use of some dithering to add texture.<br><br>
-Here is the same image as above after those processes :
-</p>
-<figure>
-<img src="/./Media/precipitation.feedback.jpeg">
-</figure>
-<figure>
-    <img src="/./Media/precipitation.dither.png">
-</figure>
+
+    Feedback is a wonderfull tool to give the feeling of a sreaming ecosystem.<br>
+    I'm also considering the use of some dithering to add texture.<br><br>
+    Here is the same image as above after those processes :
+    <figure>
+    <img src="precipitation.feedback.jpeg">
+    <figcaption>Feedback</figcaption>
+    </figure>
+    <figure>
+        <img src="precipitation.dither.png">
+        <figcaption>Dither</figcaption>
+    </figure>
 
 <h3>Esthetic choices</h3>
 
-<p>
     I wanted a black background to blend the border of the projected image with the wall, but it didn't worked well with the 3D shadows.<br>
     So I get back to an initial choice of black and white, to add contrast between the plants and the background.<br>
     The dither that I was sceptical about now comes in handy to add color for a better feedback. Also, the bayer dithering add a point grid to the background, which gives more material and a more uniform look to the feedback.
+    <br>Instead of the previous 3 demo trees side by side, I chose to concentrate on the generation and on the movement it creates.<br>
+    I now have 6 different trees that grows and decay successively. It really fun to experiment with the growth design, using some envelope to move multiple parameters around, discovering surprising and unexpected stuff each time.
+    <figure>
+        <img src="precipitation.B&W.png">
+        <figcaption>My favorite tree</figcaption>
+    </figure>
 
-</p>
+<h3>Patch organisation</h3>
+
+    To switch between the different trees, I only use one l-system operator with two switch operators, one for the l-system rule and one for the l-system parameters.<br>
+    A timer bang a counter mapped to both switch value.
+
+
+<h3>Modulation</h3>
+Things are boring when they don't move, we'll need some kind of MoDuLaTiOn. 
+In this patch, I got one input : degradation state between 0. and 1. to create interesting movement from this simple parameters,
+I most of the time map to the movement that modulate the thing, not to the thing itself.
+Compared Noise is also a interesting way to trigger stuff, lowering the threshold for more frequent trigger.<br>
+Interesting modulation point beside angle are :
+<ul>
+<li>Random Scale</li>
+<li>Tube Tension</li>
+<li>Tube Branch Blend</li>
+</ul>
+<figure>
+    <img src="precipitation.B&Wsad.jpeg">
+    <figcaption>The same tree but sad</figcaption>
+</figure>
 <hr>
 <div class="center-container">
     <a href="/index.html">- home - </a>
 </div>
-</body>
+</html>
