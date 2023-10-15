@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Le Nom Des Fleurs</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Pruners VCV module Project page" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+
+
+<body>
+    <header>
+            <a href = /./../Projects.html> <h1>Pruners</h1></a>
+</header>
+
+<h3>Initial concept</h3>
+I'm back at using vcv, but there are some modules that I'm missing, mainly : Strymon magneto (especially the shift mode) and Qu-bit data bender (mainly the repeat mode).
+<br> Thus I decided to make this myself !
+<br> Here is a quick list of functionality I want to implement :
+<ul>
+    <li>Rec / Play</li>
+    <li>Reading Speed</li>
+    <li>Multiple reading head with tides / sinensis inspired mode for amplitude mix and ratio between Head</li>
+    <li>A way to decay / heal the buffer</li>
+    <li>A speed / complexity glitch parameter</li>
+</ul>
+The buffer will be the same for all the heads with an array keeping track of the 4 counters.
+
+<h3>Getting rid of buffer clicks</h3>
+When the buffer loops around, it produces an audible click, to overcome this, when the rec is finished, I <code>pop_back</code> the last 1000 samples and fade them in at the beginning:
+<div class="code-container"><pre>
+float fade_time = 1000;
+for (int i = fade_time; i >= 0; i--){
+    RingBuffer[i]=RingBuffer[i]*(i/fade_time)+RingBuffer[buffer_size-(fade_time-i)]*(1-(i/fade_time));
+    RingBuffer.pop_back();
+}
+</pre>
+</div>
