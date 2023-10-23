@@ -18,24 +18,29 @@
 
 <body>
     <header>
-            <a href = /./../Knowledge.html>  <h1>L-Systems</h1></a>
-</header>
+        <a href=/./../Knowledge.html>
+            <h1>L-Systems</h1>
+        </a>
+    </header>
 
 
-
-<p>L-Systems are an algorithmic way of describing the growth of plants and cellular evolution by using recursive instructions that generates fractal visual.</p>
-<p>It uses <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle Geometry</a> : It&#39;s a way of drawing by using sequential command.
-The two main command are <code>go forward</code> and <code>turn</code> . 
-Within a tridimensional context, <code>turn</code> instructions are in the 3 different axis.</p>
-<p>L-Systems are composed of 3 things :</p>
-<ul>
-<li>A <em>Dictionary</em> of all the command e.g. <code>F</code> to go forward, <code>&amp;</code> to rotate clockwise on the X axis, etc...</li>
-<li>An <em>Axiom</em> (or premise in Touch Designer), it&#39;s the pre-existing shape. You&#39;ll often want to have something before the algorithm begin it&#39;s work, a trunk for your tree for exemple.</li>
-<li><em>Rules</em>, sequence of commands that you can call recursively</li>
-</ul>
-<p>As an exemple, the default L-system in Touch designer uses this data:</p>
-<div class="code-container">
-<code>
+    L-Systems are an algorithmic way of describing the growth of plants and cellular evolution by using recursive
+    instructions that generates fractal visual.</p>
+    It uses <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle Geometry</a> : It&#39;s a way of drawing by
+    using sequential command.
+    The two main command are <code>go forward</code> and <code>turn</code> .
+    Within a tridimensional context, <code>turn</code> instructions are in the 3 different axis.</p>
+    L-Systems are composed of 3 things :
+    <ul>
+        <li>A <em>Dictionary</em> of all the command e.g. <code>F</code> to go forward, <code>&amp;</code> to rotate
+            clockwise on the X axis, etc...</li>
+        <li>An <em>Axiom</em> (or premise in Touch Designer), it&#39;s the pre-existing shape. You&#39;ll often want to
+            have something before the algorithm begin it&#39;s work, a trunk for your tree for exemple.</li>
+        <li><em>Rules</em>, sequence of commands that you can call recursively</li>
+    </ul>
+    As an exemple, the default L-system in Touch designer uses this data:
+    <div class="code-container">
+        <code>
     premise:FFFA
 <br>
 <br>
@@ -43,36 +48,41 @@ A=!<span class="hljs-string">"<span class="hljs-subst">[B]</span>////<span class
 B=&amp;FFFA</span>
 
 </code>
-</div>
-</pre><p>It makes a nice 3D tree</p>
-<ul>
-    <li>
-<code>!&quot;</code> Are related to size change depending on generation.</li><li>
-<code>/&amp;</code> Are rotation commands
-</li><li>
-<code>[]</code> Are pop/push instructions, it lets you draw a branch and get back to drawing the trunk</p>
-</li>
-</ul>
     </div>
-</div> 
+    </pre>It makes a nice 3D tree
+    <ul>
+        <li>
+            <code>!&quot;</code> Are related to size change depending on generation.
+        </li>
+        <li>
+            <code>/&amp;</code> Are rotation commands
+        </li>
+        <li>
+            <code>[]</code> Are pop/push instructions, it lets you draw a branch and get back to drawing the trunk</p>
+        </li>
+    </ul>
 
-<br>
-<h4>References</h4>
 
-        <ul>
-            <li>
-        <a href = "https://www.houdinikitchen.net/2019/12/21/how-to-create-l-systems"> Web Page - L-System thorough explanation</a>
-    </li>
-    <li>
-        <a href = "https://annas-archive.org/md5/8f03e11d0f04a7c5fd1abb6578729791"> Book - The Alghorithmic beauty of plants</a>
-    </li></ul></div>
-</div>  
+    <br>
+    <h4>References</h4>
 
-<br>
+    <ul>
+        <li>
+            <a href="https://www.houdinikitchen.net/2019/12/21/how-to-create-l-systems"> Web Page - L-System thorough
+                explanation</a>
+        </li>
+        <li>
+            <a href="https://annas-archive.org/md5/8f03e11d0f04a7c5fd1abb6578729791"> Book - The Alghorithmic beauty of
+                plants</a>
+        </li>
+    </ul>
 
-<hr>
-<div class="center-container">
-    <a href="/index.html">- home - </a>
-</div>
+
+    <br>
+
+    <hr>
+    <div class="center-container">
+        <a href="/index.html">- home - </a>
+    </div>
 
 </body>
