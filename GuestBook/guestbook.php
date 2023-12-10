@@ -17,6 +17,14 @@
     <div class="center-container">
     <h1>Guestbook</h1>
 </div>
+
+<h4>Add Text</h4>
+    <form action="guestbook.php" method="post">
+        <input type="text" name="userText" placeholder="Enter text" style="left:auto; position:relative;">
+        <button type="submit" name="submit">Submit</button>
+    </form>
+
+    <hr>
     <!-- PHP code to display and delete stored text -->
     <?php
 
@@ -41,14 +49,6 @@
 
     ?>
     
-    <hr>
-
-    <h4>Add Text</h4>
-    <form action="guestbook.php" method="post">
-        <input type="text" name="userText" placeholder="Enter text" style="left:auto; position:relative;">
-        <button type="submit" name="submit">Submit</button>
-    </form>
-
     <!-- PHP code to handle form submission -->
     <?php
     if (isset($_POST['submit'])) {
