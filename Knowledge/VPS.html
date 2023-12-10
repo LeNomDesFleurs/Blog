@@ -109,9 +109,11 @@
     </div>
     Once it is done you can install certbot with
     <div class="code-container">
-        sudo snap install --classic certbot<br>
-        sudo ln -s /snap/bin/certbot /usr/bin/certbot<br>
-        sudo certbot --nginx
+        <pre>
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
+</pre>
     </div>
     The last command will automatically edit your nginx config file to use https.
 
@@ -174,8 +176,9 @@ server {
 
     <h3>Changing permission if PHP can't write</h3>
     Create a PHP file containing the following:
-    <div class="code-container">
+    <div class="code-container"><pre>
         &lt;?php echo `whoami`; ?&gt;
+        </pre>
     </div>
     Upload it to your web server. The output should be similar to the following:
     <br>
@@ -184,9 +187,10 @@ server {
     Therefore, the PHP user is www-data.
     <br><br>
     By using <code>ls -dl</code>, you can see the permission and owners of the directory you are in, example at root
-    <div class="code-container">
+    <div class="code-container"><pre>
         debian@vps-d1a0526b:~$ ls -dl<br>
         drwxr-xr-x 7 debian debian 4096 Dec 9 12:59 .
+    </pre>
     </div>
 
     You can add this user to the owners of a directory by using
@@ -203,11 +207,12 @@ server {
 
 
     <h3>File transfer</h3>
-    To transfer file from your computer to your server you are suppose to use some kind of file transfer protocol such as SFTP.<br>
+    To transfer file from your computer to your server you are suppose to use some kind of file transfer protocol such
+    as SFTP.<br>
     I'm lazy so I use visual studio code to drag and drop stuff in the explorer.
 
 
-    <h4>References</h4>
+    <h3>References</h3>
 
     <ul>
         <li><a href="https://www.howtogeek.com/791055/apt-vs-apt-get-whats-the-difference-on-linux/">On the difference
@@ -231,8 +236,12 @@ server {
                 href=https://askubuntu.com/questions/86822/how-can-i-copy-the-contents-of-a-folder-to-another-folder-in-a-different-directo>Copying
                 all the content of a directory</a></li>
         <li><a href=https://www.freecodecamp.org/news/linux-chmod-chown-change-file-permissions>chmod and chown</a></li>
-        <li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-filezilla-to-transfer-and-manage-files-securely-on-your-vps">File transfer</a></li>
-        <li><a href="https://help.ovhcloud.com/csm/en-gb-vps-security-tips?id=kb_article_view&sysparm_article=KB0047706">Securing a vps</a></li>
+        <li><a
+                href="https://www.digitalocean.com/community/tutorials/how-to-use-filezilla-to-transfer-and-manage-files-securely-on-your-vps">File
+                transfer</a></li>
+        <li><a
+                href="https://help.ovhcloud.com/csm/en-gb-vps-security-tips?id=kb_article_view&sysparm_article=KB0047706">Securing
+                a vps</a></li>
     </ul>
 
 

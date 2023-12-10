@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Le Nom Des Fleurs</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="VST Project page" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+
+
+<body>
+<header>
+    <a href = /./../Projects.html> <h1>Guestbook</h1></a>
+</header>
+
+I made a dead simple guestbook / notepad using php.
+
+It create a txt file, split it into an array at each EOL 
+<div class="code-container">
+$textArray = file($file, FILE_IGNORE_NEW_LINES);
+</div>
+and then display those lines in an unordered list
+<div class="code-container">
+    <pre>
+echo '&lt;ul&gt;';
+foreach ($textArray as $index => $text) {
+    if (!empty($text)) {
+    echo '&lt;li&gt; '
+    . htmlspecialchars($text) . 
+    '&lt;/li&gt;';
+    }
+}
+echo '&lt;/ul&gt;';
+    </pre>
+</div>
+
+The form at the top let you append text to the File
+<div class="code-container">
+    <pre>
+&lt;form action="guestbook.php" method="post"&gt;
+    &lt;input type="text" name="userText" placeholder="Enter text"&gt;
+    &lt;button type="submit" name="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- PHP code to handle form submission --&gt;
+&lt;?php
+if (isset($_POST['submit'])) {
+    $text = $_POST['userText'] . PHP_EOL;
+
+    file_put_contents($file, $text, FILE_APPEND);
+    header("Location: guestbook.php"); // Redirect to refresh the page and display updated text
+}
+?&gt;
+</pre>
+</div>
+
+
+<hr>
+<div class="center-container">
+    <a href="/index.html">- home - </a>
+</div>
+</body>
+
+
+
