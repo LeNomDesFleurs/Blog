@@ -14,22 +14,23 @@
     <link rel="stylesheet" href="../screen.css">
 </head>
 <body>
-    <div class="center-container">
     <h1>Guestbook</h1>
-</div>
+
     <!-- PHP code to display and delete stored text -->
     <?php
-
     $file = 'guestbook.txt';
     if (file_exists($file)) {
         // $storedText = file_get_contents($file);
         $textArray = file($file, FILE_IGNORE_NEW_LINES);
-        
+
         echo '<ul>';
         foreach ($textArray as $index => $text) {
             if (!empty($text)) {
-                echo '<li> '
-          . htmlspecialchars($text) . '
+                echo '<li> 
+                 <form action="guestbook.php" method="post" style="display: inline;">
+                     <input type="hidden" name="index" value="' . $index . '">
+                     <button type="submit" name="delete">-</button>
+                 </form>' . htmlspecialchars($text) . '
                       </li>';
             }
         }
@@ -38,14 +39,22 @@
         echo 'No text available.';
     }
 
+    // Handle delete button submission
+    if (isset($_POST['delete'])) {
+        $indexToDelete = $_POST['index'];
 
+        $lines = file($file, FILE_IGNORE_NEW_LINES);
+        unset($lines[$indexToDelete]);
+        file_put_contents($file, implode(PHP_EOL, $lines) . PHP_EOL);
+        header("Location: guestbook.php"); // Refresh the page after deleting
+    }
     ?>
     
     <hr>
 
     <h4>Add Text</h4>
     <form action="guestbook.php" method="post">
-        <input type="text" name="userText" placeholder="Enter text" style="left:auto; position:relative;">
+        <input type="text" name="userText" placeholder="Enter text">
         <button type="submit" name="submit">Submit</button>
     </form>
 

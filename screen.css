@@ -215,6 +215,10 @@ input {
     left: -999em;
   }
 
+form:input {
+    position:relative;
+    left: 0%;
+}
 /* example 3 */
 
 
