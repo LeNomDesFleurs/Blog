@@ -24,106 +24,119 @@
         </div>
     </header>
 
-A VPS is a virtual machine hosted on a server, it's very cheap (as of now, mine cost 1$ / month for 2go of RAM and 20go of storage).<br>
-It allows me to store more data than github and can do processing, I may now (god forgive me for what I'm about to say) make dynamic webpage !<br>
-All of this came from the fact that I wanted to make a guest book, which needed php or a kind of processing that coudn't be static (although you may ask people to send you mail and post it after, such as this <a href=https://azlen.me/doorstep> lovely website shoerack</a>).<br> 
-There will probably be a page on php soon.<br><br>
-Doing the setup of a server has been easier than I thought, taking a day from no vps to functional website with no previous knowledge of server managment.
-I chose a debian 10 distrib, I never used linux and thought trying debian would be fun (it is).<br>
-It's not really an informed desicion, I think I heard somewhere that a lot of server runned on debian, after a bit of research it seems it is one of the most popular with ubuntu server.<br>
-So here I go, sshing into my faraway server for the first time !
-<br><br>
-For a server to serve a website, there is some stuff you gotta take care of
-<ul>
-    <li>Be able to manage HTTP request - <b>Apache / Nginx</b></li>
-    <li>Be able to compute dynamic processing - <b>PHP & fastCGI</b> </li>
-    <li>Be able to serve HTTPS - <b>Cerbot</b></li>
-    <li>Link your IP to the URL - <b>DNS</b></li>
-    
-</ul>
+    A VPS is a virtual machine hosted on a server, it's very cheap (as of now, mine cost 1$ / month for 2go of RAM and
+    20go of storage).<br>
+    It allows me to store more data than github and can do processing, I may now (god forgive me for what I'm about to
+    say) make dynamic webpage !<br>
+    All of this came from the fact that I wanted to make a guest book, which needed php or a kind of processing that
+    coudn't be static (although you may ask people to send you mail and post it after, such as this <a
+        href=https://azlen.me/doorstep> lovely website shoerack</a>).<br>
+    There will probably be a page on php soon.<br><br>
+    Doing the setup of a server has been easier than I thought, taking a day from no vps to functional website with no
+    previous knowledge of server managment.
+    I chose a debian 10 distrib, I never used linux and thought trying debian would be fun (it is).<br>
+    It's not really an informed desicion, I think I heard somewhere that a lot of server runned on debian, after a bit
+    of research it seems it is one of the most popular with ubuntu server.<br>
+    So here I go, sshing into my faraway server for the first time !
+    <br><br>
+    For a server to serve a website, there is some stuff you gotta take care of
+    <ul>
+        <li>Be able to manage HTTP request - <b>Apache / Nginx</b></li>
+        <li>Be able to compute dynamic processing - <b>PHP & fastCGI</b> </li>
+        <li>Be able to serve HTTPS - <b>Cerbot</b></li>
+        <li>Link your IP to the URL - <b>DNS</b></li>
 
-This stack of software is know as LAMP (Linux Apache MySQL PHP), there is a lot of variant. Here I'm using LEMP (Linux Nginx MySQL PHP) don't ask why the N of Nginx become an E, I don't have a clue.<br>
-Also I don't use SQL because I don't have any data to store on my website.
-<br>
-<h3>NGINX</h3>
-Debian is preinstalled when I connect to the server, the first step is to install nginx, for this you'll use the package manager of debian : APT (Advanced Package Manager).<br>
-You'll find tutorial that use <code>apt</code>, other that use <code>apt-get</code>, both share some commands, <code>apt-get</code> is more backward compatibity oriented, <code>apt</code> is more fancy, with added search fonctionality for exemple.<br>
-Just to be safe, you should probably update the package manager beforehand
-<div class="code-container">
-    sudo apt update
-</div>
-And then install nginx
-<div class="code-container">
-    sudo apt install nginx
-</div>
-You can then check if nginx is running
-<div class="code-container">
-    sudo service nginx status
-</div>
-<br>
-If nginx is correctly running, you should see some nginx default html file when typing your vps adress in your browser search bar.<br><br>
+    </ul>
 
-You will find the configuration stuff under <br><code>/etc/nginx/</code><br>
-Most of the usefull stuff will be in this file <br><code>/sites-available/default</code><br>
-In it you will find the port you are lisening to and the root folder of your website :
-<code>/var/www/html/</code>
+    This stack of software is know as LAMP (Linux Apache MySQL PHP), there is a lot of variant. Here I'm using LEMP
+    (Linux Nginx MySQL PHP) don't ask why the N of Nginx become an E, I don't have a clue.<br>
+    Also I don't use SQL because I don't have any data to store on my website.
+    <br>
+    <h3>NGINX</h3>
+    Debian is preinstalled when I connect to the server, the first step is to install nginx, for this you'll use the
+    package manager of debian : APT (Advanced Package Manager).<br>
+    You'll find tutorial that use <code>apt</code>, other that use <code>apt-get</code>, both share some commands,
+    <code>apt-get</code> is more backward compatibity oriented, <code>apt</code> is more fancy, with added search
+    fonctionality for exemple.<br>
+    Just to be safe, you should probably update the package manager beforehand
+    <div class="code-container">
+        sudo apt update
+    </div>
+    And then install nginx
+    <div class="code-container">
+        sudo apt install nginx
+    </div>
+    You can then check if nginx is running
+    <div class="code-container">
+        sudo service nginx status
+    </div>
+    <br>
+    If nginx is correctly running, you should see some nginx default html file when typing your vps adress in your
+    browser search bar.<br><br>
 
-<br><br>
-Now you may clone your website repo to this place !<br>
-<div class="code-container">
-    sudo apt install git<br>
-    cd /var/www/html<br>
-    git clone https://github.com/USERNAME/REPONAME.git
-</div>
-To copy all the content out of the dir (which is probably not the cleanest way of doing it), I used
-<div class="code-container">
-    cp -a /source/. /dest/<br>
-</div>
-Then, delete the directory<br>
-<div class="code-container">
-    sudo rm -r source
-</div>
+    You will find the configuration stuff under <br><code>/etc/nginx/</code><br>
+    Most of the usefull stuff will be in this file <br><code>/sites-available/default</code><br>
+    In it you will find the port you are lisening to and the root folder of your website :
+    <code>/var/www/html/</code>
 
-<h3>HTTPS</h3>
-Your website may not load correctly on all browser if it can't serve https, the encrypted big brother of http.<br>
-To serve https you need an SSL certificate, when connecting to the server, your browser check the certificate and handshake to start the encrypted connection if everything is ok.<br>
-Certificates are delivered by Certificate Authority, some cost money, some are free.<br>
-We'll use Let's Encrypt through Certbot, Let's Encrypt is free but need to be renewed every 2 months.<br>
-<br>
-To install certbot we'll need another package manager : snap <br>
-<div class="code-container">
-    sudo apt install snapd <br>
-    sudo snap install core
-</div>
-Once it is done you can install certbot with 
-<div class="code-container">
-    sudo snap install --classic certbot<br>
-    sudo ln -s /snap/bin/certbot /usr/bin/certbot<br>
-    sudo certbot --nginx
-</div>
-The last command will automatically edit your nginx config file to use https.
+    <br><br>
+    Now you may clone your website repo to this place !<br>
+    <div class="code-container">
+        sudo apt install git<br>
+        cd /var/www/html<br>
+        git clone https://github.com/USERNAME/REPONAME.git
+    </div>
+    To copy all the content out of the dir (which is probably not the cleanest way of doing it), I used
+    <div class="code-container">
+        cp -a /source/. /dest/<br>
+    </div>
+    Then, delete the directory<br>
+    <div class="code-container">
+        sudo rm -r source
+    </div>
+
+    <h3>HTTPS</h3>
+    Your website may not load correctly on all browser if it can't serve https, the encrypted big brother of http.<br>
+    To serve https you need an SSL certificate, when connecting to the server, your browser check the certificate and
+    handshake to start the encrypted connection if everything is ok.<br>
+    Certificates are delivered by Certificate Authority, some cost money, some are free.<br>
+    We'll use Let's Encrypt through Certbot, Let's Encrypt is free but need to be renewed every 2 months.<br>
+    <br>
+    To install certbot we'll need another package manager : snap <br>
+    <div class="code-container">
+        sudo apt install snapd <br>
+        sudo snap install core
+    </div>
+    Once it is done you can install certbot with
+    <div class="code-container">
+        sudo snap install --classic certbot<br>
+        sudo ln -s /snap/bin/certbot /usr/bin/certbot<br>
+        sudo certbot --nginx
+    </div>
+    The last command will automatically edit your nginx config file to use https.
 
 
-<h3>PHP</h3>
-FastCGI is a protocol for interfacing program with a web server.<br>
-php-fpm is a wrapper of php for fastCGI, it runs php as a separate server, nginx sends query to the php server when needed.
-<br>First, install the php-fpm package (in my case it's 8.2 but it may vary).<br>
+    <h3>PHP</h3>
+    FastCGI is a protocol for interfacing program with a web server.<br>
+    php-fpm is a wrapper of php for fastCGI, it runs php as a separate server, nginx sends query to the php server when
+    needed.
+    <br>First, install the php-fpm package (in my case it's 8.2 but it may vary).<br>
 
-<div class="code-container">
-    sudo apt install php8.2-fpm
-</div> 
+    <div class="code-container">
+        sudo apt install php8.2-fpm
+    </div>
 
-verify if the service is running
-<div class="code-container">
-    sudo service php8.2-fpm status
-</div>
-if not, use
-<div class="code-container">
-    service php8.2-fpm start
-</div>
-To connect php-fpm to nginx, edit the nginx config file to add index and uncomment the location
-<div class="code-container">
-    <pre>
+    verify if the service is running
+    <div class="code-container">
+        sudo service php8.2-fpm status
+    </div>
+    if not, use
+    <div class="code-container">
+        service php8.2-fpm start
+    </div>
+    To connect php-fpm to nginx, edit the nginx config file to add index and uncomment the location
+    <div class="code-container">
+        <pre>
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -147,76 +160,84 @@ server {
     }</stan>
 }
 </pre>
-</div>
-Remember to change the php version version depending on yours !!<br>
-Test for syntax error
-<div class="code-container">
-    sudo nginx -t
-</div>
-then reload nginx
-<div class="code-container">
-    sudo systemctl reload nginx
-</div>
-<br>
+    </div>
+    Remember to change the php version version depending on yours !!<br>
+    Test for syntax error
+    <div class="code-container">
+        sudo nginx -t
+    </div>
+    then reload nginx
+    <div class="code-container">
+        sudo systemctl reload nginx
+    </div>
+    <br>
 
-<h3>Changing permission if PHP can't write</h3>
-Create a PHP file containing the following:
-<div class="code-container">
-    &lt;?php echo `whoami`; ?&gt;
-</div>
-Upload it to your web server. The output should be similar to the following:
-<br>
-www-data
-<br>
-Therefore, the PHP user is www-data.
-<br><br>
-By using <code>ls -dl</code>, you can see the permission and owners of the directory you are in, example at root
-<div class="code-container">
-debian@vps-d1a0526b:~$ ls -dl<br>
-drwxr-xr-x 7 debian debian 4096 Dec  9 12:59 .
-</div>
+    <h3>Changing permission if PHP can't write</h3>
+    Create a PHP file containing the following:
+    <div class="code-container">
+        &lt;?php echo `whoami`; ?&gt;
+    </div>
+    Upload it to your web server. The output should be similar to the following:
+    <br>
+    www-data
+    <br>
+    Therefore, the PHP user is www-data.
+    <br><br>
+    By using <code>ls -dl</code>, you can see the permission and owners of the directory you are in, example at root
+    <div class="code-container">
+        debian@vps-d1a0526b:~$ ls -dl<br>
+        drwxr-xr-x 7 debian debian 4096 Dec 9 12:59 .
+    </div>
 
-You can add this user to the owners of a directory by using 
-<div class="code-container">
-sudo chown -R www-data directory
-</div>
+    You can add this user to the owners of a directory by using
+    <div class="code-container">
+        sudo chown -R www-data directory
+    </div>
 
-You can reuse ls -dl to check if www-data has been correctly added to the owners.
-
-
-<h3>URL</h3>
-The last step is to link the IP of your server to a url to make it easily accessible, the method will vary depending on your domain provider.
+    You can reuse ls -dl to check if www-data has been correctly added to the owners.
 
 
-<h3>File transfer</h3>
-To transfer file from your computer to 
+    <h3>URL</h3>
+    The last step is to link the IP of your server to a url to make it easily accessible, the method will vary depending
+    on your domain provider.
 
 
-<h4>References</h4>
-
-<ul>
-    <li><a href="https://www.howtogeek.com/791055/apt-vs-apt-get-whats-the-difference-on-linux/">On the difference between apt and apt-get</a><br>
-    </li>
-    <li>
-        <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-debian-8"> LEMP install</a>
-    
-    </li>
-    <li><a href=https://blog.hubspot.com/marketing/what-is-ssl>Info on https and SSL</a></li>
-    <li><a href=https://certbot.eff.org/instructions?ws=nginx&os=debianbuster&tab=standard>Certbot website</a></li>
-    <li><a href=https://letsencrypt.org>Let's encrypt website</a></li>
-    <li> <a href="https://stackoverflow.com/questions/2900690/how-do-i-give-php-write-access-to-a-directory">PHP write permission</a></li>
-    <li>
-        <a href="https://phoenixnap.com/kb/remove-directory-linux"> Removing a directory </a>
-    </li>
-    <li><a href=https://askubuntu.com/questions/86822/how-can-i-copy-the-contents-of-a-folder-to-another-folder-in-a-different-directo>Copying all the content of a directory</a></li>
-    <li><a href=https://www.freecodecamp.org/news/linux-chmod-chown-change-file-permissions>chmod and chown</a></li>
-</ul>
+    <h3>File transfer</h3>
+    To transfer file from your computer to your server you are suppose to use some kind of file transfer protocol such as SFTP.<br>
+    I'm lazy so I use visual studio code to drag and drop stuff in the explorer.
 
 
-<br>
+    <h4>References</h4>
 
-<hr>
-<div class="center-container">
-    <a href="/index.html">- home - </a>
-</div>
+    <ul>
+        <li><a href="https://www.howtogeek.com/791055/apt-vs-apt-get-whats-the-difference-on-linux/">On the difference
+                between apt and apt-get</a><br>
+        </li>
+        <li>
+            <a
+                href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-debian-8">
+                LEMP install</a>
+
+        </li>
+        <li><a href=https://blog.hubspot.com/marketing/what-is-ssl>Info on https and SSL</a></li>
+        <li><a href=https://certbot.eff.org/instructions?ws=nginx&os=debianbuster&tab=standard>Certbot website</a></li>
+        <li><a href=https://letsencrypt.org>Let's encrypt website</a></li>
+        <li> <a href="https://stackoverflow.com/questions/2900690/how-do-i-give-php-write-access-to-a-directory">PHP
+                write permission</a></li>
+        <li>
+            <a href="https://phoenixnap.com/kb/remove-directory-linux"> Removing a directory </a>
+        </li>
+        <li><a
+                href=https://askubuntu.com/questions/86822/how-can-i-copy-the-contents-of-a-folder-to-another-folder-in-a-different-directo>Copying
+                all the content of a directory</a></li>
+        <li><a href=https://www.freecodecamp.org/news/linux-chmod-chown-change-file-permissions>chmod and chown</a></li>
+    </ul>
+
+
+    <br>
+
+    <hr>
+    <div class="center-container">
+        <a href="/index.html">- home - </a>
+    </div>
 </body>
