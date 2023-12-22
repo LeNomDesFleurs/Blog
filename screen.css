@@ -93,7 +93,7 @@ Typography
 h1, h2 {
     font-family: var(--font-serif);
     /* calc(min px + variable vw) */
-    font-size: calc(30px + 3.9vw);
+    font-size: calc(30px + 3vw);
     font-weight: 10000;
     margin: 0;
     color: #556b2f;
