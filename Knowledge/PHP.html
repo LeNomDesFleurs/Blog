@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Le Nom Des Fleurs</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="HTML~CSS knowledge of Thomas Guillory" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../screen.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div class="title-link">
+            <a href=/./../Knowledge.html>
+                <h1> PHP</h1>
+            </a>
+        </div>
+    </header>
+
+    PHP is a processing language that allows you to add interactivity to a website.
+    <br>It's loosely typed, use semicolon at the end of line, keyword aren't case sensitive, but variable are.
+    <br>To run php locally, first install it's packet and Composer, a php dependency manager.<br>
+    Composer will allow you to install Lavarel Valet, it is a development environment that let you run nginx in the background to test your php locally.
+    <div class="code-container">
+        brew install php
+        <br>brew install composer
+        <br>composer global require laravel/valet
+        <br>valet install
+    </div>
+    Once valet is installed, you may prepare the folder of your choice for test.
+    <div class="code-container">
+        valet park<br>
+        valet link<br>
+        valet links
+    </div>
+    The last command will show you the url to put in your browser search bar to access the preview of your webpage.
+    <br>You can also use <code>valet share</code> to get a ngrok URL you can share to anyone.
+    
+    <hr>
+    <div class="center-container">
+        <a href="/index.html">- home - </a>
+    </div>
+</body>

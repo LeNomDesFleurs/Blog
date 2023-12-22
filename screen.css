@@ -93,6 +93,9 @@ Typography
 h1, h2 {
     font-family: var(--font-serif);
     font-size: calc(26.5px + (10) * ((179vw - 380px) / (420)));
+    /* calc(min px + variable vw) */
+    font-size: calc(30px + 3.9vw);
+    /* font-size: 5vW; */
     font-weight: 10000;
     margin: 0;
     color: #556b2f;
@@ -215,6 +218,10 @@ input {
     left: -999em;
   }
 
+form:input {
+    position:relative;
+    left: 0%;
+}
 /* example 3 */
 
 
