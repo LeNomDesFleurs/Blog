@@ -1,18 +1,20 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
 <channel>
 <title>Le Nom Des Fleurs</title>
-<link>https://lndf.fr/</link>
+<link>https://lndf.fr</link>
 <description>Personal Blog of Thomas Guillory</description>
-<lastBuildDate>Wed, July 4 2018</lastBuildDate> <!-- optional -->
+<!-- <lastBuildDate>Wed, July 4 2018</lastBuildDate> optional -->
 
 
 <item>
 <title>240109</title>
-<link>https://lndf.fr/Blog</link>
+<link>https://lndf.fr/Blog.html</link>
 <guid>240109</guid>
 <pubDate>Tuesday, January 9 2024</pubDate>
+<description>240109</description>
+<content>
+<time><em>240109</em></time><br>
 The skeumorphism is often shown as a bad exemple of UX, some people tend to become angry.<br>
 But what about the inherent underlying concept of interacting with knobs and slider ? Is is a technical skeumorphism ? Much of was as been done is a kind of emulation. might as well go all the way.<br>
 But the knob seems nonetheless to be a good info/space ratio, in a glance you can have max / min / actual value. <br>
@@ -43,7 +45,8 @@ Some Music :
 <ul>
     <li><a href="https://xplodingplastix.bandcamp.com/album/treated-timber-resist-rot">Xploding plastiX - Treated Timber Resist Rot</a></li>
     <li><a href="https://www.youtube.com/playlist?list=PLNPGM2D7aODdk9u2gejTNJ7X7sMZIDO-A">Cat Power - The Greatest</a></li>
-</ul></description>
+</ul>
+</content>
 
 </item>
 

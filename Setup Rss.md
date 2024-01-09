@@ -35,4 +35,5 @@ close at the end with
 
 ## reference
 
+[SITE - Tester for RSS](https://www.rsslookup.com)
 [SITE - make use of](https://www.makeuseof.com/tag/how-to-create-an-rss-feed-for-your-site-from-scratch/)
