@@ -33,7 +33,7 @@ close at the end with
 </rss>
 ```
 
-Mayber It is supposed to be named `index.xml` and be at root, it seems to have helped...
+Maybe It is supposed to be named `index.xml` and be at root, it seems to have helped...
 
 ## reference
 
