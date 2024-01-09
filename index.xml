@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>Le Nom Des Fleurs</title>
+<link>https://lndf.fr</link>
+<description>Personal Blog of Thomas Guillory</description>
+<!-- <lastBuildDate>Wed, July 4 2018</lastBuildDate> optional -->
+
+
+<item>
+<title>240109</title>
+<link>https://lndf.fr/Blog.html</link>
+<guid>240109</guid>
+<pubDate>Tuesday, January 9 2024</pubDate>
+<description>240109</description>
+<content>
+test
+</content>
+
+</item>
+
+
+
+</channel>
+</rss>
