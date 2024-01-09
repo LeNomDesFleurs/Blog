@@ -33,6 +33,8 @@ close at the end with
 </rss>
 ```
 
+Mayber It is supposed to be named `index.xml` and be at root, it seems to have helped...
+
 ## reference
 
 [SITE - Tester for RSS](https://www.rsslookup.com)

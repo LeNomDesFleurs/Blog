@@ -14,7 +14,42 @@
 <pubDate>Tuesday, January 9 2024</pubDate>
 <description>240109</description>
 <content>
-test
+
+The skeumorphism is often shown as a bad exemple of UX, some people tend to become angry.<br>
+But what about the inherent underlying concept of interacting with knobs and slider ? Is is a technical skeumorphism ? Much of was as been done is a kind of emulation. might as well go all the way.<br>
+But the knob seems nonetheless to be a good info/space ratio, in a glance you can have max / min / actual value. <br>
+And they are quite handy when you need to group functionality.
+Things that may allow for this mere information. If you know what are the max and min of the viz, can you guess the value?
+<br><br>
+Variable font as a potentiometre.<br>
+Changed the font of my IDE to <a href="https://www.recursive.design">Recursive</a>, a variable multi-axis font.
+<br>
+<br>
+.on the question of the relation of the artist to his tool, <a href="https://3dvar.com/Mudd2023Playing.pdf">This article</a> about no-input mixing is really interestinG<br>
+curieusement Je Retombe Sur Exactement Les Concepts Que J'Utilise Pour Réfléchir.
+<br><br><br><br><br>
+<span style="transform:rotate(90deg); 
+display:block;
+text-align: center;"
+>Je recherche des <em>Alternatives</em></span><br><br><br><br><br><br>
+<span style="transform:rotate(45deg); 
+display:block;
+text-align: center;"
+>I was thinking maybe writing <br><span style="transform:scale(-1, -1); display: block;">straight</span> is <b>lame</b></span><br><br>
+<span style="transform:rotate(225deg); 
+display:block;
+text-align: center;"
+>I wanna be the cool kid with the artsy website</span><br><br><br><br><br><br>
+Je viens de découvrir que le mot aternative (in french) is about duality and binary decision, whereas, en anglais, son acception se penche sur l'ensemble de ce qui aurait pu être possible.<br><br>
+Some Music :
+<ul>
+    <li><a href="https://xplodingplastix.bandcamp.com/album/treated-timber-resist-rot">Xploding plastiX - Treated Timber Resist Rot</a></li>
+    <li><a href="https://www.youtube.com/playlist?list=PLNPGM2D7aODdk9u2gejTNJ7X7sMZIDO-A">Cat Power - The Greatest</a></li>
+</ul>
+    <audio controls>
+        <source src="Media/231229-bouilloire.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </content>
 
 </item>
