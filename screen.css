@@ -30,6 +30,13 @@ Variables
     src: url('/Media/JetBrain-ExtraBold.woff2');
 }
 
+@font-face {
+    font-family: 'Recursive';
+    font-style: bold;
+    font-weight: 900;
+    src: url('/Media/Recursive.woff2');
+}
+
 :root {
     --font-sans: JetBrain;
     --font-serif: serif; 
@@ -265,3 +272,19 @@ ol{
 }
 
 
+.textvar{
+    font-family:'Recursive';
+    font-variation-settings: 'CASL' 1;
+    font-size: larger;
+    transition: font-variation-settings 1s ease; 
+    /* transform:scale(1, -1);  */
+    transform:rotate(90deg); 
+    display:block;
+    text-align: center;
+}
+
+.textvar:hover{
+    font-variation-settings: 'CASL' 0;
+    transition: font-variation-settings 1s ease; /* Smooth transition for width change */
+    
+}
