@@ -30,20 +30,17 @@ Variables
     src: url('/Media/JetBrain-ExtraBold.woff2');
 }
 
-@font-face {
-    font-family: 'Recursive';
-    font-style: bold;
-    font-weight: 900;
-    src: url('/Media/Recursive.woff2');
+@font-face{
+    font-family: 'Redaction';
+    font-style: normal;
+    src: url('/Media/Redaction-Regular.otf')
 }
+
 
 :root {
     --font-sans: JetBrain;
-    --font-serif: serif; 
+    --font-serif: Redaction; 
     /* Times,serif; */
-    --font-size: 17px;
-    --font-s: 14px;
-    --font-size-serif: 18px;
     --spacing: 1.5em;
     --spacing-s: calc(0.5 * var(--spacing));
     --spacing-m: var(--spacing);
@@ -73,14 +70,12 @@ Base
 
 
 html {
-    font-family: var(--font-s);
-    line-height: 1.5;
+    font-family: var(--font-serif);
     background-color: var(--color-bg);
     color: var(--color-default);
-    font-weight: 500;
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "onum" 1, "liga" 1;
-    font-size: var(--font-size);
+    /* font-feature-settings: "onum" 1, "liga" 1; */
+    /* font-size: var(--font-size); */
     line-height: 1.5;
     padding: 1.5rem;
     padding-top: 0%;
@@ -98,10 +93,8 @@ Typography
 -------------------------------------- */
 
 h1, h2 {
-    font-family: var(--font-serif);
     /* calc(min px + variable vw) */
     font-size: calc(30px + 3vw);
-    font-weight: 10000;
     margin: 0;
     color: #556b2f;
 }
