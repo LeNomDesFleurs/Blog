@@ -15,7 +15,6 @@
 </head>
 <body>
     <h1>Guestbook</h1>
-
     <!-- PHP code to display and delete stored text -->
     <?php
     $file = 'guestbook.txt';
