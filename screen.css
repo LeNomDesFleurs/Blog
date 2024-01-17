@@ -264,3 +264,8 @@ ol{
     border-radius: 20px;
 }
 
+blockquote {
+    padding-left: 15px;
+    border-left: 2px solid var(--color-default);
+  } 
+
