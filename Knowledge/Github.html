@@ -2,47 +2,53 @@
 <html lang="en-US">
 
 <head>
-    <title>Le Nom Des Fleurs</title>
-    <meta name="author" content="Thomas Guillory" />
-    <meta name="Description" content="HTML~CSS knowledge of Thomas Guillory" />
+        <title>Le Nom Des Fleurs</title>
+        <meta name="author" content="Thomas Guillory" />
+        <meta name="Description" content="HTML~CSS knowledge of Thomas Guillory" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../screen.css" type="text/css">
+        <link rel="stylesheet" href="../screen.css" type="text/css">
 </head>
 
 <body>
-    <header>
-        <div class="title-link">
-                <a href = /./../Knowledge.html>  <h1> Github</h1></a>
-        </div>    
-</header>
+        <header>
+                <div class="title-link">
+                        <a href=/./../Knowledge.html>
+                                <h1> Git</h1>
+                        </a>
+                </div>
+        </header>
 
 
-<div>
+        <div class="ex3">
+                <label for="gitBasics"><em><strong>~ Basics</strong></em></label>
+                <input type="checkbox" name="one" id="gitBasics" checked="true">
+                <div class="hide3">
+                        <div class="inner3">
 
-<h3> > INIT AND REMOTE</h3>
+                                <br>
+                                <h3> Init Repo using Github CLI </h3>
 
-<br>        <h3> Créer le repo </h3>
-<p>
-        Using Github CLI<br>
-        <div class="code-container">
-            <code>
+
+                                <div class="code-container">
+                                        <code>
             run `gh auth login`<br>
         
             puis `gh repo create [name] --public`<br>
         </code>
-        </div>
-    </p>
-        
-        <br><h3> Create Git </h3>
-        
-        <div class="code-container"><code>
-        
+                                </div>
+
+
+                                <br>
+                                <h3> Create Git </h3>
+
+                                <div class="code-container"><code>
+
         #1: Create a folder for this project on your local hard drive<br>
         
         mkdir my-project<br>
@@ -66,11 +72,12 @@
         git commit -m "Initial commit"<br>
         
         </code></div>
-        
-<br>        <h3> Link Git to Github Repo </h3>
-        
-        <div class="code-container"><code>
-        
+
+                                <br>
+                                <h3> Link Git to Github Repo </h3>
+
+                                <div class="code-container"><code>
+
         git remote add origin https://github.com/GithubUserName/RepoName <br>
         
         git remote -v #check if it worked<br>
@@ -78,156 +85,227 @@
         git push --set-upstream origin master<br>
         
         </code></div>
-        
-<br>        <h3> Add a sub module </h3>
-        
-        <div class="code-container"><code>
-        
+
+                                <br>
+                                <h3> Add a sub module </h3>
+
+                                <div class="code-container"><code>
+
         git submodule add [github link]
         
         </code></div>
-        
-<br>        <h3> Clone Private Repo </h3>
-        
-        <div class="code-container"><code>
-        
+
+                                <br>
+                                <h3> Clone Private Repo </h3>
+
+                                <div class="code-container"><code>
+
         git clone https://[PAT]@github.com/[account]/[repo].git
         
         </code></div>
-        
-        Generate Private Acess Token at<br>
-        
-        /Settings/Developer Settings/Personal access Token<br>
-        
-        <a href="https://stackoverflow.com/questions/2505096/clone-a-private-repository-github">StackOF source</a>
-        <br>
-        <br>
-        <h3> > BRANCH</h3>
-        
-        COMMIT BEFORE DOING ANYTHING<br>
-        
-        origin : remote alias
-        
-<br>        <h3> Create Branch From Master </h3>
-        
-        <div class="code-container"><code>
-        
+
+                                Generate Private Acess Token at<br>
+
+                                /Settings/Developer Settings/Personal access Token<br>
+
+                                <a href="https://stackoverflow.com/questions/2505096/clone-a-private-repository-github">StackOF
+                                        source</a>
+                                <br>
+                                <br>
+
+        </div></div>
+
+        <div class="ex3">
+                <label for="gitBranches"><em><strong>~ Branches</strong></em></label>
+                <input type="checkbox" name="one" id="gitBranches" checked="true">
+                <div class="hide3">
+                        <div class="inner3">
+              
+                        COMMIT BEFORE DOING ANYTHING<br>
+
+                        origin is the remote alias
+
+                        <br>
+                        <h3> Create Branch From Master </h3>
+
+                        <div class="code-container"><code>
+
         git branch [new-branch]
         
         </code></div>
-        
-<br>        <h3> Create New branch from a branch </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Create New branch from a branch </h3>
+
+                        <div class="code-container"><code>
+
         git checkout -b [new-branch] [existing-branch]
         
         </code></div>
-        
-<br>        <h3> Switch Branch </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Switch Branch </h3>
+
+                        <div class="code-container"><code>
+
         git checkout [branch]
         
         </code></div>
-        
-<br>        <h3> Merge Branch in Master </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Merge Branch in Master </h3>
+
+                        <div class="code-container"><code>
+
         git checkout master<br>
         
-        git pull [origin] master<br>
+        git merge [branch]<br>
         
-        git merge branch<br>
-        
-        git push [origin] master<br>
         
         </code></div>
-        
-<br>        <h3> Merge Master in Branch </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Merge Master in Branch </h3>
+
+                        <div class="code-container"><code>
+
         git checkout [branch]<br>
         
         git pull [origin] master
         
         </code></div>
-        
-<br>        <h3> Delete branch </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Delete branch </h3>
+
+                        <div class="code-container"><code>
+
         git branch -d [branch]
         
         </code></div>
-        
-<br>        <h3> Add and Commit </h3>
-        
+        <br>
+        <h3> Go Back to previous Branch </h3>
+
         <div class="code-container"><code>
-        
+
+git checkout -
+
+</code></div>
+</div></div>
+<div class="ex3">
+        <label for="gitCommits"><em><strong>~ Commits</strong></em></label>
+        <input type="checkbox" name="one" id="gitCommits" checked="true">
+        <div class="hide3">
+                <div class="inner3">
+
+                        <br>
+                        <h3> Add and Commit </h3>
+
+                        <div class="code-container"><code>
+
         git commit -am "message"
         
         </code></div>
-        
-<br>        <h3> Add Alias "ac" for the previous command </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Add Alias "ac" for the previous command </h3>
+
+                        <div class="code-container"><code>
+
         git config --global alias.ac "commit -am"
         
         </code></div>
-        
-<br>        <h3> Edit comment </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Edit comment </h3>
+
+                        <div class="code-container"><code>
+
         git --amend -m "edited message"
         
         </code></div>
-        
-<br>        <h3> Rollback to a commit </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Rollback to a commit </h3>
+
+                        <div class="code-container"><code>
+
         git revert [commitID]
         
         </code></div>
-        
-<br>        <h3> Test successive commit to find bug origin </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Test successive commit to find bug origin </h3>
+
+                        <div class="code-container"><code>
+
         git bisect [commit de départ]<br>
         
         git bisect good #To Go to next commit
         
         </code></div>
-        
-<br>        <h3> Nice logs </h3>
-        
-        <div class="code-container"><code>
-        
+
+                        <br>
+                        <h3> Nice logs </h3>
+
+                        <div class="code-container"><code>
+
         git log --graph --oneline --decorate
         
         </code></div>
-        
-<br>        <h3> Go Back to previous Branch </h3>
-        
-        <div class="code-container"><code>
-        
-        git checkout -
-        
-        </code></div>
-        <br><br>
-        <a href="https://download-directory.github.io">website to dowload a specific directory from a repo</a>
-    </p>
-    </div>
-    <hr>
-    <div class="center-container">
-        <a href="/index.html">- home - </a>
-    </div>
 
- </body>
+                </div>
+        </div>
+        <div class="ex3">
+                <label for="remotesetup"><em><strong>~ Setup remote for website</strong></em></label>
+                <input type="checkbox" name="one" id="remotesetup" checked="true">
+                <div class="hide3">
+                        <div class="inner3">
+                                The goal here is to be able to deploy the website update from a push.<br>
+                                For this we'll use hooks and a bare repo.
+                                A bare repo is the git file without the working tree, i.e. the blueprint for all the code without the code itself.<br>
+                                This secific type of repo is used to be pushed to, it eliminate the risk of any problem that could come from pushing to a working tree<br>
+                                The hooks are script files that are called at certain point of git actions, you can put whatever you want in these files.<br>
+                                We are gonna use the <code>post-receive</code> hook to deploy a working tree under the directory we want to be able to access through nginx (by default : /var/www/html).<br><br>
+                                <code>Local Computer -push--> /var/www/git/ (bare) -deploy--> /var/www/html<br></code><br>
+                                The way I've done it is quite dirty, people usully create a git user, manage permission properly etc...<br>
+                                I don't really care cause that's my website but it may cause problems on larger team et setup.<br><br>
+                                <div class="code-container">
+                                        # log in your server<br>
+                                ssh your_user@server_ip_address<br>
+                                cd /var/www
+                                <br>
+                                mkdir git<br>
+                                mkdir html<br>
+                                # change ownership if needed with chown [user] [folder_name]<br><br>
+                                cd git<br>
+                                git init --bare<br>
+                                cd hooks<br>
+                                vim post-receive<br><br>
+                                # add those two lines to the file<br>
+                                #!/bin/sh<br>
+git --work-tree=/var/www/html --git-dir=/var/www/git checkout -f name_of_branch<br><br>
+# make it executable<br>
+chmod +x post-receive<br>
+<br>
+# push from you local machine<br>
+git remote add origin ssh://your_user@server_ip_address:/var/www/git/<br>
+
+
+                                </div>
+                        </div>
+                        </div>
+                        <br>
+ <a href="https://download-directory.github.io">website to dowload a specific directory
+                                from a repo</a>
+<h3>References</h3>
+        <ul>
+                <li><a href="https://www.theinkedengineer.com/articles/deploy-a-website-using-git">Deploy a website remotely using Git
+                </a></li><li><a href="https://gggritso.com/human-git-aliases">Using human git aliases</a></li>
+ </ul>
+        <hr>
+        <div class="center-container">
+                <a href="/index.html">- home - </a>
+        </div>
+
+</body>

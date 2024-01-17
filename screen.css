@@ -269,3 +269,8 @@ blockquote {
     border-left: 2px solid var(--color-default);
   } 
 
+  code{
+font-family: var(--font-sans);
+
+  }
+
