@@ -3,7 +3,7 @@ Variables
 -------------------------------------- */
 @media (prefers-color-scheme: light){
     :root{
-        --color-default:  #322e2d;
+        --color-default: #2F2e2d;
         --color-bg: #b8b1a9;
         --color-dim: #606060;
     }
@@ -12,7 +12,8 @@ Variables
 @media (prefers-color-scheme: dark){
     :root{
         --color-default: #BAB6B1;
-        --color-bg: #322e2d;
+        --color-bg: #2F2e2d;
+        /* --color-bg: #282828; */
         --color-dim:#7f7f7f;
     }
 }
@@ -20,6 +21,7 @@ Variables
     font-family: 'JetBrain';
     font-style: normal;
     font-weight: 400;
+    /* src: url('/Media/Recursive.ttf') */
     src: url('/Media/JetBrain.woff2');
 }
 
@@ -273,4 +275,3 @@ blockquote {
 font-family: var(--font-sans);
 
   }
-
