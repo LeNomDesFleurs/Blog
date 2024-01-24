@@ -224,6 +224,56 @@ They can be between different operator family</p>
 </div>  
 
 <div class="ex3">
+    <label for="imagetoparticle"><em><strong>~ Image to particle</strong></em></label>
+    <input type="checkbox" name="one" id="imagetoparticle" checked = "true">
+    <div class="hide3">
+      <div class="inner3">
+        <a
+        href="https://www.youtube.com/watch?v=TbM2_Cvygww&amp;list=PLSovrPWjLMt7TBkWl2cNhONrnYF9qkM2v&amp;index=48">note from this video</a>
+        <ul>
+        <li>create uv map of the image
+        <ul>
+        <li>use a ramp with the same resolution as the image</li>
+        <li>Ramp -&gt; in1 Reorder</li>
+        <li>Ramp -&gt; in1 Flip (in flop mode)</li>
+        <li>Flip -&gt; in2 Reorder</li>
+        <li>Reorder/output green : input2</li>
+        <li>red - green - blue - alpha</li>
+        <li>Image -&gt; Level</li>
+        <li>Level -&gt; in3 Reorder (High B set 3D depth)</li>
+        <li>Reorder/Output Blue : Input3</li>
+        <li>Reorder -&gt; null (named particle_source)</li>
+        </ul></li>
+        </ul></li>
+        <li>Select -&gt; in2 Particlegpu
+        <ul>
+        <li>Select/TOP : image (drag &amp; drop)</li>
+        </ul></li>
+        <li>Particlegpu (Palette/tools/)
+        <ul>
+        <li>/Material/Material : line</li>
+        <li>DisplayBounds : Off</li>
+        <li>Smaller particle
+        <ul>
+        <li>Particle Size Min : ~0.05</li>
+        <li>Particle Size Max : ~0.2</li>
+        </ul></li>
+        <li>More Particle
+        <ul>
+        <li>Birth : 2000</li>
+        </ul></li>
+        <li>Life and Life variance : 4</li>
+        <li>Set turbulence to taste in /forces</li>
+        </ul></li>
+        </ul>
+
+        Adding a feedback network with some blur can be an interesting next step.
+
+    </div>
+    </div>
+</div>  
+
+<div class="ex3">
     <label for="item-4"><em><strong>~ References</strong></em></label>
     <input type="checkbox" name="one" id="item-4" checked = "true">
     <div class="hide3">
