@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Le Nom Des Fleurs</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="VST Project page" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+
+
+<body>
+<header>
+                <a href = /./../Projects.html> <h1>Hydra sketches</h1></a>
+</header>
+
+<script src="https://unpkg.com/hydra-synth"></script>
+<br>
+<!-- <div class="center-container"> -->
+
+<time><em>240131</em></time><br>
+<br>
+<script>
+    var hydra = new Hydra({ detectAudio: false })
+setResolution(400, 400)
+shape(4)
+.repeat(100, 100)
+.modulate(noise().pixelate(50, 50).scale(0.5))
+.modulate(shape(3).brightness(-2).add(noise(1000, 2), 0.01))
+.add(src(o0).scale([0.2,0.3, 1.2].ease()), 0.9)
+.scale(4)
+.out(o0)
+
+</script>
+<div class="ex3">
+    <label for="240131-1">Show Code</label>
+    <input type="checkbox" name="one" id="240131-1" checked="true">
+    <div class="hide3">
+        <code>
+                <pre>
+setResolution(400, 400)
+sh ape(4)
+.repeat(100, 100)
+.modulate(noise().pixelate(50, 50).scale(0.5))
+.modulate(shape(3).brightness(-2).add(noise(1000, 2), 0.01))
+.add(src(o0).scale([0.2,0.3, 1.2].ease()), 0.9)
+.scale(4)
+.out(o0)</pre></code>
+    </div>
+</div>
+<br>
+
+<script>
+    var hydra = new Hydra({ detectAudio: false })
+    setResolution(500, 620)
+noise()
+.modulate(noise()).pixelate(100, 100)
+.modulate(noise(10, 0.1))
+.color(1.9, 1, 0.9)
+.brightness(0.7)
+.scale(2)
+.out(o0)
+</script>
+<div class="ex3">
+    <label for="240131-2">Show Code</label>
+    <input type="checkbox" name="one" id="240131-2" checked="true">
+    <div class="hide3">
+        <code>
+                <pre>
+noise()
+.modulate(noise()).pixelate(100, 100)
+.modulate(noise(10, 0.1))
+.color(1.9, 1, 0.9)
+.brightness(0.7)
+.scale(2)
+.out(o0)</pre></code>
+    </div>
+</div>
+
+
+<br><br>
+<time><em>231012</em></time><br><br>
+
+
+<script>
+    var hydra = new Hydra({ detectAudio: false })
+    setResolution(900, 400)
+    osc(5, 0.02, 0.4)
+        //.rotate(0.1, 0.1)
+        //.scrollX(0, 0.1)
+        .modulatePixelate(voronoi(50))
+        .modulatePixelate(src(o0).scale(0.99))
+        .contrast(0.8)
+        .rotate(0.001)
+        .scrollY(0.004)
+        //.modulateScale(noise(1.5, 0.1))
+        .scale(1)
+        .out(o0)
+</script>
+<div class="ex3">
+    <label for="231012">Show Code</label>
+    <input type="checkbox" name="one" id="231012" checked="true">
+    <div class="hide3">
+        <code>
+                <pre>
+setResolution(900, 400)
+osc(5, 0.02, 0.4)
+//.rotate(0.1, 0.1)
+//.scrollX(0, 0.1)
+.modulatePixelate(voronoi(50))
+.modulatePixelate(src(o0).scale(0.99))
+.contrast(0.8)
+.rotate(0.001)
+.scrollY(0.004)
+//.modulateScale(noise(1.5, 0.1))
+.scale(1)
+.out(o0)</pre></code>
+    </div>
+</div>
+<!-- </div> -->
+
+<br><br><time><em>230706</em></time><br><br>
+<script>
+    var hydra = new Hydra({ detectAudio: false })
+noise(1000)
+  .pixelate(900, 50)
+  .modulate(osc(1, 0.5)
+            .rotate(0.5))
+  .scrollY(-0.1, -0.2)
+  //.modulate(noise(5)) //funky waves
+  .rotate(0.4)
+  .out(o1)
+
+src(o1).modulate(o0).scale(1).out(o0)
+</script>
+
+<div class="ex3">
+    <label for="230706">Show Code</label>
+    <input type="checkbox" name="one" id="230706" checked="true">
+    <div class="hide3">
+        <code>
+                <pre>
+noise(1000)
+.pixelate(900, 50)
+.modulate(osc(1, 0.5)
+          .rotate(0.5))
+.scrollY(-0.1, -0.2)
+//.modulate(noise(5)) //funky waves
+.rotate(0.4)
+.out(o1)
+
+src(o1).modulate(o0).scale(1).out(o0)</pre></code>
+    </div>
+</div>
+
+<br><br><time><em>230609</em></time><br><br>
+<script>
+
+    var hydra = new Hydra({ detectAudio: false })
+    noise(50).layer(src(o0)).scale([0.999, 0.997, 0.998])
+        .rotate([0, -0.003, 0.001])
+        .luma(() => (0.45 + (0.3 * Math.sin(time * 0.5))))
+        .out(o0)
+
+    gradient(0)
+        .color(0, 0, 0)
+        .add(src(o0))
+        .modulate(o3).out(o1)
+
+    shape(4)
+        .modulate(noise(5))
+        .out(o3)
+
+    render(o1)
+</script>
+<div class="ex3">
+    <label for="230609">Show Code</label>
+    <input type="checkbox" name="one" id="230609" checked="true">
+    <div class="hide3">
+        <code>
+                <pre>
+noise(50).layer(src(o0)).scale([0.999, 0.997, 0.998])
+    .rotate([0, -0.003, 0.001])
+    .luma(() => (0.45 + (0.3 * Math.sin(time * 0.5))))
+    .out(o0)
+gradient(0)
+    .color(0, 0, 0)
+    .add(src(o0))
+    .modulate(o3).out(o1)
+
+shape(4)
+    .modulate(noise(5))
+    .out(o3)
+
+render(o1)</pre></code>
+    </div>
+</div>
+<hr>
+<div class="center-container">
+    <a href="/index.html">- home - </a>
+</div>
+</body>
+
+
+
