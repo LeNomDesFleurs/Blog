@@ -12,6 +12,7 @@
 <title>240117</title>
 <link>https://lndf.fr/Blog.html</link>
 <guid>240117</guid>
+<pubDate>Wed, January 31 2024</pubDate>
 
 <description><![CDATA[
 <html><body>
@@ -23,9 +24,52 @@
 -->
 
 <item>
+<title>240131</title>
+<link>https://lndf.fr/Blog.html</link>
+<guid>240131</guid>
+<pubDate>Wed, January 31 2024</pubDate>
+
+<description><![CDATA[
+<html><body>
+Made a weird instrumental from an old jazz sample, sprinkled strange text over it :
+<audio controls>
+    <source src="Media/240131guitarloop.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+Tried some font displacement, the texture used for displacement is a ramp (100 periods) added to low resolution noise (10x10), the font is <a href="https://www.fontspace.com/brogetta-modern-serif-font-f72695">Brogetta regular</a>
+<figure>
+    <img src="Media/240131LNDF.gif">
+</figure>
+
+Made some hydra patches you can find in a newly created <a href="Projects/Hydra.html">Hydra sketches page</a>.<br>
+I decided to put all the rendering in one page to save on some loading time in the blog pages.
+
+Made some hydra patches you can find in a newly created <a href="Projects/Hydra.html">Hydra sketches page</a>.<br>
+I decided to put all the rendering in one page to save on some loading time in the blog pages.
+
+<br><br>
+I tried to make music with only ableton looper and a guitar, It was suprisingly hard, I'm so used to guitar being put through thousands of effects that dry guitar seems quite underwhelming.<br>
+Had fun and managed to do some funny loops after a few experimentations.<br>
+The funny gong like sound comes from the switch being toggled while I hold a chord, it exite the resonance of the guitar, I quite like this discovery.
+<audio controls>
+    <source src="Media/240131guitarloop.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+Some Music :
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Iimujttqr_A">edIT - Crying Over Pros For No Reason</a></li>
+<li><a href="https://ulrikaspacek.bandcamp.com/album/modern-english-decoration-2">Ulrika Spacek - Modern English Decoration</a></li>
+</ul>
+    </body></html>
+]]></description>
+</item> 
+
+<item>
 <title>240123</title>
 <link>https://lndf.fr/Blog.html</link>
 <guid>240123</guid>
+<pubDate>Tue, January 23 2024</pubDate>
 
 <description><![CDATA[
 <html><body>
@@ -57,7 +101,7 @@ Some Music :
 <title>240122</title>
 <link>https://lndf.fr/Blog.html</link>
 <guid>240122</guid>
-<!-- <pubDate>Tue, January 17 2024</pubDate> -->
+<pubDate>Mon, January 22 2024</pubDate>
 <description><![CDATA[
 <html><body>
 I made a component emulating data-moshing by combining multiple tutorials and adding my own ideas, it's not a very good "data-moshing" effect, but it's a nice effect nonetheless.
@@ -107,7 +151,7 @@ Some Music :
 <title>240117</title>
 <link>https://lndf.fr/Blog.html</link>
 <guid>240117</guid>
-<!-- <pubDate>Tue, January 17 2024</pubDate> -->
+<pubDate>Wed, January 17 2024</pubDate>
 <description><![CDATA[
 <html><body>
 Having a quite effervecent brain these time.<br>
@@ -158,7 +202,7 @@ Does this also apply to human being, which are good exemples of complex systems 
 <title>240109</title>
 <link>https://lndf.fr/Blog.html</link>
 <guid>240109</guid>
-<!-- <pubDate>Tue, January 9 2024</pubDate> -->
+<pubDate>Tue, January 9 2024</pubDate>
 <description><![CDATA[
 <html><body>
 The skeuomorphism <em>is often shown as</em> a bad exemple of UX, some people tend to become angry.<br>
