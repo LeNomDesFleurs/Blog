@@ -37,7 +37,8 @@ Made a weird instrumental from an old jazz sample, sprinkled strange text over i
     Your browser does not support the audio element.
 </audio>
 
-Tried some font displacement, the texture used for displacement is a ramp (100 periods) added to low resolution noise (10x10), the font is <a href="https://www.fontspace.com/brogetta-modern-serif-font-f72695">Brogetta regular</a>
+Tried some font displacement, the texture used for displacement is a ramp (100 periods) added to low resolution and high contrast noise (10x10), the font is <a href="https://www.fontspace.com/brogetta-modern-serif-font-f72695">Brogetta regular</a>
+<br>The deformation is inspired by <a href="https://www.youtube.com/watch?v=-XdpLPIXmxA">This PPPANIK tutorial</a>
 <figure>
     <img src="Media/240131LNDF.gif">
 </figure>
