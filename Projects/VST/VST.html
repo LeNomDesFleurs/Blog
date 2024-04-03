@@ -26,21 +26,24 @@
 </p>
 <h3>Context</h3>
 <p>
-        <a href="https://juce.com">JUCE</a> is a c++ framework that makes it easy to create an audio application as a standalone and as a plugin. It has a function that deliver audio and midi buffer, UI is also simplified. So in the same fashion as VCV simplify wy work, with a bit more work, JUCE let me share my work with way more people.
+        <a href="https://juce.com">JUCE</a> is a c++ framework that makes it easy to create an audio application as a standalone and as a plugin. 
+        It has a function that deliver audio and midi buffer, UI is also simplified. So in the same fashion as VCV simplify my work, with a bit more work, JUCE let me share my work with way more people.
         <br><br>Plugin brought a different way of thinking audio tool, in modular, people bring their own CV. Here, you gotta make them yourself. <br>
         It's an interesting thought to conceive plug-in with their own dedicated modulation, tailored for the use. 
         <br><br>
-        As a template I use this <a href="https://github.com/tomoyanonymous/juce_cmake_vscode_example/tree/main">Github Repo</a>. Which is a combination of cmake, lldb, clang++, vscode, and ableton to send sound to the plug-in and test it.
+        As a template I use this <a href="https://github.com/tomoyanonymous/juce_cmake_vscode_example/tree/main">Github Repo</a>. Which is a combination of cmake, lldb, clang++, vscode, and ableton to send sound to the plug-in and test it.<br>
+        <br>You can find some snippet of code and tips on <a href="../../Knowledge/JUCE.html">this Knowledge page</a>. 
 
 </p>
 <h3>NOI PLUGINS</h3>
-For now noi plugins are on the back burner, but they'll be back in a few month when I'll have a bit more time<br><br>
+NOI Plug-ins are (for now), adaptation of the NOI VCV-Rack Modules.<br>
+With them, I aim to experiment on interfaces, getting rid of skeuomorphism and try more experimental stuff.
+<br><br>
 <h3>Sinensis</h3>
-After a discussion with a friend of mine operating <a href="https://www.hal-audio.com">HAL audio</a> I've decided to add modes to sinensis.<br>
-There is now multiple way of setting the ratio between the bands, 
-before, there was a knob to set the ratio between each band frequency.<br>
-Two new mode are now added:<ul>
-    <li>A poly midi mode where each band as its own amplitude envelope </li>
+Sinensis is bunch of bandpass filters. Inspired by modular such as Tides and Just Friends, you modulate their relation instead of their absolute frequencies.<br>
+You set the root frequency (either by hand with a tune widget, or with the MIDI input).<br>
+You then set the ratio between each band frequence and the gain of each band following simple functions.
+
     
 </ul>
 

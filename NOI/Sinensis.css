@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* -----------------------------------
 Variables
 -------------------------------------- */
@@ -49,7 +51,7 @@ Variables
     --spacing-xl: calc(2.5 * var(--spacing));
     --spacing-xxl: calc(5 * var(--spacing));
     --spacing-col: calc(6 * var(--spacing));
-    --spacing-width-max: 30rem;
+    --spacing-width-max: 80vw;
     --spacing-width-tiny: 15rem;
     --spacing-width-xl: 50rem;
 }
@@ -68,18 +70,29 @@ Base
 -------------------------------------- */
 
 html {
-    font-family: var(--font-serif);
-    background-color: var(--color-bg);
-    color: var(--color-default);
+    /* font-family: var(--font-serif); */
+    /* background-color: var(--color-bg); */
+    /* color: var(--color-default); */
     -webkit-font-smoothing: antialiased;
     /* font-feature-settings: "onum" 1, "liga" 1; */
     /* font-size: var(--font-size); */
     line-height: 1.5;
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
     padding-top: 0%;
     max-width: var(--spacing-width-max);
     margin-left: auto;
     margin-right: auto;
+
+    height: 100%;
+    background: rgb(52, 78, 92);
+    /* background: linear-gradient(
+        45deg,
+        rgba(52, 78, 92, 1) 0%,
+        rgba(74, 177, 141, 1) 20%,
+        rgba(239, 201, 88, 1) 45%,
+        rgba(225, 122, 71, 1) 85%,
+        rgba(239, 61, 89, 1) 90%
+    ); */
 }
 /* reduce padding for phone screen */
 @media only screen and (max-width: 400px) {
@@ -95,9 +108,9 @@ Typography
 h1,
 h2 {
     /* calc(min px + variable vw) */
-    font-size: calc(30px + 2.7vw);
+    font-size: calc(15px + 2.7vw);
     margin: 0;
-    color: #556b2f;
+    color: rgba(239, 61, 89, 1);
 }
 
 h2 {
@@ -153,8 +166,7 @@ figcaption {
 
 .code-container {
     background-color: #00000025;
-    padding: 10px;
-    margin: 10px;
+    padding: 20px;
     border-radius: 10px;
     font-family: var(--font-sans);
     overflow-x: auto;
@@ -203,12 +215,20 @@ audio {
     display: block;
     width: 100%;
     margin: var(--spacing-m) 0;
+    display: flex;
+    flex-direction: row; /* Display image and text side by side by default */
+    align-items: center; /* Align items vertically in the center */
 }
 
 figure img {
     border-radius: 20px;
-    width: 100%;
-    height: auto;
+    /* width: 100%; */
+    /* align:center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 20px;
 }
 
 /* -----------------------------------
@@ -227,15 +247,19 @@ form:input {
 /* example 3 */
 
 .ex3 .hide3 {
-   
+    width: 100%;
+    display: table;
+    overflow: hidden;
     overflow-x: auto;
-    /* height: auto; */
+    height: auto;
     transition: 0.7s ease;
     background-color: #00000016;
     border-radius: 10px;
-    padding:1.5em;
-    margin:10px;
-    /* box-sizing: border-box; */
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-sizing: border-box;
 }
 
 .ex3 input[type='checkbox']:checked + .hide3 {
@@ -269,6 +293,4 @@ blockquote {
 
 code {
     font-family: var(--font-sans);
-    color: #798c53;
-    font-size: 14px;
 }

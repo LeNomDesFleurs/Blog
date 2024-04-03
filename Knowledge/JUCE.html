@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Le Nom Des Fleurs</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="HTML~CSS knowledge of Thomas Guillory" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../screen.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <a href=/./../Knowledge.html>
+            <h1> JUCE </h1>
+        </a>
+    </header>
+    <br>
+    Stuff I learned making VSTs<br>
+    Some stuff are specific to my use of cmake (I don't use the projucer)<br><hr>
+    <div>
+
+        <div class="ex3">
+            <label for="usingsvg"><em><strong>~ Using SVG</strong></em></label>
+            <input type="checkbox" name="one" id="usingsvg" checked="true">
+            <div class="hide3">
+                <div class="inner3">
+                    First you got to transform the SVG into a binary file.<br>
+                    For this drop the the file in <code>/assets</code><br>
+                    Then add a line in the <code>/src</code> makelist (in the <code>juce_add_binary_data()</code> function)
+                   <br><br>
+                   The compiler will now create a binary file on build.<br>
+                   The binary will be named <code>Example_svg</code> for an <code>Example.svg</code> file.
+                    <br><br>
+                    You can then adapt this snippet of code in <code>paint()</code> for example:
+                    <div class="code-container"><pre>const auto svg = Drawable::createFromImageData(BinaryData::NOI_svg, BinaryData::NOI_svgSize);
+            
+// juce::AffineTransform scale = Set::scale(0.2);
+juce::Rectangle<float> position = {140.f, 495.f, 35.f, 35.f};
+juce::RectanglePlacement placement = (36);
+svg->setTransformToFit(position, placement);
+svg->draw(g, 1.0);</pre>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+
+                        
+
+        <div class="ex3">
+            <label for="movingui"><em><strong>~ Moving UI</strong></em></label>
+            <input type="checkbox" name="one" id="movingui" checked="true">
+            <div class="hide3">
+                <div class="inner3">
+
+                    <ol type="1">
+                        <li>Add Listener inheritance to Editor<br>
+                        <code>public juce::AudioProcessorParameter::Listener</code></li>
+                        <li>This will allow you to override <br>
+                        <code>void parameterValueChanged(int parameterIndex, float newvalue) override;</code></li>
+                        <li>Then add Time inheritance<br> <code>public juce::Timer</code></li>
+                        <li>Which allow us to override<br>
+                        <code>void timerCallback() override;</code></li>
+                        <li>Start it in the editor constructor with <br><code>startTimerHz(60)</code></li>
+                        <li>Add a variable <br>
+                        <code>juce::atomic&lt;bool&gt; parametersChanged</code></li>
+                        <li>That you modify in <code>parameterValueChanged()</code> with<br>
+                            <code>parametersChanged.set(true);</code></li>
+                        <li>In the <code>timerCallback()</code> function you can add</li>
+                        <code>if (parametersChanged.compareAndSetBool(false, true)) {repaint();}</code><br>
+                        Or just repaint if you need a constant refresh
+                        </ol>
+                   
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ex3">
+            <label for="background"><em><strong>~ Once Rendered Background</strong></em></label>
+            <input type="checkbox" name="one" id="background" checked="true">
+            <div class="hide3">
+                <div class="inner3">
+                    <em>To make a background that is only rendered <strong>once :</strong></em><br><br>
+
+                    <ol type="1">
+                        <li>Make a class that inherit the from <code>juce::component</code></li>
+                        <li>Add an <code>background_component</code> object to the editor</li>
+                        <li><code>addAndMakeVisible(background_component)</code> in the editor constructor <strong><br>
+                        ⚠️ before widget to avoid overlap ⚠️</strong></li>
+                        <li>To only render once, add <code>background_component.setBufferedToImage(true);</code></li>
+                        <li>Use <code>paintOverChildren()</code> instead of 
+                        <code>paint()</code> (by default, background_component is a children of the editor and thus painted over)</li>
+                        <li>In <code>resized()</code> add <code>background_component.setBounds(getBounds())</code></li>
+                        <li>Don't call <code>background_component.paint()</code>
+                        in <code>paintOverChildren()</code></li>
+                        </ol>
+                        
+
+                </div>
+            </div>
+        </div>
+
+        <div class="ex3">
+            <label for="customcolor"><em><strong>~ Define Custom Color From Hexa Code</strong></em></label>
+            <input type="checkbox" name="one" id="customcolor" checked="true">
+            <div class="hide3">
+                <div class="inner3"><code>
+<pre>namespace CustomColors {
+    const juce::Colour brown = juce::Colour::fromString("FF50322a");
+    const juce::Colour green = juce::Colour::fromString("FF608537");
+}</pre></code>
+
+                </div>
+            </div>
+        </div>
+        <!-- FOOTER----------------------------------- -->
+    </div>
+    <hr>
+    <div class="center-container">
+        <a href="/index.html">- home - </a>
+    </div>
+
+</body>
