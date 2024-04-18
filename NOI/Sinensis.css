@@ -42,7 +42,7 @@ Variables
 
 :root {
     --font-sans: JetBrain;
-    --font-serif: Redaction;
+    --font-serif: Times;
     /* Times,serif; */
     --custom-red: #EF3D59;
     --custom-orange: #E17A47;
@@ -238,13 +238,13 @@ audio {
 
 figure img {
     border-radius: 20px;
-    /* width: 100%; */
-    /* align:center; */
+    width: 100%;
+    height:auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-    margin: 20px;
+    /* max-width: ; */
+  
 }
 
 /* -----------------------------------
