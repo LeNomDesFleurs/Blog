@@ -20,59 +20,50 @@
     .global{
         display: flex;
         flex-direction: row;
-    }
-    .text {
-        margin-left: 10%;
-        max-width: 15em;
-        /* Add some space between the image and text */
-        flex-direction: row;
-        margin-top:10px;
-        /* display:flex; */
+        margin: 0px;
+        padding: 0px;
     }
 
-    .break {
-        /* display:flex; */
-        flex-direction: row;
-        position:relative;
+    .test{
+        justify-content: center;
+        align-items: center;
+        /* width:auto; */
+        /* height: 80vh; */
+        margin-right: 50px;
+        /* height: 600px; */
+    }
+    
+    .text{
+        max-width: 50%;padding-top: 50px; padding-bottom: 50px;
     }
 
     @media screen and (max-width: 600px) {
 
+        .text{
+        max-width: 90%;padding-top: 50px; padding-bottom: 50px;
+    }
+
+        .test{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:auto;
+        height: 90vh;
+        margin: 0px;
+        }
         .global {
             flex-direction: column;
         }
 
-        /* Adjust the breakpoint as needed */
-        .break {
-            /* position: absolute; */
-            flex:auto;
-            flex-direction: column;
-            /* Stack image on top of text for smaller screens */
-        }
-
-        .text {
-            flex:auto;
-            flex-direction: column;
-            margin-top: 40px;
-            /* Add some space between the image and text on smaller screens */
-            margin-left: 0;
-            /* Remove left margin on smaller screens */
-            color: rgba(74, 177, 141, 1);
-        }
     }
 </style>
 </head>
 
 <body>
 <div class="global">
-    <div class="break">
+    <div class="test">
         <figure>
-        <img src="SinensisPic.png" style="
-        justify-content: center;
-        align-items: center;
-        width:auto;
-        height: 80vh;
-        margin: 20px;">
+        <img src="SinensisPic.png" style="display: flex; width:100%;" >
          </figure>
     </div>
         <div class="text">
@@ -86,8 +77,7 @@
             <a>Windows Installer</a> - <a href="/NOI/Sinensis_installer.pkg">MacOS Installer</a><br>
             You might need a <a href="/NOI/SinensisManual.png">Manual</a>.<br>
             <figure>
-                <img src="DitherSinensis.jpg" style="image-rendering:pixelated; width: 100%; 
-                 align:center; ">
+                <img src="DitherSinensis.jpg" style="image-rendering:pixelated; width: 100%; ">
             </figure>
             </div>
         </div>
