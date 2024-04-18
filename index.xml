@@ -22,6 +22,30 @@
 </item> 
 
 -->
+
+<item>
+<title>240408</title>
+<link>https://lndf.fr/Blog.html</link>
+<guid>240408</guid>
+<pubDate>Mon, April 08 2024</pubDate>
+
+<description><![CDATA[
+<html><body>
+<audio controls>
+    <source src="Media/240408-Orca.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<figure>
+    <img src="Media/240408TEXTPOLYGON.png" style="image-rendering:pixelated;">
+</figure>
+Finally began using <a href="https://hundredrabbits.itch.io/orca">Orca</a>, here controlling the PolyBrute via CC.
+<br>The image is a <a href="https://ditherit.com">dithered</a> photo of my notebook, this geometrical form is made by the repetition of a letter
+
+    </body></html>
+]]></description>
+</item> 
+
 <item>
 <title>240314</title>
 <link>https://lndf.fr/Blog.html</link>
