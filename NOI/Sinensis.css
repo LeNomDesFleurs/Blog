@@ -24,7 +24,7 @@ Variables
     font-style: normal;
     font-weight: 400;
     /* src: url('/Media/Recursive.ttf') */
-    src: url('/Media/JetBrain.woff2');
+    src: url('../../Media/JetBrain.woff2');
 }
 
 @font-face {
@@ -37,12 +37,12 @@ Variables
 @font-face {
     font-family: 'Redaction';
     font-style: normal;
-    src: url('/Media/Redaction-Regular.otf');
+    src: url('Media/Redaction-Regular.otf');
 }
 
 :root {
     --font-sans: JetBrain;
-    --font-serif: Times;
+    --font-serif: "Times New Roman", Times, serif;
     /* Times,serif; */
     --custom-red: #EF3D59;
     --custom-orange: #E17A47;
