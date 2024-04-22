@@ -22,6 +22,7 @@
         flex-direction: row;
         margin: 0px;
         padding: 0px;
+        border:0px;
     }
 
     .test{
@@ -40,7 +41,11 @@
     @media screen and (max-width: 600px) {
 
         .text{
-        max-width: 100%;padding-top: 50px; padding-bottom: 50px; font-size:0.7em;
+        max-width: 100%;
+        padding: 0px;
+        margin: 0px;
+        padding-top: 50px; padding-bottom: 50px; font-size:0.7em;
+        border:0px;
     }
 
         .test{
@@ -55,13 +60,16 @@
         }
         .global {
             flex-direction: column;
+            margin: 0px;
+            padding: 0px;
+            border:0px;
         }
 
     }
 </style>
 </head>
 
-<body>
+<body style="padding: 0px; margin: 0px; border:0px;">
 <div class="global">
     <div class="test">
         <figure>
@@ -80,7 +88,7 @@
                 Your browser does not support the audio element.
             </audio>
             <span style="font-size: 1.5em;"><i>Downloads</i></span><br>
-            <a href="Sinensis-windows.exe">Windows Installer</a> - <a href="/NOI/Sinensis_installer.pkg">MacOS Installer</a><br>
+            <a href="Sinensis-windows.exe">Windows</a> - <a href="Sinensis_MacOs_ARM.pkg">MacOS ARM</a> - <a href="Sinensis_MacOs_x86.pkg">MacOS Intel</a><br>
             You might need a <a href="/NOI/SinensisManual.png">Manual</a>.<br>
             <figure>
                 <img src="DitherSinensis.jpg" style="image-rendering:pixelated; width: 100%; ">
