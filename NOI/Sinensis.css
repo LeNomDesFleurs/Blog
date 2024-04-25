@@ -115,7 +115,7 @@ Typography
 h1,
 h2 {
     /* calc(min px + variable vw) */
-    /* font-size: calc(15px + 2.5vw); */
+    font-size: calc(15px + 2.5vw);
     /* font-size: calc(15px + 2em); */
     margin: 0;
     color: rgba(239, 61, 89, 1);
