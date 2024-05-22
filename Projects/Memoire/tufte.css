@@ -57,12 +57,12 @@ body {
 }
 
 /* Adds dark mode */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     body {
         background-color: #3c3c3c;
         color: #ddd;
     }
-}
+} */
 
 h1 {
     font-weight: 400;
@@ -484,4 +484,5 @@ label.margin-toggle:not(.sidenote-number) {
     img {
         width: 100%;
     }
+
 }
