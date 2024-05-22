@@ -140,7 +140,10 @@ p {
     padding-right: 0;
     vertical-align: baseline;
     line-height: 1.2rem;
+    text-align: justify;
+    /* justify-content: center; */
 }
+
 
 /* Chapter Epigraphs */
 div.epigraph {
@@ -276,8 +279,13 @@ img {
     max-width: 100%;
 }
 
+p.sidenote, p.marginnote{
+    text-align: left;
+}
+
 .sidenote,
 .marginnote {
+    text-align: left;
     float: right;
     clear: right;
     margin-right: -60%;
