@@ -30,6 +30,29 @@ With emphasis on affordances and agency, we discuss which of the three fundament
 </p>
 </section>
 
+<section>
+    <h2>Thanks</h2>
+Thanks to my two directors, Nicolas Montgermont and Antoine Martin, for sharing their ideas and helping to organize mine.
+<br>
+<br>
+To Corsin Vogel for his efficiency and follow-up.
+<br>
+<br>
+To Remy Müller, Rodrigo Constanzo and Julien Bloit for taking the time to chat. 
+<br>
+<br>
+To the <a href="https://llllllll.co">lines forum</a>
+<br>
+<br>
+To the Class of 2024, and in particular to my fellow students at the library.
+<br>
+<br>
+To my mother for taking the time to reread my dissertation.
+<br>
+<br>
+To my roommates who kindly listened to me talk about mapping for months on end.
+</section>
+
     <h3 class="toc_title">Table of Contents</h3>
     <ul>
     <li><a href="#Introduction">Introduction</a></li>
@@ -49,35 +72,16 @@ With emphasis on affordances and agency, we discuss which of the three fundament
 </blockquote>
 </p>
 <p>
-Now that the machine is capable of assisting us at every stage of our artistic work - or even executing certain parts of it for us -, music and the arts in general find themselves at the heart of a number of fundamental issues concerning the authorship of ideas and the relationship we maintain with our tools.
-</p>
-<p>Music composition, by virtue of its very special position, allows us to question in a more accessible and playful way the nature of this interaction, what tools should or shouldn't allow us to do, and the place they take in our creative processes.
-<br>Designing tools pushes us to question this gray zone where a multitude of influences intersect. 
-<br>When we use a tool designed by someone else, to what extent is the output obtained the fruit of our reflection, or that of others? How does it affect us?
+The tools and instruments used in computer-aided music composition are often complex. Parameters are usually given technical names describing physical phenomena. Synthesizers are a good example of a tool that requires a considerable learning curve. To facilitate their use, these tools are supplied with pre-configurations (presets).
+<br>It is sometimes difficult to find tools that strike a balance between the completeness and complexity of synthesizers, and the sometimes limiting simplicity of their presets, i.e. instruments that make reasoned use of constraints, consciously construct their affordances, and place as much importance on interaction as on the result produced. These tools would benefit from a better perception of the place of instruments in creative processes, as well as from a deeper reflection on the behaviors induced in the user by design choices and the musical constraints they impose, whether welcome or not.
 </p>
 <p>
-The use and construction of electronic musical instruments has opened me up to all these questions and offered me a form of intellectual fulfillment. I'd like others to be able to follow a part of this path, to develop and share these questions themselves.
-<br>
-I'd like to see the emergence of more luthier-artists, offering others not only their musical productions, but also their instruments and the thoughts behind their design, tools that allow the opinions of their designers to shine through in the musical constraints they impose.
-This emergence calls for a sharing of ideas on questions that are still too little addressed:  
-<ul><li>Is the sole purpose of interfaces to be efficient?</li>
-<li>How do these interfaces relate to the sound processing systems that bring the sound to life?</li>
-</ul>
+    In order to determine where and how we might begin to move towards these instruments, I'll start by explaining how digital audio workstations work. I'll look at the three components of a software synthesizer: interface, mapping and signal processing, followed by the history and current use of presets.
+<br>In the second part, I'll look at the limits of this system, taking into account all the players involved in the design and use of digital instruments. To make it easier for designers and artists to appropriate new types of interaction, the simplest thing to do is to build on what already exists. I'll be proposing a more complex mapping of software synthesizer macro-parameters. This could enable sound designers to design more complete instruments, and offer artists a more engaging interaction - even inviting them, if they so wish, to design their own instruments. As pre-configurations are present in almost all the software tools used to create music, their improvement could extend beyond synthesizers, to effects in particular.
+<br>In the third part, I will review the literature on mapping to explore the various options available. 
+<br>In the final section, I'll select a few mappings that I've identified as relevant in the course of my work.
+
 </p>
-<p>
-More than just a means of transposing a sound from our imagination to reality, these instruments would push our practice towards a game of exploration and question-answer. Interaction would become an end in itself, or the starting point for inspiration.
-<br>
-Ideally, they should be accessible to as many people as possible, whether practically: requiring little equipment or technical prerequisites, or intellectually: being interesting without knowledge of the authors' objectives and subjects of reflection.
-</p>
-<p>
-For this, I chose the context of computer music, and more specifically synthesizer pre-configurations. <br>A synthesizer is a complex machine that requires a considerable learning curve. There are sound designers whose job it is to design the presets with which the synthesizer is sold, to make it easier to use.
-These presets enjoy a certain ubiquity in the world of electronic music composition. For many, they were the first step in the world of sound design, toward the discovery of the complexity of timbre.
-Giving more tools to the sound designers who create these presets would, without upsetting users' habits too much, open up new possibilities without adding too much, at the risk of becoming off-putting.
-</p><p>
-I will take a look at the current state of Computer Music tools in order to better understand the context in which presets are used and how software synthesizers are designed. This will enable me to reflect on the various avenues for improvement open to us. <br>Following on from this, I'll take a closer look at mapping, the intermediate layer between the interface and signal processing, which seems to be the most promising area for a first step. 
-<br>A review of existing literature will enable me to select the types of mappings that seem best suited to our context. 
-<br>I'll end with an experiment to compare them.
-</p> 
 </section>
 
 <section>
@@ -109,35 +113,51 @@ The use of a DAW does not necessarily imply the use of all its sub-sections.
 <section>
 <h2 id="Sound-Event">Sound-Event</h2>
 <p>
+    Music is made up of a set of sound events organized in time, and these events can take any form (silence can be considered an event if it is preceded by sound). As the distinction between two events is determined by our perception, it is not always obvious. The distinction can be made in terms of frequency, space or time. Two distinct events can therefore have two distinct sources, two sources can merge into a single event, and two events can come from the same source.
+</p>
+<p>
 Sound events have 4 main origins: 
 <ul>
 <li>audio files</li>
-<li>MIDI</li>
+<li>synthesizers</li>
 <li>effects</li>
 <li>automation.</li>
 </ul>
 </p>
+<h3>Audio</h3>
 <p>
-MIDI is a specification that governs the way we communicate with synthesizers. A MIDI message will contain the ID of the note to be played and the way in which it is played. The velocity parameter, for example, informs us of the speed at which the key is pressed.
+Audio files, or samples, can be of any type (percussive, vocal, whole song, piano phrase) and origin (acoustic, electronic, digital). Some companies specialize in the design and sale of these samples, often in the form of loops at a given tempo to facilitate their use. Samples can be used in a variety of ways: some people leave them raw, others modify them to the point where the source is no longer recognizable. The sample becomes a material with which to bring modification tools to life. These tools are on the spectrum of synthesizers, sometimes closer to audio, sometimes closer to synthesis. 
 </p>
+<h3>Synthesizers</h3>
 <p>
-This protocol makes it possible to control synthesizer parameters using <i>Continuous Controller</i> (CC) messages. If the synthesizer complies with all the recommendations in the specification, certain CCs will be assigned to certain common parameters, such as CC 7, for volume (The MIDI Manufacturers Association. 1996). These controls are quantized to 8 bits, or 127 values (in MIDI 1.0).
-<br>Once this message has been converted into sound by the chosen synthesizer, it can be shaped using a multitude of effects. These play a very important role in electronic music, and have a major influence on an artist's sonic identity (Sramek et al. 2023).
+A synthesizer is an instrument that generates audio signals: there are many types, using various forms of algorithms to shape their timbre.
+<br>Physical synthesizers commonly embody tempered-scale piano keyboards (a familiar interface for composers). A specification has developed around this framework to facilitate synthesizer control. It comprises a set of standards specifying the form of messages to be sent to the synthesis engine to trigger a note and modify its variables. The MIDI standard (introduced in 1983) has become ubiquitous in composition software, and software synthesizers still use this same specification.
+<br>A MIDI message has three main functions: 
+<ul>
+<li>to play a note, sending its index and the way it is played (the velocity parameter, for example, informs us of the speed at which the key is pressed)</li>
+<li>recall synthesizer pre-configurations, using “Program Change” messages</li>
+<li>control a synthesis parameter using “Continuous Controller” (CC) messages. These controls have a value ranging from 0 to 127 (in MIDI 1.0, which uses 8 bits for CCs). If the synthesizer complies with all the recommendations in the specification, some CCs will be assigned to certain common parameters, such as CC 7, for volume (The MIDI Manufacturers Association. 1996).</li>
+</ul>
+</p>
+<h3>Effects</h3>
+<p>
 
-</p><p>
-Originally, when machines were physical, sound engineers used a “patch” to build the signal path through the desired processing units. The fundamental analog processing tools are frequency correction (equalizer), dynamic correction (compressor/expander) and acoustic simulators (acoustic reverberation, tape echo).
-<br>For the sake of brevity, this dissertation will focus on synthesizers, but most of the points covered can be transposed to effects.
-</p><p>
+When the audio file is played back, or the MIDI message sent to the synthesizer, a multitude of effects can be used to shape the sound. They play a very important role in electronic music, and have a major influence on an artist's sonic identity (Sramek et al. 2023).
+Originally, when machines were physical, sound engineers used a patch to build the signal path through the desired processing units. The fundamental analog processing tools are frequency correction (equalizer), dynamic correction (compressor/expander) and acoustic simulation (acoustic reverberation, tape echo).
 The beginnings of digital technology have opened the way to greater possibilities for sound generation and the multiplication of effects on a single channel. The digitization of sound has made previously laborious processes much simpler. 
-<br>Buffers, for example, greatly simplify granular processes, replacing the tedious task of cutting analog tape with a simple gesture on a potentiometer.
+Buffers, for example, greatly simplify granular processes, replacing the tedious task of cutting analog tape with a simple gesture on a potentiometer.
+For the sake of brevity, this dissertation will deal mainly with synthesizers, but most of the points covered can be transposed to effects.
 </p>
 </section>
 <section>
-<h2>Importance of automation</h2>
+<h3>Automation</h3>
 <p>
-The automation of parameters, i.e. their automatic modification over time, is one of the fundamental processes of modern electronic music (Smith, 2021).
-</p><p>Synthesizers have always incorporated modulation sources that, at their simplest, are low-frequency oscillators (which generate repetitive movements), or envelopes (which trigger a specific trajectory when a note is activated). But today's DAWs make it possible to design a trajectory for each variable, throughout the song. More than a transition between two stable states, modulation is a sound event in itself, designed and composed. Some sounds can only be obtained by manipulating a parameter over time. The interaction between several simultaneously changing parameters is a stimulating and boundless field of exploration. 
-</p><p>One of the oldest examples of such automation is the modulation of the delay time of an echo effect: this causes a variation in the pitch of the sound contained in the delay line or analog tape. This effect can be used to obtain a higher or lower sound. In the case of an echo with a feedback loop, the instant of variation creates a very special sound effect that would be far more difficult to reproduce using synthesis.
+    The modulation of parameters, i.e. their modification over time, is one of the fundamental processes of modern electronic music (Smith, 2021).
+<br>These movements bring synthesis algorithms to life by changing their timbre. Synthesizers have always incorporated modulation sources. At their simplest, these are LFOs (Low Frequency Oscillator), which generate repetitive movements, or envelopes, which trigger a specific trajectory when a note is activated. But today's DAWs allow you to design a trajectory for each variable, throughout the song, and this is known as automation: one of the most common forms of modulation for DAW users. 
+<br>More than a transition between two states, modulation can be conceived and composed as a sound event in itself. The interaction between several parameters changing simultaneously is a stimulating and boundless field of exploration. Some sounds can only be achieved by manipulating a parameter over time. One of the oldest examples is the modulation of the delay time of an echo effect: this causes a variation in the pitch of the sound contained in the delay line<label for="delayline" class="margin-toggle sidenote-number"></label><input type="checkbox" id="delayline" class="margin-toggle">
+<span class="sidenote">
+    If it uses sample interpolation.
+</span>  or analog tape. It's possible to use this effect to obtain a lower or higher-pitched sound, but in the case of an echo with a feedback loop, the variation induces a very special sound effect that would be more difficult to reproduce using synthesis.
 </p>
 </section>
 <h2>Plug-ins</h2>
@@ -168,6 +188,9 @@ Particular attention must therefore be paid to the development of these framewor
 <section>
 <h3 id="Design">Design</h3>
 <p>
+    The way in which instruments are designed has greatly evolved with the successive electronic and digital revolutions.
+</p>
+<p>
 Acoustic instruments have a playing interface intimately linked to their sound generation (Hunt, & Wanderley, 2002). A violin, for example, has strict construction constraints in order to resonate in sympathy with the vibration of the strings, which must be sufficiently taut and of the right length. 
 <br>The link between interface and sound generation is therefore implicit, and gives rise to complex networks of correspondences. 
 </p>
@@ -182,35 +205,26 @@ With digital instruments, the sound is generated by a computer. The physics of t
 This freedom implies greater responsibility in the creation of links between the interface and the processing system, with each link between performer and computer having to be consciously designed, before anything can be played (Ryan, 1991). 
 <br>These hitherto invisible links, blending into the very body of the instrument, become the subject of analysis and discussion. Similarly, the controller (the physical interface element with which the instrumentalist interacts) must be chosen. Its form and the data it collects must be determined.
 </p>
-
-The three main issues when creating a plug-in are :
-<p> 
+<p>
+To summarize
+</p>
 <ul>
-<li>the sound processing system or DSP (Digital Signal Processor)</li>
-<li>the interface, generally graphical for plug-ins, in which case we use GUI (Graphical User Interface).</li>
-<li>a set of functions linking the values defined by the interface to their practical consequences in the signal processing system. It's called mapping after the mathematical term for a function in the general sense: assigning each element of a set A to the elements of a set B (Hunt, & Wanderley, 2002).</li>
+<li>the interface is made up of visual elements representing a value, called <i>parameters</i><label for="widget" class="margin-toggle sidenote-number"></label><input type="checkbox" id="widget" class="margin-toggle">
+    <span class="sidenote">
+        or <i>widgets</i> in the context of a graphical interface</a>.
+    </span> . </li>
+<li>these values are then formatted by <i>mapping functions</i></li>
+<li>and then assigned to one or more <i>variables</i> in the <i>processing system</i>. </li>
 </ul>
-</p>
-To sum up 
 <p>
-<br>the interface is made up of visual elements representing a value, called <i>parameters</i>.
-<label for="widget" class="margin-toggle sidenote-number"></label><input type="checkbox" id="widget" class="margin-toggle">
-<span class="sidenote">
-    or <i>widgets</i> in the context of a graphical interface</a>.
-</span> 
-<br>These values are shaped by mapping <i>functions</i>, 
-<br>then assigned to one or more <i>variables</i> in the DSP. 
+    <figure>
+        <span class="marginnote"><i>Architecture of a plug-in</i></span>
+        <img src="Figures/Plugin architecture.svg" style="width:70%">
+    </figure>
 </p>
 <p>
-<figure>
-    <span class="marginnote"><i>Architecture of a plug-in</i></span>
-    <img src="Figures/Plugin architecture.svg" style="width:70%">
-</figure>
-</p>
-<p>
-Although the DSP seems to be the heart of the plug-in, its mapping and interface are just as important. Determining the impact of each part separately is complicated. A good instrument is often the result of reflection that brings coherence between the three poles.
-</p> <p>
-I propose here an inventory of the problems inherent in each part.
+    <br>Although the DSP seems to be the heart of the plug-in, its mapping and interface are just as important. Consideration of the way in which these three poles interact is crucial to the design of the instrument. Establishing the impact of each part separately is complicated. 
+    Here, I propose an inventory of the issues inherent in each part. 
 </p>
 </section>
 <section>
@@ -231,15 +245,13 @@ I propose here an inventory of the problems inherent in each part.
 <section>
 <h3>User interface</h3>
 <p>
-We use User Interface - UI in the general sense of any interaction element, and GUI - Graphical User Interface for interfaces featuring a graphical window for interacting with widgets.
-</p>
-<p>
-The interface, in its broadest sense, can include all intermediate devices facilitating the use of a system (Vinet & Delalande, 1999). For the purposes of my dissertation on plug-ins, I will confine myself mainly to the GUI, the computer keyboard and the mouse (at least two control dimensions and a set of keys). 
-<br>I've set this limit to respect the desire to produce tools that are accessible to as many people as possible. Experimental controllers, of which <a href="https://www.nime.org/">NIME</a> is full of examples, although interesting, can only be used by a handful of experts, as they are generally expensive and complex to get to grips with.<label for="complexity" class="margin-toggle sidenote-number"></label>
-    <input type="checkbox" id="complexity" class="margin-toggle">
+    The interface, in its broadest sense, includes all the “intermediate devices that facilitate the use of a system” (Vinet & Delalande, 1999).
+<br>Computer music uses two distinct interfaces: the software interface (GUI), in the form of a graphical window allowing interaction with widgets, and the physical interface, at least a keyboard and mouse. Additional controllers are often included, such as the MIDI keyboard: a piano keyboard generating MIDI messages that can control a physical or virtual synthesizer. It's usually accompanied by a few potentiometers that can be assigned to CC messages. There's a lot of literature on experimental controllers, and <a href="https://www.nime.org/">NIME</a> is full of examples. Although interesting, they are only used by a handful of experts, as they are generally expensive and complex to handle<label for="complexity" class="margin-toggle sidenote-number"></label>.
+<input type="checkbox" id="complexity" class="margin-toggle">
 <span class="sidenote">
-    Complexity is not something to be avoided per se, and brings its own benefits. However, NIME interfaces often imply a virtuosity that takes years to master. I'm looking for something more affordable.
+Complexity is not something to be avoided per se, and brings its own benefits. However, NIME interfaces often imply a virtuosity that takes years to master. I'm looking for something more affordable.
 </span>
+<br>I'll be looking in particular at the GUI, keyboard and mouse, with a view to proposing improvements with the widest possible scope of application. The ideas developed in this context can then be reused with more complex physical interfaces.
 </p>
 
 <h4>Affordance</h4>
@@ -356,15 +368,11 @@ Carla Scaletti, when talking about Kyma's interface, also makes the conscious ch
 
 <section>
     <h3>Mapping</h3>
-    <p>
-        Mapping
 
-Mapping lies between the DSP and the interface. It's a set of functions (which can be f(x) = x) that takes the value of the interface widgets as input and, once formatted, assigns its output values to DSP variables.
-The mapping boundary with the interface is quite clear: each widget can be considered to have a normalized value between 0 and 1, which is then passed on to the mapping,
-but the boundary with signal processing variables is more complex. 
-    </p> 
+
     <p>
-In the case of a Biquadratic filter<label for="biquad" class="margin-toggle sidenote-number"></label>
+Mapping lies between the DSP and the interface. It's a set of functions (which can be f(x) = x) that takes the value of the interface widgets as input and assigns its output values to DSP variables.
+The boundaries between parameter, function and variable are debatable: each widget can be considered to have a normalized value between 0 and 1, which it passes on to the mapping, but the <a href="#shaping">mapping's elementary functions</a> are often implemented right in the parameter, as are the minimum and maximum values it can take on. Similarly, the boundary with signal processing variables is complex. In the case of a biquadratic filter<label for="biquad" class="margin-toggle sidenote-number"></label>
 <input type="checkbox" id="biquad" class="margin-toggle">
 <span class="sidenote">
     A biquadratic filter is a digital filter that modifies the frequency content of the signal by summation with delayed versions of itself.
@@ -372,8 +380,8 @@ In the case of a Biquadratic filter<label for="biquad" class="margin-toggle side
         <img src="Figures/Biquad.svg.png">
         <i>Z</i> are delays, <i>a</i> and <i>b</i> are coefficients
 
-</span>, for example, we might consider that the aim of mapping is to determine the cutoff frequency. But the cutoff frequency is itself a variable for determining several other calculation coefficients. We could then consider that the function used to determine these coefficients is also part of the mapping, and that the frequency is only an intermediate value (Goudard, & Muller, 2003) (we could also question the legitimacy of interacting directly with these coefficients rather than with the cutoff frequency).
-    </p>
+</span>, for example, the aim of the mapping is to determine the cutoff frequency, but this is itself a variable for determining several other calculation coefficients. We might then consider that the function used to determine these coefficients is also part of the mapping, and that the frequency is only an intermediate value (Goudard, & Muller, 2003) (we might also question the legitimacy of interacting directly with these coefficients rather than with the cutoff frequency).
+</p>
     <p>
         Different technical contexts have brought new ways of thinking about mapping: in analog, for a variable to be modified, a parameter must physically exist (even in the case of instrument setup, it's not uncommon for designers to interact with trimpots directly soldered to the circuit and not accessible from the interface).
 </p><p>
@@ -390,7 +398,7 @@ You can't rely on technology as the sole basis for an instrument .(Daniel Trodbe
     </p>
 </section>
 <section>
-    <h3>Preset ubiquity</h3>
+    <h3>Presets</h3>
 
     <figure>
         <span class="marginnote"><i>The preset browser of <a href="https://www.spectrasonics.net/products/omnisphere/">Omnisphere</a>, a synthesizer renowned for its preset banks</i>
@@ -398,14 +406,12 @@ You can't rely on technology as the sole basis for an instrument .(Daniel Trodbe
         <img src="Figures/omnisphere.png">
     </figure>
     <p>
-    When composing music, rather than plunging into the dozens or even hundreds of parameters available, composers generally look for a preset that resembles the idea they have in mind. Designed by sound designers, presets are one of the selling points when buying a synthesizer. 
-    Indeed, for someone without the necessary knowledge to build a sound themselves, the possibilities offered by a synthesizer depend solely on the number of presets available. 
-    To select the right one, interaction takes place via drop-down menus containing sequences of more or less evocative names. It is usually possible to filter according to certain criteria, such as the recommended function in the composition: lead, bass, pad, etc. Composers will iterate over several possibilities until they find what suits them best. 
-</p>
+        When composing music, delving into the dozens or even hundreds of parameters available on a synthesizer can be extremely time-consuming. The parameters are technical, sometimes opaque, and many combinations produce no sound at all. Some composers will go looking for a pre-configuration that resembles the idea they have in mind. To select it, interaction takes place via drop-down menus containing lists of more or less evocative names. It's usually possible to filter according to certain criteria, such as the recommended musical function: lead, bass, strings, etc. Composers will iterate over several possibilities until they find what suits them best. Designed by sound designers, presets are one of the selling points when buying a synthesizer. Indeed, for someone without the necessary knowledge to build a sound themselves, the possibilities offered by the instrument depend solely on the number of presets available. Whether they are used or not, they are omnipresent in the use of a DAW. Standards take their use into account: in particular, they are implemented in MIDI and VST.
+    </p>
 <h3>History of presets</h3>
 <h4>Acoustic synthesizers</h4>
 <p>
-Presets are as old as synthesizers: on organs (which can be considered as additive acoustic synthesizers) we already find “registers”. These are handles which, when pulled, will open and close several pipes simultaneously, so that the sum of the selected harmonics imitates the corresponding instrument. 
+Presets are as old as synthesizers: on organs (which can be considered as additive acoustic synthesizers) we already find “registers”. These are handles which, when pulled, will open and close several pipes simultaneously, so that the sum of the harmonics imitates the corresponding instrument. 
 <figure>
     <span class="marginnote"> <i><a href="https://orgueetmusiqueavouvant.com/l-orgue-fossaert/la-composition-de-l-orgue/">Yves Fossaert organ registers</a></i>
     </span>
@@ -459,7 +465,7 @@ The preset concept is also integrated into the VST SDK. The host is supposed to 
 
 <h3>Host plug-ins and macro-parameters</h3>
 <p>
-Some brands now offer what might be called “host plug-ins”, compiling the presets of several synthesizers. <a href="https://www.arturia.com/products/software-instruments/analoglab/overview">Arturia's Analog Lab</a> and <a href="https://www.native-instruments.com/en/products/komplete/bundles/komplete-kontrol/">Native Instrument's Komplete Kontrol</a> are the two main examples. The center of the interface is a search window in which you can filter by sound type, instrument, sound designer or musical style.
+    Since a brand can market dozens of synthesizers, each containing several thousand presets, there are now “host plug-ins” that compile all these presets in a single program. <a href="https://www.arturia.com/products/software-instruments/analoglab/overview">Arturia's Analog Lab</a> and <a href="https://www.native-instruments.com/en/products/komplete/bundles/komplete-kontrol/">Native Instrument's Komplete Kontrol</a> are the two main examples. The center of the interface is a search window in which you can filter by sound type, instrument, sound designer or musical style.
 These programs are designed for use with the associated MIDI master keyboards, Arturia's Keylabs and Native Instrument's Komplete Kontrol series.
 </p>
 <figure>
@@ -477,15 +483,14 @@ In order to adapt interaction to different instruments, there is a set of potent
 Despite the fact that they are available on the majority of modern software synthesizers such as <a href="https://vital.audio">Vital</a>, <a href="https://www.arturia.com/products/software-instruments/pigments/overview">Pigment</a>, <a href=https://xferrecords.com/products/serum>Serum</a>, <a href="https://www.native-instruments.com/en/products/komplete/synths/massive/feature-details/">Massive</a> <a href="https://www.cdn.native-instruments.com/en/products/komplete/synths/massive-x/">X</a> or <a href="https://kilohearts.com/products/phase_plant">Phaseplant</a>, macro-knobs remain little used, and rarely to invite exploration and discovery. <br>Above all, they provide simpler access to some of the synthesizer's characteristic parameters without having to delve into the sometimes complex interface. 
 They replicate one of the synthesizer's parameters, allowing access from the host plug-in, or simplify technical terms by replacing them with perceptual ones (filter cutoff frequency is sometimes found under the term “brightness”). 
 <p>
-The poverty of these interactions raises questions of timbral expressivity for artists who don't have the desire or the time to build their own control parameters.
-</p><p>
+The minimalism of these interactions raises questions of timbral expressivity for artists who don't have the desire or the time to build their own control parameters.
 However, macro-parameters are an opportunity for sound designers to propose real “micro-instruments”, which are not just a point in the space of possibilities, but a small zone of exploration, with more sophisticated movements and displacements. Indeed, the macro-knob is also a proposal for automation on the part of sound designers. Knowing the instrument they've just designed, they can guide us towards potential sound events and movements.
 </p>
 <hr>
 <p>
     Today, the preset is a flourishing market, evolving alongside plug-ins. What used to be a cartridge is now a folder of files, all the easier to download and exchange. Online stores sell preset packs in the same way they sell synthesizers and effects. Phaseplant and Vital offer subscriptions to receive new packs as soon as they are released. It's easy to get lost in the infinite number of presets available. Ultimately, the diversity is such that one wonders whether presets don't shift the problem from one of difficulty in constructing a sound to one of difficulty in choosing a sound. 
 </p><p>
-    Where software synthesizers have greatly evolved, the selection and use of presets has changed very little since Neon. Selection filters have been added, along with a layer of interface abstraction in the form of user-friendly macro parameters. Presets still have a number of limitations, however, and it's important to be aware of these in order to better identify potential areas for improvement.
+    Where software synthesizers have greatly evolved, the selection and use of presets has changed very little since Neon. Selection filters have been added, along with a layer of interface abstraction in the form of user-friendly macro parameters. Presets still have a number of limitations, and it's important to be aware of these in order to better identify potential areas for improvement.
 
 </p>
 </section>
@@ -503,7 +508,7 @@ However, macro-parameters are an opportunity for sound designers to propose real
 
 <p>
 
-Constraint and the addition of randomness are recurrent themes in artistic creation. Being exposed to an interface containing too many parameters is not always beneficial for creative processes and can become frustrating: even for an expert user, too many possibilities can hinder the musician's ability to explore freely (Sramek et al. 2023). Hick's law states that the more options we have at our disposal, the longer the decision time, generating decision fatigue (Bjørn, 2017, p.149).
+An interface with many parameters is not always beneficial to creative processes and can lead to frustration. Being exposed to an interface containing too many parameters is not always beneficial for creative processes and can become frustrating: even for an expert user, too many possibilities can hinder the musician's ability to explore freely (Sramek et al. 2023). Hick's law states that the more options we have at our disposal, the longer the decision time, generating decision fatigue (Bjørn, 2017, p.149).
 Nevertheless, a simple interface should not imply poor functionality (Spagnolli et al., 2020). Levitin D. J. et al, (2002) add that an instrument should seek a balance between challenge, frustration and boredom, a balance between initial ease of use and richness in ongoing use.
 </p><p>
 While ease of use is clearly an advantage for interactive systems, absolute intuitiveness seems to be an illusion. No system is inherently more natural than any other.
@@ -536,11 +541,7 @@ Awareness of these possibilities could lead to the emergence of “micro-instrum
 </section>
 <section>
     <h3>Agency: contexts and constraints</h3>
-    <p>
-        I'm referring here to synthesizer presets, but we could extend the use of the word to all decisions for which we make use of a prefabricated concept, such as a scale or a rhythm. 
-        In computer music, work is no longer a prerequisite, but a creative choice (Goldmann, 2019). 
-        <br>Software simplifies and makes more obvious a process that has always existed: music is built on cultural foundations. Composers cannot be expected to innovate in every aspect of their music (nor is innovation a necessity). 
-    </p><p>
+    <p>Agency refers to the ability to act on oneself, on others and on one's environment (Jézégou, 2022). Initially focused on humans, the concept is gradually opening up to encompass any “object” in general, be it human, immaterial, durable or ephemeral (Harman, 2015).
         Presets raise many questions of agency, which could be defined as a being's faculty of action.
         This concept is a philosophical tool for reflection. It is used in human/machine interface research (Frauenberger, 2019) and more recently in research on sound creation tools (Sramek et al. 2023). It aims to better understand our connection with what surrounds us, and to become aware of all the actors involved in a given phenomenon. 
     </p>
@@ -551,7 +552,10 @@ Awareness of these possibilities could lead to the emergence of “micro-instrum
     <p>
         The Gestalt concept comes to mind: the whole is more than the sum of its parts (Bjørn, 2017, p.12).
 The musical instrument assumes a socio-cultural context that will largely define its meaning in composition and its methods of use (Rodger et al., 2020). One does not play an instrument in the same way depending on the musical genre, although the instrument remains the same.
-<br>Agency is particularly interesting to study on musical instruments: in the context of art, where the kinship of an idea can be a sensitive subject, who are the actors who really determine the sound result?
+</p>
+<p>
+    I'm referring here to synthesizer presets, but we could extend the use of the word to all decisions in which we make use of a prefabricated concept, such as a scale or a rhythmic pattern. Whether or not to use a pre-configuration is a creative gesture in itself, which shapes the result. In computer music, the work is no longer a prerequisite, but a creative choice (Goldmann, 2019). By facilitating certain processes, such as sampling or the use of MIDI files from pre-existing music, DAWs make more obvious a process that has always existed: music is built on cultural foundations. A composer cannot be expected to be creative in every aspect of his or her music (nor is creativity, the act of creating something new, a necessity).
+    <br>Agency is particularly interesting to study on musical instruments: in the context of art, where the kinship of an idea can be a sensitive subject, who are the actors who really determine the sound result?
     </p>
     <ul>
    <li>the artist guided by the use of the preset?</li>
@@ -639,6 +643,7 @@ This balance between universality and learning time takes another form for instr
 </p>
 
 <h4>Mapping</h4> 
+
 <p>
 The macro-knobs already in place in most synthesizers could be improved quite simply: for the moment, a macro-knob generally provides access to <i>one</i> synthesizer parameter. The interface wouldn't need to be modified, since the graphical and functional element is already present. The processing system would require only a minor addition to enable new mapping modes.
 <br>All that's needed is to give sound designers a few extra tools to enhance the capabilities of existing macro-knobs and make them more attractive.
@@ -650,6 +655,9 @@ Many articles explore potential mappings, in particular for augmenting acoustic 
 
 <section>
     <h1 id="Mapping, literature review">Mapping, literature review</h1>
+    <p>
+        Mapping is the matching of two sets of values. In our case, these sets are the control parameters of a GUI and the variables of a software synthesizer.
+    </p>
 <p>
 Hunt, & Wanderley, (2002) mention two categories of mapping, those using a generative mechanism and those defined explicitly. Generative mappings mainly involve the use of neural networks, as in Lee, & Wessel, (1992).
 </p>
@@ -739,6 +747,11 @@ Well thought-out mapping can enable pleasant real-time interaction with the inst
 Rather than offering these two variables as parameters, Tides has a potentiometer for defining the ratio between rise time and descent time, and another potentiometer that sets the overall speed of these slopes. This choice offers a different affordance and opportunities for new modulations, which would have been more complicated to set up before and less obvious to imagine. 
 <br>Tides generates 4 slopes, so you might think that it would offer 4 times these same parameters, but here again, Émilie Gillet takes a different direction by using a parameter that instead regulates the relationship between the slopes according to several modes. 
 </p>
+<figure>
+    <span class="marginnote"> <i>The same envelope on DUSG (left) and Tides (right)</i>
+    </span>
+    <img src="Figures/Tides.svg">
+</figure>
 <p>
     <span class="marginnote">
         <audio controls>
@@ -844,24 +857,79 @@ I propose to select 4 of these explicit mappings and have composers compare them
 
    <h2>Experimental context</h2>
 <p>
-In order to focus on the objectives of my dissertation, I will set out here the limits and constraints of my experimentation:
-The prototyped mappings must be able to be integrated into existing software without invalidating the systems already in place, and without requiring any modification of the interface or processing system. They must be capable of minor updating. This is for the reasons given above: to offer a system that is affordable to both users and developers.
+   I propose to select 4 of these explicit mappings presented in the previous section and have them compared by composers in an experiment. I have chosen to leave aside the physical model, which would suffer from a standard interface, and concentrate on the following 4 mappings:
+</p>
+<ul>
+    <li>one-to-one</li>
+    <li>one-to-many </li>
+    <li>interpolation</li>
+<li>non-linearity</li>
+</ul>
+<p>
+    I chose the Ableton Live DAW because it provides access to Max For Live (M4L). This is a version of Max/Msp that can be used in Ableton in the form of devices that have the same appearance as native plug-ins. The ability to create or modify these devices will give me greater control over mappings, particularly for non-linear.
 </p>
 <p>
-I would use two macros for each mapping. Having 2 potentiometers rather than one allows you to explore a wide range of possible interactions between two controls. Having 2 knobs rather than 3 allows you to stay focused on the essence of the mapping without getting lost in the complexity generated by each additional parameter.
+    In order to generalize the results, I designed 4 Ableton sessions. Each of the 4 sessions uses a different synthesizer, a preset of which is broken down into 4 instruments: one for each mapping tested, each on a track. The tracks in each session are in a different order, to avoid a bias in the results due to the order effect.
+</p><p>
+    In order to reproduce the experience of using a plug-in host, I mask the synthesizer interface and provide two macro parameters for each mapping. This also makes the instruments look exactly the same from a GUI point of view. Having two potentiometers rather than one allows you to explore the possible interactions between two controls. Having two knobs rather than three allows you to stay focused on the essence of the mapping without getting lost in the complexity generated by an additional parameter.
 </p>
 
+    <figure>
+        <span class="marginnote"> <i>One of the test sessions</i>
+        </span>
+        <img src="Figures/Ableton session.png">
+    </figure>
+<p>Track A contains the preset controlled in one-to-one, track B in one-to-many, track C in interpolation and track D in non-linear. The bottom left of figure 21 shows the controls for the selected track (one-to-one).
 <p>
-    The control surface will be limited to a laptop computer. I had originally planned to use a MIDI keyboard, but after a few tests, it seems that limiting harmonic capabilities to the computer keyboard allows participants to concentrate more on timbre evolutions. It might have been wiser to limit harmonic interaction even further by offering a pre-determined MIDI loop. Nevertheless, the freedom offered allows users to adjust the octave according to the value of the parameters, with certain variations of the same preset being better suited to certain tessituras.
-To overcome the limitation of the mouse, which can only modulate a single parameter, I use an XY pad, one axis of which controls the value of macro 1 and the other the value of macro 2. The result is an interface element that can control both parameters simultaneously, and has the advantage of displaying all possible combinations of the two values.
+    The control surface is limited to a mouse and keyboard. I had originally planned to use a MIDI keyboard, but after a few tests, it seems that limiting harmonic capabilities to the computer keyboard enables participants to concentrate better on timbre evolutions.
 </p>
+<p> 
+    To overcome the limitations of the mouse, which can only modulate one parameter at a time, I use an XY pad, one axis of which controls the value of macro 1 and the other axis macro 2. The result is an interface element that can control both parameters simultaneously, and which has the advantage of displaying all possible combinations of the two values.</p>
+</p>
+
+<h2 id="Non-linear mapping prototype">Presets Design</h2>
 <p>
-Prototyping will be done with Max for Live, which will enable me to iterate quickly during my tests, but still have an object that can be used in the context of a DAW, since Ableton allows Max patches to be used as native plug-ins. Max for Live also includes a set of libraries enabling me to take control of other plug-ins and thus create my own macro parameters with greater flexibility.
-
-<br>Sound sources will be native Ableton synthesizers. 
+The 4 sessions use Ableton Live's native synthesizers:
 </p>
-<h2 id="Non-linear mapping prototype">Non-linear mapping prototype</h2>
+<ul>
+<li>Operator, by frequency modulation</li>
+<li>Wavetable, by wavetable</li>
+<li>Drift, by subtraction</li>
+<li>Meld is more modern, with several algorithms for oscillators and filters. In this case, I used a double wavetable oscillator passing through a low-pass filter adding spectral aliasing, summed with a bank of sinusoids passing through a phaser.</li>
+</ul>
+<span class="marginnote">
+    <img src="Figures/Meld Osc.jpeg">
+Meld oscillators
+</span>
+<p>
+Meld's one-to-one mapping has a certain complexity, as the parameters of his oscillators are already forms of macro-parameters.
+<br>In the one-to-one case, I modulated the spacing parameter, which modifies the ratio between each oscillator in the bank, the frequencies of these oscillators being locked to a predefined range.
+<br>Similarly for the frequency modulation session, modifying just one of the synthesizer parameters can be enough to generate drastic changes in timbre.
+</p>
 
+<h2>Mapping prototypes</h2>
+<p>
+Prototyped mappings should be able to be integrated into existing software without invalidating existing systems or requiring modification of the graphical interface or processing system. They must be able to be updated in a minor way, for the reasons mentioned above: to offer a system that is affordable to both users and developers.
+</p>
+<h3>One-to-one and one-to-many</h3>
+<p>
+    For one-to-one and one-to-many mappings, I use an M4L macro-knob available by default on Ableton, which links a potentiometer to eight parameters.
+</p>
+<figure>
+    <span class="marginnote"> <i>The two macro parameters for one-to-many mapping, wavetable session</i>
+    </span>
+    <img src="Figures/Macro knob.png">
+</figure>
+<h3>Interpolation</h3>
+<p>
+Interpolation mapping is performed by a Max For Live device called PresetMorph by Frabrizio Poce, which interpolates between 4 presets.
+</p>
+<figure>
+    <span class="marginnote"> <i><a href="http://www.fabriziopoce.com/morph.html">PresetMorph</a></i>
+    </span>
+    <img src="Figures/J74 preset morph.png">
+</figure>
+<h3>Non-linearity</h3>
 <p>
     The properties of non-linearity that I'm trying to emulate are as follows:
     <ul>
@@ -888,134 +956,93 @@ Prototyping will be done with Max for Live, which will enable me to iterate quic
     </p>
     <ul>
     <li>the parameter must be at its median value, in order to avoid breaks in timbre (so that the same value is reached during inversion)</li>
-    <li>chance must intervene, so that the variables become “desynchronized”. If all values are inverted simultaneously, subtlety is lost.</li>
+    <li>an element of randomness, so that the variables become “desynchronized”. If all the values are inverted simultaneously, we lose subtlety in the evolution of the space.</li>
     <li>a new inversion attempt can only be made after 10 seconds, to give the user time to explore the new space.</li>
 </ul>
 </p>
+<p>
+    I've added this system to the default macro-knob seen above, so that it can be turned on or off, so the non-linear mappings are duplicate versions of the one-to-many mappings, with non-linear processing enabled.
+</p>
 
 <h2 id="test protocol">Test protocol</h2>
-<h3 id="session composition">Session composition</h3>
-<figure>
-    <span class="marginnote"> <i>One of the test sessions</i>
-    </span>
-    <img src="Figures/Ableton session.png">
-</figure>
-<p>
-The participant is presented with an Ableton session consisting of 4 tracks,
-each containing an instrument in the form of an “Instrument Rack”: an Ableton Live tool for encapsulating an instrument, leaving only a set of macro-parameters in front. 
-The aim is to make them similar in every respect from the point of view of the graphic interface.
-</p>
-<p>
-Each instrument is controlled by 2 macro-parameters testing one of the mappings.
-
-<br>The 4 mappings tested are :
-</p>
-<ul>
-<li>one-to-one</li>
-<li>one-to-many</li>
-<li>interpolation</li>
-<li>non-linearity</li>
-</ul>
-<p>
-Each session has its tracks in a different order, to avoid order bias in the results.
-</p>
-<p>
-It is possible for a mapping to be badly made, or of little interest to a user, without this being linked to the nature of the test on the type of mapping used. 
-<br>Each session therefore contains a different preset built with a different synthesizer. They are randomly assigned to participants. This is so that the variety of sessions (and therefore of presets and mappings) can mitigate this variable and make the results more general.
-</p>
-<p>
-
-The instruction is to “try each instrument for 2 minutes”.
-Participants have no particular objective, the aim being to reproduce the experience of the musical exploration phase and the search for sound material.
-The instruction to “test for two minutes” means that the artists are not in their usual compositional process: although some artists set themselves the constraint of using random sounds, or sounds they are not used to, the majority of them switch to a new preset very quickly if the previous experimentation is not conclusive.
-We're closer here to the context of discovering a physical instrument in a synthesizer store; we sit down in front of an instrument with which we take the time to interact before moving on to the next one.
-</p>
 
 <h3 id="questionnaire">Questionnaire</h3> 
 <p>
-The questionnaire consists of 2 sections: 
+    The questionnaire consists of 2 sections: 
 </p>
 <ul>
-<li>a first section in which the subject is asked about his or her work habits</li>
+    <li>a first section in which the subject is asked about his or her work habits</li>
 <li>a second section in which the subject is asked about his or her experience of using the instruments.</li>
 </ul>
 <p>
-In the second section, answers are given by selecting the instruments that best correspond to the target criterion, e.g. :
-
-<br><br>Would you have liked to have more time with certain instruments? (possibility of ticking several boxes)
+    In the second section, answers are given by selecting the instruments that best correspond to the target criterion, e.g. :
+    
+    <br><br>Would you have liked to have more time with certain instruments? (possibility of ticking several boxes)
 </p>
 <ul>
-<li>A (Red)</li>
-<li>B (Green)</li>
-<li>C (Yellow)</li>
-<li>D (Blue) </li>
+    <li>A (Red)</li>
+    <li>B (Green)</li>
+    <li>C (Yellow)</li>
+    <li>D (Blue) </li>
 </ul>
 <p>
-Another possibility would have been to propose 4 Likert scales for each question (one for each instrument), which would have enabled us to collect more precise data, but would have made the questionnaire longer and more tedious for the participants due to the redundancy of the questions.
+    Another possibility would have been to propose 4 Likert scales for each question (one for each instrument), which would have enabled us to collect more precise data, but would have made the questionnaire longer and more tedious for the participants due to the redundancy of the questions.
 </p>
 
 <h3 id="Course of the experiment">Course of the experiment</h3>
 <p>
-Participants first read the questionnaire and answer the first section on their work habits. 
-They are then introduced to the session and the instructions (as well as a quick explanation of how to switch instruments for those unfamiliar with the software).
-Once the test has been completed, participants fill in the second section of the questionnaire. If necessary, they can return to the session to reset their instrument.
+    The instruction is to “try each instrument for two minutes”. Participants have no particular objective, the aim being to reproduce the experience of the musical exploration phase and the search for sound material. The instruction to “test for two minutes” does not place the artists in their usual compositional process: although some artists take on the constraint of using random sounds, or sounds they are not used to, the majority of them change preset very quickly if the previous one is not suitable. Here we're closer to the context of discovering a physical instrument in a synthesizer store: you sit down in front of an instrument with which you take the time to interact before moving on to the next one.
+</p><p>
+    The tests took place in a variety of locations, sometimes with headphones, sometimes with speakers. All were performed on the same laptop.
+    <br>Participants first read the questionnaire and answer the first section on their work habits. 
+    They are then presented with the instructions (along with a quick explanation of how to switch instruments for those unfamiliar with the software).
+    Participants test one of the randomly assigned sessions.
+    <br>Once the test is complete, participants fill in the second section of the questionnaire. They can then quickly return to the session to compare the mappings.
 </p>
 
 <h3 id="Preset Design">Preset design</h3>
-<p>
-The 4 sessions use synthesizers native to Ableton Live:
-</p>
-<ul>
-<li>Operator, by frequency modulation</li>
-<li>Wavetable, by wavetable</li>
-<li>Drift, by subtraction</li>
-<li>Meld is more modern, with several algorithms for oscillators and filters. In this case, I used a double wavetable oscillator passing through a low-pass filter adding spectral aliasing, summed with a bank of sinusoids passing through a phaser.</li>
-</ul>
-<p>
-In addition to the differences in user interaction, mappings also modify the workflows of sound designers. A generalization would require a second experiment focusing on this subject. Nevertheless, I'd like to share a few remarks on the influence these mappings have had on my sound-design work. Particularly with a limited number of potentiometers and the use of an XY pad.
-</p>
-<p>
-    A complex mapping allows for a greater amplitude in the complexity of timbre movements.
-A one-to-one mapping will often remain very simple or very complex, as you can only choose 2 parameters to modify. In general, we prefer parameters with a strong impact on the timbre, such as the filter cutoff frequency or the oscillator waveform. One-to-many mapping allows you to go into greater detail and control modulation sources in particular. So you can go from a sound with little movement to very complex modulations, the sum of several envelopes and low-frequency oscillators, while modifying timbre parameters. One-to-many mapping prompted me to further develop the evolution of these modulations. 
-</p><p>
-The XY pad came in very handy when designing these presets. Since the two-dimensional space contains all the possible interactions between the two macro-parameters, we can better consider all the possibilities and build a more complete proposal, interesting at every point in this space.
-</p><p>
-One-to-many mapping seems to offer greater “intentionality” than interpolation, which is sometimes limited to conceiving the extremums and then testing the result obtained in between. By manipulating parameters one by one, one-to-many mapping allows you to choose the precise evolution of the sound, especially when using absolute mappings instead of relative ones, as I've already mentioned.
-</p>
-<p>
 
-Interpolation, on the other hand, makes it possible to target the results obtained in the corners very precisely, which is a little less true with one-to-many.  
-Once a certain number of parameters have been set, one-to-many also becomes more empirical: it's harder to predict how the new parameter will interact with those already in place.
-
-
-
-In the case of the one-to-one I modulated the spacing parameter, which modifies the ratio between each oscillator in the bank, the frequencies of these oscillators being locked to a predefined range.
-Similarly for the frequency modulation session, modifying just one of the synthesizer parameters can be enough to generate drastic changes in timbre.
-<span class="marginnote">
-        <img src="Figures/Meld Osc.jpeg">
-Meld oscillators
-</span>
-</p><p>
-    Meld's one-to-many mapping has a certain complexity, as the parameters of its oscillators are already forms of macro-parameters.
-</p>
+<h2>Analysis of results</h2>
 <p>
-    In the case of the one-to-one I modulated the spacing parameter, which modifies the ratio between each oscillator in the bank, the frequencies of these oscillators being locked to a predefined range.
-    Similarly for the frequency modulation session, modifying just one of the synthesizer parameters can be enough to generate drastic changes in timbre.
-    </p>
-
-    <h2>Analysis of results</h2>
-<p>
-A total of 26 people took part in the test. They were equally divided between the 4 sessions: 6 on frequency modulation, 6 on wavetable, 7 on Meld and 7 on subtractive.
-As participants could select several answers, the sum of the selections sometimes exceeded the number of participants.
+    A total of 26 people took part in the test. They were equally divided between the 4 sessions: 6 on frequency modulation, 6 on wavetable, 7 on Meld and 7 on subtractive.
+    As participants could select several answers, the sum of the selections sometimes exceeded the number of participants.
 </p>
 
 <h3>Participant profile</h3>
 <p>
-The participants have varied interests in the field of composition, but the vast majority have the DAW as their main working tool. 
-The synthesizer is present in the compositions of most participants.
-Not all use automation in the exploration phase, but the use of automation in the arrangement phase is unanimous. 
-A majority regularly use presets in their compositions, and almost all modify them after selecting them. 
-They were very appreciative of the sounds on offer.
+    The participants have varied interests in the field of composition, but the vast majority have the DAW as their main working tool. 
+    The synthesizer is present in the compositions of most participants.
+    Not all use automation in the exploration phase, but the use of automation in the arrangement phase is unanimous. 
+    A majority regularly use presets in their compositions, and almost all modify them after selecting them. 
+    They were very appreciative of the sounds on offer.
+</p>
+<h3>Personal use</h3>
+<p>
+    The participants don't seem to have a strong preference for the use of instruments in their personal compositions. Non-linear is slightly lower, as non-reproducible movement can be disconcerting in the DAW context, where control and reproduction are the norm.
+    <br>Nevertheless, we can see that none of the mappings is particularly off-putting: they all have their place in the composer's toolbox.</p>
+    <figure>
+        <span class="marginnote"> <i>Which instruments would you be likely to use in your personal musical compositions?</i>
+    </span>
+    <img src="Figures/compo perso.svg">
+</figure>
+<figure>
+    <span class="marginnote"> <i>Use in personal musical compositions cross-referenced with session type</i>
+    </span>
+    <img src="Figures/Composition musicale personnelle.svg">
+</figure>
+<p>
+    Two sessions stand out: 
+    <ul>
+        <li>subtractive sessions, where one-to-one mapping is less present. I suppose this is due to the type of synthesis, as the parameters have fairly simple effects on timbre. Since one-to-one mapping uses the filter cutoff frequency and the oscillator shape, modulations are rather poor and less interesting than with other types of synthesis. </li>
+        <li>the wavetable session, where interpolation mapping takes a back seat. Personally, I think that interpolation mapping is simply less well made. It offers less diversity and rather particular choices of LFOs, whereas one-to-many mapping offers a more elaborate timbral space.</li>
+    </ul>
+</p>
+<p>
+People who did not mention Sound-design in their areas of experimentation were more likely to cite one-to-one mapping.
+</p>
+<p>
+    Many people have been bothered by Meld presets. Harmony being one of their areas of experimentation, they may be bothered by a sound that already contains a chord and therefore constrains their harmonic thinking.
+    <br>Some users were very disconcerted by the fact that they had no control over the non-linearity. When we explained how it worked after the end of the experiment, one user replied “it's horrible”. Others also raised technical questions: will this type of mapping correctly retain automations and parameter states, even after closing and reopening the session? To support this type of use, the implementation of non-linearity quickly becomes more complex.
 </p>
 
 <h3>Unusual mappings</h3>
@@ -1047,12 +1074,9 @@ Complex mappings offer more complex timbre spaces. Participants tend to tire of 
 
 <h3>Automation</h3>
 <p>
-<br>When asked which instrument the participants would prefer to automate, the answers varied widely from session to session.
-<br>In the Meld session, for example, there was a strong preference for non-linear over one-to-many (5 vs. 2 occurrences), which is surprising given that both have a fairly similar timbre space (the parameters chosen and their amplitudes of variation are the same), with unpredictability perhaps driving the desire to interact more with the parameter when automating.
-<br>On the wavetable session, the choice of one-to-one and interpolation mappings could be explained by the greater prominence of modulation in the latter, which is less prominent in one-to-many (and therefore non-linear) mapping. 
-<br>All this tends to demonstrate that, in the context of automation, the type of mapping is less important than the sound obtained.
-</p><p>
-<br>Cross-referencing these answers with those of the questions “You regularly use automation during the composition exploration phase” and “You regularly use automation during the composition arrangement phase” does not bring any significant result.
+    In order to obtain information on the use of modulation, I preferred to ask about the concept of automation, which is more familiar to DAW users. 
+    <br>When asked which instrument the participants would prefer to automate, the answers varied greatly from session to session. On the Meld session, for example, there was a strong preference for non-linear over one-to-many (5 vs. 2 occurrences), which is surprising given that both have a fairly similar timbre space (the parameters chosen and their amplitudes of variation are the same), with unpredictability perhaps driving a desire to interact more with the parameter when automating. On the wavetable session, the choice of one-to-one and interpolation mappings could be explained by the greater prominence of modulation in the latter, which is less prominent in one-to-many mapping (and therefore non-linear mapping). All this tends to demonstrate that, in the context of modulation, the type of mapping is less important than the sound obtained.
+<br>Cross-referencing these answers with those of the questions “<i>You regularly use automation during the composition exploration phase</i>” and “<i>You regularly use automation during the composition arrangement phase</i>” does not bring any significant result.
 </p>
 <figure>
     <span class="marginnote"> <i>Which instrument would you like to automate the most?</i>
@@ -1060,26 +1084,7 @@ Complex mappings offer more complex timbre spaces. Participants tend to tire of 
     <img src="Figures/Automatisation.svg">
 </figure>
 
-<h3>Personal use</h3>
 
-<p>
-    Participants don't seem to have a strong preference for the use of instruments in their personal compositions. Non-linear is slightly lower, as non-reproducible movement can be disconcerting in the DAW context, where the habit is more one of control and reproduction.
-</p>
-<figure>
-    <span class="marginnote"> <i>Which instruments would you be likely to use in your personal musical compositions?</i>
-    </span>
-    <img src="Figures/compo perso.svg">
-</figure>
-<p>
-People who did not mention Sound-design in their areas of experimentation were more likely to cite one-to-one mapping.
-Several people were bothered by Meld presets. As harmony is their area of experimentation, they may be bothered by a sound that already contains a chord and thus constrains their harmonic thinking.
-</p>
-<p>
-We can see that none of the mappings is particularly off-putting: they all have their place in the composer's toolbox.
-</p>
-<p>
-    Some users were very disconcerted by the fact that they had no control over the non-linearity. When we explained how it worked after the end of the experiment, one user replied “it's horrible”. Others also raised technical questions: will this type of mapping correctly retain automations and parameter states, even after closing and reopening the session? To support this type of use, the implementation of non-linearity quickly becomes more complex.
-</p>
 
 <h3>Live or studio context</h3>
 <figure>
@@ -1149,7 +1154,19 @@ The pad allows two main approaches:
 <br>One participant gradually deviated from the initial instructions, first by using the piano roll, then by starting to play each instrument as an additional track instead of testing them successively. In fact, his use of the DAW was very similar to his usual one. His answers were set aside, as the experiment had nothing to do with the original instructions, but it was nevertheless interesting to see the instruments in their normal use. The user was quickly able to sketch out a piece of music, easily adding automations using the pad.
 <br>This type of mapping and interface created very little friction for the DAW-accustomed user.
 </p>
-
+<h2>Influence of mappings on preset design</h2>
+<p>
+In addition to the differences in user interaction, mappings also modify the work processes of sound designers. A generalization would require a second experiment focusing on this topic. Nevertheless, I'd like to share a few remarks on the influence these mappings have had on my sound design work, particularly with a limited number of potentiometers and the use of an XY pad.
+</p>
+<p>
+Complex mapping allows for a greater amplitude in the complexity of timbre movements.
+A one-to-one mapping will often remain very simple or very complex, since you can only choose 2 parameters to modify. In general, we prefer parameters with a strong impact on the timbre, such as the filter cutoff frequency or the oscillator waveform. One-to-many mapping allows you to go into greater detail and control modulation sources in particular. So you can go from a sound with little movement to very complex modulations, the sum of several envelopes and LFOs, while modifying timbre parameters. One-to-many mapping prompted me to further develop the evolution of these modulations. 
+</p>
+<p>
+    One-to-many mapping seems to offer greater “intentionality” than interpolation, which is sometimes limited to designing the extremums and then testing the result obtained in between. By manipulating the parameters one by one, one-to-many makes it possible to choose the precise evolution of the sound, especially when using absolute mappings instead of relative ones, as I did.  
+<br>Interpolation, on the other hand, enables the results obtained in the corners to be targeted very precisely, which is a little less true with one-to-many.  
+<br>As soon as a certain number of parameters is reached, one-to-many also becomes more empirical: it's harder to predict how the new parameter will interact with those already in place.
+</p>
 <h2>Other spaces to explore</h2>
 <p>
 Following this experiment, other properties of no-input mixing caught my attention: during preset development, certain unexpected behaviors led to strong breaks when moving across the pad.
@@ -1187,50 +1204,20 @@ Originally, this dissertation was to be an attempt to construct spaces symbolizi
 <section>
     <h1 id="Conclusion">Conclusion</h1>
 <p>
-Mapping could be a first step towards opening up the possibilities of interaction with presets.
-Feedback from participants shows that these mappings can complement those already present.  Everyone could do according to their own preference in terms of control and precision. 
-Those wishing to be surprised or looking for a proposal can interact with the sound-designer's complex macro-parameters.
-Those who prefer direct access to fundamental parameters retain their access.
-Ideally, the user can mix and match the two types of interaction according to his or her objective.
+    Making mapping more complex, as we have just seen, would open up the possibilities of interaction with presets.
+<br>Feedback from participants on the mapping comparison experiment tells us that more complex macro-parameters could complement those already present. Everyone could choose what they prefer in terms of control and precision. Those wishing to be surprised or looking for a modulation suggestion can interact with the sound-designer's complex macro-parameters. Those preferring direct access to fundamental parameters retain their access. Ideally, users could mix the two types of interaction according to their objectives.
 </p>
 <p>
-Each type of mapping brings a different type of space and an alternative way of working. 
-In the same way that sound designers choose one oscillator algorithm over another, they could choose the type of mapping best suited to the type of interaction they are looking for. 
+    Each type of mapping provides a different space and an alternative way of working. In the same way that sound designers choose one oscillator algorithm over another, they could choose a more or less exploratory type of mapping, adapted to the type of interaction sought. 
 </p>
 <p>
-The mapping stage is a tool for building micro-instruments, and can be a first step towards building your own instruments. 
-<br>The fun and playful aspect of these complex mappings can be a good way of facilitating the approach to these tools by neophytes. It facilitates a first approach to sound design, awakening the curiosity and desire for understanding that are almost always present in the composers who take part in the study. How many of them are potential future luthier-artists?
-<br>Sometimes, the abstraction of parameters is not necessary because the user has a strong expertise. In this case, the use of complex mappings can be a preparatory step in the game, bringing out new creative avenues through a new form of interaction.
-<br>It's common for artists to create their own sounds during a sound-design phase. Inserting a reflection on interaction into this process would make it possible to build even more personal instruments. 
-<br>The prism of mapping offers a different perspective on the evolution of timbre: the resulting sounds and modulations are complex, but the reduced timbral space encourages us to play with the constraints it imposes.
+    The mapping stage is a tool for building micro-instruments. It can be a first step towards the construction of personal instruments.  The fun and playful aspect of these complex mappings can be a good way of facilitating the approach of these tools by neophytes. It facilitates a first discovery of sound design, awakening the curiosity and desire for understanding that are almost always present in the composers who took part in the study. How many of them are potential future luthier-artists? Sometimes, the abstraction of parameters is not necessary because the user has a strong expertise. In this case, the use of complex mappings can be a preparatory step in the game, bringing out creative avenues through new forms of interaction. It's common for artists to create their own sounds during a sound-design phase. During this process, inserting a reflection on interaction would make it possible to build even more personal instruments. 
+<br>The prism of mapping also offers a different view of the evolution of timbre: the sounds and modulations obtained are complex, but the reduced timbral space encourages us to play with the constraints it imposes.
 </p>
 <p>
-    To help us think more clearly about the development of future electronic music software, we could consider taking a closer look at the methods used to build the instruments, and specify our design objectives. In particular, a reflection on the place of the computer and GUIs would enable us to better define the potential of this very special interface. This would perhaps make the software more ambiguous, between tool and instrument.
-<br>To answer these questions, we'll need to draw on a wide range of interdisciplinary expertise, given the multitude of intertwined issues involved in musical creation.
+To help us think more clearly about the development of future music software, we could consider taking a closer look at instrument construction methods and specifying our design objectives. The multitude of intertwined issues involved in music creation calls for a high degree of interdisciplinarity and cross-fertilization of expertise. In this context, a reflection on the place of the computer and GUIs would enable us to better define the possibilities of this very special interface, and to help software evolve towards more ambiguous uses, on the borderline between tool and instrument.
 </p>
-</section>
 
-<section>
-    <h2>Thanks</h2>
-Thanks to my two directors, Nicolas Montgermont and Antoine Martin, for sharing their ideas and helping to organize mine.
-<br>
-<br>
-To Corsin Vogel for his efficiency and follow-up.
-<br>
-<br>
-To Remy Müller, Rodrigo Constanzo and Julien Bloit for taking the time to chat. 
-<br>
-<br>
-To the <a href="https://llllllll.co">lines forum</a>
-<br>
-<br>
-To the Class of 2024, and in particular to my fellow students at the library.
-<br>
-<br>
-To my mother for taking the time to reread my dissertation.
-<br>
-<br>
-To my roommates who kindly listened to me talk about mapping for months on end.
 </section>
 
 <section>
