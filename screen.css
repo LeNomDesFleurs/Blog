@@ -162,7 +162,7 @@ figcaption {
     border-radius: 10px;
     font-family: var(--font-sans);
     text-wrap: nowrap;
-    overflow-x:scroll;
+    overflow-x: scroll;
 }
 
 small {
@@ -233,14 +233,13 @@ form:input {
 /* example 3 */
 
 .ex3 .hide3 {
-   
     overflow-x: auto;
     /* height: auto; */
     transition: 0.7s ease;
     background-color: #00000016;
     border-radius: 10px;
-    padding:1.5em;
-    margin:10px;
+    padding: 1.5em;
+    margin: 10px;
     /* box-sizing: border-box; */
 }
 
