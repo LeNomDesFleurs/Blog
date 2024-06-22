@@ -7,6 +7,7 @@ Variables
         --color-bg: #d4cac0;
         --color-dim: #606060;
         --title-color: #7f8e5e;
+        --h3-color: #7f8e5ec4;
     }
 }
 
@@ -14,9 +15,10 @@ Variables
     :root {
         --color-default: #bab6b1;
         --color-bg: #2f2e2d;
-        /* --color-bg: #282828; */
         --title-color: #5a6073;
         --color-dim: #7f7f7f;
+        --h3-color: #898d97;
+
     }
 }
 @font-face {
@@ -114,6 +116,7 @@ h3 {
     /* font-family: var(--font-sans); */
     /* font-family: Futura; */
     font-weight: 1000;
+    color: var(--h3-color);
 }
 
 /* Link styling */

@@ -34,23 +34,23 @@ ipconfig getifaddr en0
 
 <h3> Convert copied md to html</h3>
 
-You can use `docx` also
+You can use <code>docx</code> also
 
 <div class="code-container">
 pbpaste | pandoc -f markdown -t html | pbcopy
 </div>
 
-To make it dead easy on yourself, add this snippet as an alias in your `~/.bash_profile` like so:
+You can also use it as an alias in your bash profile like so:
 
 <div class="code-container">
 alias md="pbpaste | pandoc -f markdown -t html | pbcopy; echo 'Conversion done.'"
 </div>
 
-So now I just need to type `md` to swap the Markdown in my clipboard for HTML, ready to be pasted down anywhere.
+Now, just type <code>md</code> to swap the Markdown in your clipboard for HTML.
 
 <h3> Update all formulas</h3>
 
-`brew upgrade`
+<code>brew upgrade</code>
 
 <h3> Move all file inside directory to upper dir </h3>
 from <a href="https://superuser.com/questions/62141/how-to-move-all-files-from-current-directory-to-upper-directory">this stack exchange</a>
@@ -58,11 +58,11 @@ from <a href="https://superuser.com/questions/62141/how-to-move-all-files-from-c
 mv * .[^.]* ..
 </div>
 
-Explanation: the <a href="http://linux.die.net/man/1/mv"><code>mv</code></a> command moves files and directories. The last argument to `mv` is the target (in this case the directory one step "up" in the tree, `..`). The arguments before that are the source files and directories. The asterisk (`*`) is a wildcard which matches all files which do not start with a dot. Files that start with a dot (dotfiles) are "hidden". They are matched using the pattern `.[^.]*` (see edit below)
+Explanation: the <a href="http://linux.die.net/man/1/mv"><code>mv</code></a> command moves files and directories. The last argument to <code>mv</code> is the target (in this case the directory one step "up" in the tree, <code>..</code>). The arguments before that are the source files and directories. The asterisk (<code>*</code>) is a wildcard which matches all files which do not start with a dot. Files that start with a dot (dotfiles) are "hidden". They are matched using the pattern <code>.[^.]*</code>(see edit below)
+<br><br>
+<b>Why <code>.[^.]*</code> instead of <code>.*</code> ?</b><br>
 
-<h4>Why .[^.]* instead of .* ?</h4>
-
-The pattern .* also matches . and ... Since you don't want to (and cannot) move those, it's better to use a pattern which matches any filename starting with a dot except those two. The pattern .[^.]* does just that: it matches any filename (1) starting with a dot (2) followed by a character which is not a dot (3) followed by zero or more arbitrary characters.
+The pattern <code>.*</code> also matches <code>.</code> and <code>...</code> Since you don't want to (and cannot) move those, it's better to use a pattern which matches any filename starting with a dot except those two. The pattern <code>.[^.]*</code> does just that: it matches any filename (1) starting with a dot (2) followed by a character which is not a dot (3) followed by zero or more arbitrary characters.
 
 <h3> Hide File in MacOS</h3>
 <div class="code-container">
@@ -137,16 +137,17 @@ OR
 magick input.png -resize <size> -dither FloydSteinberg
 </div>
 
-For a black and white dither, put the image in grey before dithering with `-colorspace Grey`
-<br>//maybe limit the color number to be sure `-colors 2`
+For a black and white dither, put the image in grey before dithering with <code>-colorspace Grey</code>
+<br>// maybe limit the color number to be sure <code>-colors 2</code>
 <br>After dithering add <code>-threshold 50%</code>
 
 <h3> easy manipulation of color space</h3>
+Use the <code>magick</code> command with the <code>+level-colors</code> flag.
 <div class="code-container">
 +level-colors [replace black with], [replace white with]<br>
 # exemple
 <br>
-+level-color green, orchid2
++level-colors green, orchid2
 </div>
 List of all imagemagick colors can found on <a href="https://imagemagick.org/script/color.php">this webpage</a>
 
