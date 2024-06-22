@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Le Nom Des Fleurs</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="HTML~CSS knowledge of Thomas Guillory" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../screen.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <a href=/./../Knowledge.html>
+            <h1> Useful bash </h1>
+        </a>
+    </header>
+    
+<h3> Convert all wav in dir to mp3</h3>
+<div class="code-container">
+for i in *.wav; do lame -b 320 "$i"; done
+</div>
+
+<h3> Get IP on macos</h3>
+<div class="code-container">
+ipconfig getifaddr en0
+</div>
+
+<h3> Convert copied md to html</h3>
+
+You can use `docx` also
+
+<div class="code-container">
+pbpaste | pandoc -f markdown -t html | pbcopy
+</div>
+
+To make it dead easy on yourself, add this snippet as an alias in your `~/.bash_profile` like so:
+
+<div class="code-container">
+alias md="pbpaste | pandoc -f markdown -t html | pbcopy; echo 'Conversion done.'"
+</div>
+
+So now I just need to type `md` to swap the Markdown in my clipboard for HTML, ready to be pasted down anywhere.
+
+<h3> Update all formulas</h3>
+
+`brew upgrade`
+
+<h3> Move all file inside directory to upper dir </h3>
+from <a href="https://superuser.com/questions/62141/how-to-move-all-files-from-current-directory-to-upper-directory">this stack exchange</a>
+<div class="code-container">
+mv * .[^.]* ..
+</div>
+
+Explanation: the <a href="http://linux.die.net/man/1/mv"><code>mv</code></a> command moves files and directories. The last argument to `mv` is the target (in this case the directory one step "up" in the tree, `..`). The arguments before that are the source files and directories. The asterisk (`*`) is a wildcard which matches all files which do not start with a dot. Files that start with a dot (dotfiles) are "hidden". They are matched using the pattern `.[^.]*` (see edit below)
+
+<h4>Why .[^.]* instead of .* ?</h4>
+
+The pattern .* also matches . and ... Since you don't want to (and cannot) move those, it's better to use a pattern which matches any filename starting with a dot except those two. The pattern .[^.]* does just that: it matches any filename (1) starting with a dot (2) followed by a character which is not a dot (3) followed by zero or more arbitrary characters.
+
+<h3> Hide File in MacOS</h3>
+<div class="code-container">
+chflags hidden [file_name] #use nohidden to revert 
+</div>
+
+<h3> Compress Gif</h3>
+<ul> 
+    <li>Reduce resolution by using preview</li>
+<li>Reduce number of colors using <a href="https://man.archlinux.org/man/gifsicle.1.en"><code>gifsicle</code></a></li>
+</ul>
+<div class="code-container">
+gifsicle -O3 --colors 256 -i in.gif -o out.gif
+</div>
+<ul> 
+    <li>Add dithering with <code>--dither=[method]</code></li>
+    <ul>
+	<li> <code>ro64</code> - error diffusion</li>
+	<li> <code>o3 | o4 | o8</code> - ordered pattern </li>
+</ul>
+<li>If gif is not looping anymore, use <code>imagemagick</code></li>
+</ul>
+<div class="code-container">
+convert -loop 0 input ouptput
+</div>
+
+<h3> Fuzzy search</h3>
+Using the <code>fzf</code> plugin
+use <code>** + tab</code> in a command to open a search bar.
+
+<h3> Create symbolic link</h3>
+<div class="code-container">
+ln -s source destination
+</div>
+
+<h3> Dithering</h3>
+
+Using <code>magick</code>
+
+<div class="code-container">
+-dither FloySteinberg *or* Riemersma 
+</div>
+OR
+<div class="code-container">
+-ordered-dither [map]
+</div>
+
+<b>list of maps :</b>
+<pre>
+- threshold   1x1   Threshold 1x1 (non-dither)
+- checks      2x1   Checkerboard 2x1 (dither)
+- o2x2        2x2   Ordered 2x2 (dispersed)
+- o3x3        3x3   Ordered 3x3 (dispersed)
+- o4x4        4x4   Ordered 4x4 (dispersed)
+- o8x8        8x8   Ordered 8x8 (dispersed)
+- h4x4a       4x1   Halftone 4x4 (angled)
+- h6x6a       6x1   Halftone 6x6 (angled)
+- h8x8a       8x1   Halftone 8x8 (angled)
+- h4x4o             Halftone 4x4 (orthogonal)
+- h6x6o             Halftone 6x6 (orthogonal)
+- h8x8o             Halftone 8x8 (orthogonal)
+- h16x16o           Halftone 16x16 (orthogonal)
+- c5x5b       c5x5  Circles 5x5 (black)
+- c5x5w             Circles 5x5 (white)
+- c6x6b       c6x6  Circles 6x6 (black)
+- c6x6w             Circles 6x6 (white)
+- c7x7b       c7x7  Circles 7x7 (black)
+- c7x7w             Circles 7x7 (white)
+</pre>
+
+<div class="code-container">
+magick input.png -resize <size> -dither FloydSteinberg
+</div>
+
+For a black and white dither, put the image in grey before dithering with `-colorspace Grey`
+<br>//maybe limit the color number to be sure `-colors 2`
+<br>After dithering add <code>-threshold 50%</code>
+
+<h3> easy manipulation of color space</h3>
+<div class="code-container">
++level-colors [replace black with], [replace white with]<br>
+# exemple
+<br>
++level-color green, orchid2
+</div>
+List of all imagemagick colors can found on <a href="https://imagemagick.org/script/color.php">this webpage</a>
+
+        <!-- FOOTER----------------------------------- -->
+    </div>
+    <hr>
+    <div class="center-container">
+        <a href="/index.html">- home - </a>
+    </div>
+
+</body>

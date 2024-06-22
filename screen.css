@@ -4,8 +4,9 @@ Variables
 @media (prefers-color-scheme: light) {
     :root {
         --color-default: #2f2e2d;
-        --color-bg: #b8b1a9;
+        --color-bg: #d4cac0;
         --color-dim: #606060;
+        --title-color: #7f8e5e;
     }
 }
 
@@ -14,6 +15,7 @@ Variables
         --color-default: #bab6b1;
         --color-bg: #2f2e2d;
         /* --color-bg: #282828; */
+        --title-color: #5a6073;
         --color-dim: #7f7f7f;
     }
 }
@@ -98,7 +100,7 @@ h2 {
     font-size: calc(30px + 2.5vw);
     /* font-size: calc(30px + 2em); */
     margin: 0;
-    color: #556b2f;
+    color: var(--title-color);
 }
 
 h2 {
@@ -109,7 +111,8 @@ h3 {
     margin: 0;
     margin-top: var(--spacing-m);
     margin-bottom: var(--spacing-s);
-    font-family: var(--font-sans);
+    /* font-family: var(--font-sans); */
+    /* font-family: Futura; */
     font-weight: 1000;
 }
 
@@ -158,7 +161,8 @@ figcaption {
     margin: 10px;
     border-radius: 10px;
     font-family: var(--font-sans);
-    overflow-x: auto;
+    text-wrap: nowrap;
+    overflow-x:scroll;
 }
 
 small {
@@ -271,6 +275,13 @@ blockquote {
 
 code {
     font-family: var(--font-sans);
-    color: #798c53;
+    /* color: var(--color-bg); */
+    /* color: #dddddd; */
     font-size: 14px;
+    background-color: #00000025;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    /* margin: 10px; */
+    border-radius: 4px;
 }
