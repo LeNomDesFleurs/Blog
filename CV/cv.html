@@ -14,8 +14,58 @@
 
     <link rel="stylesheet" href="../screen.css" type="text/css">
 </head>
+<style>
+  @media (prefers-color-scheme: light) {
+    :root {
+      /* --color-default: #bab6b1;
+        --color-bg: #2f2e2d;
+        --title-color: #5a6073;
+        --color-dim: #7f7f7f;
+        --h3-color: #898d97; */
+        --color-default: #2f2e2d;
+        --color-bg: #d4cac0;
+        --color-dim: #606060;
+        --title-color: #7f8e5e;
+        --h3-color: #7f8e5ec4;
+    }
+}
 
-<body>
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-default: #bab6b1;
+        --color-bg: #2f2e2d;
+        --title-color: #5a6073;
+        --color-dim: #7f7f7f;
+        --h3-color: #898d97;
+
+    }
+}
+  html {
+font-family: var(--font-serif);
+/* background-color: #afb5ba; */
+color: var(--color-default);
+-webkit-font-smoothing: antialiased;
+/* font-feature-settings: "onum" 1, "liga" 1; */
+/* font-size: var(--font-size); */
+line-height: 1.5;
+padding: 1.5rem;
+padding-top: 0%;
+max-width: var(--spacing-width-max);
+margin-left: auto;
+margin-right: auto;
+}
+h1, h2{
+color: var(--title-color)
+}
+h3{
+  color: var(--color-dim);
+font-size:1.5em;
+text-decoration:none;
+font-weight: lighter;
+margin-bottom: 0;
+}
+</style>
+
 <!-- <div class="centered"> --><br><br>
 <div class="centered"><h1 style="font-size: 2em;">Thomas Guillory</h1></div>
     
@@ -27,9 +77,9 @@
 
       <h3>Stage</h3>
       <ul>
-        <li>1 mois | Assistant Studio d'enregistrement <a href="https://www.facebook.com/studiofunkyoustudio/">FUNK YOU</a></li>
-        <li>1 mois | Ingénieur <a href="https://www.verbeincarne.fr/toma/radio-toma/">Radio TOMA</a></li>
         <li>1 mois de stage + 1 mois de CDD | scripting LUA pour <a href="https://www.hal-audio.com">HAL Audio</a>  </li>
+        <li>1 mois | Ingénieur <a href="https://www.verbeincarne.fr/toma/radio-toma/">Radio TOMA</a></li>
+        <li>1 mois | Assistant Studio d'enregistrement <a href="https://www.facebook.com/studiofunkyoustudio/">FUNK YOU</a></li>
       </ul>
 
 
@@ -46,6 +96,7 @@
             <li>Synthèse sonore (modulaire)</li>
             <li>TouchDesigner</li>
           </ul>
+          <!-- <br><br><br><br><br> -->
           <h3>Code</h3>
           <ul>
             <li>HTML/CSS</li>
@@ -59,15 +110,15 @@
           <h3>Projets</h3>
           <ul>
             <li><a href="https://library.vcvrack.com/NOI">Librairie de module pour VCV Rack</a></li>
-            <li><a href="/NOI/Sinensis.html">Développement de plug-in</a></li>
-            <li><a href="/Projects/Memoire/Memoire.html">Mémoire de Master</a></li>
+            <li><a href="https://lndf.fr/NOI/Sinensis.html">Développement de plug-in</a></li>
+            <li><a href="https://lndf.fr/Projects/Memoire/Memoire.html">Mémoire de Master</a></li>
             <li><a href="https://github.com/LeNomDesFleurs">Mon Github</a></li>
           </ul>
 
           <h3>Hobby</h3>
           <ul>
             <li>Live coding</li>
-            <li><a href="../index.html">Blogging</a></li>
+            <li><a href="https://lndf.fr/index.html">Blogging</a></li>
             <li>Apprendre des choses - à moi même / aux autres</li>
           </ul>
 
