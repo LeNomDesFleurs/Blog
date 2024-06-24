@@ -26,11 +26,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.39333333"
-     inkscape:cx="298.72881"
-     inkscape:cy="185.59322"
-     inkscape:window-width="1312"
-     inkscape:window-height="449"
+     inkscape:zoom="0.86769611"
+     inkscape:cx="239.13902"
+     inkscape:cy="225.3093"
+     inkscape:window-width="1728"
+     inkscape:window-height="1046"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="0"
@@ -39,7 +39,10 @@
      fill="#ea4335"
      d="M300.0 18.55C340.39594 18.55 379.42184 33.196663 409.84286 59.77472L300.0 185.5Z"
      fill-rule="nonzero"
-     id="path2" />
+     id="path2"
+     inkscape:export-filename="Inhabituel.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300" />
   <path
      fill="#34a853"
      d="M409.84286 59.77472C440.26392 86.352776 460.01657 123.0594 465.43906 163.08975L300.0 185.5Z"

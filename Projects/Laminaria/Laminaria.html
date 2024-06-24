@@ -14,6 +14,19 @@
 
     <link rel="stylesheet" href="/screen.css" type="text/css">
 </head>
+<style>
+@media (prefers-color-scheme: light) {
+    :root {
+        --svg: O%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --svg: 70%;
+    }
+}
+</style>
 
 <a href = /./../Projects.html> <h1> Laminaria</h1></a>   
 
@@ -40,7 +53,7 @@ Ui is largely based on <a href="https://algosail.itch.io/cassetter">Cassetter</a
     The midi thread is spawned by the keyboard input thread, this way it can be closed and reopen at runtime to switch port. 
     <br>I should probably do the same thing with the audio thread.
     <figure>
-        <img src="architecture.svg">
+        <img src="architecture.svg" style="filter: invert(var(--svg))">
     </figure>
 
 

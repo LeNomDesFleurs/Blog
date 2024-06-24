@@ -34,25 +34,6 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs1">
-    <marker
-       style="overflow:visible"
-       id="marker2"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Triangle arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.5)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         id="path2" />
-    </marker>
     <inkscape:path-effect
        effect="fillet_chamfer"
        id="path-effect11"
@@ -307,10 +288,26 @@
          x="92.193527"
          y="109.57391"
          id="tspan17">Param Update</tspan></text>
-    <path
-       style="fill:none;stroke:#e41616;stroke-width:1.4;stroke-miterlimit:3.6;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker2)"
-       d="M 67.608606,35.166061 C 91.61958,34.786551 99.185387,82.398381 119.5011,82.524776"
-       id="path1"
-       sodipodi:nodetypes="cc" />
+    <g
+       id="path1">
+      <path
+         style="color:#000000;fill:#e41616;stroke-miterlimit:3.6;-inkscape-stroke:none"
+         d="m 67.597656,34.466797 0.02148,1.398437 c 5.770903,-0.09121 10.549451,2.683243 14.875,7.017578 4.325548,4.334336 8.141133,10.214881 11.853515,16.144532 3.712383,5.929651 7.321134,11.905372 11.326174,16.453125 4.00503,4.547752 8.47021,7.710842 13.82226,7.74414 l 0.01,-1.40039 c -4.80579,-0.0299 -8.90357,-2.866386 -12.78125,-7.269532 C 102.84693,70.151542 99.253101,64.226812 95.533203,58.285156 91.813305,52.343501 87.965359,46.382664 83.484375,41.892578 79.003391,37.402492 73.832228,34.368255 67.597656,34.466797 Z"
+         id="path12" />
+      <g
+         id="g2">
+        <g
+           id="path3">
+          <path
+             style="color:#000000;fill:#e41616;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 123.54002,82.549904 -6.07666,3.462262 0.0436,-6.999865 z"
+             id="path4" />
+          <path
+             style="color:#000000;fill:#e41616;fill-rule:evenodd;-inkscape-stroke:none"
+             d="m 117.04492,78.201172 -0.0527,8.617187 7.48047,-4.261718 -0.69727,-0.410157 z m 0.92188,1.621094 4.64062,2.722656 -4.67187,2.662109 z"
+             id="path5" />
+        </g>
+      </g>
+    </g>
   </g>
 </svg>
