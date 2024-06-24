@@ -23,15 +23,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.78288846"
-     inkscape:cx="341.68341"
-     inkscape:cy="347.43136"
+     inkscape:zoom="3.1020027"
+     inkscape:cx="445.67981"
+     inkscape:cy="319.47103"
      inkscape:window-width="1672"
      inkscape:window-height="967"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="path1" />
   <defs
      id="defs1">
     <inkscape:path-effect
@@ -295,15 +295,17 @@
          d="m 67.597656,34.466797 0.02148,1.398437 c 5.770903,-0.09121 10.549451,2.683243 14.875,7.017578 4.325548,4.334336 8.141133,10.214881 11.853515,16.144532 3.712383,5.929651 7.321134,11.905372 11.326174,16.453125 4.00503,4.547752 8.47021,7.710842 13.82226,7.74414 l 0.01,-1.40039 c -4.80579,-0.0299 -8.90357,-2.866386 -12.78125,-7.269532 C 102.84693,70.151542 99.253101,64.226812 95.533203,58.285156 91.813305,52.343501 87.965359,46.382664 83.484375,41.892578 79.003391,37.402492 73.832228,34.368255 67.597656,34.466797 Z"
          id="path12" />
       <g
-         id="g2">
+         id="g2"
+         style="fill:#e41616;fill-opacity:1">
         <g
-           id="path3">
+           id="path3"
+           style="fill:#e41616;fill-opacity:1">
           <path
-             style="color:#000000;fill:#e41616;fill-rule:evenodd;-inkscape-stroke:none"
+             style="color:#000000;fill:#e41616;fill-rule:evenodd;-inkscape-stroke:none;fill-opacity:1"
              d="m 123.54002,82.549904 -6.07666,3.462262 0.0436,-6.999865 z"
              id="path4" />
           <path
-             style="color:#000000;fill:#e41616;fill-rule:evenodd;-inkscape-stroke:none"
+             style="color:#000000;fill:#e41616;fill-rule:evenodd;-inkscape-stroke:none;fill-opacity:1"
              d="m 117.04492,78.201172 -0.0527,8.617187 7.48047,-4.261718 -0.69727,-0.410157 z m 0.92188,1.621094 4.64062,2.722656 -4.67187,2.662109 z"
              id="path5" />
         </g>
