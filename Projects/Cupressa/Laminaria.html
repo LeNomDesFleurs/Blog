@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Le Nom Des Fleurs</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Cupressa Project page" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+<style>
+@media (prefers-color-scheme: light) {
+    :root {
+        --svg: O%;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --svg: 70%;
+    }
+}
+</style>
+
+<a href = /./../Projects.html> <h1> Cupressa</h1></a>   
+
+    <a href="https://github.com/LeNomDesFleurs/Cupressa">Github Repo</a>
+    <br>Cupressa 
+    <h3>Architecture</h3>
+    I very new to all of this so this probably not the smartest way of doing this, but it works.
+    <br>
+    I use four thread and three channels<br>
+    <br><b>Channels</b>
+    <ul>
+        <li>Uievent, contain an enum manipulating the UI</li>
+        <li>MidiEvent, contain an enum manipulating the synth voices</li>
+        <li>Param Update, contain an enum manipulating the synth params</li>
+    </ul>
+    <b>Threads</b>
+    <ul>
+        <li>AUDIO, compute the sound, receive parameter updates and midi event</li>
+        <li>GUI, update the terminal windows, receive UI event, parameter infos are retreived trought the parameter mutex</li>
+        <li>MIDI, cc trigger new parameter updates (thus new UI Event), noteOn and Off sends message to the synth</li>
+        <li>Keyboard Input, edit parameter and interact with the UI</li>
+    </ul>
+    The midi thread is spawned by the keyboard input thread, this way it can be closed and reopen at runtime to switch port. 
+    <br>I should probably do the same thing with the audio thread.
+    <figure>
+        <img src="spheres.gif" style="filter: invert(var(--svg))">
+    </figure>
+
+
+<!-- FOOTER -------------------------- -->
+<hr>
+<div class="center-container">
+    <a href="/index.html">- home - </a>
+</div>
+</html>
