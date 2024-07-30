@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<lang="en-US">
+
+    <head>
+        <title>Le Nom Des Fleurs</title>
+        <meta name="author" content="Thomas Guillory" />
+        <meta name="Description" content="Memoire Project page" />
+
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/tufte.css" type="text/css">
+    </head>
+
+    <style>
+        body {
+            background-color: rgb(255, 234, 241);
+        }
+
+        @font-face {
+            font-family: 'Gothic';
+            font-style: normal;
+            font-weight: 400;
+            /* src: url('/Media/Recursive.ttf') */
+            src: url('GothicPixels.ttf');
+        }
+
+        @font-face {
+            font-family: 'Math';
+            font-style: normal;
+            font-weight: 400;
+            /* src: url('/Media/Recursive.ttf') */
+            src: url('xits-italic.woff');
+        }
+
+        .caps {
+            font-family: Gothic;
+            font-size: 2em;
+            line-height: 0%;
+        }
+
+        h1,
+        h2 {
+            font-family: Gothic;
+            /* font-weight: 900; */
+        }
+
+        h2 {
+            font-size: 2em;
+            font-style: normal;
+        }
+
+        .math {
+            font-family: 'Times New Roman';
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1em;
+        }
+
+        .equation {
+            font-family: 'Times New Roman';
+            font-style: italic;
+            font-size: 17px;
+            line-height: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+        }
+
+        div.num {
+            border-bottom: 1px solid;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        div.denom {
+            font-size: 0.8em;
+            border-top: 1px solid;
+            text-align: center;
+        }
+
+        td {
+            max-width: 100%;
+            white-space: nowrap;
+        }
+    </style>
+
+    <h1>Delay Line Reverberation</h1>
+    <br>
+    <section>
+        <p>
+            <span class="caps">A</span>ll discoveries, and even mistakes (especially mistakes) can be new points of
+            departure for sound research: the absence of aesthetic objectivity leaves the door open to all types of
+            sound. Nothing is to be discarded in past works.
+        </p>
+        <p><span class="caps">R</span>everberation is a highly complex phenomenon that cannot be modelled in real time
+            with today's equipment, and even less so with the technology available at the time of the first
+            experimentations on the matter (60s-70s).
+            Researchers therefore decided to limit themselves to a <i>perceptive</i> simulation of reverberation,
+            working with an economy of means.
+        </p>
+
+        <h3 class="toc_title">Table of Contents</h3>
+        <ul>
+            <li><a href="#time&freq">Time and Frequency Density</a></li>
+            <li><a href="#comb">Comb Filter</a></li>
+            <li><a href="#allpass">Allpass Filter</a></li>
+            <li><a href="#schroeder">Schroeder Topology</a></li>
+            <li><a href="#highfreq">High Frequency Absorption</a></li>
+            <li><a href="#early">Early Reflections</a></li>
+            <li><a href="#moorer">Moorer Topology</a></li>
+            <li><a href="#modulation">Modulation of Delay Lines</a></li>
+            <ul>
+                <li><a href="#linear">Linear Interpolation</a></li>
+                <li><a href="#allpassinter">Allpass Interpolation</a></li>
+                <li><a href="#signals">Modulation Signals</a></li>
+            </ul>
+            <li><a href="#griesinger">Griesinger Topologie</a></li>
+            <li><a href="#ring">Allpass Ring</a></li>
+            <li><a href="#fdn">Feedback Delay Network</a></li>
+            <li><a href="#modern">Modern Evolution</a></li>
+            <li><a href="#biblio">Bibliography</a></li>
+        </ul>
+
+        <h2 id="time&freq">Time and frequency density</h2>
+        The two crucial points in the design of a reverberation are :
+        <ul>
+            <li>Frequency density <span class="math">Df</span>, defined by the number of modes per Hz</li>
+            <li>Time Density <span class="math">Dt</span>, defined by the number of echoes per second</li>
+        </ul>
+        After studying impulse responses, Schroeder suggests :
+        <ul>
+            <li><span class="math">Df = 0.15 modes/Hz </span></li>
+            <li><span class="math">Dt = 1000 echos/seconds</span></li>
+        </ul>
+        <p>
+            <span class="math">Df</span> being proportional to the reverberation time, 0.15 is the value for a 1 second
+            RT60<label for="RT60" class="margin-toggle sidenote-number"></label><input type="checkbox" id="RT60"
+                class="margin-toggle">
+            <span class="sidenote">
+                Reverberation Time 60dB : Time it takes for the reverb to loose 60 dB.
+            </span>.
+            <br><span class="math">Dt</span> being proportional to the sample rate, which was very low at the time,
+            around 10k echos/s at
+            44.1 kHz.
+            <br><br>
+            From a perceptive point of view, too low a density will give a sensation of flutter (characteristic of small
+            rooms with parallel walls).<br>
+            We're looking for the flattest possible frequency response, especially in the reverberation tail, which
+            researchers consider to be exponentially decreasing white noise.
+        </p>
+        <h2 id="comb">Comb filter</h2>
+        <p>
+            Early reverberation simulations used an analog delay line (magnetic tape) to generate an echo. The output of
+            this echo could then be fed back to the input to generate successive, exponentially decreasing echoes.
+            <br>This naïve method is fraught with problems, one of which led to one of the first papers on algorithmic
+            reverberation design. Indeed, M. R. Schroeder noticed that for short delays, approaching a reverberation
+            effect, the timbre of the source was strongly altered.
+            <br>Summing a signal with its delayed version, as one does with a delay line in a feedback loop, gives a
+            comb filtering effect.
+        </p>
+        <figure>
+            <span class="marginnote"><i>g is the feedback gain, Z<sup>-m</sup> a delay of m sample</i></span>
+            <img src="comb-filter.svg">
+        </figure>
+        <p>
+            The transfer function of a comb filter is as follow
+        </p>
+        <br>
+        <p>
+            <span class="math">
+                <table>
+                    <tr>
+                        <td>H(ω) = &nbsp;</td>
+                        <td>
+                            <div class="num">e<sup>-iωτ</sup></div>
+                            <div class="denom">1 - g.e<sup>-iωτ</sup></div>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <br>
+                <table style="align-items:end;">
+                    <tr>
+                        <td>|H(ω)| = &nbsp;</td>
+                        <td>
+                            <div class="num">1</div>
+                            <div class="denom">[1 + g<sup>2</sup> - 2.g.cos(ωτ)]<sup>1/2</sup></div>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+
+            </span>
+        </p>
+        <figure>
+            <!-- <span class="marginnote"></span> -->
+            <img src="comb-freq.svg">
+        </figure>
+        <p>
+            This filter, with its characteristic comb-shaped frequency response, produces a sound perceived as
+            “metallic”.
+            In order to increase time and frequency density, we need to use several delay units, of which there are two
+            possibilities
+        <ul>
+            <li>
+                Paralleling, which multiplies <span class="math">Dt</span>, but requires a very large number of units to
+                achieve the suggested constraints (impossible with the technical means of the time)
+            </li>
+            <li>
+                Serial connection, which exponentiates <span class="math">Dt</span>, but greatly deteriorates the signal
+                since the distortions of all the filters are superimposed.
+                It is possible to limit the number of filters by reducing delay times, at the cost of a deterioration in
+                timbre.
+            </li>
+        </ul>
+
+        </p>
+        <h2 id="allpass">All-pass filter</h2>
+        <p>
+            Schroeder sought to design a new reverberation unit that would meet 6 constraints:
+        <ol>
+            <li>Frequency response must be flat</li>
+            <li>Reverberator modes must cover the entire audio spectrum</li>
+            <li>The decay times of the individual modes should be close or equal, so that the different frequency
+                components decay at the same rate.</li>
+            <li>The transient response must be dense enough not to generate audible echoes.</li>
+            <li>Reverberation should not suggest temporal periodicity</li>
+            <li>Reverberation should not imply amplitude-frequency periodicity (as does the comb filter).</li>
+        </ol>
+        <p>
+            He then proposes a filter to validate points 1, 3 and 6.
+            By adding the delayed signal with a gain inverse to the feedback gain, we effectively obtain a filter with a
+            flat frequency response: the all-pass filter.
+        </p>
+        <figure>
+            <!-- <span class="marginnote"></span> -->
+            <img src="allpass-filter.svg">
+        </figure>
+        <p>
+            <span class="math">
+                <table>
+                    <tr>
+                        <td>T(z) = &nbsp;</td>
+                        <td>
+                            <div class="num">g + z<sup>-m</sup></div>
+                            <div class="denom">1 + g.z<sup>-m</sup></div>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <td>H(z) = e<sup>-iωτ</sup>&nbsp;</td>
+                        <td>
+                            <div class="num">1 - ge<sup>-iωτ</sup></div>
+                            <div class="denom">1 - ge<sup>-iωτ</sup></div>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <td>|H(z)| = 1</td>
+                    </tr>
+                </table>
+            </span>
+        </p>
+        <p>
+            To validate the remaining points, it is once again necessary to use several units of this delay. Thanks to
+            the properties of this new filter, we can now use them in series (and thus exponentiate the number of
+            echoes), and thus achieve the recommended density values.
+            These series of scatterers will form the basis subsequent algorithms.
+        </p>
+
+        <h2 id="Schroeder">Schroeder topology</h2>
+        <p>
+            This results in a much more convincing reverberation tail, and makes it possible to add practical tools for
+            sound engineers: pre-delay and Dry/Wet mix (ratio of direct sound to reverberated sound, often in
+            percentages).
+            <br>For pre-delay, simply add a delay line before reaching the all-passers in series. For Dry/Wet, you need
+            to be careful not to violate the principles established with the all-pass filter, by adding the necessary
+            gains to avoid falling back into comb filtering.
+            <br>In many cases, the human ear can't tell the difference between a flat response and a sufficiently dense,
+            irregular response. In reality, room reverberation has an average fluctuation of 10dB and around 15 modes
+            per 100 Hz (<span class="math">0.15 modes/Hz</span>).
+            Schroeder therefore uses 4 comb filters in parallel, generating <span class="math">4 modes/Herz</span>, but
+            only a hundred or so echoes per seconds.
+            <br>He thus add 2 all-pass filters in series to get closer to the target of <span class="math">1000
+                echos/seconds</span>.
+        </p>
+        <figure>
+            <!-- <span class="marginnote"></span> -->
+            <img src="schroeder.svg">
+        </figure>
+        <p>
+            This topology makes it possible to simulate a wider variety of rooms and better tailor the reverberation
+            tail to our needs.
+        </p>
+        <h2 id="highfreq"> High Frequency absorption </h2>
+        <p>
+            The path of sound through the air attenuates high frequencies, and this effect is far from negligible.
+            Moorer
+            gives the example of the Boston Symphony Hall:
+            A 1.7s reverberation implies 600m of distance traveled, which would mean (for 40% humidity), that a 4kHz
+            signal
+            would be attenuated by 60dB more than a 1kHz signal, which shows the importance of this parameter in the
+            reverberation tail.
+            <br>In order to simulate the attenuation caused by the air, we can add a high-cut filter to the feedback
+            loop. It's
+            important to consider its stability given its context, so we prefer to use a finite impulse response filter
+            to
+            limit the risks. This type of filter is sufficient to simulate the desired effect.
+        </p>
+        <h2 id="early">Early reflections</h2>
+        <p>
+            Early reflections remain one of the main areas for improvement.
+            Unlike the reverberation tail, whose statistical description is largely defined by the volume of the room,
+            early reflections are a series of discrete echoes, strongly dependent on the source/listener position.
+            These first 80 milliseconds contain the information that enables our perception to characterize the acoustic
+            space represented by the reverberation.
+            But an exact simulation of this phenomenon can quickly become very computationally intensive, and therefore
+            unthinkable for real time (at least at the time).
+            One proposal is to split the reverberation into two, with an FIR filter for the first reflections, made up
+            of a series of delays, followed by reverberators based on the schematics seen previously. To link these two
+            systems, Moorer adds a reverberator to diffuse these first reflections, with a delay ideally equal to the
+            last delay in the series, so that it starts at the end of the first reflections.
+            This sequence of delays can be modeled on analyses of a real part for greater realism. Moorer recommends a
+            minimum section of 7 delays.
+        </p>
+        <figure>
+            <!-- <span class="marginnote"></span> -->
+            <img src="early.png">
+        </figure>
+
+        <h2 id="moorer">Moorer topology</h2>
+        <p>
+            Moorer refined Schoeder's topology by adding early reflections and treble absorption, as well as refining
+            the parameters already present.
+            He gives the following guidelines for reproducing his work:
+        <ul>
+            <li>The recursive part should consist of 6 parallel comb filters, each containing a first-order low-pass
+                filter in the loop.</li>
+            <li>Delays should be linearly distributed with a ratio of 1:1.5, the shortest delay being around 50
+                milliseconds.</li>
+            <li>The outputs of the six comb filters should be summed into an all-pass filter network with a gain of 0.7
+                and a delay of about 6 milliseconds.</li>
+            <li>Delay times in samples should be as close to prime numbers as possible, to avoid multiple delays looping
+                on the same samples, creating audible peaks. (For high feedback values, sensitivity to exact size
+                becomes negligible).</li>
+        </ul>
+        </p>
+
+        <h2 id="modulation"> Modulation of delay lines</h2>
+        <p>
+            To break the repetition patterns in reverberation tanks, the delay times of the delay lines need to change
+            over time, so that the signal portions returned in recursion is not be exactly the same.
+            To achieve a transparent effect, it is necessary to generate a slow, subtle movement, which requires the
+            calculation of interstitial samples. As the data vectors are discrete, what do we do when the modulation
+            asks for sample 1.5?
+            This technique requires an interpolation algorithm.
+            This algorithm needs to be as efficient as possible in terms of computing resources, as it will be
+            multiplied by the number of delay lines, and is only a secondary system in the operation of the
+            reverberation.
+        </p>
+        <h3 id="linear">Linear interpolation:</h3>
+        <p>
+            Linear interpolation is the simplest form of interpolation and linearly calculates the average between two
+            samples.
+            <br><br>
+            <span class="equation">
+                <td>O[n] = Buf[i + 1] * frac + Buf[i] * (1 - frac)</td>
+            </span>
+        </div>
+        <p>
+            <span class="math">O[n]</span> the output sample, <span class="math">Buf</span> a vector of audio samples,
+            <span class="math">i.frac</span> the index (decimal part <span class="math">.frac</span>) of the sample to
+            be accessed.
+            <br>In practice, we have a low-pass filter with a variable coefficient
+            <br><br>
+            Linear interpolation therefore has several disadvantages:
+        <ol>
+            <li>Amplitude distortion: low-pass filtering process with a dynamic zero at the Nyquist-Shannon frequency.
+            </li>
+            <li>Amplitude modulation: modification of filter coefficients introduces audible flutter.</li>
+            <li>Phase distortion: because each filter has non-constant delays</li>
+            <li>aliasing: an upward pitch corresponds to a reduction in sampling frequency.</li>
+        </ol>
+        We can try to limit amplitude distortion by using all-pass interpolation
+        </p>
+        <h3 id="allpassinter">All-pass interpolation :</h3>
+        <span class="equation">
+            <td>O[n] = Buf[i + 1] + Buf[i] * (1 - frac) - O[n-1] * (1 - frac)</td>
+        </span>
+        <p>
+            A recursion weighted by an opposite gain is added.
+            However, this technique has one major drawback:
+            the exact <span class="math">frac</span> value is followed less precisely.
+            This results in greater distortion, limiting this polyphasic filter to micro-tone changes (+/- 1 semitone).
+            We can limit this distortion in certain frequency bands by warping the parameter values, replacing <span
+                class="math">1 - frac</span> by <span class="math">(1 - frac) / (1 + frac)</span>.
+
+        <!-- <p> -->
+            To generate larger pitch changes while maintaining correct signal quality, the simplest solution is to
+            return to linear interpolation, having first performed a significant amount of up-sampling on the signal.
+        </p>
+
+        <h3 id="signals">Modulation Signals</h3>
+        <p>
+            Delay line Modulation produce a pitch modulation artifact, in the way of a tape being slowed down or sped
+            up.
+            Ideally, modulation signals must be decorelated to avoid a global pitch movement, giving a "seasick"
+            sensation in the reverberation tail.
+            Altought strong modulation can be welcome in some effect-type reverb.
+            In some early reverberation, numeric signal where used for modulation, but their low resolution (8 bit) can
+            create audible artifact.
+            It may be considered as a part of the character of the unit, but it shows that modulation signals are an
+            integral part of the overall sound of the reverberation and shouldn't be overlooked.
+        </p>
+
+        <h2 id="griesinger">Griesinger Topology</h2>
+        <p>
+            This topology, which can be found in Jon Dattorro's papers, is a Lexicon algorithm used to reproduce the
+            impulse response of a reverberation plate.
+        <figure>
+            <!-- <span class="marginnote"></span> -->
+            <img src="griesinger.png">
+        </figure>
+        <p>
+            This mesh is composed of the elements seen above,
+        <ul>
+            <li>Delays : Z-n blocks.</li>
+            <li>All-pass filters : with the two sums and a feedforward / feedback.</li>
+            <li>low-pass filters : little feedback loop with one sample delay and two coefficient (effectively doing an
+                averaging between the actual and the previous sample)</li>
+        </ul>
+        The signal is first diffused through the 4 all-pass filters at the top (in series), then sent to the
+        reverberation tanks, which recirculate the signal and significantly increase the total reverberation time.
+        We can see that reverberation tanks have much larger delay lines than the first all-pass filters.
+        The reservoirs also contain filters to simulate treble absorption.
+        The output of this reverberation is a weighted sum of all the sampling points indicated by numbers along the
+        path.
+        </p>
+        <h2 id="ring">Allpass Ring</h2>
+        <p>
+            There's not much information available on allpass rings, although it seems to be quite common in commercial
+            reverbs. You can find traces of it on a <a href="http://www.spinsemi.com/forum/viewtopic.php?t=3">forum
+                about signal processing.</a>
+            This topology consists of a long series of looped all-pass filters with several input and output points.
+        </p>
+
+        <h2 id="fdn">Feedback Delay Network</h2>
+        <p>
+            To simplify the study of recursion networks, Jot proposes to define a parallelization of filters whose
+            recursion gains would be managed by a matrix distributing the signals over several filters.
+            <!-- </p> -->
+        <figure>
+            <!-- <span class="marginnote"></span> -->
+            <img src="fdn.svg">
+        </figure>
+        <p>
+            In this one-output, one-input diagram, the coefficient matrix can be seen at top right. On each recursion
+            path there is a delay line and a high-cut filter for high-frequency absorption.
+            Jot draws the following conclusions from his observations :
+        <ul>
+            <li>system stability is guaranteed in the case where the feedback matrix is the product of a unitary matrix
+                and a diagonal matrix whose elements have a magnitude less than 1.</li>
+            <li>Choosing a unitary feedback matrix forces all the system's poles to lie on the unit circle, so the
+                system has only non-decreasing modes.</li>
+            <li>If the matrix is diagonal, we return to the case of parallel comb filters.</li>
+        </ul>
+        </p>
+        <h2 id="modern">Modern Evolution</h2>
+        <p>
+            Engineers continue to develop new techniques: Sean Costello, the man behind Valhalla DSP, uses a system that
+            borrows from both the all-pass series and FDN, making FDN's recursion paths more complex by replacing the
+            usual delay unit with 3 all-pass filters.
+        </p>
+
+        <h2 id="biblio">Bibliography</h2>
+        <ul>
+            <li>DATTORRO, Jon. « Part 1: Reverberator and Other Filters ». Journal Of The Audio Engineering Society 45,
+                no 9 (septembre 1997): 660-84</li>
+            <li>DATTORRO, Jon. « Part 2: Delay-Line Modulation and Chorus ». Journal Of The Audio Engineering Society
+                45, no 10 (octobre 1997): 764-88</li>
+            <li>MOORER, James A. « About This Reverberation Business ». Computer Music Journal 3, no 2 (juin 1979): 13.
+                https://doi.org/10.2307/3680280.</li>
+            <li>SCHLECHT, Sebastian J. « FDNTB: The Feedback Delay Network Toolbox », Proceedings of the 23rd
+                International Conference on Digital Audio Effects (DAFx2020), Vienna, Austria, September 2020-21</li>
+            <li>SCHLECHT, Sebastian J., et Emanuel A. P. Habets. « On Lossless Feedback Delay Networks ». IEEE
+                Transactions on Signal Processing 65, no 6 (15 mars 2017): 1554-64.
+                https://doi.org/10.1109/TSP.2016.2637323.</li>
+            <li>SCHROEDER, R. « Natural Sounding Artificial Reverberation ». Journal Of The Audio Engineering Society
+                10, no 3 (juillet 1962): 219-23</li>
+            <li>SCHROEDER, R. « ”Colorless” Artificial Reverberation ». Journal Of The Audio Engineering Society 9, no 3
+                (juillet 1961): 192-7</li>
+            <li>DE SENA, E. et al., Scattering Delay Network: an Interactive Reverberator for Computer Games. Présenté à
+                l’AES 41st International Conference à Londres, Royaume-Uni, les 2-4 février 2011.</li>
+        </ul>
+
+        <br> Additional Ressource :
+
+        <ul>
+            <li><a href="https://ccrma.stanford.edu/~jos/pasp/Artificial_Reverberation.html">Artificial reverberation
+                    chapter</a> of "Physical Audio Signal Processing"</li>
+            <li><a href="./PUREDATA" download>Pure data exemple of some reverbs </a>(sadly I have lost the source...)
+            </li>
+        </ul>
+
+
+    </section>
+    </lang>
