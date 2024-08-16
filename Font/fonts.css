@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'JetBrain';
+    font-style: normal;
+    font-weight: 400;
+    /* src: url('/Media/Recursive.ttf') */
+    src: url('/Font/JetBrain.woff2');
+}
+
+@font-face {
+    font-family: 'JetBrain';
+    font-style: bold;
+    font-weight: 900;
+    src: url('/Font/JetBrain-ExtraBold.woff2');
+}
+
+@font-face {
+    font-family: 'Redaction';
+    font-style: normal;
+    src: url('/Font/Redaction-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Gothic';
+    font-style: normal;
+    font-weight: 400;
+    /* src: url('/Media/Recursive.ttf') */
+    src: url('/Font/GothicPixels.ttf');
+}
+
+@font-face {
+    font-family: 'Math';
+    font-style: normal;
+    font-weight: 400;
+    /* src: url('/Media/Recursive.ttf') */
+    src: url('/Font/xits-italic.woff');
+}
+
+@font-face {
+    font-family: 'Analogist';
+    font-style: bold;
+    font-weight: 900;
+    src: url('/Font/Analogist.ttf');
+}
+
+@font-face{
+    font-family: 'Ornament';
+    src: url('/Font/Bodoni\ Ornaments.ttf');
+}
+
+@font-face{
+    font-family: 'Roman';
+    src: url('/Font/lmroman10-italic.otf');
+}

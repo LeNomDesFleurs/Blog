@@ -1,6 +1,8 @@
 /* -----------------------------------
 Variables
 -------------------------------------- */
+@import url("/Font/fonts.css");
+
 @media (prefers-color-scheme: light) {
     :root {
         --color-default: #2f2e2d;
@@ -21,26 +23,7 @@ Variables
 
     }
 }
-@font-face {
-    font-family: 'JetBrain';
-    font-style: normal;
-    font-weight: 400;
-    /* src: url('/Media/Recursive.ttf') */
-    src: url('/Media/JetBrain.woff2');
-}
 
-@font-face {
-    font-family: 'JetBrain';
-    font-style: bold;
-    font-weight: 900;
-    src: url('/Media/JetBrain-ExtraBold.woff2');
-}
-
-@font-face {
-    font-family: 'Redaction';
-    font-style: normal;
-    src: url('/Media/Redaction-Regular.otf');
-}
 
 :root {
     --font-sans: JetBrain;
@@ -277,13 +260,14 @@ blockquote {
 
 code {
     font-family: var(--font-sans);
-    /* color: var(--color-bg); */
-    /* color: #dddddd; */
     font-size: 14px;
     background-color: #00000025;
     padding: 2px;
     padding-left: 4px;
     padding-right: 4px;
-    /* margin: 10px; */
     border-radius: 4px;
+}
+
+.code-container > code {
+    background-color: #00000000;
 }

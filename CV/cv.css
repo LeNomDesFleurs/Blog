@@ -1,9 +1,4 @@
-@font-face {
-    font-family: 'Analogist';
-    font-style: bold;
-    font-weight: 900;
-    src: url('Analogist.ttf');
-}
+@import url(/Font/fonts.css);
 
 
 /* h1, h2 {

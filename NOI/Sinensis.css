@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import url("/Font/fonts.css");
+
 /* -----------------------------------
 Variables
 -------------------------------------- */
@@ -18,26 +20,6 @@ Variables
         /* --color-bg: #282828; */
         --color-dim: #7f7f7f;
     }
-}
-@font-face {
-    font-family: 'JetBrain';
-    font-style: normal;
-    font-weight: 400;
-    /* src: url('/Media/Recursive.ttf') */
-    src: url('../../Media/JetBrain.woff2');
-}
-
-@font-face {
-    font-family: 'JetBrain';
-    font-style: bold;
-    font-weight: 900;
-    src: url('/Media/JetBrain-ExtraBold.woff2');
-}
-
-@font-face {
-    font-family: 'Redaction';
-    font-style: normal;
-    src: url('Media/Redaction-Regular.otf');
 }
 
 :root {
