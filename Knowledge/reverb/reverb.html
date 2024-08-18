@@ -136,8 +136,8 @@
             <span class="sidenote">
                 Reverberation Time 60dB : Time it takes for the reverb to loose 60 dB.
             </span>.
-            <br><span class="math">Dt</span> being proportional to the sample rate, which was very low at the time,
-            around 10k echos/s at
+            <br><span class="math">Dt</span> is proportional to the sample rate, which was very low at the time,
+            it would be around 10k echos/s at
             44.1 kHz.
             <br><br>
             From a perceptive point of view, too low a density will give a sensation of flutter (characteristic of small
@@ -268,7 +268,7 @@
             To validate the remaining points, it is once again necessary to use several units of this delay. Thanks to
             the properties of this new filter, we can now use them in series (and thus exponentiate the number of
             echoes), and thus achieve the recommended density values.
-            These series of scatterers will form the basis subsequent algorithms.
+            These series of scatterers will form the basis of subsequent algorithms.
         </p>
 
         <h2 id="Schroeder">Schroeder topology</h2>
@@ -276,7 +276,7 @@
             This results in a much more convincing reverberation tail, and makes it possible to add practical tools for
             sound engineers: pre-delay and Dry/Wet mix (ratio of direct sound to reverberated sound, often in
             percentages).
-            <br>For pre-delay, simply add a delay line before reaching the all-passers in series. For Dry/Wet, you need
+            <br>For pre-delay, simply add a delay line before reaching the reverberation. For Dry/Wet, you need
             to be careful not to violate the principles established with the all-pass filter, by adding the necessary
             gains to avoid falling back into comb filtering.
             <br>In many cases, the human ear can't tell the difference between a flat response and a sufficiently dense,
@@ -323,7 +323,7 @@
             of a series of delays, followed by reverberators based on the schematics seen previously. To link these two
             systems, Moorer adds a reverberator to diffuse these first reflections, with a delay ideally equal to the
             last delay in the series, so that it starts at the end of the first reflections.
-            This sequence of delays can be modeled on analyses of a real part for greater realism. Moorer recommends a
+            This sequence of delays can be modeled on analyses of a real room for greater realism. Moorer recommends a
             minimum section of 7 delays.
         </p>
         <figure>
@@ -352,7 +352,7 @@
         <h2 id="modulation"> Modulation of delay lines</h2>
         <p>
             To break the repetition patterns in reverberation tanks, the delay times of the delay lines need to change
-            over time, so that the signal portions returned in recursion is not be exactly the same.
+            over time.
             To achieve a transparent effect, it is necessary to generate a slow, subtle movement, which requires the
             calculation of interstitial samples. As the data vectors are discrete, what do we do when the modulation
             asks for sample 1.5?
@@ -384,12 +384,15 @@
             <li>Phase distortion: because each filter has non-constant delays</li>
             <li>aliasing: an upward pitch corresponds to a reduction in sampling frequency.</li>
         </ol>
+        <p>
         We can try to limit amplitude distortion by using all-pass interpolation
         </p>
         <h3 id="allpassinter">All-pass interpolation :</h3>
+        <p>
         <span class="equation">
             <td>O[n] = Buf[i + 1] + Buf[i] * (1 - frac) - O[n-1] * (1 - frac)</td>
         </span>
+    </p>
         <p>
             A recursion weighted by an opposite gain is added.
             However, this technique has one major drawback:
@@ -411,7 +414,7 @@
             sensation in the reverberation tail.
             Altought strong modulation can be welcome in some effect-type reverb.
             In some early reverberation, numeric signal where used for modulation, but their low resolution (8 bit) can
-            create audible artifact.
+            create audible artifacts.
             It may be considered as a part of the character of the unit, but it shows that modulation signals are an
             integral part of the overall sound of the reverberation and shouldn't be overlooked.
         </p>
@@ -427,17 +430,19 @@
         <p>
             This mesh is composed of the elements seen above,
         <ul>
-            <li>Delays : Z-n blocks.</li>
+            <li>Delays : Z<sup>-n</sup> blocks.</li>
             <li>All-pass filters : with the two sums and a feedforward / feedback.</li>
             <li>low-pass filters : little feedback loop with one sample delay and two coefficient (effectively doing an
                 averaging between the actual and the previous sample)</li>
         </ul>
+        <p>
         The signal is first diffused through the 4 all-pass filters at the top (in series), then sent to the
         reverberation tanks, which recirculate the signal and significantly increase the total reverberation time.
         We can see that reverberation tanks have much larger delay lines than the first all-pass filters.
         The reservoirs also contain filters to simulate treble absorption.
         The output of this reverberation is a weighted sum of all the sampling points indicated by numbers along the
         path.
+    </p>
         </p>
         <h2 id="ring">Allpass Ring</h2>
         <p>
@@ -470,7 +475,7 @@
         </p>
         <h2 id="modern">Modern Evolution</h2>
         <p>
-            Engineers continue to develop new techniques: Sean Costello, the man behind Valhalla DSP, uses a system that
+            Engineers continue to develop new techniques: Sean Costello, the person behind Valhalla DSP, uses a system that
             borrows from both the all-pass series and FDN, making FDN's recursion paths more complex by replacing the
             usual delay unit with 3 all-pass filters.
         </p>
