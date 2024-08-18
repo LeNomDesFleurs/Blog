@@ -497,3 +497,7 @@ label.margin-toggle:not(.sidenote-number) {
     }
 
 }
+
+figure{
+    margin-bottom: 0;
+}
