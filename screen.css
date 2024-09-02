@@ -173,6 +173,15 @@ figcaption {
     overflow-x: scroll;
 }
 
+.menu_container {
+    background-color: #00000025;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: var(--font-sans);
+    font-size: medium;
+}
+
 small {
     font-size: var(--font-s);
     color: var(--color-default);
