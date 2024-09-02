@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Sinensis</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Bandpass bank audio plug-in" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="Hellebore.css" type="text/css">
+</head>
+
+
+<!-- [{"hex":"#EE3AAD"},{"hex":"#E2475B"},{"hex":"#EF8358"},{"hex":"#46B26B"},{"hex":"#335C57"}] -->
+
+<style>
+    .global{
+        display: flex;
+        flex-direction: row;
+        margin: 0px;
+        padding: 0px;
+        border:0px;
+    }
+
+    .test{
+        justify-content: center;
+        align-items: center;
+        /* width:auto; */
+        /* height: 80vh; */
+        margin-right: 50px;
+        /* height: 600px; */
+    }
+    
+    .text{
+        max-width: 50%;padding-top: 50px; padding-bottom: 50px;
+    }
+
+    @media screen and (max-width: 600px) {
+
+        .text{
+        max-width: 100%;
+        padding: 0px;
+        margin: 0px;
+        padding-top: 50px; padding-bottom: 50px; font-size:0.7em;
+        border:0px;
+    }
+
+        .test{
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        /* width: 90%; */
+        height:auto;
+        /* max-width: ; */
+        margin: 10%;
+        margin-bottom: 0px;
+        }
+        .global {
+            flex-direction: column;
+            margin: 0px;
+            padding: 0px;
+            border:0px;
+        }
+
+    }
+</style>
+</head>
+
+<body style="padding: 0px; margin: 0px; border:0px;">
+<div class="global">
+    <div class="test">
+        <figure>
+        <img src="HelleborePic.png" style="display: flex; width:100%;" >
+         </figure>
+    </div>
+        <div class="text">
+            <!-- highlight text with custom colors -->
+            <span style="color:var(--custom-red);"><b><i>Hellebore</i></b></span> is a group of feedback loops.
+            You manage the <span style="color:var(--custom-orange)">size</span> of these loops and the amount of feedback.
+            Going from reverberation to granular effect.
+            Using the maximum feedback <span style="color:var(--custom-yellow)">freezes</span> the buffers, allowing the repitch and glitch of their content.
+            <br>
+            <audio controls>
+                <source src="Hellebore.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <span style="font-size: 1.5em;"><i>Downloads</i></span><br>
+            <!-- <a href="Sinensis-windows.exe">Windows</a> - -->
+             <a href="Hellebore_MacOs.pkg">MacOS</a>
+            <br>You might need a <a href="/NOI/HelleboreManual.pdf">Manual</a>.<br>
+            And maybe the <a href="https://github.com/LeNomDesFleurs/HELLEBORE_JUCE/">Source Code ?</a>
+            <figure>
+                <img src="DitherHellebore.jpg" style="image-rendering:pixelated; width: 100%; ">
+            </figure>
+            </div>
+        </div>
+    
+</body>
+
+</html>

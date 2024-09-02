@@ -18,63 +18,165 @@
 
 <body>
     <header>
-                <a href = /./../Projects.html> <h1>JUCE</h1></a>
-            </header>
-            <p>
-<!-- <a href = "https://github.com/LeNomDesFleurs/NOI-JUCE"> GitHub of this project</a> -->
+        <a href=/./../Projects.html>
+            <h1>Making Vsts</h1>
+        </a>
+    </header>
 
-<!-- <br><br><a href="/NOI/Sinensis.html">Sinensis Page<a> -->
+    <!-- <a href = "https://github.com/LeNomDesFleurs/NOI-JUCE"> GitHub of this project</a> -->
+
+    <!-- <br><br><a href="/NOI/Sinensis.html">Sinensis Page<a> -->
+    <div class="center-container">
+        Download pages
+    </div>
+    <div class="center-container">
+        <a href="/NOI/Sinensis.html">Sinensis</a> &nbsp-&nbsp
+        <a href="/NOI/Hellebore.html">Hellebore</a>
+    </div>
+    <br>
+    <i>Table of Content</i>
+    <ul>
+        <li><a href="#context">Context</a></li>
+        <li><a href="#exploration">Exploration</a></li>
+        <li><a href="#noi">No! Plug-ins</a></li>
+        <li><a href="#sinensis">Sinensis</a></li>
+        <li><a href="#hellebore">Hellebore</a></li>
+        <li><a href="#references">References</a></li>
+    </ul>
+
+    <h3 id="context">Context</h3>
+    <p>
+        <a href="https://juce.com">JUCE</a> is a C++ framework that makes it easy to create an audio application as a
+        standalone or as a plug-in for DAWs.
+        It has a main function that deliver audio and midi buffer, and a lot of function to ease basic UI conception.
+        In the same fashion that VCV allows to easily craft musical software without to much of the low level hassle,
+        JUCE
+        let me share my work with way more people with a bit more work.
+        As a template I use this <a href="https://github.com/tomoyanonymous/juce_cmake_vscode_example/tree/main">Github
+            Repo</a>. Which is a combination of Cmake, LLDB, clang++, VScode, and Ableton, to send sound to the plug-in
+        and
+        test it.<br>
+        <br>You can find some snippet of code and tips on <a href="../../Knowledge/JUCE.html">this Knowledge page</a>.
+    </p>
+    <h3 id="exploration">Things that I'd like to explore</h3>
+    <h4>Keeping exploration open</h4>
+    <p>
+    One of the main question for me is how to ease interaction without sanitizing the exploration ?
+    What to do you actually want people to discover ?
+    Which sometimes comes down to how many of what you're considering as <i>unusable sounds</i> you are willing to give
+    access to in the final product.
+    </p>
+    <h4>Modulation</h4>
+    <p>
+    Plug-in brought a different way of thinking audio tools : In modular, people bring their own CV.
+    Here, you gotta make them yourself or rely on the automation of the user. <br>
+    It's an interesting thought to conceive plug-ins with their own dedicated modulations, tailored for the use.
+    Modulation can become a central part of "the sound" if it is a focus of the development and think outside the
+    commonplace LFO / envelope (which always come handy anyway, everybody is happy to add some simple, sinusoidal,
+    wiggly modulation to a parameter).
+    I'd be curious to develop a very basic synth, but with only wacky movements included and no way to automate the
+    parameters.
 </p>
-<h3>Context</h3>
+<h4>Tools as art & interface obfuscation</h4>
 <p>
-        <a href="https://juce.com">JUCE</a> is a c++ framework that makes it easy to create an audio application as a standalone and as a plugin. 
-        It has a function that deliver audio and midi buffer, UI is also simplified. So in the same fashion as VCV simplify my work, with a bit more work, JUCE let me share my work with way more people.
-        <br><br>Plugin brought a different way of thinking audio tool, in modular, people bring their own CV. Here, you gotta make them yourself. <br>
-        It's an interesting thought to conceive plug-in with their own dedicated modulation, tailored for the use. 
-        <br><br>
-        As a template I use this <a href="https://github.com/tomoyanonymous/juce_cmake_vscode_example/tree/main">Github Repo</a>. Which is a combination of cmake, lldb, clang++, vscode, and ableton to send sound to the plug-in and test it.<br>
-        <br>You can find some snippet of code and tips on <a href="../../Knowledge/JUCE.html">this Knowledge page</a>. 
+    There is one particular subject that I haven't had time to fully explore yet and that really fascinate me : Tool as art.
+    Where is the limit between a usable tool and an awe inspiring piece of art ? Is it a spectrum ? 
+    As in : do you necessary loose the attribute of one if you go toward the other ?
+    This is related to another subject that I want to exepriment on : obfuscate interfaces. 
+    Could an obfuscate interface allow a naive exploration, similar to the first time you interact with a synth ?
+    Is understanding necessary in art making, and in particular in audio, which nowadays is often as much art as technic.
+    As an exemple, I'd like to make an audio tool whose widget are fragment shaders getting the below pixels as an input. Interacting, crafting your sound would generate visual as a by-product. It would be a kind of trace, map, compagnon, souvenir of the exploration.
+</p>
+    <h4>FFT</h4>
+    <p>
+    On the dsp side, I would like to dive in FFT and provide handles and lower level process in order to allow user to
+    mess around with the concept.
+    There are a lot of nice sounds to be found in this realm, but I haven't found much plug-in that let you experiment
+    with FFT, other than really niche stuff, often with cryptic / technical interfaces.
+    I'd like to do a basic plug, maybe in the line of sinensis and hellebore, with FFT low-pass and high-pass,
+    threshold, bin-bleed, cut phase and add noise and other stuff I'll find on the way.
+</p>
+    <h3 id="noi">No! Plug-ins</h3>
+    <p>
+    NOI Plug-ins are (for now), adaptation of the NOI VCV-Rack Modules.<br>
+    With them, I aim to experiment on interfaces, getting rid of skeuomorphism and try more experimental stuff.
+    <br>
+</p>
+
+    <h3 id="sinensis">Sinensis</h3>
+    <p>
+    <a href="/NOI/Sinensis.html">Download Page</a><br>
+    <br>
+    Sinensis is a bunch of bandpass filters. Inspired by modular such as Tides and Just Friends, you modulate their
+    relation instead of their absolute frequencies.<br>
+    You set the root frequency (either by hand with a tune widget, or with the MIDI input).<br>
+    You then set the ratio between each band frequence and the gain of each band following simple functions.
+    I contrained myself to avoid knob, sliders, drop-down menus and numeric values.
+    Using colors and their evolution to inform the user.
+    The goal being to show the state of the system, not to visualize each of its parameters.<br>
+    In contrast with this unusual method, I chose to make a very clear and structured UI, big fonctionality blocks.
+    I haven't had much feedback on this plug but I'd be curious to have some people to test it whitout explanation to inform my future conception of UI.
+    <br>Taking functional feedback was interesting, how do I add people expectation while still following my idea, and should I add it
+    altogether ?
+    <br>Exemple : the note lock system.
+    Usually, this kind of things is implemented with a drop-down menu containing all the possible musical scale. Here I
+    choosed to use twelve buttons.
+    Inconvenient : people need to know their scales. In a way, I out-source scale selection to the users knowledge /
+    internet.
+    But allowing a more modular system also mean more manipulation, you can automate note lock for each note, or choose
+    only three notes if you need it.<br>
+    Harmonics being not to much of my concern, I find this to be a good balance : people who want to experiment have
+    access to fondamental tool (12TET fondamental, which is not very fondamental) and hands-on manipulation, people who
+    just want to be in tune can dial in their scale.
+</p>
+
+    <h3 id="hellebore">Hellebore</h3>
+    <p>
+    <a href="/NOI/Hellebore.html">Download Page</a><br><br>
+
+    Hellebore stems from experimentation with <a href="/Knowledge/reverb/reverb.html">delay-line based
+        reverberation</a>.
+    Following a typo that created way to big buffers, I was interested by the granular-y results and pursue some
+    exploration.
+    The tool can be use for proper reverberation, but the interesting bit is the <i>automation</i> it allows, from
+    reverb to granular.
+    When the buffer resize I use repitching.
+    The freezing of the buffer (i.e. no more writing, only reading) leads really nice glitchy sounds. Those sounds are
+    not super coherent with the dreamy aspect of the not-freezed mode, but I figured out I'd rather let people explore
+    this side of the sound which I found more interesting.
 
 </p>
-<h3>NOI PLUGINS</h3>
-NOI Plug-ins are (for now), adaptation of the NOI VCV-Rack Modules.<br>
-With them, I aim to experiment on interfaces, getting rid of skeuomorphism and try more experimental stuff.
-<br><br>
-<h3>Sinensis</h3>
-<a href="/NOI/Sinensis.html">Download Page</a><br>
-<br><br>
-Sinensis is a bunch of bandpass filters. Inspired by modular such as Tides and Just Friends, you modulate their relation instead of their absolute frequencies.<br>
-You set the root frequency (either by hand with a tune widget, or with the MIDI input).<br>
-You then set the ratio between each band frequence and the gain of each band following simple functions.
-I contrained myself to avoid knob, sliders, drop-down menus and numeric values. 
-Using colors and their evolution to inform the user. 
-The goal being to show the state of the system, not to visualize each of its parameters.<br> 
-In contrast with this unusual method, I chose to make a very clear and structured UI, big fonctionality blocks
-I would like to have some people to test it whitout explanation. I've had some fonctional feedback, but not much on the UI.
-<br>Taking feedback was interesting, how do I add people expectation while still following my idea, should I add it altogether ?
-<br>Exemple : the note lock system.
-Usually, this kind of things is implemented with a drop-down menu containing all the possible musical scale. Here I choosed to use twelve buttons. 
-Inconvenient : people need to know their scales. In a way, I out-source scale selection to the users knowledge / internet.
-But allowing a more modular system also mean more manipulation, you can automate note lock for each note, or choose only three notes if you need it.<br>
-Harmonics being not to much of my concern, I find this to be a good balance : people who want to experiment have access to fondamental tool (12TET fondamental, which is not very fondamental) and hands-on manipulation, people who just want to be in tune can dial in their scale.
+    <h4>Reworking of the interface for the plug-in</h4>
+    <p>
+    I tried to simplify the interface : the "time" parameter (which was a fancy feedback parameter), is now a proper
+    feedback parameter.
+    The freeze toggle is now defined as the maximum level of feedback (one less widget to design). One of the
+    side-effect of this widget merge : before the time control would be useless when the freeze was on, now the freeze
+    is defined by the time control being useless (that sentence is a bit weird, but also somehow interesting).
+    I feel those kinds of complex-parameters-that-maps-mutiples-interactions-to-simple-variables participate in
+    giving "instrument interaction" vibe if done well.<br>
+    The variation widget is an attempt at a global visualizer for the buffers, I'm not to happy with is but it does the
+    job. I wanted to add motion blur with the increase of feedback, but using GPU was... not that easy.
+    Coming with a little baggage in shader coding, I was thinking it'll be much easier, but instanciating the pipeline
+    is a pain and a cross-compatibility hazard depending on the library (especially with apple deprecating GLSL).
+    I'll learn more and come back to this later (I think that's where the action is in modern interfaces), but for a
+    mere blur effect, I decided to drop it altogether.
+
+</p>
+   
+
+    <h3 id="references">References</h3>
+    <ul>
+        <li><a href="https://www.theaudioprogrammer.com">The Audio Programmer</a> - juce tutorials of all sorts</li>
+        <li><a href="https://thewolfsound.com">The Wolf Sound</a> - more dsp oriented</li>
+        <li><a href="https://docs.juce.com/master/index.html"> Juce documentation</a></li>
+        <li><a href="https://christiangaertner.github.io/uhh-digitalaudioprocessing/">Mastering Tool devlog</a></li>
+        <li><a href="https://melatonin.dev/blog/big-list-of-juce-tips-and-tricks/">Melatonin tips and tricks</a></li>
+    </ul>
 
 
-    
-</ul>
-
-<h3>References</h3>
-<ul>
-    <li><a href="https://www.theaudioprogrammer.com">The Audio Programmer</a> - juce tutorials of all sorts</li>
-    <li><a href="https://thewolfsound.com">The Wolf Sound</a> - more dsp oriented</li>
-    <li><a href="https://docs.juce.com/master/index.html"> Juce documentation</a></li>
-</ul>
-
-
-<hr>
-<div class="center-container">
-    <a href="/index.html">- home - </a>
-</div>
+    <hr>
+    <div class="center-container">
+        <a href="/index.html">- home - </a>
+    </div>
 </body>
-
-
-

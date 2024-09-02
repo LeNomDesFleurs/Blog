@@ -51,3 +51,20 @@
     font-family: 'Roman';
     src: url('/Font/lmroman10-italic.otf');
 }
+
+@font-face{
+    font-family: 'Bodoni';
+    src: url('/Font/Bodoni\ 72\ OS.ttc');
+}
+
+@font-face{
+    font-family: 'Playfair';
+    font-style: normal;
+    src: url('/Font/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+@font-face{
+    font-family: 'Playfair';
+    font-style: italic;
+    src: url('/Font/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+}

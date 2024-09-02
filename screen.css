@@ -6,11 +6,19 @@ Variables
 @media (prefers-color-scheme: light) {
     :root {
         --color-default: #2f2e2d;
-        --color-bg: #d4cac0;
+        --color-bg: #d1cdc9;
         --color-dim: #606060;
         --title-color: #7f8e5e;
         --h3-color: #7f8e5ec4;
     }
+
+    .title-svg {
+        filter: invert(11%) sepia(1%) saturate(6650%) hue-rotate(71deg) brightness(115%) contrast(84%);
+    }
+}
+
+p {
+    text-align: justify;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,14 +28,18 @@ Variables
         --title-color: #5a6073;
         --color-dim: #7f7f7f;
         --h3-color: #898d97;
-
     }
+
+    .title-svg {
+        filter: invert(87%) sepia(10%) saturate(136%) hue-rotate(353deg) brightness(84%) contrast(86%);
+    }
+
 }
 
 
 :root {
     --font-sans: JetBrain;
-    --font-serif: Redaction;
+    --font-serif: Playfair;
     /* Times,serif; */
     --spacing: 1.5em;
     --spacing-s: calc(0.5 * var(--spacing));
@@ -39,6 +51,10 @@ Variables
     --spacing-width-max: 30rem;
     --spacing-width-tiny: 15rem;
     --spacing-width-xl: 50rem;
+}
+
+header {
+    margin-bottom: 1.5em;
 }
 
 /* for the webring logo */
@@ -81,10 +97,14 @@ Typography
 
 h1,
 h2 {
+    font-family: ;
+    font-style: italic;
     /* calc(min px + variable vw) */
     font-size: calc(30px + 2.5vw);
     /* font-size: calc(30px + 2em); */
+    /* font-weight: 1000; */
     margin: 0;
+    /* color: var(--title-color); */
     color: var(--title-color);
 }
 
@@ -100,6 +120,8 @@ h3 {
     /* font-family: Futura; */
     font-weight: 1000;
     color: var(--h3-color);
+    color: var(--color-default);
+    font-style: italic;
 }
 
 /* Link styling */
@@ -270,4 +292,9 @@ code {
 
 .code-container > code {
     background-color: #00000000;
+}
+
+.title-svg{
+    width: 70%; 
+    margin: 0.8em;
 }
