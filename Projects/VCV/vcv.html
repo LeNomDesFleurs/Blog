@@ -17,51 +17,51 @@
 
 <body>
     <header>
-                <a href = /./../Projects.html>  <h1>VCV</h1></a>
-</header>
-<p>
-<a href = "https://github.com/LeNomDesFleurs/NOI-VCVRACK">
-    This Project's GitHub</a> - 
-<a href = "https://library.vcvrack.com/NOI">
-    VCV Library</a>
-    <br><br><br>
-    Knowledge ~ <a href="/../../Knowledge/Github.html">Github</a>
-<br><br>
-<h3>Context</h3>
+        <a href=/./../Projects.html>
+            <h1>VCV</h1>
+        </a>
+    </header>
+    <p>
+        <a href="https://github.com/LeNomDesFleurs/NOI-VCVRACK">
+            This Project's GitHub</a> -
+        <a href="https://library.vcvrack.com/NOI">
+            VCV Library</a>
+        <br><br><br>
+        Knowledge ~ <a href="/../../Knowledge/Github.html">Github</a>
+        <br><br>
+    <h3>Context</h3>
     <p><a href="https://vcvrack.com">VCV</a> is a modular synth emulator.<br>
-       It is a nice first step in developing audio effect. Only making module, you don't have to think too much about interfacing with the sound API and all the other complexity which comes with developing software.</p>
+        It is a nice first step in developing audio effect. Only making module, you don't have to think too much about
+        interfacing with the sound API and all the other complexity which comes with developing software.</p>
     <p>The interface (which can represent most of the work) are based on <a
-    href="https://en.wikipedia.org/wiki/SVG">SVGs</a>. Using a
-    illustrator-like software (<a href="https://inkscape.org">Inkscape</a>
-    in my case) to work in a <a
-    href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> fashion is way
-    easier than the geometry based approach of JUCE (it does open more
-    possibility for responsive design and evolution of knob design based on
-    the parameter value). On this SVG background, you can layer the
-    functional elements, input, output, switch, knob (which are also SVG
-    with a rotation transform). There are some pre-existing assets for all of
-    this.</p>
+            href="https://en.wikipedia.org/wiki/SVG">SVGs</a>. Using a
+        illustrator-like software (<a href="https://inkscape.org">Inkscape</a>
+        in my case) to work in a <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> fashion is way
+        easier than the geometry based approach of JUCE (it does open more
+        possibility for responsive design and evolution of knob design based on
+        the parameter value). On this SVG background, you can layer the
+        functional elements, input, output, switch, knob (which are also SVG
+        with a rotation transform). There are some pre-existing assets for all of
+        this.</p>
     <p>For the computational side, vcv gives you a simple function executing
-    at each sample, accessing parameters and in/out is really simple.</p>
-    <p>The <a
-    href="https://vcvrack.com/manual/PluginDevelopmentTutorial">setup
-    tutorial</a> is well made, that’s dear to my heart: coming with no
-    programming background, setting up an environment can be quite hard. Not
-    understanding any of the weird words and encountering endless error
-    messages in the command line.</p>
+        at each sample, accessing parameters and in/out is really simple.</p>
+    <p>The <a href="https://vcvrack.com/manual/PluginDevelopmentTutorial">setup
+            tutorial</a> is well made, that’s dear to my heart: coming with no
+        programming background, setting up an environment can be quite hard. Not
+        understanding any of the weird words and encountering endless error
+        messages in the command line.</p>
     <p>There are also a <em>lot</em> of examples, especially mutable
-    instrument modules taught me loads of things. They are thoroughly
-    commented, sometimes even with ascii schematics. For me, looking at the
-    work of other is one of the most efficient ways of learning.</p>
+        instrument modules taught me loads of things. They are thoroughly
+        commented, sometimes even with ascii schematics. For me, looking at the
+        work of other is one of the most efficient ways of learning.</p>
     <p>All of this let you quickly prototype ideas.</p>
     <p>There are some problems with this platform nonetheless, open source is
-    mostly one-sided, vcv get the plug-ins of many free worker while they
-    keep there software closed, asking fork to close to avoid commercial
-    competition. <a
-    href="https://aria.dog/barks/why-i-will-never-create-modules-for-vcv-rack-anymore/">Aria
-    Salvatrice</a> explain all of this much clearer and with a nicer looking
-    website, also touching on community problem that I haven’t got to
-    witness, I don’t hang much on the forum.</p>
+        mostly one-sided, vcv get the plug-ins of many free worker while they
+        keep there software closed, asking fork to close to avoid commercial
+        competition. <a href="https://aria.dog/barks/why-i-will-never-create-modules-for-vcv-rack-anymore/">Aria
+            Salvatrice</a> explain all of this much clearer and with a nicer looking
+        website, also touching on community problem that I haven’t got to
+        witness, I don’t hang much on the forum.</p>
     <figure>
         <img src="/./../Media/vcv.allmodules.png">
     </figure>
@@ -80,51 +80,75 @@
         <li>The font is Eras Light 18pt</li>
         <li>Noi logo at the bottom</li>
     </ul>
-    <p>
+    <>
 
 
-<h3>Noi Philosophy</h3>
-There are some rules I try to follow when making modules. <br>
-<li><b><i>If there is a parameter, it must be CV-able</i></b>. </li>
-<q>
-To many times I've been deceived by a fun modulation that I couldn't make happen.</q><br>
-<li><i>There must be an attenuverter on each CV input (except toggle)</i></li>
-- I can't emphasize how convenient it is -
-<li><i>Use less parameters</i></li>
+        <h3>Noi Philosophy</h3>
+        There are some rules I try to follow when making modules. <br>
+        <li><b><i>If there is a parameter, it must be CV-able</i></b>. </li>
 
-<h3>Noi Modules</h3>
-I started with CV modules, this let me avoid most of dsp complexities. 
-<br><br><strong>~ Dicotyledon</strong> is a logical processor, It's really easy to make, I tried to give it a little twist to make it interesting, normalizing the comparator to the switch.<br>
-<br><strong>~  Sunflower</strong> is a bit more new, it's a circular mixer: there are 12 inputs and 1 outputs, leds indicates the selected input, you can blur the selection to add neighbouring input. It can be interesting for audio as well as CV. It works well with ambient and pendular movement.<br>
-<br>
-Then I dipped a toe into dsp with wilt.<br>
-<br>
-<strong>~ Wilt</strong> was at first a weird (in the bad sense) multi-effect, I was just trying stuff out and putting them in series. It evolved when I tried to implement a reverberation and found a profound well of granular glitch more on this in upcoming research paper.
-<br><br><strong>~ Sinensis</strong> is a bank of filter. The idea comes from a course from Spitfire audio on making field recording musical, for this they add resonator on a note, thus adding a melodic component and making it playable in a sampler. Instead of one frequence, you can add harmonics to further shape the sound. At a point, I made an Ableton audio rack with multiple band letting me choose the tone I want. It's really not that practical and it's one of the first encounter with the "How do I map parameters to make this unsusable mess a music instrument" question.
-I ended up with sinensis, 4 parameters : </p>
+        To many times I've been deceived by a fun modulation that I couldn't make happen.
 
-<ul><li>Root Frequence</li>
-    <li>Global Q</li>
-    <li>Number of band</li>
-    <li>Frequency ratio between bands</li>
-</ul>
-<p>
-The purpose here is, instead of pitching a sample with a resonance, to move the filter around while the recording is playing. A VST version will come later that also accept midi to let you play your field recording with a keyboard.
-<br><br>
-<strong>~ Hellebore</strong> is following the steps of wilt, playing with reverberation concepts. The goal here is to find interesting ways of modulating and repitch all the buffers inside the reverberation.<br>
-The "Variation Knob" on the left is doing a lot of stuff that are not usually associated on the same parameters :
-<ul>
-<li>Bleeding of one channel to an other</li>
-<li>Disparity of buffer sizes (thus repitching)</li>
-<li>Dispartity of feedback of each delays lines</li>
-</ul>
-</p>
-<p>
-    In a similar manner than sinensis set the root and then choose the ratio, here, the buffer size set the base buffer size and then you set buffer size ratio.
-</p>
+        <li><i>There must be an attenuverter on each CV input (except toggle)</i></li>
+        - I can't emphasize how convenient it is -
+        <li><i>Use less parameters</i></li>
 
-<a href="/index.html">- home -</a>
+        <h3>Noi Modules</h3>
+        I started with CV modules, this let me avoid most of dsp complexities.
+        <p>
+            <strong>~ Dicotyledon</strong> is a logical processor, It's really easy to make, I tried to give it a little
+            twist to make it interesting, normalizing the comparator to the switch.
+        </p>
+        <p>
+            <strong>~ Sunflower</strong> is a bit more new, it's a circular mixer: there are 12 inputs and 1 outputs,
+            leds indicates the selected input, you can blur the selection to add neighbouring input. It can be
+            interesting for audio as well as CV. It works well with ambient and pendular movement.
+        </p>
+        <p>
+            Then I dipped a toe into dsp with wilt.
+        </p>
+        <p>
+            <strong>~ Wilt</strong> was at first a weird (in the bad sense) multi-effect, I was just trying stuff out
+            and putting them in series. It evolved when I tried to implement a reverberation and found a profound well
+            of granular glitch more on this in upcoming research paper.
+        </p>
+        <p><strong>~ Sinensis</strong> is a bank of filter. The idea comes from a course from Spitfire audio on making
+            field recording musical, for this they add resonator on a note, thus adding a melodic component and making
+            it playable in a sampler. Instead of one frequence, you can add harmonics to further shape the sound. At a
+            point, I made an Ableton audio rack with multiple band letting me choose the tone I want. It's really not
+            that practical and it's one of the first encounter with the "How do I map parameters to make this unsusable
+            mess a music instrument" question.
+            I ended up with sinensis, 4 parameters :
+        </p>
+        <ul>
+            <li>Root Frequence</li>
+            <li>Global Q</li>
+            <li>Number of band</li>
+            <li>Frequency ratio between bands</li>
+        </ul>
+        <p>
+            The purpose here is, instead of pitching a sample with a resonance, to move the filter around while the
+            recording is playing. A VST version will come later that also accept midi to let you play your field
+            recording with a keyboard.
+        </p>
+        <p>
+            <strong>~ Hellebore</strong> is following the steps of wilt, playing with reverberation concepts. The goal
+            here is to find interesting ways of modulating and repitch all the buffers inside the reverberation.
+            The "Variation Knob" on the left is doing a lot of stuff that are not usually associated on the same
+            parameters :
+        </p>
+        <ul>
+            <li>Bleeding of one channel to an other</li>
+            <li>Disparity of buffer sizes (thus repitching)</li>
+            <li>Dispartity of feedback of each delays lines</li>
+        </ul>
+
+        <p>
+            In a similar manner than sinensis set the root and then choose the ratio, here, the buffer size set the base
+            buffer size and then you set buffer size ratio.
+        </p>
+        <hr>
+        <div class="center-container">
+            <a href="/index.html">- home -</a>
+        </div>
 </body>
-
-
-
