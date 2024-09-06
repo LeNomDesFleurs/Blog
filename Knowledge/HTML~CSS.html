@@ -2,9 +2,9 @@
 <html lang="en-US">
 
 <head>
-    <title>Le Nom Des Fleurs</title>
+    <title>LNDF - HTML-CSS Knowledge</title>
     <meta name="author" content="Thomas Guillory" />
-    <meta name="Description" content="HTML~CSS knowledge of Thomas Guillory" />
+    <meta name="Description" content="Code snippets for basic html & css functionality" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -29,20 +29,20 @@ Stuff I learned making this website<br><br>
                 <input type="checkbox" name="one" id="inlinecss" checked = "true">
                 <div class="hide3">
                     <div class="inner3">
-                        <code>
-                            &lt;p style="color: red; font-size: 20px;"&gt;
+                        <div class="code-container">
+                            &lt;p style="color: red;"&gt;
                             <br>paragraph
                             <br>&lt;/p&gt;
-                        </code><br><br>
-                        To style just a word you can use the <code>span</code> keyword which as no fonctionality.<br> <br>
-                        <code><pre>
-            Une phrase avec un 
-            &lt;stan style="color:red; Font-size: 20px;"&gt; mot &lt;/stan&gt; 
-            rouge
-                        </pre>
-                    </code>
+                        </div>
+                
+                        To style just a word you can use the <code>span</code> keyword which as no fonctionality.<br>
+                        <div class="code-container">
+                        <pre>Une phrase avec un 
+&lt;span style="color:red;"&gt; mot &lt;/span&gt; 
+rouge</pre>
+</div>
                     une phrase avec un 
-                    <stan style="color:red; Font-size: 20px;"> mot </stan> 
+                    <stan style="color:red;"> mot </stan> 
                     rouge
                 </div>
             </div>
@@ -66,11 +66,7 @@ Stuff I learned making this website<br><br>
                             <li>If no parent element has a defined font size, <code>em</code> is based on the browser&#39;s default font size.</li>
                             <li><code>1em</code> is equal to the font size of the element itself. For example, if an element&#39;s font size is <code>16px</code>, <code>1em</code> is <code>16px</code>.</li>
                         </ul>
-                        <p><strong>rem (Root em):</strong></p>
-                    <ul>
-                    <li><code>rem</code> is similar to <code>em</code> but is based on the font size of the root (<code>&lt;html&gt;</code>) element rather than the parent element.</li>
-                    <li>This makes it more predictable and easier to control in complex layouts because it&#39;s not affected by nesting.</li>
-                </ul>
+                        
                 <p><strong>% (Percentage):</strong></p>
                 <ul>
                     <li><code>%</code> units are relative to the parent element&#39;s size.</li>
@@ -166,15 +162,16 @@ Stuff Goes here ...
                 <label for="externallink"><em><strong>~ Adding Arrow to external link</strong></em></label>
                 <input type="checkbox" name="one" id="externallink" checked = "true">
                 <div class="hide3">
-                        Some people use svg background but it is way easier to use the unicode up arrow<br><br>
-                        <code><pre>
+                        Some people use svg background but it is way easier to use the unicode up arrow. (Warning, if your font doesn't define the up arrow, you might get emojis on some browser)
+                        <div class="code-container">
+                            <pre>
 a[href^="http"]::after,
 a[href^="https://"]::after {
     content: "↗";
     margin-left: 4px;
     display: inline-block;
 }</pre>
-                        </code>
+                        </div>
             
             </div>
 
@@ -183,7 +180,8 @@ a[href^="https://"]::after {
     <input type="checkbox" name="one" id="auto theme"  checked="true">
     <div class="hide3">
     This let you set variable for your dark and light theme, you then need to use them accordingly in your code.
-<pre><code>
+    <div class="code-container">
+<pre>
 @media (prefers-color-scheme: light){
     :root{
         --color-default:  #322e2d;
@@ -199,7 +197,8 @@ a[href^="https://"]::after {
         --color-dim:#7f7f7f;
     }
 }
-</code></pre>
+</pre>
+</div>
     </div>
 </div>
 
@@ -208,11 +207,12 @@ a[href^="https://"]::after {
     <input type="checkbox" name="one" id="Phone css"  checked="true">
     <div class="hide3">
         I use it to reduce padding on phone, but you can do whatever css you want in it. It works by checking the size of the screen
-<pre><code>
-@media only screen and (max-width: 400px) {
+        <div class="code-container"><pre>
+@media only screen and (max-width: 400px) 
+{
     html { padding: 0.5rem;}
-  }
-</code></pre>
+}</pre>
+</div>
     </div>
 </div>
 
@@ -222,9 +222,9 @@ a[href^="https://"]::after {
     <div class="hide3">
         I tend to regularly post very low res images, were pixelation is an intended part of the visual. But browser will add blur to ease the eye.
         To force raw image rendering you can use a CSS style : 
-    <pre><code>
+        <div class="code-container">
     image-rendering: pixelated;
-</code></pre>
+</div>
     </div>
 </div>
 

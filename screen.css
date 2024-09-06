@@ -163,24 +163,6 @@ figcaption {
     font-size: 14px;
 }
 
-.code-container {
-    background-color: #00000025;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    font-family: var(--font-sans);
-    text-wrap: nowrap;
-    overflow-x: scroll;
-}
-
-.menu-container {
-    background-color: #00000025;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    font-family: var(--font-sans);
-    font-size: medium;
-}
 
 small {
     font-size: var(--font-s);
@@ -234,6 +216,21 @@ figure img {
     height: auto;
 }
 
+
+blockquote {
+    padding-left: 15px;
+    border-left: 2px solid var(--color-default);
+}
+
+code {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    background-color: #00000025;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 4px;
+}
 /* -----------------------------------
 Drop Down Menu
 -------------------------------------- */
@@ -243,11 +240,15 @@ input {
     left: -999em;
 }
 
+ol {
+    list-style-type: decimal;
+    margin: 0;
+    padding-left: 1em;
+}
 form:input {
     position: relative;
     left: 0%;
 }
-/* example 3 */
 
 .ex3 .hide3 {
     overflow-x: auto;
@@ -269,10 +270,23 @@ form:input {
     margin: 0;
 }
 
-ol {
-    list-style-type: decimal;
-    margin: 0;
-    padding-left: 1em;
+.code-container {
+    background-color: #00000025;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: var(--font-sans);
+    text-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.menu-container {
+    background-color: #00000025;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: var(--font-sans);
+    font-size: medium;
 }
 
 .center-container {
@@ -284,24 +298,11 @@ ol {
     border-radius: 20px;
 }
 
-blockquote {
-    padding-left: 15px;
-    border-left: 2px solid var(--color-default);
-}
-
-code {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    background-color: #00000025;
-    padding: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-    border-radius: 4px;
-}
-
-.code-container > code {
+.code-container > code{
     background-color: #00000000;
 }
+
+
 
 .title-svg{
     width: 70%; 

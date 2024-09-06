@@ -2,9 +2,9 @@
 <html lang="en-US">
 
 <head>
-    <title>Le Nom Des Fleurs</title>
+    <title>LNDF - Hydra sketches</title>
     <meta name="author" content="Thomas Guillory" />
-    <meta name="Description" content="VST Project page" />
+    <meta name="Description" content="Some visual made with the hydra image synthesizer" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -44,17 +44,15 @@ shape(4)
     <input type="checkbox" name="one" id="240131-1" checked="true">
     <div class="hide3">
         <code>
-                <pre>
+<pre>
 setResolution(400, 400)
-sh ape(4)
+shape(4)
 .repeat(100, 100)
 .modulate(noise().pixelate(50, 50).scale(0.5))
 .modulate(shape(3).brightness(-2).add(noise(1000, 2), 0.01))
 .add(src(o0).scale([0.2,0.3, 1.2].ease()), 0.9)
 .scale(4)
-.out(o0)</pre></code>
-    </div>
-</div>
+.out(o0)</pre></code></div></div>
 <br>
 
 <script>
