@@ -27,16 +27,16 @@
 <title>240925</title>
 <link>https://lndf.fr/Blog.html#240925</link>
 <guid>https://lndf.fr/Blog.html#240925</guid>
-<pubDate>Wed, Sep 25 2024 00:00:00</pubDate>
+<pubDate>Wed, 25 Sep 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 <audio controls>
-    <source src="Media/240924-low chance.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240924-low chance.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 <figure >
-    <img src="Media/240924-MALT.svg" style="border-radius: 0;">
+    <img src="https://lndf.fr/Media/240924-MALT.svg" style="border-radius: 0;">
 </figure>
 
 Attempt at a lettering.
@@ -49,7 +49,7 @@ Attempt at a lettering.
 <title>240818</title>
 <link>https://lndf.fr/Blog.html#240818</link>
 <guid>https://lndf.fr/Blog.html#240818</guid>
-<pubDate>Sunday, 18 Aug 2024 00:00:00</pubDate>
+<pubDate>Sun, 18 Aug 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
@@ -64,18 +64,18 @@ Added articles about <a href="/Knowledge/tape/tape.html">tape history</a> and <a
 <title>240708</title>
 <link>https://lndf.fr/Blog.html#240708</link>
 <guid>https://lndf.fr/Blog.html#240708</guid>
-<pubDate>Mon, 08 July 2024 00:00:00</pubDate>
+<pubDate>Mon, 08 Jul 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 <time><em>240708</em></time><br>
 <audio controls>
-    <source src="Media/240708Rorshard.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240708Rorshard.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <figure>
-    <img src="Media/240708gunni.jpg">
+    <img src="https://lndf.fr/Media/240708gunni.jpg">
 </figure>
 
 The original texture is a photo of the leaking roof of the parisian underground.
@@ -105,18 +105,18 @@ Some Music :
 <title>240612</title>
 <link>https://lndf.fr/Blog.html#240612</link>
 <guid>https://lndf.fr/Blog.html#240612</guid>
-<pubDate>Wed, 12 Jun 2024 00:00:00</pubDate>
+<pubDate>Wed, 12 Jun 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 <time><em>240612</em></time><br>
 <audio controls>
-    <source src="Media/240612-Goethe.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240612-Goethe.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <figure>
-    <img src="Media/240612eclipserai.png" style="image-rendering:pixelated;">
+    <img src="https://lndf.fr/Media/240612eclipserai.png" style="image-rendering:pixelated;">
 </figure>
 The synth at the beginning is a companion to the orca sequencer I'm developing with rust. Altought not finished, <a href="https://github.com/LeNomDesFleurs/Laminaria">Laminaria code source is here</a>, just <code>cargo run</code> to launch it.<br> 
 The lyrics is an extract from a <a href="https://www.projekt-gutenberg.org/goethe/faust1/faust1.html"> poem of Goethe.</a> 
@@ -169,17 +169,17 @@ Some Music :
 <title>240520</title>
 <link>https://lndf.fr/Blog.html#240520</link>
 <guid>https://lndf.fr/Blog.html#240520</guid>
-<pubDate>Mon, 20 May 2024 00:00:00</pubDate>
+<pubDate>Mon, 20 May 2024 00:00:00 EST</pubDate>
 <description><![CDATA[
 <html><body>
 <time><em>240520</em></time><br>
 <audio controls>
-    <source src="Media/240520smthsmth.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240520smthsmth.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <figure>
-    <img src="Media/240519unpeumoins dither 0180.png" style="image-rendering:pixelated;">
+    <img src="https://lndf.fr/Media/240519unpeumoins dither 0180.png" style="image-rendering:pixelated;">
 </figure>
 <br><br>
 The font is <i>redaction</i>, I pixelated a photo of a blue paint stroke for the right side and the upper left.
@@ -197,18 +197,18 @@ Some Music :
 <title>240517</title>
 <link>https://lndf.fr/Blog.html#240517</link>
 <guid>https://lndf.fr/Blog.html#240517</guid>
-<pubDate>Fri, 17 May 2024 00:00:00</pubDate>
+<pubDate>Fri, 17 May 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 <time><em>240517</em></time><br>
 <audio controls>
-    <source src="Media/240517-Un angle obtu.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240517-Un angle obtu.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <figure>
-    <img src="Media/240517misdemeanour.png" style="image-rendering:pixelated;">
+    <img src="https://lndf.fr/Media/240517misdemeanour.png" style="image-rendering:pixelated;">
 </figure>
 Tried to use affinity photo to make some kind of collage thingy.
 <br><br>
@@ -233,17 +233,17 @@ Some Music :
 <title>240408</title>
 <link>https://lndf.fr/Blog.html#240408</link>
 <guid>https://lndf.fr/Blog.html#240408</guid>
-<pubDate>Mon, 08 Apr 2024 00:00:00</pubDate>
+<pubDate>Mon, 08 Apr 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 <audio controls>
-    <source src="Media/240408-Orca.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240408-Orca.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <figure>
-    <img src="Media/240408TEXTPOLYGON.png" style="image-rendering:pixelated;">
+    <img src="https://lndf.fr/Media/240408TEXTPOLYGON.png" style="image-rendering:pixelated;">
 </figure>
 Finally began using <a href="https://hundredrabbits.itch.io/orca">Orca</a>, here controlling the PolyBrute via CC.
 <br>The image is a <a href="https://ditherit.com">dithered</a> photo of my notebook, this geometrical form is made by the repetition of a letter
@@ -256,17 +256,17 @@ Finally began using <a href="https://hundredrabbits.itch.io/orca">Orca</a>, here
 <title>240314</title>
 <link>https://lndf.fr/Blog.html#240314</link>
 <guid>https://lndf.fr/Blog.html#240314</guid>
-<pubDate>Thu, 14 Mar 2024 00:00:00</pubDate>
+<pubDate>Thu, 14 Mar 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 <audio controls>
-    <source src="Media/240314Granular.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240314Granular.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <figure>
-    <img src="Media/240314PLEASEFORGET.gif">
+    <img src="https://lndf.fr/Media/240314PLEASEFORGET.gif">
 </figure>
 I have a fun time rediscovering my launchpad X, the custom layers allow for slider and toggle,
 It is here mapped on Granular III :
@@ -297,24 +297,24 @@ Some Music :
 <title>240308</title>
 <link>https://lndf.fr/Blog.html#240308</link>
 <guid>https://lndf.fr/Blog.html#240308</guid>
-<pubDate>Fri, 08 Mar 2024 00:00:00</pubDate>
+<pubDate>Fri, 08 Mar 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 <audio controls>
-    <source src="Media/240308ContemplativeShit.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240308ContemplativeShit.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <figure>
-    <img src="Media/240308LOST.gif">
+    <img src="https://lndf.fr/Media/240308LOST.gif">
 </figure>
 The music is largely inspired by <a href="https://kalimalone.bandcamp.com/album/all-life-long">this incredible album</a> by Kali Malone, especially by <em>All life long</em>, a very slow organ piece.<br>
 I make use of ableton new synth: Meld, and it's MPE capabilities for note-based pan and pitch automation. I then layered an ambience I took with my phone in a waiting line (streched and FFTed).
 <br>
 The image is an extruded <code>text</code> SOP copied by a <code>grid</code> I streched in a parallelepiped by grouping the higher point and displacing them using the <code>point</code> SOP.
 I then added a second <code>Geometry</code> COMP that contain the height displaced noise. 
-You can fin out more on height displacement using phong on <a href="https://www.simonaa.media/tutorials/noisedisplacement">this blog post</a>.
+You can fin out more on height displacement using phong on <a href="https://www.simonaa.https://lndf.fr/media/tutorials/noisedisplacement">this blog post</a>.
 
 <br>
 <br>
@@ -334,20 +334,20 @@ Some Music :
 <title>240131</title>
 <link>https://lndf.fr/Blog.html#240131</link>
 <guid>https://lndf.fr/Blog.html#240131</guid>
-<pubDate>Wed, 31 Jan 2024 00:00:00</pubDate>
+<pubDate>Wed, 31 Jan 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 Made a weird instrumental from an old jazz sample, sprinkled strange text over it :
 <audio controls>
-    <source src="Media/240131EUX.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240131EUX.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 Tried some font displacement, the texture used for displacement is a ramp (100 periods) added to low resolution and high contrast noise (10x10), the font is <a href="https://www.fontspace.com/brogetta-modern-serif-font-f72695">Brogetta regular</a>
 <br>The deformation is inspired by <a href="https://www.youtube.com/watch?v=-XdpLPIXmxA">This PPPANIK tutorial</a>
 <figure>
-    <img src="Media/240131LNDF.gif">
+    <img src="https://lndf.fr/Media/240131LNDF.gif">
 </figure>
 
 Made some hydra patches you can find in a newly created <a href="Projects/Hydra.html">Hydra sketches page</a>.<br>
@@ -361,7 +361,7 @@ I tried to make music with only ableton looper and a guitar, It was suprisingly 
 Had fun and managed to do some funny loops after a few experimentations.<br>
 The funny gong like sound comes from the switch being toggled while I hold a chord, it exite the resonance of the guitar, I quite like this discovery.
 <audio controls>
-    <source src="Media/240131guitarloop.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240131guitarloop.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 Some Music :
@@ -377,21 +377,21 @@ Some Music :
 <title>240123</title>
 <link>https://lndf.fr/Blog.html#240123</link>
 <guid>https://lndf.fr/Blog.html#240123</guid>
-<pubDate>Tue, 23 Jan 2024 00:00:00</pubDate>
+<pubDate>Tue, 23 Jan 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
 <html><body>
 Used Ableton Looper and learned how to turn an image into particles thanks to <a href="https://www.youtube.com/watch?v=TbM2_Cvygww&list=PLSovrPWjLMt7TBkWl2cNhONrnYF9qkM2v&index=48">this video from PPPANIC</a><br> that I summed in the <a href="/Knowledge/TouchDesigner.html">TouchDesigner Knowledge page</a>.
-<br>You can download the project <a href="/Media/240123ParticleFlower.4.toe">here</a>.
+<br>You can download the project <a href="/https://lndf.fr/Media/240123ParticleFlower.4.toe">here</a>.
 <br>Surprisingly, exporting a gif and compressing it is not that easy (the image below is 6mb, the grainyness doesn't help though).<br>
 I'd love to make video clips to post here but it would be <em>way</em> to large for my selfconscious use of others bandwidth...<br>
 Could gif clips be an adequate answer ?
 <audio controls>
-    <source src="Media/240123REEL4.mp3" type="audio/mpeg">
+    <source src="https://lndf.fr/Media/240123REEL4.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 <figure>
-    <img src="/Media/240123ParticleFlower.gif">
+    <img src="/https://lndf.fr/Media/240123ParticleFlower.gif">
 </figure>
 
 
@@ -409,7 +409,7 @@ Some Music :
 <title>240122</title>
 <link>https://lndf.fr/Blog.html#240122</link>
 <guid>https://lndf.fr/Blog.html#240122</guid>
-<pubDate>Mon, 22 Jan 2024 00:00:00</pubDate>
+<pubDate>Mon, 22 Jan 2024 00:00:00 EST</pubDate>
 <description><![CDATA[
 <html><body>
 I made a component emulating data-moshing by combining multiple tutorials and adding my own ideas, it's not a very good "data-moshing" effect, but it's a nice effect nonetheless.
@@ -426,11 +426,11 @@ I made a component emulating data-moshing by combining multiple tutorials and ad
     <li><a href="https://www.youtube.com/watch?v=FThxsRnnXl0">Easy movement detection (youtube)</a></li>
 
 </ul>
-<a href="/Media/240122DataMoche.tox">Download .tox here</a><br>
+<a href="/https://lndf.fr/Media/240122DataMoche.tox">Download .tox here</a><br>
 <br>
       This is a merge of a sea and a waterfall with it (mind there is added jpeg compression).
       <figure>
-      <img src="/Media/240122image.jpeg">
+      <img src="/https://lndf.fr/Media/240122image.jpeg">
     </figure>
 
     <svg viewBox="0 0 500 250" >
@@ -459,7 +459,7 @@ Some Music :
 <title>240117</title>
 <link>https://lndf.fr/Blog.html#240117</link>
 <guid>https://lndf.fr/Blog.html#240117</guid>
-<pubDate>Wed, 17 Jan 2024 00:00:00</pubDate>
+<pubDate>Wed, 17 Jan 2024 00:00:00 EST</pubDate>
 <description><![CDATA[
 <html><body>
 Having a quite effervecent brain these time.<br>
@@ -510,7 +510,7 @@ Does this also apply to human being, which are good exemples of complex systems 
 <title>240109</title>
 <link>https://lndf.fr/Blog.html#240109</link>
 <guid>https://lndf.fr/Blog.html#240109</guid>
-<pubDate>Tue, 09 Jan 2024 00:00:00</pubDate>
+<pubDate>Tue, 09 Jan 2024 00:00:00 EST</pubDate>
 <description><![CDATA[
 <html><body>
 The skeuomorphism <em>is often shown as</em> a bad exemple of UX, some people tend to become angry.<br>
