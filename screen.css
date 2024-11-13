@@ -118,7 +118,7 @@ h3 {
     margin-bottom: var(--spacing-s);
     /* font-family: var(--font-sans); */
     /* font-family: Futura; */
-    font-weight: 1000;
+    font-weight: 500;
     color: var(--h3-color);
     color: var(--color-default);
     font-style: italic;
