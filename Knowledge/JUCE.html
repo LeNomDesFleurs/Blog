@@ -107,21 +107,46 @@ svg->draw(g, 1.0);</pre>
                 </div>
             </div>
         </div>
-
-        <div class="ex3">
-            <label for="customcolor"><em><strong>~ Define Custom Color From Hexa Code</strong></em></label>
-            <input type="checkbox" name="one" id="customcolor" checked="true">
-            <div class="hide3">
-                <div class="inner3"><div class="code-container">namespace CustomColors {<br>
-    const juce::Colour brown = juce::Colour::fromString("FF50322a");<br>
-    const juce::Colour green = juce::Colour::fromString("FF608537");<br>
-}</div>
-
-                </div>
-            </div>
-        </div>
-        <!-- FOOTER----------------------------------- -->
     </div>
+    
+            <div class="ex3">
+                <label for="customcolor"><em><strong>~ Define Custom Color From Hexa Code</strong></em></label>
+                <input type="checkbox" name="one" id="customcolor" checked="true">
+                <div class="hide3">
+                    <div class="inner3"><div class="code-container">namespace CustomColors {<br>
+        const juce::Colour brown = juce::Colour::fromString("FF50322a");<br>
+        const juce::Colour green = juce::Colour::fromString("FF608537");<br>
+    }</div>
+</div>
+</div>
+
+    <div class="ex3">
+        <label for="customform"><em><strong>~ Custom Form Component</strong></em></label>
+        <input type="checkbox" name="one" id="customform" checked="true">
+        <div class="hide3">
+            <div class="inner3">
+                <ol>
+                    <li>Create a new class inheriting <code>juce::Component</code></li>
+                    <li>override the <code>hitTest()</code> method</li>
+                </ol><br>
+                The mouse click get passed to below components is the hit test return false.
+                <br><br>
+                <i>Exemple from a plug-in where components are disks</i>
+    
+                <div class="code-container"><pre>class circleSlider : public juce::Slider {
+bool hitTest(int x, int y) override {
+int h = this->getWidth() / 2;
+int k = this->getHeight() / 2;
+// disk equation
+// (x-h)^2 + (y-k)^2 < r^2
+// (h, k) the center of the circle, r it radius
+// (x, y) the position to test
+bool is_hit = (x - h) * (x - h) + (y - k) * (y - k) <= (h * h);
+return is_hit;}
+};</pre></div></div>
+    
+    <!-- FOOTER----------------------------------- -->
+</div>
     <hr>
     <div class="center-container">
         <a href="/index.html">- home - </a>
