@@ -95,8 +95,7 @@ html {
 Typography
 -------------------------------------- */
 
-h1,
-h2 {
+h1{
     font-family: ;
     font-style: italic;
     /* calc(min px + variable vw) */
@@ -109,7 +108,8 @@ h2 {
 }
 
 h2 {
-    margin: var(--spacing-m) 0;
+    font-style: italic;
+    margin: var(--spacing-s) 0;
 }
 
 h3 {
@@ -122,6 +122,11 @@ h3 {
     color: var(--h3-color);
     color: var(--color-default);
     font-style: italic;
+    font-size: larger;
+}
+
+h4 {
+    font-size:;
 }
 
 /* Link styling */

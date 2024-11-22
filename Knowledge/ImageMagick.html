@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+        <title>LNDF - ImageMagick Knowledge</title>
+        <meta name="author" content="Thomas Guillory" />
+        <meta name="Description" content="Some useful and interesting ways to use Image Magick" />
+
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="../screen.css" type="text/css">
+</head>
+
+<body>
+        <header>
+                <div class="title-link">
+                        <a href=/./../Knowledge.html>
+                                <h1> ImageMagick</h1>
+                        </a>
+                </div>
+        </header>
+
+     
+
+
+ImageMagick is a command line program for mangling pictures. It is called via <code>magick</code>. It is very versatile and have a <i>tons</i> of flags and options.
+<br>
+On this page you'll find some useful or interesting technics, you can find experimentations on <a href="/./Projects/ImageMagick/ImageMagick.html">this project page</a>.
+<br>
+<br>
+<i>
+<code>[x]</code> indicate a value to be modified
+
+</i>
+<h2> Table of Content</h2>
+
+<ul>
+<li><a href="#basic">Basics
+    <ul>
+        <li><a href="#size">Size</a></li>
+        <li><a href="#deformation">Deformation</a></li>
+        <li><a href="#otherusefulthings">Other Useful Things</a></li>
+    </ul>
+</li>
+<li><a href="#dithering">Dithering</a><ul>
+    <li><a href="#errordifusion">Error Diffusion</a></li>
+    <li><a href="#ordereddithering">Ordered Dithering</a></li>
+    <li><a href="#addingmaps">Adding Maps</a></li>
+    <li><a href="#usingpicturesasmap">Using Pictures as Map</a></li>
+</ul></li>
+<li><a href="#reference">References</a></li>
+
+</ul>
+
+<hr>
+
+
+<h2 id="basic">Basics</h2>
+
+<h4 id="size">Size</h4>
+
+<ul>
+    <li><code>-sample [x]%</code></li>
+    <li><code>-scale [x]%</code></li>
+    <li><code>-resize [x]%</code></li>
+</ul>
+
+The <code>-sample</code> command will have a much more distinct tesselation. <code>-scale</code> and <code>-resize</code> tend to get more blurry.
+
+
+<h4 id="deformation">Deformation</h4>
+
+<a href="https://usage.imagemagick.org/warping/">Documentation about warping</a>
+
+<ul>
+    <li><code>-rotate [degree]</code></li>
+    <li><code>-shear [val]x[val]</code></li>
+    <li><code>-swirl [degree]</code></li>
+</ul>
+
+<h4 id="otherusefulthings">Other Useful Things</h4>
+
+<ul>
+    <li><code>-alpha off</code> : Deactivate the transparency layer </li>
+    <li><code>-threshold [x]%</code> : Basic black and white by comparison</li>
+    <li><code>-quality [value]</code> : Value between <code>0</code> and <code>10</code></li>
+    <li><code>-edge [thikness]</code> : Keep only the edges of the image</li>
+    <li><code>-blur [radius]x[sigma]</code> : For the calculation of a pixel, <code>radius</code> determine the area around that is involved, <code>sigma</code> the amount of contribution</li>
+    <li><code>-modulate [hue]x[sat]x[lightness]</code> : HSL modulation, 100 = no modification</li>
+    <li><code>+level-colors [replace black with],[replace white with]</code> : easy manipulation of colors. List of all imagemagick colors can be found on <a href="https://imagemagick.org/script/color.php">this webpage</a>
+    </li>
+    <li><code>magick in.source out.destination</code> : convert from any format to any other</li>
+</ul>
+
+
+
+<h2 id="dithering">Dithering</h2>
+
+<h3 id="errordifusion">Error Diffusion</h3>
+
+<div class="code-container">
+    -dither FloydSteinberg or Riemersa -colors [number of colors]
+</div>
+
+<i>It seems that the colors reduction must take place after the dithering for it to work</i>
+<br>Reducing size will lead to more obvious patterns and overall a more typical lo-fi dithering look.
+
+<h3 id="ordereddithering">Ordered Dithering</h3>
+<div class="code-container">
+    -ordered-dither [map]
+</div>
+<br>
+Lists of maps :
+<br><br>
+<table>
+    <tr>
+        <td><b>Name</b></td>
+        <td><b>Alias</b></td>
+        <td><b>Description</b></td>
+    </tr>
+    <tr>
+        <td>threshold</td>
+        <td>1x1</td>
+        <td>Threshold 1x1 (non-dither)</td>
+    </tr>
+    <tr>
+        <td>checks</td>
+        <td>2x1</td>
+        <td>Checkerboard 2x1 (dither)</td>
+    </tr>
+    <tr>
+        <td>o2x2</td>
+        <td>2x2</td>
+        <td>Ordered 2x2 (dispersed)</td>
+    </tr>
+    <tr>
+        <td>o3x3</td>
+        <td>3x3</td>
+        <td>Ordered 3x3 (dispersed)</td>
+    </tr>
+    <tr>
+        <td>o4x4</td>
+        <td>4x4</td>
+        <td>Ordered 4x4 (dispersed)</td>
+    </tr>
+    <tr>
+        <td>o8x8</td>
+        <td>8x8</td>
+        <td>Ordered 8x8 (dispersed)</td>
+    </tr>
+    <tr>
+        <td>h4x4a</td>
+        <td>4x1</td>
+        <td>Halftone 4x4 (angled)</td>
+    </tr>
+    <tr>
+        <td>h6x6a</td>
+        <td>6x1</td>
+        <td>Halftone 6x6 (angled)</td>
+    </tr>
+    <tr>
+        <td>h8x8a</td>
+        <td>8x1</td>
+        <td>Halftone 8x8 (angled)</td>
+    </tr>
+    <tr>
+        <td>h4x4o</td>
+        <td></td>
+        <td>Halftone 4x4 (orthogonal)</td>
+    </tr>
+    <tr>
+        <td>h6x6o</td>
+        <td></td>
+        <td>Halftone 6x6 (orthogonal)</td>
+    </tr>
+    <tr>
+        <td>h8x8o</td>
+        <td></td>
+        <td>Halftone 8x8 (orthogonal)</td>
+    </tr>
+    <tr>
+        <td>h16x16o</td>
+        <td></td>
+        <td>Halftone 16x16 (orthogonal)</td>
+    </tr>
+    <tr>
+        <td>c5x5b</td>
+        <td>c5x5</td>
+        <td>Circles 5x5 (black)</td>
+    </tr>
+    <tr>
+        <td>c5x5w</td>
+        <td></td>
+        <td>Circles 5x5 (white)</td>
+    </tr>
+    <tr>
+        <td>c6x6b</td>
+        <td>c6x6</td>
+        <td>Circles 6x6 (black)</td>
+    </tr>
+    <tr>
+        <td>c6x6w</td>
+        <td></td>
+        <td>Circles 6x6 (white)</td>
+    </tr>
+    <tr>
+        <td>c7x7b</td>
+        <td>c7x7</td>
+        <td>Circles 7x7 (black)</td>
+    </tr>
+    <tr>
+        <td>c7x7w</td>
+        <td></td>
+        <td>Circles 7x7 (white)</td>
+    </tr>
+</table>
+
+<h3 id="addingmaps">Adding maps</h3>
+
+All maps are stored in a file named <code>thresholds.xml</code> that you can find by using
+
+<div class="code-container">
+    magick identify -list threshold
+</div>
+
+Here is an example of map that you can append to the file (it creates a diagonal dithering): 
+<div class="code-container"><pre>
+&lt;threshold map="diag5x5" alias="diag"&gt;
+    &lt;description&gt;Simple Diagonal Line Dither&lt;/description&gt;
+      &lt;levels width="5" height="5" divisor="6"&gt;
+      4 2 1 3 5
+      2 1 3 5 4
+      1 3 5 4 2
+      3 5 4 2 1
+      5 4 2 1 3
+  &lt;/levels&gt;
+  &lt;/threshold&gt;
+</pre>
+</div>
+
+<h3 id="usingpicturesasmap">Using Pictures as map</h3>
+
+<div>
+Each frame of gif will be used for a level of luminosity. This can be used to make ASCII version of a picture.
+</div><br>
+<ol>
+    <li>Collect multiple pictures in a gif: (example with jpg) <code>magick *.jpg out.gif</code>(you may also add <code>-scale [x]x[y]</code> to be sure that all image will be the same size (and squared))</li>
+    <li>
+        <div class="code-container"><pre>
+magick input.png -alpha off -colorspace sRGB -grayscale Average \
+-scale 1600% -negate \
+symbols.gif -virtual-pixel tile -fx 'u[floor(15.9999*u)+1]'\
+output.png</pre>
+        </div>
+        Adjust <code>15.9999</code>, here it is for a 16 frame gif
+    </li>
+</ol>
+<br>
+<i>Note on Virtual Pixels</i>
+<div>
+    Virtual Pixels aim to ease edge processing for algorithm requiering pixel's neighboors for computation. It got various method to define those "virtual pixels" outside of the image, such as <code>black</code> which use black (duh) or <code>tile</code> which repeat the image
+ <a href="https://imagemagick.org/script/architecture.php#virtual-pixels">Virtual Pixel Documentation</a>.
+</div>
+
+
+<h3 id="reference">References</h3>
+<ul>
+    <li> <a href="https://imagemagick.org/script/command-line-processing.php">ImageMagick WebPage</a></li>
+    <li> <a href="https://indigo.re/magick/"> source for some stuff</a></li>
+</ul>
+        <hr>
+        <div class="center-container">
+                <a href="/index.html">- home - </a>
+        </div>
+
+</body>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>LNDF - ImageMagick experimentation</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Various example of ImageMagick command" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+
+
+<a href = /./../Projects.html> <h1> ImageMagick</h1></a>   
+
+
+For more info on the inner working of below example, refer to <a href="/./Knowledge/ImageMagick.html">the associated knowlegde page</a>.
+<br><br>
+<i><b>All images are compressed, and thus a bit blurry</b></i>
+
+<h2>Table of Content</h2>
+
+<ul>
+    <li><a href="#compositing">Compositing</a><ul>
+        <li><a href="#difference">Difference</a></li>
+        <li><a href="#multiply">Multiply</a></li>
+    </ul></li>
+    <li><a href="#custompatterndithering">Custom Pattern Dithering</a><ul>
+        <li><a href="#diagonal">Diagonal</a></li>
+        <li><a href="#offsethalftonedither">Offset Halftone Dither</a></li>
+        <li><a href="#pictureasmap">Picture as Map</a></li>
+    </ul></li>
+</ul>
+
+<hr>
+<h2 id="compositing">Compositing</h2>
+
+<h3 id="difference">Difference</h3>
+
+<h4 id="differencewithblurryself">Difference With Blurry Self</h4>
+
+<div class="code-container">
+    magick test.jpg -blur 0x5 test.jpg -compose difference -composite out.jpg
+</div>
+
+<figure>
+    <img src="Difference-blur.jpeg">
+</figure>
+
+<h4 id="differencewithtesselatedself">Differenre With Tesselated Self</h4>
+
+<div class="code-container">
+    magick test.jpg -blur 0x5 -sample 10% scale 1000% test.jpg -compose difference -composite out2.jpg
+</div>
+
+<figure>
+    <img src="Difference-tesselation.jpeg">
+</figure>
+
+<h3 id="multiply">Multiply</h3>
+<h4 id="multiplywithtesselatedself">Multiply With Tesselated Self</h4>
+
+<div class="code-container">magick test.jpg -blur 0x5 -sample 1% -scale 10000% test.jpg -compose multiply -composite out3.jpg</div>
+
+<figure>
+    <img src="Mult-tesselation.jpeg">
+</figure>           
+<hr>
+<h2 id="custompatterndithering">Custom Pattern Dithering</h2>
+
+
+<h3 id="diagonal">Diagonal</h3>
+Using the matrix described <a href="/./Knowledge/ImageMagick.html#addingmaps">here</a>.
+
+<figure>
+    <img src="diagdither.png" style="width: 50%">
+</figure>
+
+<h3 id="offsethalftonedither">Offset Halftone Dither</h3>
+Using code found in the <a href="https://usage.imagemagick.org/quantize/#halftone_offset">ImageMagick documentation</a>
+
+<div class="code-container">
+    <pre>
+magick colorwheel.png  -set option:distort:viewport '%wx%h+0+0' \
+-colorspace CMYK -separate null: \
+\( -size 2x2 xc: \( +clone -negate \) \
+      +append \( +clone -negate \) -append \) \
+-virtual-pixel tile -filter gaussian \
+\( +clone -distort SRT 60 \) +swap \
+\( +clone -distort SRT 30 \) +swap \
+\( +clone -distort SRT 45 \) +swap \
+\( +clone -distort SRT 0 \)  +swap +delete \
+-compose Overlay -layers composite \
+-set colorspace CMYK -combine -colorspace RGB \
+offset_colorwheel.png</pre>
+</div>
+<figure>
+    <img src="offset_colorwheel.png" style="width: 50%">
+</figure>
+
+
+<h3 id="pictureasmap">Picture as Map</h3>
+
+More info about using pictures for dithering <a href="/./Knowledge/ImageMagick.html#usingpicturesasmap">here</a>.
+<h4 id="matrixused">Matrix Used</h4>
+Here you can see the gif used as a map. It contain four letters pictures of 30x30 px(choosed randomly) : <i>I</i> <i>B</i> <i>G</i> <i>A</i>
+
+<figure>
+    <img src="letters.gif" style="width: 10%;">
+</figure>
+</div>
+<h4 id="result">Result</h4>
+And here is the dithered version. (Depending on the redenring of your browser and the resolution of you screen, the quality may vary (I swear it's super sharp on my screen)).
+<figure>
+    <img src="ascii map scaled.gif">
+</figure>
+
+Here is a close up of edges, showing how the various frames merges at a gradients.
+
+<figure>
+    <img src="Close-up.png" style="width: 50%">
+</figure>
+
+<!-- FOOTER -------------------------- -->
+<hr>
+<div class="center-container">
+    <a href="/index.html">- home - </a>
+</div>
+</html>
