@@ -60,7 +60,7 @@ The percussion are my nails on my computer, recorded trought said computer micro
     <label for="parole241201"><i>~Paroles</i></label>
     <input type="checkbox" name="one" id="parole241201" checked = "true">
     <div class="hide3">
-            <blockquote><pre>
+            <pre>
 J'ai quitté cette île
 et son batelier
 Il refusait d'embarquer
@@ -92,7 +92,6 @@ pour sa barque brisée
 pour le silence 
 qu'il laissera aux palmiers
 </pre>
-</blockquote>
 </div>
 </div>  
 Inspired by the boatman in <i>The Buried Giant</i>, a Kazuo Ishiguro novel, and by the fictional sailors described by Dominique Scali in <i>Les marins ne savent pas nager</i>, which doesn't seem to be translated in English
