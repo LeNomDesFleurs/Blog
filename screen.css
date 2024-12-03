@@ -57,15 +57,6 @@ header {
     margin-bottom: 1.5em;
 }
 
-/* for the webring logo */
-.inline-image {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
-    margin-right: 0.2em;
-}
-
 /* -----------------------------------
 Base
 -------------------------------------- */
@@ -84,6 +75,7 @@ html {
     margin-left: auto;
     margin-right: auto;
 }
+
 /* reduce padding for phone screen */
 @media only screen and (max-width: 400px) {
     html {
@@ -96,14 +88,9 @@ Typography
 -------------------------------------- */
 
 h1{
-    font-family: ;
     font-style: italic;
-    /* calc(min px + variable vw) */
     font-size: calc(30px + 2.5vw);
-    /* font-size: calc(30px + 2em); */
-    /* font-weight: 1000; */
     margin: 0;
-    /* color: var(--title-color); */
     color: var(--title-color);
 }
 
@@ -116,8 +103,6 @@ h3 {
     margin: 0;
     margin-top: var(--spacing-m);
     margin-bottom: var(--spacing-s);
-    /* font-family: var(--font-sans); */
-    /* font-family: Futura; */
     font-weight: 500;
     color: var(--h3-color);
     color: var(--color-default);
@@ -125,9 +110,6 @@ h3 {
     font-size: 21px;
 }
 
-h4 {
-    font-size:;
-}
 
 pre {
     font-family: var(--font-serif)
@@ -140,14 +122,6 @@ a[href^="https://"]::after
     content: '↗';
     margin-left: 4px;
     display: inline-block;
-}
-a[href^="https://hotlinewebring.club/LNDF/previous"]::after
-{
-    content: '';
-}
-a[href^="https://hotlinewebring.club/LNDF/next"]::after
-{
-    content: '';
 }
 
 a,
@@ -311,9 +285,20 @@ form:input {
     background-color: #00000000;
 }
 
-
+/* -----------------------------------
+SVG
+-------------------------------------- */
 
 .title-svg{
     width: 70%; 
     margin: 0.8em;
+}
+
+/* for the webring logo */
+.inline-image {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.2em;
 }
