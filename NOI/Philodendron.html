@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Philodendron</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Bandpass bank audio plug-in" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="noi.css" type="text/css">
+</head>
+
+
+<style>
+
+:root{
+        --black: #000000FF;
+    --white: #FFFFFFFF;
+    --grey: #999999FF;
+    }
+    html{
+        color: var(--black);
+        background: var(--white);
+        margin-left: 4%;
+    }
+    a{color: var(--grey)}
+    a:hover{color:var(--black)}
+
+    @media screen and (max-width: 1000px) {
+        html{
+            margin-left: auto;
+        }
+        .test{
+            margin:0%;
+        }
+    }
+
+</style>
+</head>
+
+<body style="padding: 0px; margin: 0px; border:0px;">
+<div class="global">
+    <div class="test">
+        <figure>
+        <img src="PhilodendronMedia/PhilodendronPic.png" style="display: flex; width:100%;" >
+         </figure>
+    </div>
+        <div class="text">
+            <!-- highlight text with custom colors -->
+            <span style="color:var(--custom-red); font-size: larger; line-height: 1;"><b>Philodendron</b></span> is a ringbuffer, a container that keeps rewriting itself. 
+            <br>The <b>Present</b> is held between the Write and the Reference points. You can use up to <b>four heads</b>, simultaneously reading this Present, over and over, while it write itself. Or you can freeze the buffer to freely explore the <b>Past</b>.
+            <br><br>
+            !!! Sound can get loud, I strongly advise the use of a compressor and / or limiter, especially if you are to mess with the feedback !!!
+            <audio controls>
+                <source src="PhilodendronMedia/Philodendron.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <span style="font-size: 1.5em;"><i>Downloads</i></span><br>
+            <a href="PhilodendronMedia/Philodendron-windows.exe">Windows</a> - <a href="PhilodendronMedia/Philodendron_MacOs.pkg">MacOS</a>
+            <br>You might need a <a href="PhilodendronMedia/PhilodendronManual.pdf">Manual</a>.<br>
+            And maybe the <a href="https://github.com/LeNomDesFleurs/PHILODENDRON_JUCE/">Source Code ?</a>
+            <br>Learn more about <a href="/Projects/VST/Philodendron.html">How and Why</a>.
+
+            <figure>
+                <img src="PhilodendronMedia/DitherPhilodendron.jpg" style="image-rendering:pixelated; width: 100%; ">
+            </figure>
+            </div>
+        </div>
+    
+    
+</body>
+
+</html>

@@ -12,60 +12,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="Sinensis.css" type="text/css">
+    <link rel="stylesheet" href="noi.css" type="text/css">
 </head>
 
+<!-- 
+Color Palette to dither the image
+[{"hex":"#ef3d59"},{"hex":"#e17a47"},{"hex":"#efc958"},{"hex":"#4ab19c"},{"hex":"#344e5c"}] 
+-->
 
 <style>
-    .global{
-        display: flex;
-        flex-direction: row;
-        margin: 0px;
-        padding: 0px;
-        border:0px;
+    :root{
+        --custom-red: #ef3d59;
+    --custom-orange: #e17a47;
+    --custom-yellow: #efc958;
+    --custom-green: #4ab19c;
+    --custom-green-alt: #4ab18f7e;
+    --custom-blue: #344e5c;
     }
-
-    .test{
-        justify-content: center;
-        align-items: center;
-        /* width:auto; */
-        /* height: 80vh; */
-        margin-right: 50px;
-        /* height: 600px; */
+    html{
+            color: var(--custom-green);
+    background: var(--custom-blue);
     }
-    
-    .text{
-        max-width: 50%;padding-top: 50px; padding-bottom: 50px;
-    }
-
-    @media screen and (max-width: 600px) {
-
-        .text{
-        max-width: 100%;
-        padding: 0px;
-        margin: 0px;
-        padding-top: 50px; padding-bottom: 50px; font-size:0.7em;
-        border:0px;
-    }
-
-        .test{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* width: 90%; */
-        height:auto;
-        /* max-width: ; */
-        margin: 10%;
-        margin-bottom: 0px;
-        }
-        .global {
-            flex-direction: column;
-            margin: 0px;
-            padding: 0px;
-            border:0px;
-        }
-
-    }
+    a{color: var(--custom-green-alt)}
+    a:hover{color:var(--custom-red)}
 </style>
 </head>
 
@@ -73,7 +42,7 @@
 <div class="global">
     <div class="test">
         <figure>
-        <img src="SinensisPic.png" style="display: flex; width:100%;" >
+        <img src="SinensisMedia/SinensisPic.png" style="display: flex; width:100%;" height="1119" width="600" >
          </figure>
     </div>
         <div class="text">
@@ -84,17 +53,17 @@
             <span style="font-size:0.7em;"> <br>tl;dr : Set the output of a MIDI track to the track where the plug-in lives.</span>
             <br>
             <audio controls>
-                <source src="Sinensis.mp3" type="audio/mpeg">
+                <source src="SinensisMedia/Sinensis.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
             <span style="font-size: 1.5em;"><i>Downloads</i></span><br>
-            <a href="Sinensis-windows.exe">Windows</a> - <a href="Sinensis_MacOs.pkg">MacOS</a>
-            <br>You might need a <a href="/NOI/SinensisManual.png">Manual</a>.<br>
+            <a href="SinensisMedia/Sinensis-windows.exe">Windows</a> - <a href="SinensisMedia/Sinensis_MacOs.pkg">MacOS</a>
+            <br>You might need a <a href="SinensisMedia/SinensisManual.png">Manual</a>.<br>
             And maybe the <a href="https://github.com/LeNomDesFleurs/SINENSIS_JUCE/">Source Code ?</a>
-            <br>Here you can learn more about <a href="/Projects/VST/VST.html">How and Why</a>.
+            <br>Learn more about <a href="/Projects/VST/VST.html">How and Why</a>.
 
             <figure>
-                <img src="DitherSinensis.jpg" style="image-rendering:pixelated; width: 100%; ">
+                <img src="SinensisMedia/DitherSinensis2.jpg" style="image-rendering:pixelated; width: 100%; ">
             </figure>
             </div>
         </div>
