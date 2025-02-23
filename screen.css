@@ -124,8 +124,23 @@ a[href^="https://"]::after
     display: inline-block;
 }
 
+
+.button{
+    border-radius: 20px;
+    padding-left: 10px; 
+    padding-right: 10px; 
+    border: 1px solid var(--color-dim);
+}
+
+.button:hover{
+    border-radius: 20px;
+    padding-left: 10px; 
+    padding-right: 10px; 
+    border:1px solid var(--color-default)
+}
+
 a,
-label {
+label, button {
     font-weight: 100;
     color: var(--color-dim);
     text-decoration: none; /*deactivate underline*/
