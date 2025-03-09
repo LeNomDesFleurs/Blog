@@ -208,7 +208,7 @@ audio {
 }
 
 figure img {
-    border-radius: 20px;
+    border-radius: 3px;
     image-rendering: pixelated;
     width: 100%;
     height: auto;
