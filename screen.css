@@ -112,7 +112,7 @@ h3 {
 
 
 pre {
-    font-family: var(--font-serif)
+    /* font-family: var(--font-serif) */
 }
 
 /* Link styling */
@@ -269,6 +269,7 @@ form:input {
 }
 
 .code-container {
+    
     background-color: #00000025;
     padding: 10px;
     margin: 10px;

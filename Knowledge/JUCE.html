@@ -39,13 +39,13 @@
                    The binary will be named <code>Example_svg</code> for an <code>Example.svg</code> file.
                     <br><br>
                     You can then adapt this snippet of code in <code>paint()</code> for example:
-                    <div class="code-container"><pre>const auto svg = Drawable::createFromImageData(BinaryData::NOI_svg, BinaryData::NOI_svgSize);
-            
+                    <div class="code-container"><code><pre>
+const auto svg = Drawable::createFromImageData(BinaryData::NOI_svg, BinaryData::NOI_svgSize);
 // juce::AffineTransform scale = Set::scale(0.2);
 juce::Rectangle<float> position = {140.f, 495.f, 35.f, 35.f};
 juce::RectanglePlacement placement = (36);
 svg->setTransformToFit(position, placement);
-svg->draw(g, 1.0);</pre>
+svg->draw(g, 1.0);</pre></code>
                     </div>
                     </div>
                     </div>
@@ -113,10 +113,12 @@ svg->draw(g, 1.0);</pre>
                 <label for="customcolor"><em><strong>~ Define Custom Color From Hexa Code</strong></em></label>
                 <input type="checkbox" name="one" id="customcolor" checked="true">
                 <div class="hide3">
-                    <div class="inner3"><div class="code-container">namespace CustomColors {<br>
-        const juce::Colour brown = juce::Colour::fromString("FF50322a");<br>
-        const juce::Colour green = juce::Colour::fromString("FF608537");<br>
-    }</div>
+                    <div class="inner3"><div class="code-container"><pre>
+namespace CustomColors 
+{
+const juce::Colour brown = juce::Colour::fromString("FF50322a");
+const juce::Colour green = juce::Colour::fromString("FF608537");
+}</pre></div>
 </div>
 </div>
 
