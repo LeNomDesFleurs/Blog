@@ -10,8 +10,8 @@
 
 <item>
 <title>240117</title>
-<link>https://lndf.fr/2024-logs.html#240117</link>
-<guid>https://lndf.fr/2024-logs.html#240117</guid>
+<link>https://lndf.fr/Blog.html#240117</link>
+<guid>https://lndf.fr/Blog.html#240117</guid>
 <pubDate>Wed, 31 Jan 2024 00:00:00 EST</pubDate>
 
 <description><![CDATA[
@@ -22,11 +22,82 @@
 </item> 
 
 -->
+<item>
+<title>250412</title>
+<link>https://lndf.fr/Blog.html#250412</link>
+<guid>https://lndf.fr/Blog.html#250412</guid>
+<pubDate>Sat, 12 Apr 2025 00:00:00 EST</pubDate>
+
+<description><![CDATA[
+<html><body>
+
+<audio controls="controls" preload="none">
+    <source src="Media/250412-Sunken Citiesv2.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<figure>
+    <img loading="lazy" src="Media/250412stclear.png" width="1661" height="2569" style="image-rendering: pixelated;">
+</figure>
+<p>
+
+    <p>
+        The original image is an <a href="https://www.metmuseum.org/art/collection/search/364758">engraving of st. Thomas</a> made by <a href="https://en.wikipedia.org/wiki/Lucas_van_Leyden">Lucas van Leyden</a>.
+        I pixel sorted it at a 45 degree angle with this <a href="https://github.com/satyarth/pixelsort">python script</a>, 
+        using a blurred version of itself as a reference for the thresholds (which give those weird mossy blocs under his cape).
+    </p>
+    
+    Command line used :  
+    <div class="code-container">
+        python3 -m pixelsort -i file -f reference.png -a 45 stthomas.png
+</div>
+<p>
+    
+    The font I used for the <code>ST.</code> in the bottom is named <a href="https://hishandstudio.com/product/croisan-elegant-serif-font/">Croisan</a>, it has a very peculiar <code>S</code>
+</p>
+    Image palette :
+    <ul>
+        <li><code>7D2932</code> - dark red</li>
+        <li><code>D2D4D9</code> - light grey</li>
+        <li><code>5C5851</code> - dark grey</li>
+        <li><code>C5EDE6</code> - light cyan</li>
+    
+    </ul>
+    <figure>
+        <img loading="lazy" src="Media/250412-palette.png" width="4" height="1" style="image-rendering: pixelated;">
+    </figure>
+</p>
+<p>
+On the music side, I just got a push 3, so a lot of MPE slide / glide (thus all the glissandi an timbre modulation).
+Experimented for a few hours with the material on this track, ended up only keeping the resampling of the synth I played (Meld and Drift) to re-chop them with simpler.
+A bit of granulator 3 for the transition in the middle. Compressor / EQ / Reverb / a bit of distortion. Very simple project. Always so funny to sing in falsetto voice
+</p>
+
+<div class="ex3">
+    <label for="parole250412"><i>~ Show Lyrics</i></label>
+    <input type="checkbox" name="one" id="parole250412" checked = "true">
+    <div class="hide3">
+            <pre>
+She was more alive than me
+She knew of all the sunken cities of the sea
+She uses those forgotten words forsaken by my kin
+She kept her past in a book made of skin
+
+Ashes held tight in the hollow of her hand
+Until the return of the day that offers end
+</pre>
+</div>
+</div> 
+
+    </body></html>
+]]></description>
+</item> 
+
 
 <item>
 <title>250323</title>
-<link>https://lndf.fr/2024-logs.html#250323</link>
-<guid>https://lndf.fr/2024-logs.html#250323</guid>
+<link>https://lndf.fr/Blog.html#250323</link>
+<guid>https://lndf.fr/Blog.html#250323</guid>
 <pubDate>Sun, 23 Mar 2025 00:00:00 EST</pubDate>
 
 <description><![CDATA[
@@ -51,8 +122,8 @@ I've learned a lot about granular synthesis, I've been using it at the high leve
 
 <item>
 <title>250216</title>
-<link>https://lndf.fr/2024-logs.html#250216</link>
-<guid>https://lndf.fr/2024-logs.html#250216</guid>
+<link>https://lndf.fr/Blog.html#250216</link>
+<guid>https://lndf.fr/Blog.html#250216</guid>
 <pubDate>Sun, 16 Feb 2025 00:00:00 EST</pubDate>
 
 <description><![CDATA[
