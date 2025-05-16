@@ -107,7 +107,7 @@ h3 {
     color: var(--h3-color);
     color: var(--color-default);
     font-style: italic;
-    font-size: 21px;
+    font-size: 30px;
 }
 
 
@@ -272,6 +272,8 @@ form:input {
     
     background-color: #00000025;
     padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
     margin: 10px;
     border-radius: 10px;
     font-family: var(--font-sans);
