@@ -8,8 +8,8 @@ Variables
         --color-default: #2f2e2d;
         --color-bg: #d1cdc9;
         --color-dim: #606060;
-        --title-color: #7f8e5e;
-        --h3-color: #7f8e5ec4;
+        --title-color: #42403e;
+        --h3-color: #42403e;
     }
 
     .title-svg {
@@ -25,9 +25,9 @@ p {
     :root {
         --color-default: #bab6b1;
         --color-bg: #2f2e2d;
-        --title-color: #5a6073;
+        --title-color: #bab6b1;
         --color-dim: #7f7f7f;
-        --h3-color: #898d97;
+        --h3-color: #bab6b1;
     }
 
     .title-svg {
