@@ -138,7 +138,7 @@ sudo certbot --nginx
     </div>
     To connect php-fpm to nginx, edit the nginx config file to add index and uncomment the location
     <div class="code-container">
-        <pre>
+        <code><pre>
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
@@ -161,7 +161,7 @@ server {
         deny all;
     }</stan>
 }
-</pre>
+</pre></code>
     </div>
     Remember to change the php version version depending on yours !!<br>
     Test for syntax error
@@ -176,9 +176,9 @@ server {
 
     <h3>Changing permission if PHP can't write</h3>
     Create a PHP file containing the following:
-    <div class="code-container"><pre>
-        &lt;?php echo `whoami`; ?&gt;
-        </pre>
+    <div class="code-container"><code>
+&lt;?php echo `whoami`; ?&gt;
+</code>
     </div>
     Upload it to your web server. The output should be similar to the following:
     <br>
@@ -187,10 +187,10 @@ server {
     Therefore, the PHP user is www-data.
     <br><br>
     By using <code>ls -dl</code>, you can see the permission and owners of the directory you are in, example at root
-    <div class="code-container"><pre>
-        debian@vps-d1a0526b:~$ ls -dl<br>
-        drwxr-xr-x 7 debian debian 4096 Dec 9 12:59 .
-    </pre>
+    <div class="code-container"><code><pre>
+debian@vps-d1a0526b:~$ ls -dl
+drwxr-xr-x 7 debian debian 4096 Dec 9 12:59 .
+</pre></code>
     </div>
 
     You can add this user to the owners of a directory by using
