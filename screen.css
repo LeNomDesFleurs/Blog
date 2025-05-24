@@ -17,9 +17,6 @@ Variables
     }
 }
 
-p {
-    text-align: justify;
-}
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -33,7 +30,7 @@ p {
     .title-svg {
         filter: invert(87%) sepia(10%) saturate(136%) hue-rotate(353deg) brightness(84%) contrast(86%);
     }
-
+    
 }
 
 
@@ -48,7 +45,7 @@ p {
     --spacing-xl: calc(2.5 * var(--spacing));
     --spacing-xxl: calc(5 * var(--spacing));
     --spacing-col: calc(6 * var(--spacing));
-    --spacing-width-max: 30rem;
+    --spacing-width-max: 40rem;
     --spacing-width-tiny: 15rem;
     --spacing-width-xl: 50rem;
 }
@@ -60,6 +57,10 @@ header {
 /* -----------------------------------
 Base
 -------------------------------------- */
+
+p {
+    text-align: justify;
+}
 
 html {
     font-family: var(--font-serif);
@@ -74,6 +75,7 @@ html {
     max-width: var(--spacing-width-max);
     margin-left: auto;
     margin-right: auto;
+    zoom: 130%;
 }
 
 /* reduce padding for phone screen */
