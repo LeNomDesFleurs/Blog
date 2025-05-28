@@ -2,6 +2,9 @@
 Variables
 -------------------------------------- */
 @import url("/Font/fonts.css");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 
 @media (prefers-color-scheme: light) {
     :root {
@@ -35,7 +38,7 @@ Variables
 
 
 :root {
-    --font-sans: JetBrain;
+    --font-sans: "Geist Mono", monospace;
     --font-serif: Playfair;
     /* Times,serif; */
     --spacing: 1.5em;
@@ -154,12 +157,18 @@ label, button {
     color: var(--color-dim);
     text-decoration: none; /*deactivate underline*/
     font-style: italic;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    /* transition: letter-spacing, 1.0s ease, font-weight, 1.0s, ease; */
+    /* transition: background-color 0.5s ease, color 0.5s ease; */
+    transition: 1.0s ease, letter-spacing 1.0s ease-in-out;
 }
 
 a:hover,
 label:hover {
     color: var(--color-default);
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    /* transition: 1.0s ease; */
+
 }
 
 figcaption {
