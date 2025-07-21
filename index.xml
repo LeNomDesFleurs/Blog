@@ -23,6 +23,80 @@
 
 -->
 <item>
+<title>250721</title>
+<link>https://lndf.fr/Blog.html#250721</link>
+<guid>https://lndf.fr/Blog.html#250721</guid>
+<pubDate>Mon, 21 Aug 2025 00:00:00 EST</pubDate>
+
+<description><![CDATA[
+<html><body>
+<audio controls="controls" preload="none">
+    <source src="Media/250721-Necklacev5.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<figure>
+    <img loading="lazy" src="Media/250721-diapo.jpeg" width="1260" height="936" style="image-rendering: pixelated;">
+</figure>
+
+
+<figure>
+    <img loading="lazy" src="Media/250721-palette.png" width="12" height="1" style="image-rendering: pixelated;">
+</figure>
+
+<p>
+My parent left a bag of diapositive boxes in my room. Among those was a "Gnome" labeled box. 
+Of course I opened it. Among all of those gnome related pictures, there was an old photo of some of my mom's friends. 
+I layered multiple diapositive and took a photo under the ceiling lamp. 
+<br>
+Then I tweaked it on affinity, layering some <a href="Knowledge/TouchDesigner.html#noise">weird textures I found in the touchdesigner noise generator</a>, which gives this blocky aspect in the bottom right and upper left. 
+Made some dithering <code>magick</code>, remaping the output colors to the <a href="Knowledge/ImageMagick.html#palette">original picture palette</a>, last color tweaking in <code>preview</code> as always.
+
+</p>
+
+<p>
+The song comes from the desire to get better at bass and drum, keeping stuff structured, without too much elements, adding little ear candy here and there. 
+Fairly simple stuff, basic ableton synths, distortion / echo / reverb. 
+Some additional sound were made by larsening the mic with the laptop speakers, some with Ableton's grain delay.
+</p>
+
+<div class="ex3">
+    <label for="parole250721"><i>~ Show Lyrics</i></label>
+    <input type="checkbox" name="one" id="parole250721" checked="true">
+    <div class="hide3">
+        <pre>
+We were in a big city where we know no one
+Everybody looking in the same direction
+We've always been the loser but we'll win in the long run
+Looking for space and found satisfaction
+
+We were in that club downtown
+Where the barman dresses like the devil
+In this place, every number is a countdown
+All we wanted was to silence the symptoms
+</pre>
+    </div>
+</div>
+<p>
+Some Music:
+</p>
+<ul>
+    <li><a href="https://fcukers.bandcamp.com/album/baggy">Fcukers - Baggy$$</a></li>
+    <li><a href="https://lalunelalunelalunelalune.bandcamp.com/album/everything-is-an-eternal-circle-and-it-repeats-and-repeats-itself">la lune - everything is an eternal circle and it repeats and repeats itself</a></li>
+</ul>
+Some Links:
+</p>
+<ul>
+    <li><a href="https://elastiq.notion.site/Color-My-Journey-Through-the-Spectrum-2cfd8dc540474b1c9ef381b9a3bc0f8e">Lots of stuff about colors</a></li>
+    <li><a href="https://meodai.github.io/poline/">Poline - Palette Generator</a></li>
+</ul>
+
+    </body></html>
+]]></description>
+</item> 
+
+
+<item>
 <title>250412</title>
 <link>https://lndf.fr/Blog.html#250412</link>
 <guid>https://lndf.fr/Blog.html#250412</guid>

@@ -26,15 +26,14 @@
 
      
 
-
-ImageMagick is a command line program for mangling pictures. It is called via <code>magick</code>. It is very versatile and have a <i>tons</i> of flags and options.
-<br>
+<p>
+ImageMagick is a command line program for mangling pictures. It is called via <code>magick</code>. It is very versatile and have a <i>ton</i> of flags and options.
 On this page you'll find some useful or interesting technics, you can find experimentations on <a href="/./Projects/ImageMagick/ImageMagick.html">this project page</a>.
-<br>
-<br>
+</p>
+<p>
 <i>
 <code>[x]</code> indicate a value to be modified
-
+</p>
 </i>
 <h2> Table of Content</h2>
 
@@ -52,6 +51,7 @@ On this page you'll find some useful or interesting technics, you can find exper
     <li><a href="#addingmaps">Adding Maps</a></li>
     <li><a href="#usingpicturesasmap">Using Pictures as Map</a></li>
 </ul></li>
+<li><a href="#palette">Palette Generation</a></li>
 <li><a href="#reference">References</a></li>
 
 </ul>
@@ -96,7 +96,7 @@ The <code>-sample</code> command will have a much more distinct tesselation. <co
     <li><code>magick in.source out.destination</code> : convert from any format to any other</li>
 </ul>
 
-
+<hr>
 
 <h2 id="dithering">Dithering</h2>
 
@@ -262,12 +262,45 @@ output.png</pre>
 <br>
 <i>Note on Virtual Pixels</i>
 <div>
-    Virtual Pixels aim to ease edge processing for algorithm requiering pixel's neighboors for computation. It got various method to define those "virtual pixels" outside of the image, such as <code>black</code> which use black (duh) or <code>tile</code> which repeat the image
- <a href="https://imagemagick.org/script/architecture.php#virtual-pixels">Virtual Pixel Documentation</a>.
+    Virtual Pixels aim to ease edge processing for algorithm requiering pixel's neighboors for computation. 
+    It got various method to define those "virtual pixels" outside of the image, such as <code>black</code> which use black (duh) or <code>tile</code> which repeat the image
+ For more info check the <a href="https://imagemagick.org/script/architecture.php#virtual-pixels">Virtual Pixel Documentation</a>.
 </div>
+<hr>
+<h2 id="palette">Generating a palette</h2>
 
+<p>
+    To extract a palette from an image, you can use the code below, you can find a palette script <a href="https://github.com/LeNomDesFleurs/bin/blob/main/palette">here</a>, with all my bash utilities.
+    <div class="code-container"><pre>
+# speed up process by reducing image size
+magick $INPUT -sample 10% temp.png
 
-<h3 id="reference">References</h3>
+# find all the colors
+COLOR_LIST=`magick temp.png -format %c -colorspace LAB -colors $COLORS histogram:info:-`
+# format the list text
+FORMATTED_LIST=`echo $COLOR_LIST | sort -n -r | tr ' ' '\n' | sed -n '/^srgb/p' | tr ' ' '\r'`
+rm temp.png
+
+# generate an array with the colors to be used in next command
+images=()
+for ((i=1; i<=COLORS; i++)); do
+    color=$(echo "$FORMATTED_LIST" | sed -n "${i-1}p")
+    images+=("xc:\"$color\"")
+done
+
+# create picture where each pixel is one of the colors
+eval magick -size 60x60 "${images[@]}" +append $OUTPUT
+</pre></div>
+</p>
+<p>
+Then you can call this command to apply the palette to any image.
+</p>
+<div class="code-container"><pre>
+magick input.png -remap palette.png output.png
+</pre></div>
+
+<hr>
+<h2 id="reference">References</h2>
 <ul>
     <li> <a href="https://imagemagick.org/script/command-line-processing.php">ImageMagick WebPage</a></li>
     <li> <a href="https://indigo.re/magick/"> source for some stuff</a></li>

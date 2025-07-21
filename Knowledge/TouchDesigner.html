@@ -19,292 +19,369 @@
 <body>
     <header>
         <div class="title-link">
-            <a href = /./../Knowledge.html>  <h1>TouchDesigner</h1></a>
-        </div>   
-</header>
+            <a href=/./../Knowledge.html>
+                <h1>TouchDesigner</h1>
+            </a>
+        </div>
+    </header>
 
-<div class="ex3">
-    <label for="item-0"><em><strong>~ Basic Knowledge</strong></em></label>
-    <input type="checkbox" name="one" id="item-0" checked = "true">
-    <div class="hide3">
-        <p><strong>Operators</strong></p>
-<p>TAB to open the operator Window (TAB again to go trough the tabs)</p>
-<ul>
-<li>Components (COMP)<br>
-   <em>Patcher, Camera, light</em></li>
-<li>Texture (TOP)<br>
-   <em>Image File, Video treatment, 2D (Mainly GPU)</em></li>
-<li>Channel (CHOP)<br>
-   <em>Modulation</em></li>
-<li>Surface (SOP)<br>
-   <em>3D Environment (Mainly CPU)</em></li>
-<li>Material (MAT)</li>
-<li>Data (DAT)</li>
-</ul>
-<p>For each family<br>
-Darker Shade : Generator<br>
-Lighter Shade : Filter</p>
-<p><strong>Cable</strong><br>
-Cable can only be plug between objects of the same family
-When they are animated, they are streaming data (cooking)</p>
-<p><strong>Links</strong><br>
-Links are grey lines with moving arrow
-They can be between different operator family</p>
-    </div>
-</div>  
-
-
-<div class="ex3">
-    <label for="item-1"><em><strong>~ Renderer SOP to TOP</strong></em></label>
-    <input type="checkbox" name="one" id="item-1" checked = "true">
-    <div class="hide3">
-        <p>To render and SOP to TOP (going from 3D to 2D)
-            You&#39;ll need 4 elements</p>
+    <div class="ex3">
+        <label for="item-0"><em><strong>~ Basic Knowledge</strong></em></label>
+        <input type="checkbox" name="one" id="item-0" checked="true">
+        <div class="hide3">
+            <p><strong>Operators</strong></p>
+            <p>TAB to open the operator Window (TAB again to go trough the tabs)</p>
             <ul>
-            <li>COMP <code>Geometry</code> (What is the form)</li>
-            <li>COMP <code>Camera</code> (Where is the eye)</li>
-            <li>COMP <code>light</code> (Where is the light coming from)</li>
-            <li>TOP <code>Render</code></li>
+                <li>Components (COMP)<br>
+                    <em>Patcher, Camera, light</em>
+                </li>
+                <li>Texture (TOP)<br>
+                    <em>Image File, Video treatment, 2D (Mainly GPU)</em>
+                </li>
+                <li>Channel (CHOP)<br>
+                    <em>Modulation</em>
+                </li>
+                <li>Surface (SOP)<br>
+                    <em>3D Environment (Mainly CPU)</em>
+                </li>
+                <li>Material (MAT)</li>
+                <li>Data (DAT)</li>
             </ul>
-            <p>Input your SOP Composition in the <code>Geometry</code> (For this you need to add the geo by right clicking the output of the SOP)
-            Chose where is the light coming from by tweaking the <code>light</code> parameters
-            Chose where the &quot;eye&quot; is by tweaking the <code>Camera</code> parameters</p>
-            
-    </div>
-</div>  
-
-
-<div class="ex3">
-    <label for="item-2"><em><strong>~ 3D Flower / Leaf</strong></em></label>
-    <input type="checkbox" name="one" id="item-2" checked = "true">
-    <div class="hide3">
-        <h3 id="modeling-leaf">Modeling Leaf</h3>
-        <h4 id="create-a-line-bend-it-and-mirror-it">Create a line, Bend it and Mirror it</h4>
-        <ul>
-        <li>Add SOP <code>line</code> object</li>
-        <li>Add CHOP <code>Pattern</code> Object<ul>
-        <li>Rename it&#39;s <code>channel</code> to <code>shape</code></li>
-        <li>Add CHOP <code>null</code> terminaison</li>
-        </ul>
-        </li>
-        <li>Add SOP <code>chopTo</code> after the <code>line</code> <ul>
-        <li>drag&amp;drop the <code>null</code> in it</li>
-        <li>Set the <code>Channel Scope</code> to <code>shape</code></li>
-        <li>Set the <code>Attribute Scope</code> to P(1) (We want only one axis to be affected)</li>
-        </ul>
-        </li>
-        </ul>
-        <p>You should have an error on the chopTo, it is caused by the difference of point in the line and in the pattern</p>
-        <ul>
-        <li>Add a CHOP constant<ul>
-        <li>Rename it&#39;s <code>channel</code> to <code>segments</code><ul>
-        <li>Set it to 30</li>
-        </ul>
-        </li>
-        <li>Add a CHOP null terminaison</li>
-        <li>Toggle view mode on the null (bottom right &quot;+&quot; button)</li>
-        <li>drag and drop the null to (CHOP Reference)<ul>
-        <li>The length of the pattern</li>
-        <li>The number of point of the Line</li>
-        </ul>
-        </li>
-        </ul>
-        </li>
-        </ul>
-        <p>The Pattern and the line should now have the same number of point and a sine should appear in the chopTo (If not, verify that you are looking at the right axis)</p>
-        <p>We now have a way to bend the line, let&#39;s custom the pattern to have a more leafy shape</p>
-        <ul>
-        <li>Set the pattern <code>Type</code> to <code>Ramp</code></li>
-        <li>Set the pattern Right <code>Taper</code> to around <code>0.2</code> to bend the function</li>
-        <li>Toggle the revert button to rotate the leaf toward the origin</li>
-        </ul>
-        <p>Once the half of the leaf have the correct shape, we can double it</p>
-        <ul>
-        <li>Add a SOP <code>Copy</code> After the <code>chopTo</code><ul>
-        <li>Set the <code>Number Of Copy</code> to <code>2</code></li>
-        <li>Set the <code>Ry</code> <code>Scale</code> to <code>-1</code></li>
-        </ul>
-        </li>
-        </ul>
-        <p>To fill the frame, you can use <code>skin</code> or <code>polypatch</code>, <code>polypatch</code> allows for more precise control of the 3D geometry. To see the modification you can use the <code>w</code> shortcut to toggle the wireframe view.</p>
-        <ul>
-        <li>Add SOP <code>Polypatch</code> after <code>Copy</code> </li>
-        <li>Add SOP <code>Attribute Create</code> after <code>Polypatch</code><ul>
-        <li>Toggle <code>Compute Normals</code></li>
-        </ul>
-        </li>
-        </ul>
-        <h4 id="tweaking">Tweaking</h4>
-        <p>Interesting parameter to tweak to go closer to a flower petal : 
-        <code>Pattern</code> <code>Taper Decay</code> &amp; <code>Amplitude</code>, disable the reverse
-        Play around by using the math chop and adding modulation, for an oak leaf, you could add sine and noise to alter the edge of the model</p>
-        <p>To Gain More Control, After the <code>Attribute Create</code></p>
-        <ul>
-        <li>add a SOP <code>Twist</code> that let you bend and twist the model</li>
-        <li>add a SOP <code>Transform</code> That let you rotate and resize the model</li>
-        </ul>
-        <h3 id="multiply-petal-to-make-a-flower">Multiply Petal to make a flower</h3>
-        <ul>
-        <li>Add SOP <code>Copy</code> after the <code>Transform</code></li>
-        <li>Add a SOP <code>Circle</code> , terminate it with a SOP <code>Null</code> and connect the <code>Null</code> to the second input of the <code>Copy</code>
-        Copy will add a flower at each normal of the circle, to see the normals of the circle, right click and select display setting, you can then show the normals </li>
-        </ul>
-        <p>We need to point the normals in the right direction</p>
-        <ul>
-        <li>Add a SOP <code>Point</code> before the <code>Null</code> <ul>
-        <li>Set <code>Keep Normal</code> to <code>Add Normal</code> and set click <code>+</code> juste below to unfold the parameters</li>
-        <li>Set <code>nx</code> to <code>me.inputPoint.x</code></li>
-        <li>Set <code>ny</code> to <code>me.inputPoint.y</code></li>
-        <li>Set <code>nz</code> to <code>0</code></li>
-        </ul>
-        </li>
-        </ul>
-        <p>Now leaf should be facing outward
-        If the normals aren&#39;t correctly sized add a <code>facet</code> before the the <code>null</code> and toggle <code>Make Normals unit Lenght</code></p>
-        <p>The <code>Number Of division</code> of the <code>Circle</code> let you set the number of petals, </p>
-        <ul>
-        <li>Add a <code>transform</code> before the <code>Null</code><ul>
-        <li><code>Uniform Scale</code> let you resize the circle, thus setting the spacing between the Petal</li>
-        <li>Set <code>RotateX</code> to <code>90</code></li>
-        </ul>
-        </li>
-        </ul>
-       
-    </div>
-</div>  
-
-
-
-<div class="ex3">
-    <label for="item-3"><em><strong>~ Texture and Color</strong></em></label>
-    <input type="checkbox" name="one" id="item-3" checked = "true">
-    <div class="hide3">
-      <div class="inner3">
-        <h4 id="add-texture">Add texture</h4>
-        <ul>
-        <li>Add a SOP <code>texture</code> after the <code>Attribute Create</code></li>
-        </ul>
-        <p>Next we will need a Render Setup</p>
-        <p>To render and SOP to TOP (going from 3D to 2D)
-        You&#39;ll need 4 elements</p>
-        <ul>
-        <li>COMP <code>Geometry</code> (What is the form)</li>
-        <li>COMP <code>Camera</code> (Where is the eye)</li>
-        <li>COMP <code>light</code> (Where is the light coming from)</li>
-        <li><p>TOP <code>Render</code></p>
-        </li>
-        <li><p>Input your SOP Composition in the <code>Geometry</code> (For this you need to add the geo by right clicking the output of the SOP)</p>
-        </li>
-        <li>Chose where is the light coming from by tweaking the <code>light</code> parameters</li>
-        <li>Chose where the &quot;eye&quot; is by tweaking the <code>Camera</code> parameters</li>
-        </ul>
-        <p>You can now toggle the blue circle on the render to view the result</p>
-        <ul>
-        <li>Add MAT <code>Phong</code><ul>
-        <li>Drag and drop it on the geo, select `Material</li>
-        </ul>
-        </li>
-        <li>Add SOP <code>Noise</code><ul>
-        <li>Terminate with a <code>Null</code> </li>
-        <li>Drag and Drop the <code>Null</code> on the phong, select <code>Diffusion Map</code></li>
-        <li>Set the <code>Noise</code> <code>Period</code> to have the wanted gradient on the leaf</li>
-        </ul>
-        </li>
-        </ul>
-        <h3 id="colors">Colors</h3>
-        <ul>
-        <li>right click on the cable between the <code>Noise</code> and the <code>Null</code>, add a TOP <code>Lookup</code></li>
-        <li>Add a TOP <code>Ramp</code> and connect it to the second input of the lookup<ul>
-        <li>Set <code>saturation</code> and <code>hue</code> to taste for a leafy color (green / orange gradient for exemple)</li>
-        </ul>
-        </li>
-        </ul>
+            <p>For each family<br>
+                Darker Shade : Generator<br>
+                Lighter Shade : Filter</p>
+            <p><strong>Cable</strong><br>
+                Cable can only be plug between objects of the same family
+                When they are animated, they are streaming data (cooking)</p>
+            <p><strong>Links</strong><br>
+                Links are grey lines with moving arrow
+                They can be between different operator family</p>
         </div>
+    </div>
+
+
+    <div class="ex3">
+        <label for="item-1"><em><strong>~ Renderer SOP to TOP</strong></em></label>
+        <input type="checkbox" name="one" id="item-1" checked="true">
+        <div class="hide3">
+            <p>To render and SOP to TOP (going from 3D to 2D)
+                You&#39;ll need 4 elements</p>
+            <ul>
+                <li>COMP <code>Geometry</code> (What is the form)</li>
+                <li>COMP <code>Camera</code> (Where is the eye)</li>
+                <li>COMP <code>light</code> (Where is the light coming from)</li>
+                <li>TOP <code>Render</code></li>
+            </ul>
+            <p>Input your SOP Composition in the <code>Geometry</code> (For this you need to add the geo by right
+                clicking the output of the SOP)
+                Chose where is the light coming from by tweaking the <code>light</code> parameters
+                Chose where the &quot;eye&quot; is by tweaking the <code>Camera</code> parameters</p>
+
         </div>
-</div>  
-
-<div class="ex3">
-    <label for="imagetoparticle"><em><strong>~ Image to particle</strong></em></label>
-    <input type="checkbox" name="one" id="imagetoparticle" checked = "true">
-    <div class="hide3">
-      <div class="inner3">
-        <a
-        href="https://www.youtube.com/watch?v=TbM2_Cvygww&amp;list=PLSovrPWjLMt7TBkWl2cNhONrnYF9qkM2v&amp;index=48">note from this video</a>
-        <br>You can download my project <a href="/Media/240123ParticleFlower.4.toe">here</a>.
-
-        <ul>
-
-        <li>create uv map of the image
-        <ul>
-        <li>use a ramp with the same resolution as the image</li>
-        <li>Ramp -&gt; in1 Reorder</li>
-        <li>Ramp -&gt; in1 Flip (in flop mode)</li>
-        <li>Flip -&gt; in2 Reorder</li>
-        <li>Reorder/output green : input2</li>
-        <li>red - green - blue - alpha</li>
-        <li>Image -&gt; Level</li>
-        <li>Level -&gt; in3 Reorder (High B set 3D depth)</li>
-        <li>Reorder/Output Blue : Input3</li>
-        <li>Reorder -&gt; null (named particle_source)</li>
-        </ul></li>
-        </ul></li>
-        <li>Select -&gt; in2 Particlegpu
-        <ul>
-        <li>Select/TOP : image (drag &amp; drop)</li>
-        </ul></li>
-        <li>Particlegpu (Palette/tools/)
-        <ul>
-        <li>/Material/Material : line</li>
-        <li>DisplayBounds : Off</li>
-        <li>Smaller particle
-        <ul>
-        <li>Particle Size Min : ~0.05</li>
-        <li>Particle Size Max : ~0.2</li>
-        </ul></li>
-        <li>More Particle
-        <ul>
-        <li>Birth : 2000</li>
-        </ul></li>
-        <li>Life and Life variance : 4</li>
-        <li>Set turbulence to taste in /forces</li>
-        </ul></li>
-        </ul>
-
-        Adding a feedback network with some blur can be an interesting next step.
-
     </div>
+
+
+    <div class="ex3">
+        <label for="item-2"><em><strong>~ 3D Flower / Leaf</strong></em></label>
+        <input type="checkbox" name="one" id="item-2" checked="true">
+        <div class="hide3">
+            <h3 id="modeling-leaf">Modeling Leaf</h3>
+            <h4 id="create-a-line-bend-it-and-mirror-it">Create a line, Bend it and Mirror it</h4>
+            <ul>
+                <li>Add SOP <code>line</code> object</li>
+                <li>Add CHOP <code>Pattern</code> Object<ul>
+                        <li>Rename it&#39;s <code>channel</code> to <code>shape</code></li>
+                        <li>Add CHOP <code>null</code> terminaison</li>
+                    </ul>
+                </li>
+                <li>Add SOP <code>chopTo</code> after the <code>line</code>
+                    <ul>
+                        <li>drag&amp;drop the <code>null</code> in it</li>
+                        <li>Set the <code>Channel Scope</code> to <code>shape</code></li>
+                        <li>Set the <code>Attribute Scope</code> to P(1) (We want only one axis to be affected)</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>You should have an error on the chopTo, it is caused by the difference of point in the line and in the
+                pattern</p>
+            <ul>
+                <li>Add a CHOP constant<ul>
+                        <li>Rename it&#39;s <code>channel</code> to <code>segments</code>
+                            <ul>
+                                <li>Set it to 30</li>
+                            </ul>
+                        </li>
+                        <li>Add a CHOP null terminaison</li>
+                        <li>Toggle view mode on the null (bottom right &quot;+&quot; button)</li>
+                        <li>drag and drop the null to (CHOP Reference)<ul>
+                                <li>The length of the pattern</li>
+                                <li>The number of point of the Line</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>The Pattern and the line should now have the same number of point and a sine should appear in the chopTo
+                (If not, verify that you are looking at the right axis)</p>
+            <p>We now have a way to bend the line, let&#39;s custom the pattern to have a more leafy shape</p>
+            <ul>
+                <li>Set the pattern <code>Type</code> to <code>Ramp</code></li>
+                <li>Set the pattern Right <code>Taper</code> to around <code>0.2</code> to bend the function</li>
+                <li>Toggle the revert button to rotate the leaf toward the origin</li>
+            </ul>
+            <p>Once the half of the leaf have the correct shape, we can double it</p>
+            <ul>
+                <li>Add a SOP <code>Copy</code> After the <code>chopTo</code>
+                    <ul>
+                        <li>Set the <code>Number Of Copy</code> to <code>2</code></li>
+                        <li>Set the <code>Ry</code> <code>Scale</code> to <code>-1</code></li>
+                    </ul>
+                </li>
+            </ul>
+            <p>To fill the frame, you can use <code>skin</code> or <code>polypatch</code>, <code>polypatch</code> allows
+                for more precise control of the 3D geometry. To see the modification you can use the <code>w</code>
+                shortcut to toggle the wireframe view.</p>
+            <ul>
+                <li>Add SOP <code>Polypatch</code> after <code>Copy</code> </li>
+                <li>Add SOP <code>Attribute Create</code> after <code>Polypatch</code>
+                    <ul>
+                        <li>Toggle <code>Compute Normals</code></li>
+                    </ul>
+                </li>
+            </ul>
+            <h4 id="tweaking">Tweaking</h4>
+            <p>Interesting parameter to tweak to go closer to a flower petal :
+                <code>Pattern</code> <code>Taper Decay</code> &amp; <code>Amplitude</code>, disable the reverse
+                Play around by using the math chop and adding modulation, for an oak leaf, you could add sine and noise
+                to alter the edge of the model
+            </p>
+            <p>To Gain More Control, After the <code>Attribute Create</code></p>
+            <ul>
+                <li>add a SOP <code>Twist</code> that let you bend and twist the model</li>
+                <li>add a SOP <code>Transform</code> That let you rotate and resize the model</li>
+            </ul>
+            <h3 id="multiply-petal-to-make-a-flower">Multiply Petal to make a flower</h3>
+            <ul>
+                <li>Add SOP <code>Copy</code> after the <code>Transform</code></li>
+                <li>Add a SOP <code>Circle</code> , terminate it with a SOP <code>Null</code> and connect the
+                    <code>Null</code> to the second input of the <code>Copy</code>
+                    Copy will add a flower at each normal of the circle, to see the normals of the circle, right click
+                    and select display setting, you can then show the normals </li>
+            </ul>
+            <p>We need to point the normals in the right direction</p>
+            <ul>
+                <li>Add a SOP <code>Point</code> before the <code>Null</code>
+                    <ul>
+                        <li>Set <code>Keep Normal</code> to <code>Add Normal</code> and set click <code>+</code> juste
+                            below to unfold the parameters</li>
+                        <li>Set <code>nx</code> to <code>me.inputPoint.x</code></li>
+                        <li>Set <code>ny</code> to <code>me.inputPoint.y</code></li>
+                        <li>Set <code>nz</code> to <code>0</code></li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Now leaf should be facing outward
+                If the normals aren&#39;t correctly sized add a <code>facet</code> before the the <code>null</code> and
+                toggle <code>Make Normals unit Lenght</code></p>
+            <p>The <code>Number Of division</code> of the <code>Circle</code> let you set the number of petals, </p>
+            <ul>
+                <li>Add a <code>transform</code> before the <code>Null</code>
+                    <ul>
+                        <li><code>Uniform Scale</code> let you resize the circle, thus setting the spacing between the
+                            Petal</li>
+                        <li>Set <code>RotateX</code> to <code>90</code></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
     </div>
-</div>  
 
-<div class="ex3">
-    <label for="item-4"><em><strong>~ References</strong></em></label>
-    <input type="checkbox" name="one" id="item-4" checked = "true">
-    <div class="hide3">
-      <div class="inner3">
-    <ul>
-    <li>
-        <a href = "https://www.youtube.com/watch?v=4r44S5yJSQE"> Youtube Video - Beautiful L-system example</a>
-    </li>
-    <li>
-        <a href = "https://www.youtube.com/watch?v=IcxKGDidYcM&t=8s"> Youtube Video - 3D Flower Tutorial </a>
-    </li>
-    <li>
-        <a href = "https://www.youtube.com/watch?v=JfBNyy47YU8&t=554s"> Youtube Video - Render System Tutorial</a>
-    </li>
-    <li>
-        <a href = "https://www.elekktronaut.com">Website - Incredible TouchDesigner Tutorials on lots of stuff</a>
-    </li>
-    </ul> 
 
+
+    <div class="ex3">
+        <label for="item-3"><em><strong>~ Texture and Color</strong></em></label>
+        <input type="checkbox" name="one" id="item-3" checked="true">
+        <div class="hide3">
+            <div class="inner3">
+                <h4 id="add-texture">Add texture</h4>
+                <ul>
+                    <li>Add a SOP <code>texture</code> after the <code>Attribute Create</code></li>
+                </ul>
+                <p>Next we will need a Render Setup</p>
+                <p>To render and SOP to TOP (going from 3D to 2D)
+                    You&#39;ll need 4 elements</p>
+                <ul>
+                    <li>COMP <code>Geometry</code> (What is the form)</li>
+                    <li>COMP <code>Camera</code> (Where is the eye)</li>
+                    <li>COMP <code>light</code> (Where is the light coming from)</li>
+                    <li>
+                        <p>TOP <code>Render</code></p>
+                    </li>
+                    <li>
+                        <p>Input your SOP Composition in the <code>Geometry</code> (For this you need to add the geo by
+                            right clicking the output of the SOP)</p>
+                    </li>
+                    <li>Chose where is the light coming from by tweaking the <code>light</code> parameters</li>
+                    <li>Chose where the &quot;eye&quot; is by tweaking the <code>Camera</code> parameters</li>
+                </ul>
+                <p>You can now toggle the blue circle on the render to view the result</p>
+                <ul>
+                    <li>Add MAT <code>Phong</code>
+                        <ul>
+                            <li>Drag and drop it on the geo, select `Material</li>
+                        </ul>
+                    </li>
+                    <li>Add SOP <code>Noise</code>
+                        <ul>
+                            <li>Terminate with a <code>Null</code> </li>
+                            <li>Drag and Drop the <code>Null</code> on the phong, select <code>Diffusion Map</code></li>
+                            <li>Set the <code>Noise</code> <code>Period</code> to have the wanted gradient on the leaf
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="colors">Colors</h3>
+                <ul>
+                    <li>right click on the cable between the <code>Noise</code> and the <code>Null</code>, add a TOP
+                        <code>Lookup</code></li>
+                    <li>Add a TOP <code>Ramp</code> and connect it to the second input of the lookup<ul>
+                            <li>Set <code>saturation</code> and <code>hue</code> to taste for a leafy color (green /
+                                orange gradient for exemple)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+    <div class="ex3">
+        <label for="imagetoparticle"><em><strong>~ Image to particle</strong></em></label>
+        <input type="checkbox" name="one" id="imagetoparticle" checked="true">
+        <div class="hide3">
+            <div class="inner3">
+                <a
+                    href="https://www.youtube.com/watch?v=TbM2_Cvygww&amp;list=PLSovrPWjLMt7TBkWl2cNhONrnYF9qkM2v&amp;index=48">note
+                    from this video</a>
+                <br>You can download my project <a href="/Media/240123ParticleFlower.4.toe">here</a>.
+
+                <ul>
+
+                    <li>create uv map of the image
+                        <ul>
+                            <li>use a ramp with the same resolution as the image</li>
+                            <li>Ramp -&gt; in1 Reorder</li>
+                            <li>Ramp -&gt; in1 Flip (in flop mode)</li>
+                            <li>Flip -&gt; in2 Reorder</li>
+                            <li>Reorder/output green : input2</li>
+                            <li>red - green - blue - alpha</li>
+                            <li>Image -&gt; Level</li>
+                            <li>Level -&gt; in3 Reorder (High B set 3D depth)</li>
+                            <li>Reorder/Output Blue : Input3</li>
+                            <li>Reorder -&gt; null (named particle_source)</li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+                <li>Select -&gt; in2 Particlegpu
+                    <ul>
+                        <li>Select/TOP : image (drag &amp; drop)</li>
+                    </ul>
+                </li>
+                <li>Particlegpu (Palette/tools/)
+                    <ul>
+                        <li>/Material/Material : line</li>
+                        <li>DisplayBounds : Off</li>
+                        <li>Smaller particle
+                            <ul>
+                                <li>Particle Size Min : ~0.05</li>
+                                <li>Particle Size Max : ~0.2</li>
+                            </ul>
+                        </li>
+                        <li>More Particle
+                            <ul>
+                                <li>Birth : 2000</li>
+                            </ul>
+                        </li>
+                        <li>Life and Life variance : 4</li>
+                        <li>Set turbulence to taste in /forces</li>
+                    </ul>
+                </li>
+                </ul>
+
+                Adding a feedback network with some blur can be an interesting next step.
+
+            </div>
+        </div>
     </div>
-</div>  
-
-<br>
 
 
-<hr>
-<div class="center-container">
-    <a href="/index.html">- home - </a>
-</div>
+
+    <div class="ex3">
+        <label for="noise"><em><strong>~ Noise Sweet Spots</strong></em></label>
+        <input type="checkbox" name="one" id="noise" checked="true">
+        <div class="hide3">
+            <div class="inner3">
+                <p>
+                    Some glitchy sweet spot in the noise generator of touch designer.<br>
+                    Works well with the perlin and simplex.
+                </p>
+                <ul>
+                    <li>Period - <code>0</code></li>
+                    <li>Harmonics - <code>>3</code></li>
+                    <li>Harmonic Gain - <code>max</code></li>
+                    <li>Harmonic Spread - <code>tweak to find the spot</code></li>
+                </ul>
+                <figure>
+                    <img loading="lazy" src="Noise/blocky.jpeg" width="1280" height="655"
+                        style="image-rendering: pixelated;">
+                </figure>
+                <figure>
+                    <img loading="lazy" src="Noise/center.jpeg" width="1280" height="1280"
+                        style="image-rendering: pixelated;">
+                </figure>
+                <figure>
+                    <img loading="lazy" src="Noise/line.jpeg" width="1280" height="655"
+                        style="image-rendering: pixelated;">
+                </figure>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ex3">
+        <label for="item-4"><em><strong>~ References</strong></em></label>
+        <input type="checkbox" name="one" id="item-4" checked="true">
+        <div class="hide3">
+            <div class="inner3">
+                <ul>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=4r44S5yJSQE"> Youtube Video - Beautiful L-system
+                            example</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=IcxKGDidYcM&t=8s"> Youtube Video - 3D Flower Tutorial
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=JfBNyy47YU8&t=554s"> Youtube Video - Render System
+                            Tutorial</a>
+                    </li>
+                    <li>
+                        <a href="https://www.elekktronaut.com">Website - Incredible TouchDesigner Tutorials on lots of
+                            stuff</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <hr>
+    <div class="center-container">
+        <a href="/index.html">- home - </a>
+    </div>
 </body>
