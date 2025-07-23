@@ -38,7 +38,7 @@ Variables
 
 
 :root {
-    --font-sans: "Geist Mono", monospace;
+    --font-sans: "JetBrain", monospace;
     --font-serif: Playfair;
     /* Times,serif; */
     --spacing: 1.5em;
