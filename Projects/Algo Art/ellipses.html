@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>LNDF - Ellipses experimentation</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Experimenting with p5.js ellipse()" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+
+
+<a href = /./../Projects.html> <h1> Ellipses</h1></a>   
+<p>
+This Page gather some experimentation made with the <code>ellipse()</code> function of p5.js.
+</p>
+<p>
+<i>Here is the basic code used for those experimentations</i>
+</p>
+<div class="code-container">
+    <pre>
+<span class="line"><span style="color:#83A598">counter</span><span style="color:#8EC07C"> =</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FB4934">  for</span><span style="color:#EBDBB2"> (</span><span style="color:#83A598">i</span><span style="color:#8EC07C"> =</span><span style="color:#D3869B"> 750</span><span style="color:#A89984">;</span><span style="color:#83A598">i</span><span style="color:#8EC07C">></span><span style="color:#D3869B">20</span><span style="color:#A89984">;</span><span style="color:#83A598">i</span><span style="color:#8EC07C"> -=</span><span style="color:#D3869B"> 10</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">{</span><span style="color:#EBDBB2">   </span></span>
+<span class="line"><span style="color:#83A598">    counter</span><span style="color:#8EC07C">=</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">counter</span><span style="color:#8EC07C">+</span><span style="color:#D3869B">1</span><span style="color:#EBDBB2">)</span><span style="color:#8EC07C">%</span><span style="color:#D3869B">2</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">// offset = sin((i/400)*2*PI)*30;</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">// strokeWeight(2-((i/400)*1));</span></span>
+<span class="line"><span style="color:#FB4934">    if</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">counter</span><span style="color:#8EC07C">===</span><span style="color:#D3869B">1</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">{</span></span>
+<span class="line"><span style="color:#FABD2F">      ellipse</span><span style="color:#EBDBB2">(</span><span style="color:#D3869B">400</span><span style="color:#8EC07C">+</span><span style="color:#83A598">offset</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 400</span><span style="color:#8EC07C">+</span><span style="color:#83A598">offset</span><span style="color:#A89984">,</span><span style="color:#83A598"> i</span><span style="color:#A89984">,</span><span style="color:#83A598"> i</span><span style="color:#8EC07C">-</span><span style="color:#D3869B">20</span><span style="color:#8EC07C">-</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">i</span><span style="color:#8EC07C">/</span><span style="color:#D3869B">4</span><span style="color:#EBDBB2">))</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">    }</span><span style="color:#FB4934"> else</span><span style="color:#A89984">{</span></span>
+<span class="line"><span style="color:#FABD2F">      ellipse</span><span style="color:#EBDBB2">(</span><span style="color:#D3869B">400</span><span style="color:#8EC07C">+</span><span style="color:#83A598">offset</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 400</span><span style="color:#8EC07C">+</span><span style="color:#83A598">offset</span><span style="color:#A89984">,</span><span style="color:#83A598"> i</span><span style="color:#8EC07C">-</span><span style="color:#D3869B">20</span><span style="color:#A89984">,</span><span style="color:#83A598"> i</span><span style="color:#8EC07C">+</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">i</span><span style="color:#8EC07C">/</span><span style="color:#D3869B">0.4</span><span style="color:#EBDBB2">))</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">    }</span></span>
+<span class="line"><span style="color:#A89984">  }</span></span></code></pre>
+</pre>
+</div>
+
+
+<hr>
+<h3>Table of Content</h2>
+    
+    <ul>
+    <li><a href="#forloop">For Loop</a></li>
+    <li><a href="#nestedellipses">Nested Ellipses</a></li>
+    <li><a href="#higherdensity">Higher Density</a></li>
+    <li><a href="#offsetingcenter">Offseting Center</a></li>
+    <li><a href="#outofbounds">Out Of Bounds</a></li>
+    <li><a href="#cyclicmodulation">Cyclic Modulation</a></li>
+</ul>
+
+<hr>
+
+<h3 id="forloop">For Loop</h3>
+Basic planet kind of nested ellipses (lattitude / longitude).
+
+<figure>
+    <img src="Media/untitled (3).png">
+</figure>
+
+
+<figure>
+    <img src="Media/untitled (5).png">
+</figure>
+
+<h3 id="nestedellipses">Nested Ellipses</h3>
+Each ellipses fit in the previous ellipse, alternatively horizontaly and vertically.
+
+<figure>
+    <img src="Media/untitled (6).png">
+</figure>
+
+
+<figure>
+    <img src="Media/untitled (7).png">
+</figure>
+
+Here I introduce a gap in the horizontal fitting.
+<figure>
+    <img src="Media/untitled (8).png">
+</figure>
+
+
+<figure>
+    <img src="Media/untitled (9).png">
+</figure>
+
+<h3 id="higherdensity">Higher Density</h3>
+Smaller increment in the for loops for closer lines and more iterations
+
+<figure>
+    <img src="Media/untitled (11).png">
+</figure>
+
+
+
+<figure>
+    <img src="Media/untitled (12).png">
+</figure>
+
+
+<h3 id="offsetingcenter">Offseting center</h3>
+Offsetting the center of the ellipse more and more during the for loop.
+<figure>
+    <img src="Media/untitled (15).png">
+</figure>
+
+
+
+<figure>
+    <img src="Media/untitled (16).png">
+</figure>
+
+
+<figure>
+    <img src="Media/untitled (17).png">
+</figure>
+
+<h3 id="outofbounds">Out of Bound</h3>
+Ellipses slowly starting to be parallel lines.
+<figure>
+    <img src="Media/untitled (18).png">
+</figure>
+
+<h3 id="cyclicmodulation">Cyclic Modulation</h3>
+
+Using sines to displace the center of the ellipse during the loop and modifying the stroke weight.
+<figure>
+    <img src="Media/untitled (19).png">
+</figure>
+
+
+
+<!-- FOOTER -------------------------- -->
+<hr>
+<div class="center-container">
+    <a href="/index.html">- home - </a>
+</div>
+</html>

@@ -13,6 +13,7 @@ Variables
         --color-dim: #606060;
         --title-color: #42403e;
         --h3-color: #42403e;
+        --code: #32302f;
     }
 
     .title-svg {
@@ -23,6 +24,7 @@ Variables
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --code: #2b2a29;
         --color-default: #bab6b1;
         --color-bg: #2f2e2d;
         --title-color: #bab6b1;
@@ -290,13 +292,13 @@ form:input {
 }
 
 .code-container {
-    
-    background-color: #00000025;
-    padding: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
+    color: #7C6F64;
+    background-color: var(--code);
     margin: 10px;
     border-radius: 10px;
+    padding: 15px;
+    padding-left: 15px;
+    padding-right: 25px;
     font-family: var(--font-sans);
     text-wrap: nowrap;
     overflow-x: scroll;
