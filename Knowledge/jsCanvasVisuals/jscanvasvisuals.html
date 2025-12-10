@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>LNDF - Canvas experimentation</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Experimenting with js canvas" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+
+
+<script>
+    function makeHiPPI(canvas, width, height) {
+            const ratio = window.devicePixelRatio;
+
+            canvas.width = width * ratio;
+            canvas.height = height * ratio;
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+            canvas.getContext("2d").scale(ratio, ratio);
+
+            return canvas;
+        }
+
+        function drawEllipse(context, centerx, centery, width, height){
+            context.beginPath();
+            context.ellipse(centerx, centery, width, height, 0, 0, 2 * Math.PI);
+            context.stroke();
+        }     
+</script>
+
+<a href = /./../Knowledge.html> <h1> js Canvas</h1></a>   
+
+<p>
+    This page is intented as a 2-3 hours workshop where you'll learn how to make generative visuals using javascript canvas.
+</p>
+
+<h3>Table of content</h3>
+
+<ul>
+    <li><a href="#Introduction">Introduction</a></li>
+    <li><a href="#webintroduction">Web Tools</a></li>
+    <li><a href="#displayingvisuals">Displaying visuals</a></li>
+    <li><a href="#elaboratingvisuals">Elaborating visuals</a></li>
+    <li><a href="#abitofstructure">A bit of Structure</a></li>
+    <li><a href="#dynamicwindowresizing">Dynamic window resizing</a></li>
+    <li><a href="#addingparameters">Adding Parameters</a></li>
+    <li><a href="#animations">Animations</a></li>
+    <li><a href="#exercices">Exercices</a></li>
+</ul>
+
+<hr>
+<h3 id="Introduction">Introduction</h3>
+
+For this worshop, you'll need :
+</p>
+<ul>
+    <li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server">The live preview extension</a></li>
+</ul>
+<p>
+    To get a good grasp on the inner working of the code I recommend following the steps, but if you're lost, feel free to refer to the code of those working examples
+    <ul>
+        <li><a href="/Knowledge/jsCanvasVisuals/ellipses.html">Nested Ellipses</a> - <a href="/Knowledge/jsCanvasVisuals/ellipses.html" download="ellipses.html">Code</a></li>
+        <li><a href="/Knowledge/jsCanvasVisuals/lines.html">Lines</a> - <a href="/Knowledge/jsCanvasVisuals/lines.html" download="lines.html">Code</a></li>
+        <li><a href="/Knowledge/jsCanvasVisuals/font.html">Font</a> - <a href="/Knowledge/jsCanvasVisuals/font.html" download="font.html">Code</a></li>
+    </ul>
+    </p>
+
+
+<div style="background-color: rgba(183, 113, 97, 0.456); border-radius: 10px; padding:20px">
+   <span style="color:rgb(234, 81, 16); font-size: large;"> <b><i>Disclaimer</i></b> </span>
+   <p>
+   All the code below doesn't reflect good coding practices, all of this <i>works</i>, enough to get a image file at the output. 
+   I wouldn't recommend any of this for a <i>serious</i> project, as the optimisation is subpar.
+   </p>
+
+</div>
+<p>Don't hesitate to <a href="mailto:thomasvguillory@gmail.com">reach out to me</a> if you have any question !</p>
+
+
+<hr>
+<h3 id="webintroduction">Web Tools</h3>
+
+<p>A website revolves around three languages</p>
+
+<ul>
+    <li><code>HTML</code> - Content of the page</li>
+    <li><code>CSS</code> - Style of the page</li>
+    <li><code>Javascript</code> - Dynamic hand modifying the data in the HTML and CSS</li>
+</ul>
+<p>
+    In big websites you'll have three files, one <code>.html</code>, one <code>.css</code> and one <code>.js</code> but in fact you can have everything in the same file using <code>&lt;style&gt;</code> for the <code>CSS</code> and <code>&lt;script&gt;</code> for the <code>JS</code> which is much more convenient for this kind of little project.
+</p>
+
+<ul>
+    <li><a href="https://motherfuckingwebsite.com/">Website without CSS</a></li>
+    <li><a href="http://bettermotherfuckingwebsite.com/">Website with a little CSS</a></li>
+</ul>
+
+<div class="ex3">
+    <label for="webtools"><i>~ Web tools vs World Wide Web</i></label>
+    <input type="checkbox" name="one" id="webtools" checked="true">
+    <div class="hide3">
+<p>
+    We will not be using the internet per se, but we will be using the same languages and tools that you would use to create a website.
+Those languages are made to be easily interpreted by the browser that does the heavy lifting of discussing with your operating system 
+(that way you don't have to manage the memory, or address the pixel one by one) but everything will be done offline. 
+Instead of having a distant server that answer your query and return instructions, your computer will act as both (the client and the server, technically). 
+You can notice that when you enable the preview later on, the browser actually connects to <code>http://127.0.0.1:3000/index.html</code>, <code>127.0.0.1</code> actually being the ip adress of yourself !
+</p>
+    </div>
+</div>
+<p>
+
+    <hr>
+Let's start by :
+</p>
+<ol>
+<li>Creating a folder on the desktop </li>
+<li>Opening it with vscode (<code>cmd+O</code>, <code>ctrl+O</code>)</li>
+<li>Creating a new file (<code>cmd+n</code>, <code>ctrl+n</code>)</li>
+<li>Saving it (<code>cmd+s</code>, <code>ctrl+s</code>) as <code>index.html</code></li>
+</ol>
+
+<p>We can now add a bunch of things to the file</p>
+
+<div class="code-container">
+    <!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=html# -->
+<pre>
+<span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#EBDBB2">Hello World !</span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span></code></pre>
+</div>
+
+<p>
+    Click on the little icon with a <i>magnifier glass</i> in the top right to open the preview, you should see a page with <code>Hello World !</code> written.
+</p>
+
+<p>
+    Let's add styles to showcase what the <code>CSS</code> is about
+</p>
+
+    <div class="code-container">
+<!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=html# -->
+<pre><span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">        &#x3C;</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#8EC07C">            html</span><span style="color:#A89984">{</span></span>
+<span class="line"><span style="color:#FE8019">                color</span><span style="color:#A89984">:</span><span style="color:#D3869B"> red</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">            }</span></span>
+<span class="line"><span style="color:#83A598">        &#x3C;/</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#EBDBB2">Hello World !</span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span></code></pre>
+    </div>
+
+<p>
+    Your text should now be red.
+Now let's use javascript !
+</p>
+
+<hr>
+
+<h3 id="displayingvisuals">Displaying Visuals</h3>
+
+<p>
+    In the body part of the html, let's create a canvas with <code>id="canvas"</code> (which will let us refer to it later), and a width and height of 400 pixels.
+</p>
+
+<p>
+    Then, let's add a <code>&lt;script&gt;</code> after the body. This is where the javascript will live. We can retrieve the <code>&lt;canvas&gt;</code> item by refering to its name, and get its graphical <code>context</code> (it's where all the graphical data about the canvas are). 
+    Once we have this, we can already draw on the canvas ! Let's use the function <code>ellipse()</code> to draw a circle.
+</p>
+
+<div class="code-container">
+    <!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=html# -->
+<pre><span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">        &#x3C;</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">        &#x3C;/</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;/</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">        &#x3C;</span><span style="color:#8EC07C;font-weight:bold">canvas</span><span style="color:#FABD2F"> id</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">canvas</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> width</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">400</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> height</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">400</span><span style="color:#A89984">"</span><span style="color:#83A598">>&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">canvas</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;/</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;</span><span style="color:#8EC07C;font-weight:bold">script</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">        canvas</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> document</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getElementById</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">canvas</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">        context</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> canvas</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getContext</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">2d</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">        context</span><span style="color:#A89984">.</span><span style="color:#FABD2F">beginPath</span><span style="color:#EBDBB2">()</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">        context</span><span style="color:#A89984">.</span><span style="color:#FABD2F">ellipse</span><span style="color:#EBDBB2">(</span><span style="color:#D3869B">100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 2</span><span style="color:#8EC07C"> *</span><span style="color:#83A598"> Math</span><span style="color:#A89984">.</span><span style="color:#83A598">PI</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">        context</span><span style="color:#A89984">.</span><span style="color:#FABD2F">stroke</span><span style="color:#EBDBB2">()</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;/</span><span style="color:#8EC07C;font-weight:bold">script</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span></code></pre>
+</div>
+
+<p>
+    <i>If you have a high resolution screen, the cricle might appear blurry, we'll learn how to fix this later, see <a href="#dynamicwindowresizing"> Dynamically resizing window</a>.</i>
+</p>
+
+<div style="background-color: rgba(97, 150, 183, 0.456); border-radius: 10px; padding:20px">
+   <span style="color:rgba(26, 76, 239, 0.456); font-size: large;"> <b><i>Debugging using the console</i></b> </span>
+   <p>
+    If you want to check the value of a variable, you'll need the console.
+Head over to the devtool pane (hidden in the burger menu in the top right of the preview window).
+Once you focus the console, you can add <code>console.log(1+1)</code> somewhere in the javascript, you should see <code>2</code> appear in the console !
+The console of visual studio code contains a lot of other informations, if you want something cleaner, you can open the preview in a dedicated browser (either by copy pasting the url, or by clicking "<i>Open in Browser</i>" in the burger menu), and open the inspector (<code>cmd+alt+i</code> on Firefox and Chrome).
+   </p>
+
+</div>
+
+<h4>Creating a function to make the drawing of circle more convenient</h4>
+<p>
+    By wrapping the ellipse in a function, we can make its use easier. 
+    Also, writing this kind of wrapper is a great way to approach a function differently, leading to different result, see the <a href="/Knowledge/jsCanvasVisuals/lines.html">Lines example</a> - <a href="/Knowledge/jsCanvasVisuals/lines.html" download="lines.html">(Code)</a> where I draw lines from the center instead of the default <code>pointA->pointB</code> approach.
+</p>
+<div class="code-container">
+    <!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=html# -->
+<pre><span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">script</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#FE8019">        function</span><span style="color:#FABD2F"> drawEllipse</span><span style="color:#A89984">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#83A598"> centerx</span><span style="color:#A89984">,</span><span style="color:#83A598"> centery</span><span style="color:#A89984">,</span><span style="color:#83A598"> width</span><span style="color:#A89984">,</span><span style="color:#83A598"> height</span><span style="color:#A89984">){</span></span>
+<span class="line"><span style="color:#83A598">            context</span><span style="color:#A89984">.</span><span style="color:#FABD2F">beginPath</span><span style="color:#EBDBB2">()</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">            context</span><span style="color:#A89984">.</span><span style="color:#FABD2F">ellipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">centerx</span><span style="color:#A89984">,</span><span style="color:#83A598"> centery</span><span style="color:#A89984">,</span><span style="color:#83A598"> width</span><span style="color:#A89984">,</span><span style="color:#83A598"> height</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 2</span><span style="color:#8EC07C"> *</span><span style="color:#83A598"> Math</span><span style="color:#A89984">.</span><span style="color:#83A598">PI</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">            context</span><span style="color:#A89984">.</span><span style="color:#FABD2F">stroke</span><span style="color:#EBDBB2">()</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#83A598">        canvas</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> document</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getElementById</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">canvas</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">        context</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> canvas</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getContext</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">2d</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FABD2F">        drawEllipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">script</span><span style="color:#83A598">></span></span></code></pre>
+</div>
+<div class="center-container">
+<canvas id="ellipse" width="200" height="200" ></canvas>
+<script>
+        canvas = document.getElementById("ellipse");
+        canvas=makeHiPPI(canvas, 200, 200);
+        context = canvas.getContext("2d");
+        drawEllipse(context, 100, 100, 50, 50, 0, 0, 2 * Math.PI);
+</script>
+</div>
+<h4>Saving the picture</h4>
+
+Open the preview in a brower, right click on the canvas and select <code>save as...</code>.
+As simple as that !
+
+<hr>
+
+<h3 id="elaboratingvisuals">Elaborating Visuals</h3>
+
+<h4>Using for loops</h4>
+<p>
+A <code>for</code> loop is a simple way to make complex geometrical pattern emerge.
+It allows you to repeat a part of the code while making the parameter evolve.
+For example to make, 5 concentric circles with 10 pixels between each one of them, you can either write
+</p>
+<div class="code-container">
+<!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=javascript# -->
+<pre><span class="line"><span style="color:#FABD2F">drawEllipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FABD2F">drawEllipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 110</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 110</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FABD2F">drawEllipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 120</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 120</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FABD2F">drawEllipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 130</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 130</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FABD2F">drawEllipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 140</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 140</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span></code></pre>
+</div>
+<p>
+or, by using a <code>for</code> loop
+</p>
+<div class="code-container">
+    <!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=javascript# -->
+<pre><span class="line"><span style="color:#FB4934">for</span><span style="color:#EBDBB2"> (</span><span style="color:#83A598">i</span><span style="color:#8EC07C"> =</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">;</span><span style="color:#83A598"> i</span><span style="color:#8EC07C">!=</span><span style="color:#D3869B">5</span><span style="color:#A89984">;</span><span style="color:#83A598"> i</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> i</span><span style="color:#8EC07C">+</span><span style="color:#D3869B">1</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">{</span></span>
+<span class="line"><span style="color:#FABD2F">	drawEllipse</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">context</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#8EC07C">+</span><span style="color:#83A598">i</span><span style="color:#8EC07C">*</span><span style="color:#D3869B">10</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 100</span><span style="color:#8EC07C">+</span><span style="color:#83A598">i</span><span style="color:#8EC07C">*</span><span style="color:#D3869B">10</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">}</span></span></code></pre>
+</div>
+
+<div class="center-container">
+<canvas id="concentric" width="200" height="200" ></canvas>
+<script>
+        canvas = document.getElementById("concentric");
+        canvas=makeHiPPI(canvas, 200, 200);
+        context = canvas.getContext("2d");
+        for (i = 0; i!=5; i = i+1){
+	    drawEllipse(context, 100, 100, 50+i*10, 50+i*10);
+}
+</script>
+</div>
+<p>
+    Which is more malleable. If you want to make a change, you don't have to edit each line separately, and you can easily make hundreds of iterations !
+    
+</p>
+<div class="center-container">
+<canvas id="concentricmore" width="200" height="200" ></canvas>
+<script>
+        canvas = document.getElementById("concentricmore");
+        canvas=makeHiPPI(canvas, 200, 200);
+        context = canvas.getContext("2d");
+        for (i = 0; i!=50; i = i+1){
+	    drawEllipse(context, 100, 100, 0+i*5, 0+i*5);
+}
+</script>
+</div>
+<br>
+<div style="background-color: rgba(183, 113, 97, 0.456); border-radius: 10px; padding:20px">
+   <span style="color:rgb(234, 81, 16); font-size: large;"> <b><i>Crash</i></b> </span>
+   <p>
+   The preview extension reload the page for every character you type.
+    While writing the <code>for</code> loop, the page might load in a configuration that create an infinite loop, this will break the preview server. 
+    You'll probably have to quit and reopen vscode.
+   </p>
+
+</div>
+
+<h4>Making a grid</h4>
+<p>
+One interesting path to explore with generative drawing is the <i>grid</i>.
+Once you've divided your canvas into divisions, it's easy to map some variable on the properties of each form. For example, fill every division with an ellipse, then increase the width of the ellipse depending on its posisition on the x axis.
+</p>
+Here is a <a href="https://www.gorillasun.de/blog/an-algorithm-for-irregular-grids/">very cool article</a> about grid art.
+<p>
+    Some source of data to make the pattern evolve in space
+</p>
+<ul>
+    <li>Distance to some point</li>
+    <li>Angle to some point</li>
+    <li>Evolution on the x or y axis</li>
+</ul>
+
+Once you have a function, you can modify with e.g.
+<ul>
+<li><code>Math.sin</code>/<code>Math.cos</code>/etc...</li>
+<li>Modulo</li>
+<li>Randomization(<code>Math.random()</code>)</li>
+<li>Conditionals</li>
+</ul>
+
+     You'll need to train your functions !
+     To work on it, <a href="https://www.desmos.com/calculator">Desmos</a> is a good website. The native <i>Grapher</i> on Macos is also underrated !
+
+
+	<p>
+    The <a href="/Knowledge/jsCanvasVisuals/lines.html">Lines example</a> - <a href="/Knowledge/jsCanvasVisuals/lines.html" download="lines.html">(Code)</a> is good strating point to experiment with grids, I use angle to some point + <code>sin()</code> modifier for this one.
+    </p>
+    <p>
+        As a little example, here is a grid of circles where the x axis defines the width of cricles + offset their positions, modified by a <code>sin()</code> function
+    </p>
+
+<div class="center-container">
+    <div style="/*position: absolute;*/
+            background: #11111122;
+            /* top: 2rem; */
+            right: 0.0rem;
+            /* left: 0.1rem; */
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 1em;">
+    <label for="circleamount">Divisions</label>
+    <input type="range" id="griddiv" min="2" max="20" step="1" value="10" oninput="generategrid()" style="position:relative; left:0">
+    <label for="warp">Warp</label>
+    <input type="range" id="warp" min="0" max="1" step="0.01" value="0.5" oninput="generategrid()" style="position:relative; left:0">
+</div>
+<canvas id="gridcanvas" width="200" height="200" ></canvas>
+<script>
+    gridcanvas = document.getElementById("gridcanvas");
+    gridcanvas=makeHiPPI(gridcanvas, 200, 200);
+    gridcontext = gridcanvas.getContext("2d");
+    
+    
+    function generategrid(){
+            gridcontext.clearRect(0, 0, gridcanvas.width, gridcanvas.height);
+            divisions = Number(document.getElementById("griddiv").value);
+            warp = Number(document.getElementById("warp").value);
+            gridw = gridcanvas.width;
+            gridh = gridcanvas.height;
+            divx = gridw / divisions;
+            divy = gridh / divisions;
+            for(x = 0; x<gridw; x = x+divx){
+                temp = x / gridw;
+                temp = temp/2 + warp *(Math.sin(10*temp)/10);
+                temp = temp *gridw;
+                for(y = 0; y<gridh; y = y+divy){
+                    drawEllipse(gridcontext, temp, y, divx/2 + (temp/2)*warp, divy/2);
+                }
+            }
+
+        }
+        generategrid()
+</script>
+</div>
+
+<h4>General considerations</h4>
+
+<p>
+A generative script is always evolving, remember to take screenshots or make git commits when you find something interesting. 
+<i>Take notes</i> ! Think about what is working well in what your doing, see the potential openings, plan your next step.
+</p>
+<p>
+Clean your code from time to time. It's not necessarily the most interesting part, but it's a good way to learn new stuff and to spark inspiration by spotting new occasions. It also makes it easier to get back in the code after a few days.
+</p>
+
+<hr>
+
+<h3 id="abitofstructure">A bit of structure</h3>
+
+Taking about cleaning the code, let's structure a bit what we already have, before making the code reactive to inputs.
+What we want to do is to put the visual processing in a dedicated function, to differenciate the initialisation code that will be called once (creating a canvas, init variable, etc..) , and the visual generation code, that will be called on every update.
+
+<div class="code-container">
+<!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=html# -->
+<pre><span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">	&#x3C;</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">		&#x3C;</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#928374;font-style:italic">			/* CSS */</span></span>
+<span class="line"><span style="color:#83A598">		&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">	&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">	&#x3C;</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">		&#x3C;</span><span style="color:#8EC07C;font-weight:bold">div</span><span style="color:#FABD2F"> class</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">params</span><span style="color:#A89984">"</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#928374;font-style:italic">		&#x3C;!-- list of parameter--></span></span>
+<span class="line"><span style="color:#83A598">		&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">div</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">                &#x3C;</span><span style="color:#8EC07C;font-weight:bold">canvas</span><span style="color:#FABD2F"> id</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">canvas</span><span style="color:#A89984">"</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">	&#x3C;</span><span style="color:#8EC07C;font-weight:bold">body</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">	&#x3C;</span><span style="color:#8EC07C;font-weight:bold">script</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#928374;font-style:italic">	// init stuff</span></span>
+<span class="line"><span style="color:#83A598">	canvas</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> document</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getElementById</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">canvas</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#928374;font-style:italic">	// geometrical functions</span></span>
+<span class="line"><span style="color:#FE8019">	function</span><span style="color:#FABD2F"> drawEllipse</span><span style="color:#A89984">(</span><span style="color:#EBDBB2">...</span><span style="color:#A89984">){</span><span style="color:#8EC07C">...</span><span style="color:#A89984">}</span></span>
+<span class="line"><span style="color:#EBDBB2">	</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">	// drawing</span></span>
+<span class="line"><span style="color:#FE8019">	function</span><span style="color:#FABD2F"> generate</span><span style="color:#A89984">(){</span><span style="color:#8EC07C"></span><span style="color:#A89984"></span></span>
+<span class="line"><span style="color:#83A598">	context</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> canvas</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getContext</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">2d</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+        ...
+<span class="line"><span style="color:#FE8019">	</span><span style="color:#FABD2F"></span><span style="color:#A89984"></span><span style="color:#8EC07C"></span><span style="color:#A89984">}</span></span>
+<span class="line"><span style="color:#EBDBB2">	</span></span>
+<span class="line"><span style="color:#FABD2F">	generate</span><span style="color:#EBDBB2">() </span><span style="color:#928374;font-style:italic">// you need to call the function at least once</span></span>
+<span class="line"><span style="color:#83A598">	&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">script</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">html</span><span style="color:#83A598">></span></span></code></pre>
+</div>
+
+<hr>
+<h3 id="dynamicwindowresizing">Dynamic window resizing</h3>
+<p>
+    Now that we have separated the visual generation function from the technical context, we can work on some improvements, for example, resizing the visual when we resize the browser window. This will also allow us to fix the blur problem that can arise on high resolution screens.
+</p>
+<p>
+    To do this we'll remove the canvas we have in the <code>&lt;body&gt;</code>, we'll create it in the javascript to have more freedom. Replace the init stuff by those lines
+</p>
+<div class="code-container">
+<pre><span class="line"><span style="color:#FE8019">function</span><span style="color:#FABD2F"> makeHiPPI</span><span style="color:#A89984">(</span><span style="color:#83A598">canvas</span><span style="color:#A89984">,</span><span style="color:#83A598"> width</span><span style="color:#A89984">,</span><span style="color:#83A598"> height</span><span style="color:#A89984">)</span><span style="color:#A89984"> {</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">    // get the info from the screen to correct the ratio</span></span>
+<span class="line"><span style="color:#FE8019">    const</span><span style="color:#83A598"> ratio</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> window</span><span style="color:#A89984">.</span><span style="color:#83A598">devicePixelRatio</span><span style="color:#A89984">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#83A598">    canvas</span><span style="color:#A89984">.</span><span style="color:#83A598">width</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> width</span><span style="color:#8EC07C"> *</span><span style="color:#83A598"> ratio</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">    canvas</span><span style="color:#A89984">.</span><span style="color:#83A598">height</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> height</span><span style="color:#8EC07C"> *</span><span style="color:#83A598"> ratio</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">    canvas</span><span style="color:#A89984">.</span><span style="color:#83A598">style</span><span style="color:#A89984">.</span><span style="color:#83A598">width</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> width</span><span style="color:#8EC07C"> +</span><span style="color:#A89984"> "</span><span style="color:#B8BB26">px</span><span style="color:#A89984">"</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">    canvas</span><span style="color:#A89984">.</span><span style="color:#83A598">style</span><span style="color:#A89984">.</span><span style="color:#83A598">height</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> height</span><span style="color:#8EC07C"> +</span><span style="color:#A89984"> "</span><span style="color:#B8BB26">px</span><span style="color:#A89984">"</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">    canvas</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getContext</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">2d</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">.</span><span style="color:#FABD2F">scale</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">ratio</span><span style="color:#A89984">,</span><span style="color:#83A598"> ratio</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FB4934">    return</span><span style="color:#83A598"> canvas</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FE8019">function</span><span style="color:#FABD2F"> updatesize</span><span style="color:#A89984">()</span><span style="color:#A89984"> {</span></span>
+<span class="line"><span style="color:#83A598">    canvas</span><span style="color:#8EC07C"> =</span><span style="color:#FABD2F"> makeHiPPI</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">canvas</span><span style="color:#A89984">,</span><span style="color:#83A598"> window</span><span style="color:#A89984">.</span><span style="color:#83A598">innerWidth</span><span style="color:#A89984">,</span><span style="color:#83A598"> window</span><span style="color:#A89984">.</span><span style="color:#83A598">innerHeight</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FABD2F">    generate</span><span style="color:#EBDBB2">()</span><span style="color:#A89984">;</span><span style="color:#928374;font-style:italic"> // update the visual once the canva is resized</span></span>
+<span class="line"><span style="color:#A89984">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#928374;font-style:italic">// init</span></span>
+<span class="line"><span style="color:#FE8019">var</span><span style="color:#83A598"> canvas</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> document</span><span style="color:#A89984">.</span><span style="color:#FABD2F">createElement</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">canvas</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span><span style="color:#928374;font-style:italic"> // create a canvas</span></span>
+<span class="line"><span style="color:#FABD2F">updatesize</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">window</span><span style="color:#A89984">.</span><span style="color:#83A598">innerWidth</span><span style="color:#A89984">,</span><span style="color:#83A598"> window</span><span style="color:#A89984">.</span><span style="color:#83A598">innerHeight</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span><span style="color:#928374;font-style:italic"> // sets its size</span></span>
+<span class="line"><span style="color:#83A598">document</span><span style="color:#A89984">.</span><span style="color:#83A598">body</span><span style="color:#A89984">.</span><span style="color:#FABD2F">appendChild</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">canvas</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span><span style="color:#928374;font-style:italic"> // add the canvas to the webpage</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#83A598">window</span><span style="color:#A89984">.</span><span style="color:#FABD2F">addEventListener</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">resize</span><span style="color:#A89984">"</span><span style="color:#A89984">,</span><span style="color:#83A598"> updatesize</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span><span style="color:#928374;font-style:italic"> // update the size on each window resize</span></span></code></pre>
+</div>
+
+<hr>
+
+
+
+
+<h3 id="addingparameters">Adding Parameters</h3>
+
+<p>
+    Changing value by hand in the code is a good way to prototype ideas, but adding parameters will let you iterate quicker, and find more sweet spots in the interactions of multiple parameters.
+    To call our <code>generate()</code> function each time a parameter is modified, we'll use <code>oninput="generate()"</code> in the parameter description.
+</p>
+
+<p>
+    We'll put all the parameters in a dedicated division in the <code>&lt;body&gt;</code>, this will let us link a style to the group.
+</p>
+
+<div class="code-container">
+<!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=html# -->
+<pre><span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">div</span><span style="color:#FABD2F"> class</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">params</span><span style="color:#A89984">"</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#928374;font-style:italic">&#x3C;!-- The class is an id to change the style of the element --></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">label</span><span style="color:#FABD2F"> for</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">param</span><span style="color:#A89984">"</span><span style="color:#83A598">></span><span style="color:#EBDBB2">param</span><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">label</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">input</span><span style="color:#FABD2F"> type</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">range</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> id</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">param</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> min</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">0</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> max</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">1</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> step</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">0.01</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> value</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#B8BB26">0.5</span><span style="color:#A89984">"</span><span style="color:#FABD2F"> oninput</span><span style="color:#A89984">=</span><span style="color:#A89984">"</span><span style="color:#FABD2F">generate</span><span style="color:#B8BB26">()</span><span style="color:#A89984">"</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">div</span><span style="color:#83A598">></span></span></code></pre>
+
+</div>
+
+
+
+<p>
+    Now, you should have a slider at the top of the window, which is not super convenient nor pretty. You can make a little menu that hover over the visual with css. If you need them to disappear, you can add a line <code>opacity:0;</code> to the code below.
+</p>
+
+<div class="code-container">
+    <!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=html# -->
+<pre><span class="line"><span style="color:#83A598">&#x3C;</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#A89984">       .</span><span style="color:#B8BB26">params</span><span style="color:#A89984"> {</span></span>
+<span class="line"><span style="color:#FE8019">            position</span><span style="color:#A89984">:</span><span style="color:#D3869B"> absolute</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FE8019">            background</span><span style="color:#A89984">:</span><span style="color:#A89984"> #</span><span style="color:#D3869B">11111122</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">            /* top: 2rem; */</span></span>
+<span class="line"><span style="color:#FE8019">            right</span><span style="color:#A89984">:</span><span style="color:#D3869B"> 0.0</span><span style="color:#B8BB26">rem</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">            /* left: 0.1rem; */</span></span>
+<span class="line"><span style="color:#FE8019">            display</span><span style="color:#A89984">:</span><span style="color:#D3869B"> flex</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FE8019">            flex-direction</span><span style="color:#A89984">:</span><span style="color:#D3869B"> column</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FE8019">            padding</span><span style="color:#A89984">:</span><span style="color:#D3869B"> 1</span><span style="color:#B8BB26">rem</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FE8019">            border-radius</span><span style="color:#A89984">:</span><span style="color:#D3869B"> 1</span><span style="color:#B8BB26">em</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">        }</span></span>
+<span class="line"><span style="color:#83A598">    &#x3C;/</span><span style="color:#8EC07C;font-weight:bold">style</span><span style="color:#83A598">></span></span>
+<span class="line"><span style="color:#83A598">&#x3C;/</span><span style="color:#8EC07C;font-weight:bold">head</span><span style="color:#83A598">></span></span></code></pre>
+</div>
+
+<p>
+    Once the parameter exists in the <code>HTML</code>, you can retrieve its value in the script. I recommend doing all the parameter retrieval at the same place, in the beggining of the <code>generate</code> funtion
+</p>
+
+<div class="code-container">
+<!-- Code is generated by Code to Markup. Go there if you want to update it: https://psd-coder.github.io/code-to-markup/?h=shiki&t=gruvbox-dark-hard&l=javascript# -->
+<pre><span class="line"><span style="color:#FE8019">function</span><span style="color:#FABD2F"> generate</span><span style="color:#A89984">()</span><span style="color:#A89984"> {</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">            //INIT </span></span>
+<span class="line"><span style="color:#FE8019">            var</span><span style="color:#83A598"> width</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> window</span><span style="color:#A89984">.</span><span style="color:#83A598">innerWidth</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FE8019">            var</span><span style="color:#83A598"> height</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> window</span><span style="color:#A89984">.</span><span style="color:#83A598">innerHeight</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">            ctx</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> canvas</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getContext</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">2d</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">            ctx</span><span style="color:#A89984">.</span><span style="color:#FABD2F">clearRect</span><span style="color:#EBDBB2">(</span><span style="color:#D3869B">0</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">,</span><span style="color:#83A598"> width</span><span style="color:#A89984">,</span><span style="color:#83A598"> height</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">            //PARAMS</span></span>
+<span class="line"><span style="color:#FE8019">            var</span><span style="color:#83A598"> rotation</span><span style="color:#8EC07C"> =</span><span style="color:#FABD2F"> Number</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">document</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getElementById</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">rotation</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">.</span><span style="color:#83A598">value</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FE8019">            var</span><span style="color:#83A598"> div</span><span style="color:#8EC07C"> =</span><span style="color:#FABD2F"> Number</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">document</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getElementById</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">division</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">.</span><span style="color:#83A598">value</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">            //VISUAL</span></span>
+<span class="line"><span style="color:#928374;font-style:italic">            ...</span></span>
+</div>
+
+<p>
+    Some important detail in this code :
+</p>
+    <ul>
+        <li>The <code>clearRect()</code> function lets us clean the slate before drawing again with new parameters (remove it and see what happens !)</li>
+        <li>The <code>Number()</code> function convert the parameter value to a number. The value is stored as a string of text by default, which can create insidious bugs when making mathematical operations (e.g. if <code>param = "0.10"</code> and <code>variable = 0.10</code>, then <code>param+variable=0.100.10</code>)</li>
+    </ul>
+
+<div class="center-container">
+    <div style="/*position: absolute;*/
+            background: #11111122;
+            /* top: 2rem; */
+            right: 0.0rem;
+            /* left: 0.1rem; */
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 1em;">
+    <label for="circleamount">iterations</label>
+    <input type="range" id="circleamount" min="2" max="20" step="1" value="5" oninput="generatecircles()" style="position:relative; left:0">
+</div>
+<canvas id="paramcanvas" width="200" height="200" ></canvas>
+<script>
+    paramscanvas = document.getElementById("paramcanvas");
+    paramscanvas=makeHiPPI(paramscanvas, 200, 200);
+    paramscontext = paramscanvas.getContext("2d");
+    
+    
+    function generatecircles(){
+            paramscontext.clearRect(0, 0, paramscanvas.width, paramscanvas.height);
+            iterations = Number(document.getElementById("circleamount").value);
+        for (i = 0; i<=iterations; i = i+1){
+	    drawEllipse(paramscontext, 100, 100, i*5, i*5);
+        }
+
+        }
+        generatecircles()
+</script>
+</div>
+
+<hr>
+
+<h3 id="animations">Animations</h3>
+
+<p>
+    To add movement, we'll need a way to count time.
+The <code>requestAnimationFrame()</code> function is a good candidate as it call a function at the framerate of the computer.
+You can also use <code>setInterval()</code> that calls a function every X milliseconds, which will allow you to have more control on the refresh rate.
+</p>
+<p>
+    The upside of having a separate function for time accounting is that resizing the window or other interaction doesn't impact the time keeping when calling the <code>generate()</code> for redrawing.
+    After the canvas generation, outside the <code>generate()</code> function, add this code
+</p>
+<div class="code-container">
+<pre><span class="line"><span style="color:#928374;font-style:italic">//animation</span></span>
+<span class="line"><span style="color:#FE8019">function</span><span style="color:#FABD2F"> update</span><span style="color:#A89984">()</span><span style="color:#A89984"> {</span></span>
+<span class="line"><span style="color:#83A598">    rate</span><span style="color:#8EC07C"> =</span><span style="color:#FABD2F"> Number</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">document</span><span style="color:#A89984">.</span><span style="color:#FABD2F">getElementById</span><span style="color:#EBDBB2">(</span><span style="color:#A89984">"</span><span style="color:#B8BB26">rate</span><span style="color:#A89984">"</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">.</span><span style="color:#83A598">value</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">    counter</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> counter</span><span style="color:#8EC07C"> +</span><span style="color:#83A598"> rate</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#83A598">    lfo1</span><span style="color:#8EC07C"> =</span><span style="color:#83A598"> Math</span><span style="color:#A89984">.</span><span style="color:#FABD2F">sin</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">counter</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FABD2F">    generate</span><span style="color:#EBDBB2">()</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#A89984">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#928374;font-style:italic">// call update every 16ms</span></span>
+<span class="line"><span style="color:#FABD2F">setInterval</span><span style="color:#EBDBB2">(</span><span style="color:#83A598">update</span><span style="color:#A89984">,</span><span style="color:#D3869B"> 16</span><span style="color:#EBDBB2">)</span><span style="color:#A89984">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FE8019">var</span><span style="color:#83A598"> lfo1</span><span style="color:#8EC07C"> =</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">;</span></span>
+<span class="line"><span style="color:#FE8019">var</span><span style="color:#83A598"> counter</span><span style="color:#8EC07C"> =</span><span style="color:#D3869B"> 0</span><span style="color:#A89984">;</span></span></code></pre>
+</div>
+
+<div class="center-container">
+    <div style="/*position: absolute;*/
+            background: #11111122;
+            /* top: 2rem; */
+            right: 0.0rem;
+            /* left: 0.1rem; */
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 1em;">
+    <label for="animationrate">rate</label>
+    <input type="range" id="animationrate" min="0.1" max="0.9" step="0.01" value="0.01" style="position:relative; left:0">
+</div>
+<canvas id="animationcanvas" width="200" height="200" ></canvas>
+<script>
+animcanvas = document.getElementById("animationcanvas");
+    animcanvas=makeHiPPI(animcanvas, 200, 200);
+    animcontext = animcanvas.getContext("2d");
+    var counter = 0;
+    var lfo1 = 0;
+    function animationcircles(){
+        
+        animcontext.clearRect(0, 0, animcanvas.width, animcanvas.height);
+        iterations = 10+lfo1*8;
+            for (i = 0; i<iterations; i = i+1){
+	            drawEllipse(animcontext, 100, 100, 0+i*5, 0+i*5);
+            }
+        }
+
+        animationcircles()
+        function update(){
+            counter = counter + Number(document.getElementById("animationrate").value);
+            lfo1 = Math.sin(counter);
+            animationcircles()
+        }
+        // requestAnimationFrame(update);
+        setInterval(update, 50)
+</script>
+</div>
+
+<p>
+    Then in the parameter retrieval part of the <code>generate()</code>, you can add lfo1 to whatever parameter values !
+    Clipping values with <code>Math.min()</code> & <code>Math.max()</code> can help keep control and avoid some bugs when value goes below <code>0</code> for example.
+    Creating interesting modulation signal is then a world on its own, create multiple lfos, with different forms, do squares with comparison, use shaping function such as <code>Math.floor()</code> to create edges, add, substract, mess around !
+</p>
+<hr>
+<h3 id="exercices">Exercices</h3>
+<p>
+a) Modify the <code>drawEllipse</code> function to use the angle radius of the ellipse<br>
+b) Write a function to draw a line with in input <code>(centerx, centery, angle, lenght)</code><br>
+c) Reproduce the following picture (Hint : it's a combination of grid, distance computing, and <code>roundRect()</code> function)
+</p>
+<figure>
+    <img src="/Knowledge/jsCanvasVisuals/Media/Roundsqr inv.png">
+</figure>
+
+<!-- FOOTER -------------------------- -->
+<hr>
+<div class="center-container">
+    <a href="/index.html">- home - </a>
+</div>
+</html>

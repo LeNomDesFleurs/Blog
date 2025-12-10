@@ -1,0 +1,137 @@
+<html>
+
+<head>
+
+    <style>
+        .params {
+            position: absolute;
+            background: #ffffff;
+            /* top: 2rem; */
+            right: 0.0rem;
+            /* left: 0.1rem; */
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="params" id="params">
+
+        F O R M
+
+        <label for="division">divisions</label>
+        <input type="range" id="division" min="1" max="100" step="1" value="30" oninput="generate()">
+
+        <label for="rotation">rotation</label>
+        <input type="range" id="rotation" min="1" max="6.28" step="0.001" value="1" oninput="generate()">
+
+        A N I M A T I O N
+
+        <label for="lfo">lfo amount</label>
+        <input type="range" id="lfo" min="0" max="20" step="0.01" value="0" oninput="generate()">
+
+        <label for="rate">rate</label>
+        <input type="range" id="rate" min="0.001" max="0.1" step="0.001" value="0.009" oninput="generate()">
+        
+        ------------
+        <a href="/Knowledge/jsCanvasVisuals/jscanvasvisuals.html">How To</a>
+        <a href="/Knowledge/jsCanvasVisuals/ellipses.html" download="ellipses.html">Download Code</a>
+    </div>
+
+    <script>
+
+        
+        // TODO add a way to hide / show the sliders with a keyboard command
+
+        function makeHiPPI(canvas, width, height) {
+            const ratio = window.devicePixelRatio;
+
+            canvas.width = width * ratio;
+            canvas.height = height * ratio;
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+            canvas.getContext("2d").scale(ratio, ratio);
+
+            return canvas;
+        }
+
+        function updatesize() {
+            canvas = makeHiPPI(canvas, window.innerWidth, window.innerHeight);
+            generate();
+        }
+
+        // init
+        var canvas = document.createElement("canvas"); // create a canvas
+        updatesize(window.innerWidth, window.innerHeight); // sets its size
+        document.body.appendChild(canvas); // add the canvas to the webpage
+        
+        window.addEventListener("resize", updatesize); // update the size on each window resize
+        
+        //animation
+        function update() {
+            rate = Number(document.getElementById("rate").value);
+            counter = counter + rate;
+            lfo1 = Math.sin(counter);
+            generate();
+        }
+
+        // call update every 1000ms
+        setInterval(update, 16);
+
+
+        var lfo1 = 0;
+        var counter = 0;
+
+        //usefull geometrical functions
+        function ellipse(ctx, x, y, w, h, angle = 1) {
+            ctx.beginPath();
+            ctx.ellipse(x, y, w, h, Math.PI / angle, 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+
+        
+
+        // visual generation
+
+        function generate() {
+
+            //INIT 
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, width, height);
+            canvas.style.background = "#000000";
+            //PARAMS
+            var rotation = Number(document.getElementById("rotation").value) + (lfo * 2);
+            var div = Number(document.getElementById("division").value);
+            lfo = lfo1 * document.getElementById("lfo").value;
+
+
+            ctx.strokeStyle = "white";
+            size = Math.min(width, height);
+            division = size / div;
+
+            size = Math.min(width, height);
+
+            alternate = 0;
+
+            for (var i = size / 2.2; i > 0; i = i - div) {
+                alternate = (alternate + 1) % 2;
+                if (alternate === 1) {
+                    ellipse(ctx, width / 2, height / 2, i, Math.max(i - div, 0), rotation);
+                } else {
+                    ellipse(ctx, width / 2, height / 2, Math.max(i - div, 0), i, -rotation);
+                }
+            }
+        }
+
+
+
+        generate()
+
+    </script>
+</body>

@@ -1,0 +1,216 @@
+<html>
+
+<head>
+
+    <style>
+        .params {
+            position: absolute;
+            background: #11111122;
+            /* top: 2rem; */
+            right: 0.0rem;
+            /* left: 0.1rem; */
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="params" id="params" >
+
+        F O N T
+
+        <input type="text" id="myText" value="<3" oninput="generate()">
+        <input type="text" id="font" value="serif" oninput="generate()">
+        <input type="text" id="modifier" value="bold italics" oninput="generate()">
+        <input type="text" id="fontcolor" value="pink" oninput="generate()">
+        <label for="lettersize">lettersize</label>
+        <input type="range" id="lettersize" min="10" max="100" step="1" value="20" oninput="generate()">
+
+        <label for="gap">gap</label>
+        <input type="range" id="gap" min="0.5" max="10" step="0.01" value="0.6" oninput="generate()">
+
+        M A R G I N
+
+        <label for="margin">margin</label>
+        <input type="range" id="margin" min="0" max="1" step="0.01" value="0.5" oninput="generate()">
+
+        <label for="sin">sin</label>
+        <input type="range" id="sin" min="0" max="100" step="0.01" value="2" oninput="generate()">
+        
+        S P A C E
+        
+        <label for="vector">vector</label>
+        <input type="range" id="vector" min="0.0" max="10" step="0.01" value="0" oninput="generate()">
+        
+        <label for="angle">angle</label>
+        <input type="range" id="angle" min="-3.1" max="3.1" step="0.01" value="0" oninput="generate()">
+
+        <label for="lfo">lfo amount</label>
+        <input type="range" id="lfo" min="0" max="20" step="0.01" value="1" oninput="generate()">
+
+        <label for="rate">rate</label>
+        <input type="range" id="rate" min="0.001" max="0.1" step="0.001" value="0.009" oninput="generate()">
+
+         ------------
+        <a href="/Knowledge/jsCanvasVisuals/jscanvasvisuals.html">How To</a>
+        <a href="/Knowledge/jsCanvasVisuals/font.html" download="font.html">Download Code</a>
+    </div>
+
+    <script>
+        
+        
+        // TODO add a way to hide / show the sliders with a keyboard command
+        
+        function makeHiPPI(canvas, width, height) {
+            const ratio = window.devicePixelRatio;
+    
+            canvas.width = width * ratio;
+            canvas.height = height * ratio;
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+            canvas.getContext("2d").scale(ratio, ratio);
+    
+            return canvas;
+        }
+        // init
+
+        var canvas = document.createElement("canvas");
+        canvas = makeHiPPI(canvas, window.innerWidth, window.innerHeight);
+        document.body.appendChild(canvas);
+        function updatesize(){
+            canvas = makeHiPPI(canvas, window.innerWidth, window.innerHeight);
+            generate();
+        }
+
+        window.addEventListener("resize", updatesize);
+
+        function update() {
+            rate = Number(document.getElementById("rate").value);
+            counter = counter + rate;
+            lfo1 = Math.sin(counter);
+            generate();
+        }
+
+        // call update every 1000ms
+        setInterval(update, 16);
+
+
+        var lfo1 = 0;
+        var counter = 0;
+
+        //usefull geometrical functions
+
+        function getRad(x1, y1, x2, y2) {
+            //cos(theta) = adj/hypo
+            var adjacent = (x1 - x2);
+            var hypotenuse = dist(x1, y1, x2, y2);
+            var theta = Math.acos(adjacent / hypotenuse)
+            if (y1 > y2) { theta = -theta }
+            return theta;
+        }
+
+        function valuewarp(value, modulo) {
+            return Math.sin((value * 3.14) / modulo) * modulo;
+        }
+        
+        function getVector(rad) {
+            // hypotenuse = 1
+            adj = Math.cos(rad);
+            opp = Math.sin(rad);
+            return [adj, opp];
+        }
+        
+        function dist(ax, ay, bx, by) {
+            var a = ax - bx;
+            var b = ay - by;
+            var c = Math.hypot(a, b)
+            return c;
+        }
+
+        function drawEllipse(ctx, x, y, w, h, angle = 1) {
+            ctx.beginPath();
+            ctx.ellipse(x, y, w, h, Math.PI / angle, 0, 2 * Math.PI);
+            ctx.stroke();
+        }
+
+        function drawLine(ctx, x, y, x2, y2) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+        
+        
+
+        // visual generation
+
+        function generate() {
+
+            //INIT 
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // canvas.style.background = "#33333";  // a valid CSS colour.
+            //PARAMS
+            lfo = lfo1 * document.getElementById("lfo").value;
+            var string = document.getElementById("myText").value;
+            var modifier = document.getElementById("modifier").value;
+            var lettersize = document.getElementById("lettersize").value;
+            var font = document.getElementById("font").value;
+            var sint = Number(document.getElementById("sin").value) + (lfo * 20);
+            var vectoramount = Number(document.getElementById("vector").value) + lfo;
+            var radoffset = 0.5 * Number(document.getElementById("angle").value) + lfo;
+            var margin_coef = document.getElementById("margin").value;
+            var gap = document.getElementById("gap").value * lettersize;
+            var color = document.getElementById("fontcolor").value
+
+            // drawEllipse(ctx, 200, 200, 100, 100);
+            // drawLine(ctx, 10, 30, 100, 100);
+
+            var lenght = string.length;
+            var fontdescr = `${lettersize}px ${modifier} ${font}`;
+            // ctx.font = "50px bold italics Times";
+            ctx.font = fontdescr;
+
+            for (var i = 1; i < (height / gap); i = i + 1) {
+                index = i;
+                half = Math.floor((height / gap) / 2.);
+                if (index > half) { index = half - (index - 1) % half; }
+                margin = ((Math.sin(index / half * sint) + 1) * 100) * margin_coef;
+                // (height/gap) - (i % ((height/gap)/2));
+
+                for (var s = 0; s < ((lenght * index)); s = s + 1) {
+                    w = margin + (((width - (margin * 2)) / ((lenght * index) - 1)) * s);
+                    h = gap * i;
+                    var pointx = width / 2;
+                    var pointy = height / 2;
+                    var distance = dist(w, h, pointx, pointy);
+                    distance = distance * vectoramount;
+                    var rad = getRad(w, h, pointx, pointy) + radoffset;
+                    var [vecx, vecy] = getVector(rad);
+                    var offsetvecx = vecx * distance;
+                    vecx = vecx * vectoramount * half * 2;
+                    var offsetvecy = vecy * distance;
+                    var vecy = vecy * vectoramount * half * 2;
+                    var distx = 20 * Math.log((1 - ((pointx - w) / pointx)));
+                    var disty = 20 * Math.log((1 - ((pointy - h) / pointy)));
+                    ctx.fillStyle = color; // sets text color to red
+                    ctx.fillText(string[s % lenght], w - vecx - offsetvecx, h + vecy + offsetvecy);
+                }
+                // ctx.fillText(string[lenght-1], (width - 30), gap*i);
+                //TODO general offset / wave / gravity
+            }
+        }
+
+
+        generate()
+
+    </script>
+</body>
+
+</html>

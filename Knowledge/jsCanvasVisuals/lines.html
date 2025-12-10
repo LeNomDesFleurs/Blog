@@ -1,0 +1,171 @@
+<html>
+
+<head>
+
+    <style>
+        .params {
+            position: absolute;
+            background: #ffffff;
+            /* top: 2rem; */
+            right: 0.0rem;
+            /* left: 0.1rem; */
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="params" id="params" >
+
+        F O R M
+
+        <label for="division">divisions</label>
+        <input type="range" id="division" min="1" max="100" step="1" value="30" oninput="generate()">
+
+        <label for="rotation">rotation</label>
+        <input type="range" id="rotation" min="0" max="3000" step="1" value="2000" oninput="generate()">
+        
+        S P A C E
+        
+        <label for="X">X</label>
+        <input type="range" id="X" min="0.0" max="1" step="0.01" value="0.2" oninput="generate()">
+        
+        <label for="Y">Y</label>
+        <input type="range" id="Y" min="0.0" max="1.0" step="0.01" value="0.2" oninput="generate()">
+
+        A N I M A T I O N
+
+        <label for="lfo">lfo amount</label>
+        <input type="range" id="lfo" min="0" max="20" step="0.01" value="0" oninput="generate()">
+
+        <label for="rate">rate</label>
+        <input type="range" id="rate" min="0.001" max="0.1" step="0.001" value="0.009" oninput="generate()">
+         ------------
+        <a href="/Knowledge/jsCanvasVisuals/jscanvasvisuals.html">How To</a>
+        <a href="/Knowledge/jsCanvasVisuals/lines.html" download="lines.html">Download Code</a>
+    </div>
+
+    <script>
+        
+        
+        // TODO add a way to hide / show the sliders with a keyboard command
+        
+        function makeHiPPI(canvas, width, height) {
+            const ratio = window.devicePixelRatio;
+    
+            canvas.width = width * ratio;
+            canvas.height = height * ratio;
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+            canvas.getContext("2d").scale(ratio, ratio);
+    
+            return canvas;
+        }
+        // init
+
+        var canvas = document.createElement("canvas");
+        canvas = makeHiPPI(canvas, window.innerWidth, window.innerHeight);
+        document.body.appendChild(canvas);
+        function updatesize(){
+            canvas = makeHiPPI(canvas, window.innerWidth, window.innerHeight);
+            generate();
+        }
+
+        window.addEventListener("resize", updatesize);
+
+        function update() {
+            rate = Number(document.getElementById("rate").value);
+            counter = counter + rate;
+            lfo1 = Math.sin(counter);
+            generate();
+        }
+
+        // call update every 1000ms
+        setInterval(update, 16);
+
+
+        var lfo1 = 0;
+        var counter = 0;
+
+        //usefull geometrical functions
+
+        function getRad(x1, y1, x2, y2) {
+            //cos(theta) = adj/hypo
+            var adjacent = (x1 - x2);
+            var hypotenuse = dist(x1, y1, x2, y2);
+            var theta = Math.acos(adjacent / hypotenuse)
+            if (y1 > y2) { theta = -theta }
+            return theta;
+        }
+
+        
+        function dist(ax, ay, bx, by) {
+            var a = ax - bx;
+            var b = ay - by;
+            var c = Math.hypot(a, b)
+            return c;
+        }
+
+        function drawLine(ctx, x, y, x2, y2) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+        
+        function linec(ctx, cx, cy, lenght, angle) {
+
+            a = Math.sin(angle * (Math.PI / 180)) * (lenght / 2);
+            b = Math.cos(angle * (Math.PI / 180)) * (lenght / 2);
+            x1 = cx + a;
+            y1 = cy + b;
+            x2 = cx - a;
+            y2 = cy - b;
+
+            drawLine(ctx, x1, y1, x2, y2)
+        }
+
+
+        // visual generation
+
+        function generate() {
+
+            //INIT 
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var ctx = canvas.getContext("2d");
+            // ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.style.background = "#000000";  // a valid CSS colour.
+            //PARAMS
+            lfo = lfo1 * document.getElementById("lfo").value;
+            var rotation = Number(document.getElementById("rotation").value) + (lfo * 20);
+            var X = Number(document.getElementById("X").value) + lfo;
+            var Y = Number(document.getElementById("Y").value) + lfo;
+            var div= document.getElementById("division").value;
+
+
+            ctx.strokeStyle = "white";
+            size = Math.min(width, height);
+            division = size / div;
+
+            for (let x = division * 1.5; x < width - division; x += division) {
+                for (let y = division * 1.5; y < height - division; y += division) {
+                    focusx = width * X;
+                    focusy = height * Y;
+                    angle = getRad(x, y, focusx, focusy) * rotation;
+                    linec(ctx, x, y, division, angle);
+                }
+            }
+        }
+
+
+        generate()
+
+    </script>
+</body>
+
+</html>
