@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US" style="background-color: white; font-family: 'Times New Roman', Times, serif;">
+
+<head>
+    <title>LNDF - Precipitation project page</title>
+    <meta name="author" content="Thomas Guillory" />
+    <meta name="Description" content="Creating a multimedia art installation with friends" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/screen.css" type="text/css">
+</head>
+
+
+
+<a href=/./../Projects.html>
+<h1 style="transform:rotate(3deg); 
+display:block;
+max-width: 200%; line-height:0.5; font-size: 10em; font-family:'Times New Roman'"> It's all about being inefficient</h1>
+</a>
+<p>
+<i>an exploration of representing image as signals in order to do silly processing, vaguely inspired by camera bending and data moshing.</i>
+</p>
+
+Stuff being discussed in this web page
+
+1. camera , ccds , processor
+1.5 tools used, making the signal
+b. bayer mosaicing
+2. using audio tools
+2. order of processing
+4. 
+
+<br><br>
+<h3 style="transform:rotate(90deg); 
+display:block;
+text-align: center"><marquee scrollamount="20">Context</marquee></h3>
+<br>
+<p>
+
+    How you doin' ???
+    Nowaday, most of the time, when you want to process an image, you do it with parallel processors named GPU, 'cause they're <i><span style="color: rgb(201, 201, 201);">f</span><span style="color: rgb(165, 165, 165);">f</span><span style="color: rgb(156, 156, 156);">f</span><span style="color: rgb(109, 109, 109);">f</span>fast</i>.
+    fuck "fast"<span style="font-size: 10px;">(I mean actually it's pretty fun those can also do some crazy shit, but the point here is to spit on the grave of nvidia)</span>
+
+
+</p>
+<br>
+
+<h3 style="transform:rotate(90deg); 
+display:block;
+text-align: center">ccds & stuff</h3>
+<br>
+<p>
+    SO. What is actually happening in a ccd, and how are we supposed to emulate this behaviour ?
+
+    The light-catching-and-storing a aspect of the photo-taking device is splitted in two, the sensor (ccd) that actually receive the aforementioned light, and the processor, that make it into a daaata (great ! we love data).
+
+    But how is the light2data process happens ???
+
+    actually, the output of the ccd is a <i><span style="background: linear-gradient(to right, blue, orange);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;">analog voltage signal</span></i> <span style="font-size: 10px;">(waw)</span>, comprised of all the pixels value, one after the other, with a correlated clock that gives a bit of info into how all those analog pixels are positioned in 2D space, 
+    <br>the processor then get thos two things and ADC it's way to a usable file. <i><span style="color:grey; font-size: 10px;">Analog Digital Converter, for my non-dsp-talking fellas</span></i>
+    <br>There are some quickrs here and there though, we're used to the good ol' rgb format for the pixels, but the sensor actually has a bayer matrix to get all thos pixels, meaning that each pixel only get one color (guess it's eaiser that way, lazy ass sensor).
+    then the processor process the thing to compute rgb values for each pixel by taking into account the surrounding ones.
+</p>
+
+<br>
+
+<h3 style="transform:rotate(90deg); 
+display:block;
+text-align: center">bending</h3>
+<p>
+    What thos silly camera bending kids do then, is to mess up the connection of the processor and mess with the ccd signal to fuckup the picture. Everything goes, filtering, messing up the clock, etc.. etc..
+
+    here are some examples with sources
+</p>
+
+<p>
+    The main stuff that I want to experiment is about making an image a signal
+    a minute of silence for all the bended souls, stolen by the sensor (+ source of sould stealing in the early photofraphy)
+</p>
+<p>
+    close to databending, some people do similar things by puting their image files in audacity
+</p>
+
+<p>
+
+    citation
+
+    vernacular of file format
+</p>
+
+
+
+
+
+
+<svg viewBox="0 0 500 250">
+    <path id="curve" fill="transparent"
+        d="M 0 100 c 100 200 300 0 600 100" />
+    <text width="40" style="font-size:30px">
+        <textPath xlink:href="#curve" fill="var(--color-default)">
+            made with love and a looot of spans
+        </textPath>
+    </text>
+</svg>
+
+<hr>
+<div class="center-container">
+    <a href="/index.html">- home - </a>
+</div>
+
+</html>
