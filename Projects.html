@@ -18,15 +18,40 @@
 
 <body>
 
-            <style>
-  
-       
-            h3{
-                margin-top: 1em;
-            }
-            strong{
-                font-size: 1.3em;
-            }
+        <style>
+                h3 {
+                        margin-top: 1em;
+                }
+
+                ul.toc li {
+                        border-bottom: dashed 1px #aaa;
+                        list-style-type: none;
+                }
+
+
+
+                ul.toc a {
+                        font-size: 1.3em;
+                }
+
+                ul.toc span {
+                        float: right;
+                }
+
+                ul.toc ul {
+                        list-style: lower-roman;
+                        margin: 1.5em 0 1em 5%;
+                        padding: 0;
+                        background: #fff;
+                        float: left;
+                        display: block;
+                        width: 95%;
+                }
+
+                ul.toc,
+                ul.toc span {
+                        font-size: 15px;
+                }
         </style>
 
         <header style="text-align: center; ">
@@ -41,101 +66,111 @@
                 </div>
         </header>
 
-        <div style="text-align:center">
+
+
+        <div>
                 <h3>Audio</h3>
-               
 
-                <a href=Projects/Herbier/Herbier.html ><strong> <img src="/Projects/Herbier/cover.png" alt="Image" class="inline-image"> ~ Herbier
-                        <br></strong></a>
-                <span style="font-size: 15px;">2022 - Making an EP</span>
-                <br><br>
-                 <a href=Projects/RadioDocumentary/RadioDocumentary.html ><strong>🎤 ~
-                                Documentary
-                        <br></strong></a>
-                <span style="font-size: 15px;">Echoing someone's story</span>
-                <br><br>
-                🎛️ <a href=Projects/Memoire/MemoireProject.html ><strong>~ Memoire
-                        </strong></a>
-                <br><span style="font-size: 15px;"> parameter mapping & synth
-                        presets</span>
-                <br>
-                <br>
-                <!-- <a href = Projects/VCV/pruners.html ><strong>~ P R U N E R S ~</strong></a>
-<br><span style="font-size: 15px;">glitchy reel to reel module</span>
-<br>
-<br> -->
-                <img src="/Projects/icons/juce.png" alt="Image" class="inline-image">
+                <ul class="toc">
 
-                <a href=Projects/VST/VST.html ><strong>~ VST</strong></a>
-                <br><span style="font-size: 15px;">Developing vst using JUCE</span>
-                <br>
-                <br>
 
-               🌀 <a href=Projects/VST/Philodendron.html ><strong>~ Philodendron</strong></a>
-                <br><span style="font-size: 15px;">A ring buffer based plug-in</span>
-                <br>
-                <br>
-                <img src="/Projects/icons/VCV.png" alt="Image" class="inline-image">
+                        <li>
+                                <a href=Projects/VST/Philodendron.html>~ Philodendron</a>
+                                Ringbuffer plug-in <span>24</span>
+                        </li>
 
-                <a href=Projects/VCV/vcv.html ><strong>~ VCV</strong></a>
-                <br><span style="font-size: 15px;">Designing synth in a modular context</span>
-                <br>
-                <br>
-               🎹 <a href=Projects/Laminaria/Laminaria.html ><strong>~ Laminaria
-                        </strong></a>
-                <br><span style="font-size: 15px;">Orca compagnon written in rust</span>
-                <br>
-                <br>
+                        <li>
+                                <a href=Projects/Laminaria/Laminaria.html>~ Laminaria</a>
+                                Orca compagnon in rust <span>24</span>
+                        </li>
+                        <li>
+                                <a href=Projects/Memoire/MemoireProject.html>~ Memoire</a>
+                                Synth presets <span>24</span>
+                        </li>
 
-                <hr>
+                        <!-- <a href = Projects/VCV/pruners.html >~ P R U N E R S ~</a>
+                                <br>glitchy reel to reel module
+                                <br>
+                                <br> -->
+                        <li>
+                                <a href=Projects/VST/VST.html>~ VST</a>
+                                Developing vsts using JUCE <span>23</span>
+                        </li>
+                        <li>
+
+                                <a href=Projects/VCV/vcv.html>~ VCV</a>
+                                Designing effects for modular
+                                <span>23</span>
+                        </li>
+
+                        <li>
+                                <a href=Projects/RadioDocumentary/RadioDocumentary.html>~ Documentary</a>
+                                Echoing someone's story <span>22</span>
+                        </li>
+
+                        <li>
+                                <a href=Projects/Herbier/Herbier.html>
+                                        <!-- <img src="/Projects/Herbier/cover.png" alt="Image" class="inline-image"> -->
+                                        ~ Herbier </a>
+                                Making an EP <span>22</span>
+                        </li>
+
+                </ul>
+
                 <h3>Visual</h3>
-                🌧️ <a href=Projects/Precipitation/Precipitation.html ><strong>~ Precipitation</strong></a>
-                <br><span style="font-size: 15px;"> Generating plants for an installation</span>
-                <br>
-                <br>
-                
-                <a href=Projects/Hydra.html ><strong><img src="/Projects/icons/hydra.jpeg" alt="Image" class="inline-image"> ~ Hydra Sketches
-                        </strong></a>
-                <br><span style="font-size: 15px;"> algorithmic visuals notebook</span>
-                <br>
-                <br>
-               
+                <ul class="toc">
+                        <li>
 
-                <a href="Projects/ImageMagick/ImageMagick.html" ><strong>
-                         <img src="/Projects/icons/Imagemagick.png" alt="Image" class="inline-image"> ~ ImageMagick
-                        </strong></a>
-                <br><span style="font-size: 15px;"> Experimenting with a command line program</span>
-                <br>
-                <br>
+                                <a href="Projects/Algo Art/ellipses.html">
+                                        ~ Ellipses
+                                </a>
+                                For loops and ellipses<span>25</span>
 
-                🪐<a href="Projects/Algo Art/ellipses.html" ><strong>
-                         ~ Ellipses
-                        </strong></a>
-                <br><span style="font-size: 15px;"> Playing with for loops and ellipses in p5.js</span>
-                <br>
-                <br>
+                        </li>
+                        <li>
+                                <a href="Projects/Algo Art/lines.html">
+                                        ~ Lines
+                                </a>
+                                Wrapping <i>line( )</i> in a new function<span>25</span>
+                        </li>
+                        <li>
+                                <a href=Projects/Precipitation/Precipitation.html>~ Precipitation</a>
+                                Living Plants in Touch Designer
+                                <span>23</span>
 
-                📈<a href="Projects/Algo Art/lines.html" ><strong>
-                         ~ Lines
-                        </strong></a>
-                <br><span style="font-size: 15px;"> Wrapping <code>line()</code> in a new function</span>
-                <br>
-                <br>
+                        </li>
+                        <li>
+                                <a href=Projects/Hydra.html> ~
+                                        Hydra
+                                </a>
+                                Algorithmic visuals notebook <span>24</span>
+                        </li>
 
-                <hr>
+                        <li>
+                                <a href="Projects/ImageMagick/ImageMagick.html">
+                                        ~ ImageMagick
+                                </a>
+                                Command line pictures<span>24</span>
+                        </li>
+
+
+                </ul>
+
                 <h3>Code</h3>
-                <!-- <a href = Projects/guestbook.html ><strong>~ G U E S T B O O K ~</strong></a>
-<br><span style="font-size: 15px;">Small php guestbook for this website</span>
+                <!-- <a href = Projects/guestbook.html >~ G U E S T B O O K ~</a>
+<br>Small php guestbook for this website
 <br>
 <br> -->
-                <img src="favicon.png" alt="Image" class="inline-image">
-                <a href=Projects/Blog/Blog.html >
-                        <strong>~ This Website</strong>
+<ul class="toc">
+<li>
+                <a href=Projects/Blog/Blog.html>
+                        ~ This Website
                 </a>
-                <br><span style="font-size: 15px;">Sharing knowledge and learning HTML</span>
-                <br>
-                <br>
 
+                HTML and Sharing knowledge <span>24</span>
+    </li>            
+    </ul>
+        </div>
 </body>
 <hr>
 <figure style="width:50%;transform: translateX(50%)">
