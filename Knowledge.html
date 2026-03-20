@@ -17,7 +17,7 @@
 
 
 <body>
-        <!-- <style>
+    <!-- <style>
         hr {
             margin: 0;
             margin-top: 40px;
@@ -28,21 +28,60 @@
             border-top: 1px solid var(--color-dim);
         }
         </style> -->
-        <style>
-            br{
-                  display: block; /* makes it have a width */
-            content: ""; /* clears default height */
-            margin-top: 0.5em; /* change this to whatever height you want it */
-            }
+    <style>
+        br {
+            display: block;
+            /* makes it have a width */
+            content: "";
+            /* clears default height */
+            margin-top: 0.5em;
+            /* change this to whatever height you want it */
+        }
 
-            h3{
-                margin-top: 1em;
-            }
+        h3 {
+            margin-top: 1em;
+        }
 
-            strong{
-                font-size: 1.3em;
-            }
-        </style>
+        strong {
+            font-size: 1.3em;
+        }
+
+        <style>h3 {
+            margin-top: 1em;
+        }
+
+        ul.toc li {
+            border-bottom: dashed 1px #aaa;
+            list-style-type: none;
+        }
+
+
+
+        ul.toc a {
+            font-size: 1.3em;
+        }
+
+        ul.toc span {
+            float: right;
+        }
+
+        ul.toc ul {
+            list-style: lower-roman;
+            margin: 1.5em 0 1em 5%;
+            padding: 0;
+            background: #fff;
+            float: left;
+            display: block;
+            width: 95%;
+        }
+
+        ul.toc,
+        ul.toc span {
+            font-size: 15px;
+        }
+    </style>
+
+    </style>
 
 
 
@@ -50,7 +89,7 @@
         <img src="/LNDF.svg" class="title-svg">
         <!-- <h1><i>L ~ N ~ D ~ F</i></h1> -->
         <div class="menu-container">
-                <a href="index.html">About</a>
+            <a href="index.html">About</a>
             &nbsp;<a href="Blog.html">Blog</a>
             &nbsp;<a href=Projects.html>Projects</a>
             &nbsp;<u>Knowledge</u>
@@ -59,82 +98,60 @@
 
     </header>
 
-    <div style="text-align: center;">
-
+    <div>
         <h3>Workshop</h3>
-        ❀ <a href=Knowledge/jsCanvasVisuals/jscanvasvisuals.html class="links"><strong>~ Algo Art Workshop </strong></a>
-    <hr>
+        <ul class="toc">
+
+            <li>
+
+                ❀ <a href=Knowledge/jsCanvasVisuals/jscanvasvisuals.html class="links">~ Algo Art Workshop</a>
+            </li>
+        </ul>
+
         <h3>Audio</h3>
-       🔔 <a href=Knowledge/reverb/reverb.html class="links"><strong>~ Delay Line Reverb
-                </strong></a>
-        <br>
-        <br>
-        📼 <a href=Knowledge/tape/tape.html class="links"><strong>~ Tape History </strong></a>
-        <br>
-        <hr>
+
+
+        <ul class="toc">
+
+            <li>🔔 <a href=Knowledge/reverb/reverb.html class="links">~ Delay Line Reverb</a></li>
+            <li>📼 <a href=Knowledge/tape/tape.html class="links">~ Tape History </a></li>
+        </ul>
+
         <h3>Code</h3>
-        <img src="/Projects/icons/juce.png" alt="Image" class="inline-image"> 
-        <a href=Knowledge/JUCE.html class="links"><strong>~ Juce</strong></a>
-        <br>
-        <br>
-        <img src="/Projects/icons/git.png" alt="Image" class="inline-image"> 
+        <ul class="toc">
+            <li><img src="/Projects/icons/juce.png" alt="Image" class="inline-image"><a href=Knowledge/JUCE.html
+                    class="links">~ Juce</a></li>
+            <li><img src="/Projects/icons/git.png" alt="Image" class="inline-image"><a href=Knowledge/Github.html
+                    class="links">~ Git</a></li>
+            <li>📄 <a href=Knowledge/HTML~CSS.html class="links">~ Html/CSS</a></li>
+            <li>🌍 <a href=Knowledge/VPS.html class="links">~ Vps Setup</a></li>
+            <li>⚙️ <a href=Knowledge/PHP.html class="links">~ PHP Setup</a></li>
+            <li>📡 <a href="Knowledge/RSS.html" class="links">~ RSS Feed </a></li>
+            <li>📖 <a href="Knowledge/bash_spellbook.html" class="links">~ Bash Spellbook</a></li>
+        </ul>
 
-        <a href=Knowledge/Github.html class="links"><strong>~ Git</strong></a>
-        <br>
-        <br>
-        📄 <a href=Knowledge/HTML~CSS.html class="links"><strong>~ Html/CSS</strong></a>
-        <br>
-        <br>
-        🌍 <a href=Knowledge/VPS.html class="links"><strong>~ Vps Setup</strong></a>
-        <br>
-        <br>
-        ⚙️ <a href=Knowledge/PHP.html class="links"><strong>~ PHP Setup</strong></a>
-        <br>
-        <br>
-
-        📡 <a href="Knowledge/RSS.html" class="links"><strong>~ RSS Feed </strong></a>
-        <br>
-        <br>
-        📖 <a href="Knowledge/bash_spellbook.html" class="links"><strong>~ Bash Spellbook
-                </strong></a>
-        <br>
-        <hr>
 
         <h3>Visual</h3>
-
-        <img src="/Projects/icons/TouchDesigner.png" alt="Image" class="inline-image"> 
-
-        <a href=Knowledge/TouchDesigner.html class="links"><strong>~ Touch Designer
-                </strong></a>
-
-        <br><br>
-        🥦 <a href=Knowledge/L-Systems.html class="links"><strong>~ L-Systems </strong></a>
-        <br><br>
-
-        <img src="/Projects/icons/Imagemagick.png" alt="Image" class="inline-image"> 
-
-        <a href=Knowledge/ImageMagick.html class="links"><strong>~ ImageMagick </strong></a>
-
-        
-        
-
-        <hr>
+        <ul class="toc">
+            <li><img src="/Projects/icons/TouchDesigner.png" alt="Image" class="inline-image"><a
+                    href=Knowledge/TouchDesigner.html class="links">~ Touch Designer</a></li>
+            <li>🥦 <a href=Knowledge/L-Systems.html class="links">~ L-Systems </a></li>
+            <li><img src="/Projects/icons/Imagemagick.png" alt="Image" class="inline-image"><a
+                    href=Knowledge/ImageMagick.html class="links">~ ImageMagick </a></li>
+        </ul>
 
         <h3>Misc</h3>
-        🖋️ <a href=Knowledge/NoteTaking.html class="links"><strong>~ Note Taking
-                </strong></a>
-        <br><br>
-
-        🎛️ <a href=Knowledge/Parameters.html class="links"><strong>~ Parameter Mapping
-                </strong></a>
-
+        <ul class="toc">
+            <li>🖋️ <a href=Knowledge/NoteTaking.html class="links">~ Note Taking</a></li>
+            <li>🎛️ <a href=Knowledge/Parameters.html class="links">~ Parameter Mapping</a></li>
+        </ul>
 
     </div>
 </body>
 <hr>
 
 <figure style="width:50%;transform: translateX(50%);">
-        <img src="Media/knowledgeleaf.png" style="image-rendering:pixelated;">
-    </figure>
-    
+    <img src="Media/knowledgeleaf.png" style="image-rendering:pixelated;">
+</figure>
+
 </html>
